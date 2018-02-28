@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Masq-chrome-extension",
+  "description": "",
+  "version": "1.0",
+  "background": {
+    "page": "background.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
