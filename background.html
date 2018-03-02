@@ -1,9 +1,26 @@
 <!doctype html>
 <html>
-  <head>
-    <script src="background.js"></script>
-  </head>
 
-  <body>
-  </body>
+<head>
+  <script src="external/pouchdb.js"></script>
+  <script src="scripts/MasqStore.js"></script>
+  <script src="background.js"></script>
+</head>
+
+<body>
+  <h1>Demo</h1>
+  <table>
+    <th>
+      <td>
+        Password:
+        <input type="text" id="password" value="...">
+      </td>
+      <td>
+
+        <button type="button" id="connect">Connect to store</button>
+      </td>
+    </th>
+  </table>
+</body>
+
 </html>

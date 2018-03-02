@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<body style="width: 300px">
+  <script src="external/pouchdb.js"></script>
+  <script type="text/javascript" src="external/MasqCrypto.js"></script>
+  <script src="scripts/MasqStore.js"></script>
+  <script type="text/javascript" src="popup.js"></script>
+  <h1>Demo</h1>
+  <table>
+    <tr>
+      <td>
+        Pseudo:
+        <input type="text" id="pseudo" value="...">
+      </td>
+      <td>
+
+        <button type="button" id="register">Register</button>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          Pseudo:
+          <input type="text" id="pseudoLogin" value="...">
+        </td>
+        <td>
+  
+          <button type="button" id="login">Login</button>
+        </td>
+  
+  
+  
+      </tr>
+    <tr>
+      <td>
+        Password:
+        <input type="text" id="password" value="...">
+      </td>
+
+      <td>
+
+        <button type="button" id="connect">Connect to store</button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        Add data:
+        <input type="text" id="inputSetData" value="...">
+      </td>
+      <td>
+        App name:
+        <input type="text" id="appNameSetData" value="...">
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+        <button type="button" id="addData">Add data to store</button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        Retrieve data:
+        <input type="text" id="appNameGetData" value="...">
+      </td>
+
+      <td>
+
+        <button type="button" id="getData">Get data from store</button>
+      </td>
+
+    </tr>
+    <tr>
+        <td>
+          Pseudo:
+          <input type="text" id="pseudoLogout" value="...">
+        </td>
+        <td>
+  
+          <button type="button" id="logout">Logout</button>
+        </td>
+  
+  
+  
+      </tr>
+  </table>
+</body>
+
+</html>
