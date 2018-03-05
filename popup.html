@@ -3,6 +3,7 @@
 
 <body style="width: 300px">
   <script src="external/pouchdb.js"></script>
+  <script src="external/crypto-pouch.js"></script>
   <script type="text/javascript" src="external/MasqCrypto.js"></script>
   <script src="scripts/MasqStore.js"></script>
   <script type="text/javascript" src="popup.js"></script>
@@ -45,6 +46,15 @@
     </tr>
     <tr>
       <td>
+        App name:
+        <input type="text" id="appNameRegister" value="...">
+      </td>
+      <td>
+          <button type="button" id="registerApp">Register application</button>
+        </td>
+    </tr>
+    <tr>
+      <td>
         Add data:
         <input type="text" id="inputSetData" value="...">
       </td>
@@ -62,13 +72,25 @@
     </tr>
     <tr>
       <td>
-        Retrieve data:
+        Retrieve full data from app:
         <input type="text" id="appNameGetData" value="...">
       </td>
 
       <td>
 
         <button type="button" id="getData">Get data from store</button>
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        Retrieve specific key (app name is taken from above):
+        <input type="text" id="keyGetData" value="...">
+      </td>
+
+      <td>
+
+        <button type="button" id="getSpecificKey">Get this key.</button>
       </td>
 
     </tr>
@@ -81,10 +103,20 @@
   
           <button type="button" id="logout">Logout</button>
         </td>
-  
-  
-  
       </tr>
+      <tr>
+          <td>
+            Test crypto:
+            <input type="text" id="fe" value="...">
+          </td>
+          <td>
+    
+            <button type="button" id="cryptoPouch">cryptoPouch</button>
+          </td>
+    
+    
+    
+        </tr>
   </table>
 </body>
 

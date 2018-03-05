@@ -39,12 +39,59 @@ document.addEventListener('DOMContentLoaded', function () {
   el = document.getElementById('getData')
   if (el) {
     el.addEventListener('click', function (e) {
-      register()
+      getData()
+    })
+  }
+  el = document.getElementById('getSpecificKey')
+  if (el) {
+    el.addEventListener('click', function (e) {
+      getSpecificKey()
+    })
+  }
+  el = document.getElementById('cryptoPouch')
+  if (el) {
+    el.addEventListener('click', function (e) {
+      cryptoPouch()
+    })
+  }
+  el = document.getElementById('registerApp')
+  if (el) {
+    el.addEventListener('click', function (e) {
+      resgisterApp()
     })
   }
 })
 
 let key = null
+
+const cryptoPouch = () => {
+  sha256('hello').then(res => {
+    console.log('hello')
+    console.log(res)
+  }).catch(err => console.log(err))
+
+  // var encDB = new PouchDB('encryptedDB')
+  // let password = 'hello'
+  // encDB.crypto(password)
+  // var todo = {
+  //   _id: 'doc1',
+  //   title: 'go shopping',
+  //   completed: false
+  // }
+  // encDB.put(todo).then(res => {
+  //   encDB.get('doc1').then(res => {
+  //     console.log('Now we decrypt')
+  //     console.log(res)
+  //   })
+  //     .catch(err => console.log(err))
+  // })
+  //   .catch(err => console.log(err))
+}
+
+const resgisterApp = () => {
+  let appName = document.getElementById('appNameRegister').value
+  registerAppStore(appName)
+}
 
 const connect = () => {
   console.log('connect please wait ...')
@@ -64,6 +111,9 @@ const register = () => {
   let pseudo = document.getElementById('pseudo').value
   addUser(pseudo).then(res => {
     console.log(`Successfully stored ${pseudo}`)
+    getUser('pseudo', pseudo)
+      .then(res => console.log(`Welcome ${pseudo}, you are now logged.`))
+      .catch(err => console.log(err))
   })
     .catch(err => console.log(err))
 }
@@ -90,13 +140,24 @@ const addData = () => {
   let toStore = { score: data }
   console.log(`We are adding the item ${data} with the key data into the app ${appName}`)
 
-  addItemByAppName(appName, toStore).then(res => {
-    console.log('done')
-    // getItemByKey('data')
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err))
-  })
-    .catch(err => console.log(err))
+  addItemByAppName(appName, toStore)
+//   .then(res => {
+//     console.log('done')
+//     // getItemByKey('data')
+//     //   .then(res => console.log(res))
+//     //   .catch(err => console.log(err))
+//   })
+//     .catch(err => console.log(err))
+}
+
+const getData = () => {
+  let appName = document.getElementById('appNameGetData').value
+  getFullDataFromApp(appName)
+}
+const getSpecificKey = () => {
+  let key = document.getElementById('keyGetData').value
+  let appName = document.getElementById('appNameGetData').value
+  getSpecificKeyFromApp(appName, key)
 }
 
 const derive = (passPhrase) => {

@@ -1,16 +1,18 @@
 'use strict'
 
-var dbUser = new PouchDB('MasqUser')
-var dbData = new PouchDB('MasqData')
+// var dbUser = new PouchDB('MasqUser')
+// var dbData = new PouchDB('MasqData')
 
 console.log('hello background')
 
 dbData.changes({
   since: 'now',
-  live: true
+  live: true,
+  include_docs: true
 }).on('change', updateDB)
 
-function updateDB () {
+function updateDB (doc) {
+  console.log(doc)
   console.log('A change has been detected on DB !')
   console.log('Here call the sync function')
 }
