@@ -91,6 +91,8 @@ const cryptoPouch = () => {
 const resgisterApp = () => {
   let appName = document.getElementById('appNameRegister').value
   registerAppStore(appName)
+    .then(() => console.log(`${appName} has been succesfully registered`))
+    .catch(err => console.log(err))
 }
 
 const connect = () => {
@@ -141,23 +143,26 @@ const addData = () => {
   console.log(`We are adding the item ${data} with the key data into the app ${appName}`)
 
   addItemByAppName(appName, toStore)
-//   .then(res => {
-//     console.log('done')
-//     // getItemByKey('data')
-//     //   .then(res => console.log(res))
-//     //   .catch(err => console.log(err))
-//   })
-//     .catch(err => console.log(err))
+    .then(res => {
+      console.log('done')
+      //     // getItemByKey('data')
+      //     //   .then(res => console.log(res))
+      //     //   .catch(err => console.log(err))
+    }).catch(err => console.log(err))
 }
 
 const getData = () => {
   let appName = document.getElementById('appNameGetData').value
-  getFullDataFromApp(appName)
+  getAppData(appName).then(res => {
+    console.log(res)
+  })
 }
 const getSpecificKey = () => {
   let key = document.getElementById('keyGetData').value
   let appName = document.getElementById('appNameGetData').value
-  getSpecificKeyFromApp(appName, key)
+  getSpecificKeyFromApp(appName, key).then(res => {
+    console.log(res)
+  })
 }
 
 const derive = (passPhrase) => {
