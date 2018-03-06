@@ -226,6 +226,32 @@ function getUser (key, value) {
   })
 }
 
+/**
+* Get user list.
+* @return {array} - The document associated to the user.
+*/
+function getUserList () {
+  dbUser.allDocs({ include_docs: true }).then(doc => {
+    doc.rows.forEach(element => {
+      console.log(element.doc.pseudo)
+    })
+  })
+}
+/**
+* Get user apps list
+* @return {array} - The document associated to the user.
+*/
+function getUserApp (pseudo) {
+  getUserId('pseudo', pseudo)
+    .then(id => {
+      console.log(id)
+      let db = new PouchDB(id)
+      db.get('applist').then(doc => {
+        console.log(Object.keys(doc).filter(item => (item !== '_rev' && item !== 'list' && item !== '_id')))
+      })
+    }).catch(err => console.log(err))
+}
+
 function getUserId (key, value) {
   return dbUser.allDocs({ include_docs: true }).then(doc => {
     // console.log(doc)
