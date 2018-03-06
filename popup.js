@@ -155,14 +155,14 @@ const getData = () => {
   let appName = document.getElementById('appNameGetData').value
   getAppData(appName).then(res => {
     console.log(res)
-  })
+  }).catch(err => console.log(err))
 }
 const getSpecificKey = () => {
   let key = document.getElementById('keyGetData').value
   let appName = document.getElementById('appNameGetData').value
   getSpecificKeyFromApp(appName, key).then(res => {
     console.log(res)
-  })
+  }).catch(err => console.log(err))
 }
 
 const derive = (passPhrase) => {

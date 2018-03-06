@@ -65,23 +65,23 @@ function addItemByAppName (appName, appData, key = 'data') {
 function registerAppStore (appName) {
   console.log('register app')
   // select the rigth database, based on the uuid in MasqUser DB.
-  getUserId('pseudo', currentUser)
+  return getUserId('pseudo', currentUser)
     .then(id => {
       // console.log(id)
       let db = new PouchDB(id)
-      db.get('applist').then(res => {
+      return db.get('applist').then(res => {
         console.log(res)
         console.log(res.list)
         if (!(res[appName])) {
           console.log(`The application ${appName} is added to the application list of the store.`)
           res[appName] = generateUUID()
-          db.put(res).then(() => {
+          return db.put(res).then(() => {
             let data = {
               _id: res[appName],
               info: { owner: appName }
             }
             console.log(data)
-            db.put(data)
+            return db.put(data)
           }).catch(err => console.log(err))
         } else {
           console.log(`The application ${appName} is already registered to the store.`)
@@ -157,6 +157,9 @@ function getItemById (db, id) {
 * @return {database} - The requested database
 */
 function getDB (appName) {
+  if (!currentUser) {
+    return Promise.reject(new Error(`No user is logged, please log.`))
+  }
   return getUserId('pseudo', currentUser)
     .then(id => {
       console.log(id)
@@ -172,7 +175,7 @@ function getDB (appName) {
           // return db.get(res[appName])
         } else {
           // console.log(`The application ${appName} is not registered, please register the app before using masq with it.`)
-          Promise.reject(new Error(`The application ${appName} is not registered, please register the app before using masq with it.`))
+          return Promise.reject(new Error(`The application ${appName} is not registered, please register the app before using masq with it.`))
         }
       }).catch(err => console.log(err))
     }).catch(err => console.log(err))
@@ -203,7 +206,7 @@ function getSpecificKeyFromApp (appName, key) {
       if (appDoc[key]) {
         return appDoc[key]
       } else {
-        Promise.reject(new Error(`The key ${key} does not exist for application ${appName}.`))
+        return Promise.reject(new Error(`The key ${key} does not exist for application ${appName}.`))
       }
     }).catch(err => console.log(err))
   }).catch(err => console.log(err))
