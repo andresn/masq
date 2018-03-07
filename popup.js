@@ -65,10 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
 let key = null
 
 const cryptoPouch = () => {
-  sha256('hello').then(res => {
-    console.log('hello')
-    console.log(res)
-  }).catch(err => console.log(err))
 
   // var encDB = new PouchDB('encryptedDB')
   // let password = 'hello'
@@ -101,6 +97,7 @@ const connect = () => {
   let pseudo = document.getElementById('pseudo').value
   curUser = pseudo
   console.log(pass)
+  connectStore(pass)
   derive(pass)
     .then(derivedKey => {
       console.log('Derived Key : ', derivedKey)
@@ -111,7 +108,8 @@ const connect = () => {
 const register = () => {
   console.log('register please wait ...')
   let pseudo = document.getElementById('pseudo').value
-  addUser(pseudo).then(res => {
+  let pass = document.getElementById('passwordRegister').value
+  addUser(pseudo, pass).then(res => {
     console.log(`Successfully stored ${pseudo}`)
     getUser('pseudo', pseudo)
       .then(res => console.log(`Welcome ${pseudo}, you are now logged.`))
@@ -121,8 +119,9 @@ const register = () => {
 }
 const login = () => {
   let pseudo = document.getElementById('pseudoLogin').value
+  let pass = document.getElementById('passwordLogin').value
   document.getElementById('pseudoLogout').value = pseudo
-  setCurrentUser(pseudo, true)
+  setCurrentUser(pseudo, pass,  true)
   console.log(`Welcome ${pseudo}, you are now logged.`)
   // getUserId('pseudo', pseudo)
   // .then(res => c)

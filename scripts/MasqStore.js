@@ -1,5 +1,6 @@
 
-var dbUser = new PouchDB('MasqUser')
+let dbUser = new PouchDB('MasqUser')
+
 let dbApp = null
 
 /**
@@ -10,6 +11,7 @@ let dbApp = null
 
 let currentApp = null
 let currentUser = null
+let currentPass = null
 
 dbUser.changes({
   since: 'now',
@@ -69,6 +71,7 @@ function registerAppStore (appName) {
     .then(id => {
       // console.log(id)
       let db = new PouchDB(id)
+      db.crypto(currentPass)
       return db.get('applist').then(res => {
         console.log(res)
         console.log(res.list)
@@ -98,10 +101,11 @@ function registerAppStore (appName) {
 * The created DB for user applications' data is named with
 * the generated (or given) id.
 * @param {string} pseudo - The pseudo of the user.
+* @param {string} pass - The passphrase used to encrypt data.
 * @param {string} [id] - The id of the user (optionnal)
 * @returns {Promise} - True if operations are successful.
 */
-function addUser (pseudo, id) {
+function addUser (pseudo, pass, id) {
   let user = {
     _id: id || generateUUID(),
     pseudo: pseudo
@@ -112,6 +116,7 @@ function addUser (pseudo, id) {
   console.log(`Creation of a user ${pseudo} with id : ${user._id}`)
   console.log(`Creation of a database for ${pseudo} with id : ${user._id}`)
   dbApp = new PouchDB(user._id)
+  dbApp.crypto(pass)
   let applist = {
     _id: 'applist',
     info: 'This list contains all the registered app with their id.'
@@ -125,9 +130,12 @@ function addUser (pseudo, id) {
 * Store the current user as global variable.
 * This feature will be improved by using an internal state db.
 * @param {string} user - The pseudo of the user.
+* @param {string} pass - The passphrase used to encrypt data.
+* @param {boolean} state - The state (true (login) |false (logout))
 */
-function setCurrentUser (user, state) {
+function setCurrentUser (user, pass, state) {
   state === true ? currentUser = user : currentUser = false
+  state === true ? currentPass = pass : currentPass = null
 }
 
 function getAllItems (db) {
@@ -148,6 +156,16 @@ function getItemById (db, id) {
 }
 
 /**
+* Set the passphrase of the user to make a connection to his
+* DB. For now we are using a global variable, but we need to change it.
+
+* @param {string} pass - The passphrase.
+*/
+function connectStore (pass) {
+  currentPass = pass
+}
+
+/**
 * Get a pointer to the actual user data DB.
 * Based on the given pseudo, we return the pouchDB db and
 * the uuid associated to the user in order to get/set
@@ -164,8 +182,9 @@ function getDB (appName) {
     .then(id => {
       console.log(id)
       let db = new PouchDB(id)
+      db.crypto(currentPass)
       return db.get('applist').then(res => {
-        // console.log(res)
+        console.log(res)
         // console.log(res.list)
         if (res[appName]) {
           // console.log(`The application ${appName} is registered in app list. Let us retrieve data.`)
@@ -182,9 +201,10 @@ function getDB (appName) {
 }
 
 /**
-* Return the document of the application
+* Return the document of the application, the logged user is
+* retrieved from the global variable, see login function.
 * @param {string} appName - The aplication name.
-* @return {Object} - The application data
+* @return {Object} - The application data (document)
 */
 function getAppData (appName) {
   return getDB(appName)
