@@ -1,5 +1,7 @@
 
 let dbUser = new PouchDB('MasqUser')
+let dbDataManagement = new PouchDB('MasqDataManagement')
+checkUserList()
 
 let dbApp = null
 
@@ -35,22 +37,23 @@ function updateDB (doc) {
 * @param {string} - The key inside the document, "data" by default.
 * @returns {Promise} - True if storage of data is successful.
 */
-function addItemByAppName (appName, appData, key = 'data') {
+function addItemByAppName (appName, doc) {
   // select the rigth database, based on the uuid in MasqUser DB.
 
-  return getDB(appName).then(DB => {
-    return DB.db.get(DB.appKey).then(appDoc => {
-      console.log('previous')
-      console.log(appDoc)
-      if (appDoc[key]) {
-        console.log(`The key ${key} is already present inside the app ${appName}, we overwrite it.`)
-        appDoc[key] = appData
-      } else {
-        console.log(`No data is stored, we create the key ${key} and put received data inside..`)
-        appDoc[key] = appData
-      }
-      DB.db.put(appDoc)
-    }).catch(err => console.log(err))
+  return getDB(appName, doc).then(db => {
+    return db.put(doc)
+    // .then(appDoc => {
+    //   console.log('previous')
+    //   console.log(appDoc)
+    //   if (appDoc[key]) {
+    //     console.log(`The key ${key} is already present inside the app ${appName}, we overwrite it.`)
+    //     appDoc[key] = appData
+    //   } else {
+    //     console.log(`No data is stored, we create the key ${key} and put received data inside..`)
+    //     appDoc[key] = appData
+    //   }
+    //   DB.db.put(appDoc)
+    // }).catch(err => console.log(err))
   }).catch(err => console.log(err))
 }
 
@@ -70,26 +73,51 @@ function registerAppStore (appName) {
   return getUserId('pseudo', currentUser)
     .then(id => {
       // console.log(id)
-      let db = new PouchDB(id)
-      db.crypto(currentPass)
-      return db.get('applist').then(res => {
+      // db.crypto(currentPass)
+      return dbDataManagement.get(id).then(res => {
         console.log(res)
-        console.log(res.list)
-        if (!(res[appName])) {
+        console.log('1.2')
+        console.log(res.appList)
+        let index = res.appList.findIndex(item => item.name === appName)
+        if (index === -1) {
           console.log(`The application ${appName} is added to the application list of the store.`)
-          res[appName] = generateUUID()
-          return db.put(res).then(() => {
-            let data = {
-              _id: res[appName],
-              info: { owner: appName }
+          let app = {
+            name: appName,
+            id: generateUUID()
+          }
+          res.appList.push(app)
+          return dbDataManagement.put(res).then(() => {
+            let dbApp = new PouchDB(app.id)
+            // dbApp.crypto(pass)
+            let appContent = {
+              _id: 'info',
+              info: 'This document has been generated automatically.'
             }
-            console.log(data)
-            return db.put(data)
-          }).catch(err => console.log(err))
+            return dbApp.put(appContent)
+          })
         } else {
           console.log(`The application ${appName} is already registered to the store.`)
         }
       }).catch(err => console.log(err))
+    }).catch(err => console.log(err))
+}
+
+function checkUserList () {
+  dbUser.get('users')
+    .then(res => {
+      console.log('UserList is already initalised. ')
+    })
+    .catch(err => {
+      if (err.message === 'missing') {
+        console.log('The user list is empty, we create the key users')
+        let users = {
+          _id: 'users',
+          userList: []
+        }
+        dbUser.put(users).then(res => {
+          console.log('Intialisation of db user : ok.')
+        }).catch(err => console.log(err))
+      }
     }).catch(err => console.log(err))
 }
 
@@ -106,24 +134,35 @@ function registerAppStore (appName) {
 * @returns {Promise} - True if operations are successful.
 */
 function addUser (pseudo, pass, id) {
-  let user = {
-    _id: id || generateUUID(),
-    pseudo: pseudo
-  }
-  // console.log(user)
-  // console.log(user._id)
-  // user.dbName = user._id
-  console.log(`Creation of a user ${pseudo} with id : ${user._id}`)
-  console.log(`Creation of a database for ${pseudo} with id : ${user._id}`)
-  dbApp = new PouchDB(user._id)
-  dbApp.crypto(pass)
-  let applist = {
-    _id: 'applist',
-    info: 'This list contains all the registered app with their id.'
-  }
-  return dbApp.put(applist)
-    .then(() => dbUser.put(user))
-    .catch(err => console.log(err))
+  return dbUser.get('users')
+    .then(doc => {
+      let user = {
+        _id: id || generateUUID(),
+        pseudo: pseudo
+      }
+      doc.userList.push(user)
+      console.log(doc.userList)
+      // console.log(user._id)
+      // user.dbName = user._id
+      console.log(`Creation of a user ${pseudo} with id : ${user._id}`)
+      console.log(`Creation of a document with id ${user._id} inside db MasqDataManagement for ${pseudo}.`)
+      // dbApp = new PouchDB(user._id)
+      // dbApp.crypto(pass)
+      let dataManagement = {
+        _id: user._id,
+        info: 'This document contains all the references to the user applications. ',
+        appList: []
+      }
+      // dbApp = new PouchDB(user._id)
+      // dbApp.crypto(pass)
+      // let applist = {
+      //   _id: 'applist',
+      //   info: 'This list contains all the registered app with their id.'
+      // }
+      return dbUser.put(doc)
+        .then(() => dbDataManagement.put(dataManagement))
+        .catch(err => console.log(err))
+    })
 }
 
 /**
@@ -174,61 +213,122 @@ function connectStore (pass) {
 * @param {string} appName - The aplication name.
 * @return {database} - The requested database
 */
+// function getDB (appName) {
+//   if (!currentUser) {
+//     return Promise.reject(new Error(`No user is logged, please log.`))
+//   }
+//   return getUserId('pseudo', currentUser)
+//     .then(id => {
+//       console.log(id)
+//       let db = new PouchDB(id)
+//       db.crypto(currentPass)
+//       return db.get('applist').then(res => {
+//         console.log(res)
+//         // console.log(res.list)
+//         if (res[appName]) {
+//           // console.log(`The application ${appName} is registered in app list. Let us retrieve data.`)
+//           let ret = { db: db, appKey: res[appName] }
+//           // console.log(ret)
+//           return ret
+//           // return db.get(res[appName])
+//         } else {
+//           // console.log(`The application ${appName} is not registered, please register the app before using masq with it.`)
+//           return Promise.reject(new Error(`The application ${appName} is not registered, please register the app before using masq with it.`))
+//         }
+//       }).catch(err => console.log(err))
+//     }).catch(err => console.log(err))
+// }
+/**
+* Get a pointer to the actual user data DB.
+* Based on the given pseudo, we return the pouchDB db and
+* the uuid associated to the user in order to get/set
+* data inside.
+
+* @param {string} appName - The aplication name.
+* @return {object} - The requested database
+*/
 function getDB (appName) {
   if (!currentUser) {
     return Promise.reject(new Error(`No user is logged, please log.`))
   }
   return getUserId('pseudo', currentUser)
     .then(id => {
-      console.log(id)
-      let db = new PouchDB(id)
-      db.crypto(currentPass)
-      return db.get('applist').then(res => {
-        console.log(res)
-        // console.log(res.list)
-        if (res[appName]) {
-          // console.log(`The application ${appName} is registered in app list. Let us retrieve data.`)
-          let ret = { db: db, appKey: res[appName] }
-          // console.log(ret)
-          return ret
-          // return db.get(res[appName])
-        } else {
-          // console.log(`The application ${appName} is not registered, please register the app before using masq with it.`)
-          return Promise.reject(new Error(`The application ${appName} is not registered, please register the app before using masq with it.`))
-        }
-      }).catch(err => console.log(err))
+      // console.log(id)
+      return dbDataManagement.get(id)
+    })
+    .then(apps => {
+      // console.log(apps.appList)
+      let index = apps.appList.findIndex(item => item.name === appName)
+      if (index !== -1) {
+        let userDBInfo = apps.appList[index]
+        console.log(`The user ${currentUser} has a db for the application ${appName} with the id ${userDBInfo.id}.`)
+        let db = new PouchDB(userDBInfo.id)
+        return db
+      } else {
+        // console.log(`The application ${appName} is not registered, please register the app before using masq with it.`)
+        return Promise.reject(new Error(`The application ${appName} is not registered, please register the app before using masq with it.`))
+      }
+      // db
+      // db.crypto(currentPass)
+      // return db.get('applist').then(res => {
+      //   console.log(res)
+      //   // console.log(res.list)
+      //   if (res[appName]) {
+      //     // console.log(`The application ${appName} is registered in app list. Let us retrieve data.`)
+      //     let ret = { db: db, appKey: res[appName] }
+      //     // console.log(ret)
+      //     return ret
+      // return db.get(res[appName])
+      // } else {
+      //   // console.log(`The application ${appName} is not registered, please register the app before using masq with it.`)
+      //   return Promise.reject(new Error(`The application ${appName} is not registered, please register the app before using masq with it.`))
+      // }
     }).catch(err => console.log(err))
 }
 
 /**
-* Return the document of the application, the logged user is
+* Return all documents of the application, the logged user is
 * retrieved from the global variable, see login function.
 * @param {string} appName - The aplication name.
 * @return {Object} - The application data (document)
 */
-function getAppData (appName) {
-  return getDB(appName)
-    .then(res => {
-      // console.log(res)
-      return res.db.get(res.appKey)
-    }).catch(err => console.log(err))
+function getAllDoc (appName) {
+  return getDB(appName).then(db => {
+    // console.log(db)
+    return db.allDocs({ include_docs: true }).then(doc => {
+      // console.log(doc)
+      return doc.rows
+    })
+  })
 }
 
 /**
-* Return specific data inside the application document.
+* Return a single document of the application, the logged user is
+* retrieved from the global variable, see login function.
 * @param {string} appName - The aplication name.
-* @param {string} key - The key inside the document ()
+* @param {string} id - The document id.
+* @return {Object} - The application data (document)
+*/
+function getSingleDoc (appName, id) {
+  return getDB(appName).then(db => {
+    return db.get(id)
+  }).catch(err => console.log(err))
+}
+
+/**
+* Return specific key inside the application document.
+* @param {string} appName - The aplication name.
+* @param {string} document - The document id.
+* @param {string} key - The key inside the document.
 * @return {Object} - The data related to the given key
 */
-function getSpecificKeyFromApp (appName, key) {
-  return getDB(appName).then(DB => {
-    return DB.db.get(DB.appKey).then(appDoc => {
-      if (appDoc[key]) {
-        return appDoc[key]
-      } else {
-        return Promise.reject(new Error(`The key ${key} does not exist for application ${appName}.`))
-      }
-    }).catch(err => console.log(err))
+function getSpecificKeyFromApp (appName, doc, key) {
+  return getSingleDoc(appName, doc).then(appDoc => {
+    if (appDoc[key]) {
+      return appDoc[key]
+    } else {
+      return Promise.reject(new Error(`The key ${key} does not exist for application ${appName}.`))
+    }
   }).catch(err => console.log(err))
 }
 
@@ -239,29 +339,34 @@ function getSpecificKeyFromApp (appName, key) {
 * @return {Object} - The document associated to the user.
 */
 function getUser (key, value) {
-  return dbUser.allDocs({ include_docs: true }).then(doc => {
-    let res = doc.rows.filter(item => item.doc[key] === value)
-    // console.log(res[0].doc)
-    return res[0].doc
+  return dbUser.get('users').then(doc => {
+    // console.log(doc)
+    let res = doc.userList.filter(item => item[key] === value)
+    console.log(res)
+    if (res.length === 1) {
+      return res[0]
+    } else {
+      return Promise.reject(new Error(`This user does not exist, please register before.`))
+    }
   })
 }
 
 /**
 * Get user list.
-* @return {array} - The document associated to the user.
+* @return {array} - The list of the registered users.
 */
 function getUserList () {
-  dbUser.allDocs({ include_docs: true }).then(doc => {
-    doc.rows.forEach(element => {
-      console.log(element.doc.pseudo)
-    })
-  })
+  return dbUser.get('users').then(doc => {
+    // console.log(doc)
+    let res = doc.userList.map(item => item.pseudo)
+    return res
+  }).catch(err => console.log(err))
 }
 /**
-* Get user apps list
+* Get user apps list. The user has to log before.
 * @return {array} - The document associated to the user.
 */
-function getUserApp (pseudo) {
+function getUserApp () {
   getUserId('pseudo', pseudo)
     .then(id => {
       console.log(id)
@@ -273,15 +378,9 @@ function getUserApp (pseudo) {
 }
 
 function getUserId (key, value) {
-  return dbUser.allDocs({ include_docs: true }).then(doc => {
-    // console.log(doc)
-    // console.log(doc.rows)
-    let res = doc.rows.filter(item => item.doc[key] === value)
-    // console.log(res[0].doc)
-    // console.log(res[0].doc._id)
-    // console.log(res[0])
-    return res[0].doc._id
-  })
+  return getUser(key, value)
+    .then(doc => doc._id)
+    .catch(err => console.log(err))
 }
 
 function sha256 (str) {
@@ -319,3 +418,125 @@ const generateUUID = () => {
 }
 
 // export {getItemByKey, addItem}
+let docs = [
+  // {
+  //   _id: 'fubar',
+  //   _rev: '1-59f4a085ca9649d88fd36b4cadf592eb',
+  //   score: 111
+  // }, {
+  {
+    _id: 'fubar',
+    _rev: '1-073128b8a6be488bae14a999b83c487d"',
+    score: 222
+  }, {
+    _id: 'fubar',
+    _rev: '3-c9b5295df79249e3bea25890ecae291a',
+    score: 333
+  }
+]
+
+async function test2 () {
+  let db = new PouchDB('test2')
+  let put1 = await db.put({ _id: '1', score: 111 })
+  console.log('Initial put : 1')
+  console.log(put1)
+  let get1 = await db.get('1')
+  console.log(get1)
+  get1.score = 222
+  console.log('Put 2')
+  let put2 = await db.put(get1)
+  console.log(put2)
+  let get2 = await db.get('1')
+  console.log(get2)
+  get2.score = 333
+  console.log('Put 3')
+  let put3 = await db.put(get2)
+  console.log(put3)
+  let get3 = await db.get('1')
+  console.log(get3)
+  get3.score = 444
+  get3._rev = '8-y'
+  console.log('Put 4 : force rev 8')
+  let put4 = await db.put(get3, {force: true})
+  console.log(put4)
+}
+
+async function testPutOne () {
+  let db = new PouchDB('test')
+  let put1 = await db.put({ _id: '1', score: 111 })
+  console.log('Initial put : 1')
+  console.log(put1)
+  let get1 = await db.get('1')
+  console.log(get1)
+}
+
+async function testPutOthers () {
+  let db = new PouchDB('test')
+  let get1 = await db.get('1')
+  console.log(get1)
+  get1.score = 222
+  console.log('Put 2')
+  let put2 = await db.put(get1)
+  console.log(put2)
+  let get2 = await db.get('1')
+  console.log(get2)
+  get2.score = 333
+  console.log('Put 3')
+  let put3 = await db.put(get2)
+  console.log(put3)
+  let get3 = await db.get('1')
+  console.log(get3)
+}
+
+async function testOverwrite () {
+  let db = new PouchDB('test')
+  // let put1 = await db.put({ _id: '1', score: 111 })
+  // console.log('Initial put : 1')
+  // console.log(put1)
+  let get1 = await db.get('1')
+  console.log(get1)
+  get1.score = 222
+  get1._rev = '1-4254d81e0e0544bcb12615cc4728aa2e'
+  console.log('Put 2')
+  let put2 = await db.put(get1, {force: true})
+  console.log(put2)
+  let get2 = await db.get('1')
+  console.log(get2)
+  get2.score = 333
+  console.log('Put 3')
+  let put3 = await db.put(get2)
+  console.log(put3)
+  let get3 = await db.get('1')
+  console.log(get3)
+  get3.score = 444
+  get3._rev = '8-y'
+  console.log('Put 4 : force rev 8')
+  let put4 = await db.put(get3, {force: true})
+  console.log(put4)
+}
+
+// async function bulkInsert () {
+//   // given
+//   var docs = [
+//     {
+//       _id: 'fubar',
+//       _rev: '1-a1',
+//       score: 111
+//     }, {
+//       _id: 'fubar',
+//       _rev: '1-a1',
+//       score: 222
+//     }, {
+//       _id: 'fubar',
+//       _rev: '2-b2',
+//       _revisions: { start: 2, ids: ['b2', 'a1'] }
+//     }
+//   ]
+//   let db = new PouchDB('testBulk')
+//   try {
+//     let res = await db.bulkDocs({ docs: docs })
+//     console.log(res)
+//   } catch (e) {
+//     console.log(e)
+//   }
+// }

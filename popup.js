@@ -48,6 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
       getSpecificKey()
     })
   }
+  el = document.getElementById('getSpecificDoc')
+  if (el) {
+    el.addEventListener('click', function (e) {
+      getSpecificDoc()
+    })
+  }
   el = document.getElementById('cryptoPouch')
   if (el) {
     el.addEventListener('click', function (e) {
@@ -111,17 +117,13 @@ const register = () => {
   let pass = document.getElementById('passwordRegister').value
   addUser(pseudo, pass).then(res => {
     console.log(`Successfully stored ${pseudo}`)
-    getUser('pseudo', pseudo)
-      .then(res => console.log(`Welcome ${pseudo}, you are now logged.`))
-      .catch(err => console.log(err))
-  })
-    .catch(err => console.log(err))
+  }).catch(err => console.log(err))
 }
 const login = () => {
   let pseudo = document.getElementById('pseudoLogin').value
   let pass = document.getElementById('passwordLogin').value
   document.getElementById('pseudoLogout').value = pseudo
-  setCurrentUser(pseudo, pass,  true)
+  setCurrentUser(pseudo, pass, true)
   console.log(`Welcome ${pseudo}, you are now logged.`)
   // getUserId('pseudo', pseudo)
   // .then(res => c)
@@ -138,8 +140,11 @@ const logout = () => {
 const addData = () => {
   let data = document.getElementById('inputSetData').value
   let appName = document.getElementById('appNameSetData').value
-  let toStore = { score: data }
-  console.log(`We are adding the item ${data} with the key data into the app ${appName}`)
+  let toStore = {
+    _id: '1',
+    score: data
+  }
+  console.log(`We are adding the item ${data} with the key data into the app ${appName}, the doc id is 1.`)
 
   addItemByAppName(appName, toStore)
     .then(res => {
@@ -152,14 +157,22 @@ const addData = () => {
 
 const getData = () => {
   let appName = document.getElementById('appNameGetData').value
-  getAppData(appName).then(res => {
+  getAllDoc(appName).then(res => {
+    console.log(res)
+  }).catch(err => console.log(err))
+}
+const getSpecificDoc = () => {
+  let docName = document.getElementById('docGetData').value
+  let appName = document.getElementById('appNameGetData').value
+  getSingleDoc(appName, docName).then(res => {
     console.log(res)
   }).catch(err => console.log(err))
 }
 const getSpecificKey = () => {
   let key = document.getElementById('keyGetData').value
+  let docName = document.getElementById('docGetData').value
   let appName = document.getElementById('appNameGetData').value
-  getSpecificKeyFromApp(appName, key).then(res => {
+  getSpecificKeyFromApp(appName, docName, key).then(res => {
     console.log(res)
   }).catch(err => console.log(err))
 }
