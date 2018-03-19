@@ -37,7 +37,7 @@ export default function Applications(props) {
       <h1 style={{marginLeft: '16px'}}>Currently active Applications</h1>
       <div className="Applications">
         {apps.map((app, index) => (
-          <Card title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} >
+          <Card key={index} title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} >
           </Card>
         ))}
       </div>
@@ -45,7 +45,7 @@ export default function Applications(props) {
       <h1 style={{marginLeft: '16px'}}>Currently connected to your Masq</h1>
       <div className="Applications">
         {connectedApps.map((app, index) => (
-          <Card title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} >
+          <Card key={index} title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} >
           </Card>
         ))}
       </div>
