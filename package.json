@@ -1,0 +1,22 @@
+{
+  "name": "masq-chrome-extension",
+  "version": "0.0.1",
+  "description": "Chrome* extension for Masq",
+  "main": "index.js",
+  "author": {
+    "name": "Levent Demir",
+    "email": "l.demir@qwant.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QwantResearch/masq-chrome-extension.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": ""
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
