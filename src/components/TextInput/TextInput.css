@@ -4,10 +4,11 @@
 }
 
 input {
-  width: 301px;
+  /* width: 301px; */
   height: 33px;
   border-radius: 3px;
   border: solid 1px #cccccc;
+  font-size: 14px;
 }
 
 input:focus {
@@ -19,7 +20,7 @@ input:focus + label {
   color: #458bf8;
 }
 
-label {
+.TextInput label {
   margin: 0;
   font-size: 12px;
   margin-bottom: 8px;
