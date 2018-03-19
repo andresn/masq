@@ -1,0 +1,25 @@
+.TextInput {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+input {
+  width: 301px;
+  height: 33px;
+  border-radius: 3px;
+  border: solid 1px #cccccc;
+}
+
+input:focus {
+  outline: none;
+  border: solid 1px #458bf8;
+}
+
+input:focus + label {
+  color: #458bf8;
+}
+
+label {
+  margin-bottom: 4px;
+  color: #707070;
+}

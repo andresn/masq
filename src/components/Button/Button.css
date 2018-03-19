@@ -1,0 +1,23 @@
+.Button {
+  width: 225px;
+  height: 50px;
+  opacity: 0.8;
+  outline: none;
+  border-radius: 25px;
+  font-weight: 600;
+  border: solid 2px #458bf8;
+}
+
+.primary {
+  color: white;
+  background-color: #458bf8;
+}
+
+.primary:hover {
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.16), 0 10px 16px 0 rgba(69, 139, 248, 0.4);
+}
+
+.secondary {
+  color: #458bf8;
+  background-color: white;
+}

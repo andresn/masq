@@ -1,0 +1,11 @@
+.CardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+}
