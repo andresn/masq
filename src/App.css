@@ -1,5 +1,8 @@
-body {
+* {
   font-family: Asap;
+}
+
+body {
   width: 410px;
   height: 733px;
 }
