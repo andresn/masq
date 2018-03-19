@@ -20,6 +20,7 @@ function LastDevices(props) {
         <div>
           <Card title={device.name} description="My description" color={device.color} enabled={device.enabled}>
           </Card>
+          <Separator />
         </div>
       </div>
     </div>
@@ -30,7 +31,8 @@ export default function Devices(props) {
   const newDevice = { name: 'TV de Margaux', color: '#86e991', enabled: true };
 
   const devices = [
-    { name: 'iPhone de Margaux', color: '#86e991', enabled: false },
+    { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
+    { name: 'iPad de Margaux', color: '#86e991', enabled: false },
     { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
   ]; // TODO: Fetch devices
 
@@ -44,6 +46,7 @@ export default function Devices(props) {
           <div key={index}>
             <Card title={device.name} description="My description" color={device.color} enabled={device.enabled} >
             </Card>
+            <Separator />
           </div>
         ))}
         <Separator />
