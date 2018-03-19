@@ -1,26 +1,21 @@
 import React from 'react';
 
-import Button from '../components/Button/Button';
 import Card from '../components/Card/Card';
 
 import './Applications.css';
 
 export default function Applications(props) {
-  const newDevice = { name: 'TV de Margaux', color: '#a3005c' };
-
   const apps = [
     {
       name: 'Qwant Maps',
       color: '#01cbd9',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
-                    sed do eiusmod tempor incididunt ut labore.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
       enabled: true
     },
     {
       name: 'Qwant Shopping',
       color: '#a3005c',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
-                    sed do eiusmod tempor incididunt ut labore.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
       enabled: false,
       image: 'https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
     }
@@ -30,8 +25,7 @@ export default function Applications(props) {
     {
       name: 'Qwant Music',
       color: '#a3005c',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
-                    sed do eiusmod tempor incididunt ut labore.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
       enabled: true,
       image: 'https://images.pexels.com/photos/63703/pexels-photo-63703.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
     }
