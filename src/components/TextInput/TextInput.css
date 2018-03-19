@@ -20,6 +20,8 @@ input:focus + label {
 }
 
 label {
-  margin-bottom: 4px;
+  margin: 0;
+  font-size: 12px;
+  margin-bottom: 8px;
   color: #707070;
 }
