@@ -1,8 +1,6 @@
 import React from 'react';
 
 import Button from '../components/Button/Button';
-// import DeviceCard from '../components/DeviceCard';
-// import TextInput from '../components/TextInput/TextInput';
 import Card from '../components/Card/Card';
 
 import './Devices.css';
@@ -20,7 +18,7 @@ function LastDevices(props) {
       <h1 style={{marginLeft: '16px'}}>Nouvel appareil</h1>
       <div className="Devices">
         <div>
-          <Card title={device.name} description="My description" color={device.color}>
+          <Card title={device.name} description="My description" color={device.color} enabled={device.enabled}>
           </Card>
         </div>
       </div>
@@ -29,11 +27,11 @@ function LastDevices(props) {
 }
 
 export default function Devices(props) {
-  const newDevice = { name: 'TV de Margaux', color: '#a3005c' };
+  const newDevice = { name: 'TV de Margaux', color: '#86e991', enabled: true };
 
   const devices = [
-    { name: 'iPhone de Margaux', color: '#86e991' },
-    { name: 'Oneplus de Matthieu', color: '#ee6e7e' }
+    { name: 'iPhone de Margaux', color: '#86e991', enabled: false },
+    { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
   ]; // TODO: Fetch devices
 
   return (
@@ -44,7 +42,7 @@ export default function Devices(props) {
       <div className="Devices">
         {devices.map((device, index) => (
           <div key={index}>
-            <Card title={device.name} description="My description" color={device.color}>
+            <Card title={device.name} description="My description" color={device.color} enabled={device.enabled} >
             </Card>
           </div>
         ))}

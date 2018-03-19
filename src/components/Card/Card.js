@@ -5,7 +5,7 @@ import CardHeader from './CardHeader/CardHeader';
 import './Card.css';
 
 export default function Card(props) {
-  const { image } = props;
+  const { image, color, title, description, enabled } = props;
 
   return (
     <div className="Card">
@@ -16,9 +16,9 @@ export default function Card(props) {
          : null}
       <div className="flex">
         <div id="content">
-          <CardHeader className="CardHeader" color={props.color} />
-          <h1 className="title">{props.title}</h1>
-          <p className="description">{props.description}</p>
+          <CardHeader className="CardHeader" color={color} enabled={enabled} />
+          <h1 className="title">{title}</h1>
+          <p className="description">{description}</p>
           {props.children}
           {/* TODO: footer */}
         </div>

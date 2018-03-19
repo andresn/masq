@@ -6,14 +6,14 @@ import './CardHeader.css';
 
 // TODO: Add image in header
 export default function CardHeader(props) {
-  const { color } = props;
+  const { color, enabled } = props;
   const style = { backgroundColor: color };
 
   return (
     <div>
       <div className="CardHeader">
         <div className="line" style={style} />
-        <SwitchButton color={color} />
+        <SwitchButton color={color} checked={enabled} />
       </div>
     </div>
   );
