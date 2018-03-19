@@ -8,7 +8,6 @@ const style = {
   fontSize: '14px',
   fontWeight: 'bold',
   textAlign: 'left',
-  backgroundColor: 'white',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',

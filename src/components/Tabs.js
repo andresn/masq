@@ -10,7 +10,8 @@ const style = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-evenly',
-  color: '#707070'
+  color: '#707070',
+  position: 'relative'
   // boxShadow: '0 0 8px 0 rgba(0, 0, 0, 0.15)'
 };
 
