@@ -27,7 +27,7 @@ export default class SwitchButton extends React.Component {
       style = { backgroundColor: this.props.color };
     }
 
-    const label = this.state.checked ? 'Enabled' : 'Disabled';
+    const label = this.state.checked ? 'ENABLED' : 'DISABLED';
 
     return (
       <div className="SwitchButton">
