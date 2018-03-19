@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactSVG from 'react-svg';
 
 import './Header.css';
 
@@ -28,14 +29,15 @@ export default function Header(props) {
         <div id="avatar-section">
           <span id="avatar"></span>
           <span id="avatar-text" style={{fontSize: '14px'}}>{username}</span>
-          <span id="caret">
-            <img src="/assets/Chevron.svg" alt="chevron"/>
-          </span>
+          <ReactSVG className="caret" path="/assets/Chevron.svg" />
         </div>
-        <img className="home" src="/assets/Home.svg" alt="homeLogo"/>
+        <div>
+          <ReactSVG className="home" path="/assets/Home.svg" />
+        </div>
+        {/* <img className="home" src="/assets/Home.svg" alt="homeLogo"/> */}
       </div>
       {props.children}
-      <div style={{height: '16px'}}></div>
+      {/* <div style={{height: '16px'}}></div> */}
     </div>
   );
 }

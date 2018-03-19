@@ -1,6 +1,5 @@
 .Header {
   background-color: white;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15) inset;
 }
 
 #avatar-section {
@@ -27,18 +26,17 @@
   color: #4c4c4c;
 }
 
-#caret {
+.caret {
   vertical-align: middle;
   display: table-cell;
   padding-left: 8px;
-}
-
-#caret > img {
   height: 5px;
-  margin-bottom: 2.5px;
 }
 
-.home {
-  height: 22px;
-  fill: '#94d31b';
+.caret path {
+  fill: #b2b2b2;
+}
+
+.home path {
+  fill: #458bf8;
 }

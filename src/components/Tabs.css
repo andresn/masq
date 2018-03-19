@@ -1,0 +1,17 @@
+.icon path {
+  fill: #707070;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.active {
+  color: #6ba3fa;
+}
+
+.active path {
+  fill: #6ba3fa;
+}

@@ -19,8 +19,10 @@ function LastDevices(props) {
     <div>
       <h1 style={{marginLeft: '16px'}}>Nouvel appareil</h1>
       <div className="Devices">
-        <Card title={device.name} description="My description" color={device.color}>
-        </Card>
+        <div>
+          <Card title={device.name} description="My description" color={device.color}>
+          </Card>
+        </div>
       </div>
     </div>
   );
