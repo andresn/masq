@@ -7,6 +7,7 @@ import {
 import Devices from './pages/Devices';
 import Applications from './pages/Applications';
 import Settings from './pages/Settings';
+import Login from './pages/Login';
 
 import Header from './components/Header/Header';
 import Tabs from './components/Tabs';
@@ -14,12 +15,6 @@ import Tabs from './components/Tabs';
 // import SwitchButton from './components/SwitchButton';
 
 import './App.css';
-
-const Login = () => (
-  <div style={{ backgroundColor: '#464646', color: '#ffffff' }}>
-    <h2>Login page</h2>
-  </div>
-)
 
 const tabs = [
   { label: 'Devices', link: '/devices', icon: 'assets/Smartphone.svg' },
