@@ -1,4 +1,41 @@
-#notif {
+.Notification {
+	width: 378px;
+	height: 40px;
+	border-radius: 3px;
+	border: solid 1px #e5e5e5;
+	margin: auto;
+	vertical-align: middle;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.Notification p {
+	margin-left: 8px;
+	color: #707070;
+	font-size: 12px;
+}
+
+.leftNotif {
 	display: flex;
 	align-items: center;
+}
+
+.infos-icon {
+	height: 15px;
+}
+
+.infos-icon path {
+	fill: #458bf8;
+}
+
+.close-icon {
+	height: 9px;
+}
+
+.close-icon path {
+	fill: #999999;
 }
