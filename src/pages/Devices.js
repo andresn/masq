@@ -15,10 +15,24 @@ function LastDevices (props) {
       <h1 style={{marginLeft: '16px'}}>Nouvel appareil</h1>
       <div className='Devices'>
         <div>
-          <Card title={device.name} description='My description' color={device.color} enabled={device.enabled} />
+          <Card title={device.name} color={device.color} enabled={device.enabled}>
+            <div className='lastsync'>
+              <p>LAST SYNCHRONIZATION</p>
+              <SyncStatus color={device.color} />
+            </div>
+          </Card>
           <Separator />
         </div>
       </div>
+    </div>
+  )
+}
+
+function SyncStatus (props) {
+  return (
+    <div className='syncstatus'>
+      <div className='circlestatus' style={{border: 'solid 2px' + props.color}} />
+      <p>10 days ago</p>
     </div>
   )
 }
@@ -40,7 +54,12 @@ export default function Devices (props) {
       <div className='Devices'>
         {devices.map((device, index) => (
           <div key={index}>
-            <Card title={device.name} description='My description' color={device.color} enabled={device.enabled} />
+            <Card title={device.name} color={device.color} enabled={device.enabled} >
+              <div className='lastsync'>
+                <p>LAST SYNCHRONIZATION</p>
+                <SyncStatus color={device.color} />
+              </div>
+            </Card>
             <Separator />
           </div>
         ))}

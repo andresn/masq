@@ -20,7 +20,6 @@ export default function Card (props) {
           <h1 className='title'>{title}</h1>
           <p className='description'>{description}</p>
           {props.children}
-          {/* TODO: footer */}
         </div>
       </div>
     </div>

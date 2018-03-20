@@ -1,6 +1,31 @@
 .Devices {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.lastsync {
+  display: flex;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #b2b2b2;
+  justify-content: space-between;
+}
+
+.syncstatus {
+  color: #191919;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75px;
+}
+
+.circlestatus {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  border: solid 2px #ee6e7e;
 }
