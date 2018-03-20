@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactSVG from 'react-svg'
 
 import Card from '../components/Card/Card'
 import Separator from '../components/Separator'
@@ -39,7 +40,15 @@ export default function Applications (props) {
       <div className='Applications'>
         {apps.map((app, index) => (
           <div key={index}>
-            <Card title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} />
+            <Card title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image}>
+              <div className='permissions'>
+                <p>5 PERMISSIONS</p>
+                <div className='more'>
+                  <p style={{ color: app.color }}>VOIR PLUS</p>
+                  <ReactSVG className='caret-icon' path='/assets/Chevron.svg' />
+                </div>
+              </div>
+            </Card>
             <Separator />
           </div>
         ))}
