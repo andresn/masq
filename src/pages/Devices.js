@@ -2,12 +2,9 @@ import React from 'react';
 
 import Button from '../components/Button/Button';
 import Card from '../components/Card/Card';
+import Separator from '../components/Separator';
 
 import './Devices.css';
-
-function Separator() {
-  return (<div id="separator" style={{ marginTop: '16px' }} />)
-}
 
 function LastDevices(props) {
   const { device } = props;

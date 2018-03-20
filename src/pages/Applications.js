@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Card from '../components/Card/Card';
+import Separator from '../components/Separator';
 
 import './Applications.css';
 
@@ -37,8 +38,11 @@ export default function Applications(props) {
       <h1 style={{marginLeft: '16px'}}>Currently active Applications</h1>
       <div className="Applications">
         {apps.map((app, index) => (
-          <Card key={index} title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} >
-          </Card>
+          <div key={index}>
+            <Card title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} >
+            </Card>
+            <Separator />
+          </div>
         ))}
       </div>
 
