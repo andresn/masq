@@ -1,5 +1,7 @@
 import React from 'react'
-import ReactSVG from 'react-svg'
+
+import Chevron from '../../icons/Chevron'
+import Home from '../../icons/Home'
 
 import './Header.css'
 
@@ -27,11 +29,9 @@ export default function Header (props) {
         <div id='avatar-section'>
           <span id='avatar' />
           <span id='avatar-text' style={{fontSize: '14px'}}>{username}</span>
-          <ReactSVG className='caret' path='/assets/Chevron.svg' />
+          <Chevron className='caret' />
         </div>
-        <div>
-          <ReactSVG className='home' path='/assets/Home.svg' />
-        </div>
+        <Home className='home' />
       </div>
       {props.children}
       {props.children ? (<div className='children' />) : null}

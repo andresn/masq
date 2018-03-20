@@ -14,12 +14,16 @@ import Tabs from './components/Tabs'
 import Notification from './components/Notification/Notification'
 // import SwitchButton from './components/SwitchButton';
 
+import SmartphoneIcon from './icons/Smartphone'
+import AppsIcon from './icons/Apps'
+import SettingsIcon from './icons/Settings'
+
 import './App.css'
 
 const tabs = [
-  { label: 'Devices', link: '/devices', icon: 'assets/Smartphone.svg' },
-  { label: 'Applications', link: '/applications', icon: 'assets/Apps.svg' },
-  { label: 'Settings', link: '/settings', icon: 'assets/Settings.svg' }
+  { label: 'Devices', link: '/devices', icon: <SmartphoneIcon /> },
+  { label: 'Applications', link: '/applications', icon: <AppsIcon /> },
+  { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
 class App extends Component {

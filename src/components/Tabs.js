@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactSVG from 'react-svg'
 import { withRouter } from 'react-router-dom'
 
 import './Tabs.css'
@@ -42,7 +41,7 @@ class Tabs extends React.Component {
             key={index}
             onClick={() => this.onSelectTab(index)}
           >
-            <ReactSVG className='icon' path={tab.icon} />
+            { tab.icon }
             {/* <img src={tab.icon} alt={tab.icon} /> */}
             <p style={{marginLeft: '8px'}}>{tab.label}</p>
           </div>

@@ -36,12 +36,12 @@
   height: 5px;
 }
 
-.caret path {
-  fill: #b2b2b2;
+.caret {
+  color: #b2b2b2;
 }
 
-.home path {
-  fill: #458bf8;
+.home {
+  color: #458bf8;
 }
 
 .children {

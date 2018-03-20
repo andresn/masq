@@ -1,8 +1,8 @@
 import React from 'react'
-import ReactSVG from 'react-svg'
 
 import Card from '../components/Card/Card'
 import Separator from '../components/Separator'
+import Chevron from '../icons/Chevron'
 
 import './Applications.css'
 
@@ -45,7 +45,7 @@ export default function Applications (props) {
                 <p>5 PERMISSIONS</p>
                 <div className='more'>
                   <p style={{ color: app.color }}>VOIR PLUS</p>
-                  <ReactSVG className='caret-icon' path='/assets/Chevron.svg' />
+                  <Chevron className='caret-icon' color={app.color} />
                 </div>
               </div>
             </Card>
