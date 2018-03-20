@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const style = {
   width: '378px',
@@ -9,11 +9,11 @@ const style = {
   margin: 'auto' // TODO: don't assume position
 }
 
-export default function DeviceCard(props) {
-  const { device } = props;
+export default function DeviceCard (props) {
+  const { device } = props
   return (
     <div style={style}>
       <p>{device.name}</p>
     </div>
-  );
+  )
 }
