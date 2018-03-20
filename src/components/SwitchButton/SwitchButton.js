@@ -18,6 +18,7 @@ export default class SwitchButton extends React.Component {
     this.setState({
       checked: !this.state.checked
     })
+    if (this.props.onClick) this.props.onClick()
   }
 
   render () {
