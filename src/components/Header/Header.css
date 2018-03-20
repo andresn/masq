@@ -43,3 +43,7 @@
 .home path {
   fill: #458bf8;
 }
+
+.children {
+  padding-bottom: 16px;
+}

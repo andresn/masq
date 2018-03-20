@@ -32,10 +32,9 @@ export default function Header (props) {
         <div>
           <ReactSVG className='home' path='/assets/Home.svg' />
         </div>
-        {/* <img className="home" src="/assets/Home.svg" alt="homeLogo"/> */}
       </div>
       {props.children}
-      {/* <div style={{height: '16px'}}></div> */}
+      {props.children ? (<div className='children' />) : null}
     </div>
   )
 }

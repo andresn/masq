@@ -11,7 +11,7 @@ import Login from './pages/Login'
 
 import Header from './components/Header/Header'
 import Tabs from './components/Tabs'
-// import Notification from './components/Notification/Notification';
+import Notification from './components/Notification/Notification'
 // import SwitchButton from './components/SwitchButton';
 
 import './App.css'
@@ -21,11 +21,6 @@ const tabs = [
   { label: 'Applications', link: '/applications', icon: 'assets/Apps.svg' },
   { label: 'Settings', link: '/settings', icon: 'assets/Settings.svg' }
 ]
-
-// <header className="App-header">
-//   <img src={logo} className="App-logo" alt="logo" />
-//   <h1 className="App-title">Welcome to React</h1>
-// </header>
 
 class App extends Component {
   render () {
@@ -37,7 +32,7 @@ class App extends Component {
             title='Hello'
             username='Geoffrey'
           >
-            {/* <Notification text='Notification !'/> */}
+            <Notification text='This is a Notification!' />
           </Header>
 
           <Tabs tabs={tabs} />
