@@ -9,8 +9,6 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding-left: 8px;
-	padding-right: 8px;
 }
 
 .Notification p {
@@ -22,6 +20,7 @@
 .leftNotif {
 	display: flex;
 	align-items: center;
+	margin-left: 8px;
 }
 
 .infos-icon {
@@ -34,6 +33,7 @@
 
 .close-icon {
 	height: 9px;
+	margin-right: 8px;
 }
 
 .close-icon path {
