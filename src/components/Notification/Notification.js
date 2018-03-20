@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import './Notification.css';
+import './Notification.css'
 
 const style = {
   width: '378px',
@@ -13,16 +13,16 @@ const style = {
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center'
-};
+}
 
-export default function Notification(props) {
+export default function Notification (props) {
   return (
     <div style={style}>
-      <div id="notif">
-        <img style={{ height: '15px', marginLeft: '16px', 'marginRight': '16px' }} src='/assets/Infos.svg' alt="infos logo" />
+      <div id='notif'>
+        <img style={{ height: '15px', marginLeft: '16px', 'marginRight': '16px' }} src='/assets/Infos.svg' alt='infos logo' />
         <p>{props.text}</p>
       </div>
-      <img style={{ height: '9px', marginRight: '16px' }} src='/assets/Close.svg' alt="close logo" />
+      <img style={{ height: '9px', marginRight: '16px' }} src='/assets/Close.svg' alt='close logo' />
     </div>
-  );
+  )
 }

@@ -17,6 +17,11 @@
     "standard": "standard \"src/**/*.js\"",
     "standard-fix": "standard --fix \"src/**/*.js\""
   },
+  "standard": {
+    "env": [
+       "jest"
+    ]
+  },
   "devDependencies": {
     "standard": "^11.0.1"
   }

@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactSVG from 'react-svg';
+import React from 'react'
+import ReactSVG from 'react-svg'
 
-import './Header.css';
+import './Header.css'
 
 const style = {
   height: '64px',
@@ -18,25 +18,24 @@ const style = {
   marginRight: '16px'
 }
 
-export default function Header(props) {
-
+export default function Header (props) {
   const {username} = props
 
   return (
-    <div className="Header">
+    <div className='Header'>
       <div style={style}>
-        <div id="avatar-section">
-          <span id="avatar"></span>
-          <span id="avatar-text" style={{fontSize: '14px'}}>{username}</span>
-          <ReactSVG className="caret" path="/assets/Chevron.svg" />
+        <div id='avatar-section'>
+          <span id='avatar' />
+          <span id='avatar-text' style={{fontSize: '14px'}}>{username}</span>
+          <ReactSVG className='caret' path='/assets/Chevron.svg' />
         </div>
         <div>
-          <ReactSVG className="home" path="/assets/Home.svg" />
+          <ReactSVG className='home' path='/assets/Home.svg' />
         </div>
         {/* <img className="home" src="/assets/Home.svg" alt="homeLogo"/> */}
       </div>
       {props.children}
       {/* <div style={{height: '16px'}}></div> */}
     </div>
-  );
+  )
 }
