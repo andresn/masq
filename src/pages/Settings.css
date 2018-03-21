@@ -32,3 +32,18 @@
   display: flex;
   justify-content: center;
 }
+
+.parameters {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.parameters p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: 0.7px;
+  text-align: left;
+  color: #666666;
+  max-width: 277px;
+}

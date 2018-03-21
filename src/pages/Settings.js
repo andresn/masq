@@ -1,9 +1,10 @@
 import React from 'react'
 
 import Button from '../components/Button/Button'
-// import DeviceCard from '../components/DeviceCard';
 import TextInput from '../components/TextInput/TextInput'
 import SwitchButton from '../components/SwitchButton/SwitchButton'
+import CircleIndicator from '../components/CircleIndicator/CircleIndicator'
+import Separator from '../components/Separator'
 
 import './Settings.css'
 
@@ -30,9 +31,13 @@ export default function Devices (props) {
 
       <h1 style={{marginLeft: '16px'}}>Masq Parameters</h1>
 
-      <SwitchButton color='#458bf8' />
-      <SwitchButton secondary color='#458bf8' />
+      <div className='parameters'>
+        <CircleIndicator style={{alignSelf: 'flex-start'}} color='#458bf8' />
+        <p>Accept new applications automatically automaticallyautomatically</p>
+        <SwitchButton checked secondary color='#458bf8' />
+      </div>
 
+      <Separator />
       <div className='button-container'>
         <Button label='SUPPRIMER MON COMPTE' />
       </div>
