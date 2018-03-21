@@ -1,67 +1,64 @@
 .SwitchButton {
 	display: flex;
 	align-items: center;
+  justify-content: space-between;
+  width: 105px;
 }
 
 .switch-container {
-	position: relative;
-	width: 50px;
+  width: 50px;
+  height: 24px;
 }
 
-input[type="checkbox"] {
-	z-index: 1;
+.switch-container.secondary {
+  width: 32px;
+  height: 16px;
 }
 
-input[type="checkbox"].switch  {
-	position: absolute;
-	opacity: 0;
-	width: 100%;
-	height: 100%;
+.switch-container .background {
+  position: absolute;
+  width: 50px;
+  height: 24px;
+  background-color: #cccccc;
+  border-radius: 12px;
+  box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  transition-property: transform, background-color;
+  transition-duration: 0.4s;
 }
 
-input[type="checkbox"].switch + div {
-	vertical-align: middle;
-	width: 40px;
-	height: 20px;
-	border-radius: 999px;
-  background-color: grey;
+.switch-container .background.secondary {
+  background-color: white;
+  width: 32px;
+  height: 8px;
+  margin-top: 4px;
+  margin-left: 8px;
 }
 
-input[type="checkbox"].switch:checked + div {
-	width: 50px;
-	background-position: 0 0;
+.switch-container .cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  transition-duration: 0.4s;
+  margin-top: 2px;
+  margin-left: 2px;
 }
 
-input[type="checkbox"].switch + div {
-	width: 50px;
-	height: 24px;
+.switch-container .cursor.secondary {
+  width: 16px;
+  height: 16px;
+  margin-top: 0px;
+  margin-left: 0px;
 }
 
-input[type="checkbox"].switch + div > div {
-	float: left;
-	width: 20px;
-	height: 20px;
-	border-radius: inherit;
-	background: white;
-	-webkit-transition-timing-function: cubic-bezier(1,0,0,1);
-	transition-timing-function: cubic-bezier(1,0,0,1);
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-	-webkit-transition-property: transform, background-color;
-	transition-property: transform, background-color;
-	margin-top: 2px;
-	margin-left: 2px;
-}
-
-input[type="checkbox"].switch:checked + div > div {
-	-webkit-transform: translate3d(26px, 0, 0);
-	transform: translate3d(26px, 0, 0);
-}
-
-label {
-	margin:auto;
-	margin-right: 8px;
-	color: #191919;
-	font-size: 10px;
-	font-weight: 600;
+.SwitchButton label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #191919;
+  letter-spacing: 0.5px;
+  /* margin-right: 8px; */
 }

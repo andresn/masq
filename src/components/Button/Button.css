@@ -17,7 +17,7 @@
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.16), 0 10px 16px 0 rgba(69, 139, 248, 0.4);
 }
 
-.secondary {
+.Button.secondary {
   color: #458bf8;
   background-color: white;
 }

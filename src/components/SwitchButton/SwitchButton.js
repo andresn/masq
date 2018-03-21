@@ -22,21 +22,24 @@ export default class SwitchButton extends React.Component {
   }
 
   render () {
-    let style = {}
-    if (this.state.checked) {
-      style = { backgroundColor: this.props.color }
-    }
+    const translation = this.props.secondary ? '32px' : '26px'
+    const cursorStyle = this.state.checked ? {
+      transform: 'translate3d(' + translation + ', 0, 0)'
+    } : {}
+    const backgroundStyle = this.state.checked ? {
+      backgroundColor: this.props.color
+    } : {}
 
     const label = this.state.checked ? 'ENABLED' : 'DISABLED'
 
     return (
       <div className='SwitchButton'>
-        <label>{label}</label>
-        <div className='switch-container'>
-          <input ref='switch' checked={this.state.checked} onChange={this.toggle} className='switch' type='checkbox' />
-          <div id='background' style={style} >
-            <div />
-          </div>
+        {!this.props.secondary ? (<label>{label}</label>) : null}
+        <div className={'switch-container' + (this.props.secondary ? ' secondary' : '')} onClick={this.toggle}>
+          <div className={'background' + (this.props.secondary ? ' secondary' : '')} style={backgroundStyle} />
+          <div className={'cursor' + (this.props.secondary ? ' secondary' : '')}
+            style={cursorStyle}
+          />
         </div>
       </div>
     )
