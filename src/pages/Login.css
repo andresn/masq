@@ -1,0 +1,41 @@
+.Login h1 {
+  font-size: 30px;
+  line-height: 0.83;
+  text-align: center;
+  color: #191919;
+}
+
+.avatars-grid .avatar {
+  background-image: url('https://randomuser.me/api/portraits/women/79.jpg');
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+.avatars-grid .add-avatar {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+.avatars-grid p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.11;
+  color: #4c4c4c;
+}
+
+.avatars-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 40px;
+  grid-row-gap: 15px;
+  justify-content: center;
+}

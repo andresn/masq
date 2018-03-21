@@ -12,7 +12,7 @@
   justify-content: space-between;
 }
 
-.avatar {
+.Settings .avatar {
   background-image: url('https://randomuser.me/api/portraits/women/76.jpg');
   width: 120px;
   min-width: 120px;

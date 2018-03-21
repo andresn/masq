@@ -25,28 +25,45 @@ const tabs = [
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
+const isLoggedIn = false
+
+function AppLogged () {
+  return (
+    <div>
+      <Header
+        title='Hello'
+        username='Geoffrey'
+        shadow
+      >
+        <Notification text='This is a Notification!' />
+      </Header>
+
+      <Tabs tabs={tabs} />
+
+      <Route path='/login' component={Login} />
+      <div>
+        <Route path='/devices' component={Devices} />
+        <Route path='/applications' component={Applications} />
+        <Route path='/settings' component={Settings} />
+      </div>
+    </div>
+  )
+}
+
+function AppLoggedOut () {
+  return (
+    <div>
+      <Header />
+      <Login />
+    </div>
+  )
+}
+
 class App extends Component {
   render () {
     return (
       <Router>
-        <div style={{ height: '100%' }}>
-          {/* <SwitchButton/> */}
-          <Header
-            title='Hello'
-            username='Geoffrey'
-          >
-            <Notification text='This is a Notification!' />
-          </Header>
-
-          <Tabs tabs={tabs} />
-
-          {/* <li><Link to="/login">Login</Link></li> */}
-
-          <Route path='/login' component={Login} />
-          <Route path='/devices' component={Devices} />
-          <Route path='/applications' component={Applications} />
-          <Route path='/settings' component={Settings} />
-        </div>
+        {isLoggedIn ? <AppLogged /> : <AppLoggedOut />}
       </Router>
     )
   }

@@ -20,17 +20,32 @@ const style = {
   marginRight: '16px'
 }
 
+function TitleSection (props) {
+  return (
+    <div className='title-section'>
+      <p className='title'>Masq</p>
+      <p>&nbsp;by Qwant</p>
+    </div>
+  )
+}
+
+function AvatarSection (props) {
+  return (
+    <div id='avatar-section'>
+      <span id='avatar' />
+      <span id='avatar-text' style={{fontSize: '14px'}}>{props.username}</span>
+      <Chevron className='caret' />
+    </div>
+  )
+}
+
 export default function Header (props) {
-  const {username} = props
+  const {username, shadow} = props
 
   return (
-    <div className='Header'>
+    <div className={'Header' + (shadow ? ' shadow' : '')}>
       <div style={style}>
-        <div id='avatar-section'>
-          <span id='avatar' />
-          <span id='avatar-text' style={{fontSize: '14px'}}>{username}</span>
-          <Chevron className='caret' />
-        </div>
+        {username ? <AvatarSection username={username} /> : <TitleSection /> }
         <Home className='home' />
       </div>
       {props.children}

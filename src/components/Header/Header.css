@@ -2,7 +2,20 @@
   z-index: 1;
   position: relative;
   background-color: white;
+}
+
+.Header.shadow {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.title-section p {
+  display: inline-block;
+  font-size: 14px;
+  color: #4c4c4c;
+}
+
+.title-section .title {
+  color: #69a1f9;
 }
 
 #avatar-section {

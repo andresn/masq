@@ -41,7 +41,6 @@ class Tabs extends React.Component {
             onClick={() => this.onSelectTab(index)}
           >
             { tab.icon }
-            {/* <img src={tab.icon} alt={tab.icon} /> */}
             <p style={{marginLeft: '8px'}}>{tab.label}</p>
           </div>
         ))}
