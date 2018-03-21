@@ -8,6 +8,7 @@ import Devices from './pages/Devices'
 import Applications from './pages/Applications'
 import Settings from './pages/Settings'
 import Login from './pages/Login'
+import Register from './pages/Register'
 
 import Header from './components/Header/Header'
 import Tabs from './components/Tabs/Tabs'
@@ -54,7 +55,8 @@ function AppLoggedOut () {
   return (
     <div>
       <Header />
-      <Login />
+      {/* <Login /> */}
+      <Register />
     </div>
   )
 }

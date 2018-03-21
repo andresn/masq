@@ -1,0 +1,26 @@
+.Register h1 {
+  font-size: 30px;
+  line-height: 0.83;
+  text-align: center;
+  color: #191919;
+}
+
+.Register .avatar {
+  background-image: url('https://randomuser.me/api/portraits/women/21.jpg');
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+.Register .container {
+  width: 80%;
+  height: 380px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
