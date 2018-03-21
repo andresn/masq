@@ -2,7 +2,7 @@ import React from 'react'
 
 import TextInput from '../components/TextInput/TextInput'
 import Button from '../components/Button/Button'
-// import Divider from ''
+import Separator from '../components/Separator'
 
 import './Register.css'
 
@@ -15,6 +15,7 @@ export default function Register () {
         <TextInput label='Last Name' />
         <TextInput label='First Name' />
         <TextInput label='Username (displayed)' />
+        <Separator />
         <Button label='Confirm' />
       </div>
     </div>
