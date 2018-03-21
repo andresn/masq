@@ -3,6 +3,7 @@ import React from 'react'
 import Button from '../components/Button/Button'
 import Card from '../components/Card/Card'
 import Separator from '../components/Separator'
+import CircleIndicator from '../components/CircleIndicator/CircleIndicator'
 
 import './Devices.css'
 
@@ -31,7 +32,7 @@ function LastDevices (props) {
 function SyncStatus (props) {
   return (
     <div className='syncstatus'>
-      <div className='circlestatus' style={{border: 'solid 2px' + props.color}} />
+      <CircleIndicator color={props.color} />
       <p>10 days ago</p>
     </div>
   )
