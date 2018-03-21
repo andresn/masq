@@ -10,9 +10,8 @@ import Settings from './pages/Settings'
 import Login from './pages/Login'
 
 import Header from './components/Header/Header'
-import Tabs from './components/Tabs'
+import Tabs from './components/Tabs/Tabs'
 import Notification from './components/Notification/Notification'
-// import SwitchButton from './components/SwitchButton';
 
 import SmartphoneIcon from './icons/Smartphone'
 import AppsIcon from './icons/Apps'
