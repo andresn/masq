@@ -1,5 +1,5 @@
 
-let dbUser = new PouchDB('MasqUser')
+var hyperdb = require('hyperdb')
 let dbDataManagement = new PouchDB('MasqDataManagement')
 checkUserList()
 
@@ -434,6 +434,15 @@ let docs = [
     score: 333
   }
 ]
+
+async function testHyper () {
+  let db = hyperdb('./dbUser', {valueEncoding: 'utf-8'})
+  let put1 = await db.put('/users', 'users')
+  console.log('Initial put : 1')
+  console.log(put1)
+  let get1 = await db.get('/users')
+  console.log(get1)
+}
 
 async function test2 () {
   let db = new PouchDB('test2')
