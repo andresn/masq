@@ -1,8 +1,6 @@
 .SwitchButton {
 	display: flex;
 	align-items: center;
-  justify-content: space-between;
-  width: 105px;
 }
 
 .switch-container {
@@ -11,7 +9,7 @@
 }
 
 .switch-container.secondary {
-  width: 32px;
+  width: 40px;
   height: 16px;
 }
 
@@ -60,5 +58,5 @@
   font-weight: 600;
   color: #191919;
   letter-spacing: 0.5px;
-  /* margin-right: 8px; */
+  margin-right: 8px;
 }
