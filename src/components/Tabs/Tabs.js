@@ -24,7 +24,6 @@ class Tabs extends React.Component {
   }
 
   onSelectTab (key) {
-    console.log('onSelectTab')
     const { history, tabs } = this.props
 
     this.setState({ activeTab: key })
