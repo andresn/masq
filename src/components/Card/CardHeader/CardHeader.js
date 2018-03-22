@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import SwitchButton from 'components/SwitchButton/SwitchButton'
 
@@ -17,4 +18,8 @@ export default function CardHeader (props) {
       </div>
     </div>
   )
+}
+CardHeader.propTypes = {
+  color: PropTypes.string.isRequired,
+  enabled: PropTypes.bool.isRequired
 }
