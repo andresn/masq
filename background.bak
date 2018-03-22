@@ -1,0 +1,86 @@
+'use strict'
+
+let MasqStore = null
+
+function stringToJson (str) {
+  return JSON.parse(str)
+}
+
+const initDB = () => {
+  localforage.config({
+    driver: localforage.INDEXEDDB, // Force WebSQL same as using setDriver()
+    name: 'MasqStoreWebExtension',
+    version: 1.0,
+    storeName: 'Apps', // Should be alphanumeric, with underscores.
+    description: 'Store the applications data'
+  })
+}
+
+/**
+    *  Receive messages from contentscript.
+    *  Process requests.
+    */
+chrome.runtime.onConnect.addListener(function (port) {
+  console.log('add listeners')
+  let parsedData = null
+  port.onMessage.addListener(function (event) {
+    console.log('Background script - receive on port : ')
+    console.log(event)
+    // console.log(`${event.to} receives a ${event.type} from ${event.from}`)
+
+    switch (event.type) {
+      case 'handshake':
+        port.postMessage({
+          from: 'background',
+          to: 'webpage',
+          type: 'handshake_ack',
+          data: 'hello'
+        })
+        break
+      case 'initDB':
+        initDB()
+        console.log('\tHere we initialise the DB for the app ', event.data)
+        localforage.setItem(event.data, {name: event.data}).then(res => {
+          console.log('*** Initial state is stored on indexeddb : done ***')
+        })
+        port.postMessage({
+          from: 'background',
+          to: 'webpage',
+          type: 'initDB_ack',
+          data: 'ready'
+        })
+        break
+      case 'set':
+        parsedData = JSON.parse(event.data)
+        localforage.setItem(parsedData.key, parsedData.value).then(res => {
+          console.log(`*** The key ${parsedData.key} has been successfully stored.   ***`)
+        })
+        port.postMessage({
+          from: 'background',
+          to: 'webpage',
+          type: 'set_ack',
+          data: 'ok'
+        })
+        break
+      case 'get':
+        parsedData = JSON.parse(event.data)
+        localforage.getItem(parsedData.key).then(res => {
+          console.log(res)
+          console.log(JSON.stringify(res))
+          console.log(`*** Retireving the key ${parsedData.key} has been successfully done.   ***`)
+          port.postMessage({
+            from: 'background',
+            to: 'webpage',
+            type: 'get_ack',
+            data: JSON.stringify({value: res})
+          })
+        })
+
+        break
+
+      default:
+        break
+    }
+  })
+})
+
