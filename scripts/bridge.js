@@ -5,49 +5,53 @@
  * web app <---> bridge <-----> background
  */
 
-let clientId = ''
+console.log('I am the bridge between the web app and Masq Store')
 var port = chrome.runtime.connect()
 
-window.addEventListener('message', function (event) {
+window.addEventListener('message', event => {
   // We only accept messages from ourselves
   if (event.source !== window) { return }
 
-  if (event.data.method === 'set') {
-    console.log('set request received')
-    // return { data: 'ok' }
-    return setItem()
-  }
+  // if (event.data.method === 'set') {
+  //   console.log('set request received')
+  //   // return { data: 'ok' }
+  //   return setItem()
+  // }
   /**
  *  Receive messages from webpage.
  *  Transfer them to background.
  */
-  console.log(event.data)
 
-  if (event.data.to && (event.data.to === 'background')) {
-    console.log('Content script : ')
-    console.log(`\tReceive a ${event.data.type} request.`)
-    switch (event.data.type) {
-      case 'handshake':
-        //   console.log("Content script sends this message to backgound: " + event.data)
-        // port.postMessage(event.data)
-        break
-      case 'initDB':
-        // port.postMessage(event.data)
-        break
-      case 'set':
-        console.log(event.data)
-        // port.postMessage(event.data)
-        break
-      case 'get':
-        console.log(event.data)
-        // port.postMessage(event.data)
-        break
-
-      default:
-        break
+  if (event.data.method || event.data.type) {
+    console.log('Content script - receive on window : ')
+    // console.log(`\tReceive a ${event.data} request.`)
+    console.log(event.data)
+    console.log(port)
+    if (port) {
+      port.postMessage(event.data)
     }
-    // console.log("Content script received: " + event.data.text);
   }
+  // switch (event.data.type) {
+  //   case 'handshake':
+  //     //   console.log("Content script sends this message to backgound: " + event.data)
+  //     // port.postMessage(event.data)
+  //     break
+  //   case 'initDB':
+  //     // port.postMessage(event.data)
+  //     break
+  //   case 'set':
+  //     console.log(event.data)
+  //     // port.postMessage(event.data)
+  //     break
+  //   case 'get':
+  //     console.log(event.data)
+  //     // port.postMessage(event.data)
+  //     break
+
+  //   default:
+  //     break
+  // }
+  // console.log("Content script received: " + event.data.text);
 }, false)
 
 /**
@@ -55,42 +59,33 @@ window.addEventListener('message', function (event) {
  *  Transfer them to webpage.
  */
 port.onMessage.addListener(function (event) {
-  console.log('Content script : ')
-  console.log(`\t${event.from} sends a ${event.type} request to ${event.to}`)
-  if (event.to && (event.to == 'webpage')) {
-    switch (event.type) {
-      case 'handshake_ack':
-        // port.postMessage(event);
-        window.postMessage(
-          event,
-          '*')
-        break
-      case 'set_ack':
-        // port.postMessage(event);
-        window.postMessage(
-          event,
-          '*')
-        break
-      case 'get_ack':
-        // port.postMessage(event);
-        window.postMessage(
-          event,
-          '*')
-        break
+  console.log('Content script - receive on port : ')
+  console.log(`\tBackground sends a ${event} request to the application.`)
+  window.postMessage(
+    event,
+    '*')
+  // if (event.to && (event.to == 'webpage')) {
+  //   switch (event.type) {
+  //     case 'handshake_ack':
+  //       // port.postMessage(event);
+  //       window.postMessage(
+  //         event,
+  //         '*')
+  //       break
+  //     case 'set_ack':
+  //       // port.postMessage(event);
+  //       window.postMessage(
+  //         event,
+  //         '*')
+  //       break
+  //     case 'get_ack':
+  //       // port.postMessage(event);
+  //       window.postMessage(
+  //         event,
+  //         '*')
+  //       break
 
-      default:
-        break
-    }
-  }
-  // console.log("Content script received :",msg)
-  // console.log("Content script send the message to the webpage")
-  // window.postMessage({ type: "TO_PAGE", text: msg }, "*");
+  //     default:
+  //       break
+  //   }
 })
-
-console.log('je suis dans content script')
-console.log(window.location.origin)
-
-const setItem = () => {
-  window.postMessage({data: 'ok'
-  }, '*')
-}
