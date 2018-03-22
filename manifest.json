@@ -16,8 +16,8 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://127.0.0.1:8080/src/*","http://127.0.0.1:9999/src/*"],
-      "js": ["./scripts/connectMasqStore.js"],
+      "matches": ["http://127.0.0.1:8844/src/*","http://127.0.0.1:8080/src/*","http://127.0.0.1:9999/src/*"],
+      "js": ["./scripts/bridge.js"],
       "all_frames": true,
       "run_at": "document_start"
     }
