@@ -1,10 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Qwant Masq",
+  "name": "Qwant Masq",
   "manifest_version": 2,
     "browser_action": {
       "default_popup": "index.html",
-      "default_title": "React Ext"
+      "default_title": "Qwant Mask"
     },
   "version": "1.0"
 }
