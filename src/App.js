@@ -26,45 +26,69 @@ const tabs = [
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
-const isLoggedIn = false
-
-function AppLogged () {
+function HeaderLoggedIn (props) {
   return (
     <div>
       <Header
         title='Hello'
         username='Geoffrey'
         shadow
+        onLogout={props.onLogout}
       >
         <Notification text='This is a Notification!' />
       </Header>
 
       <Tabs tabs={tabs} />
-
-      <div>
-        <Route path='/devices' component={Devices} />
-        <Route path='/applications' component={Applications} />
-        <Route path='/settings' component={Settings} />
-      </div>
     </div>
   )
 }
 
-function AppLoggedOut () {
-  return (
+function HeaderLoggedOut (props) {
+  return <Header onLogout={props.onLogout} />
+}
+
+function ProtectedPages (props) {
+  return props.isAuthenticated ? (
     <div>
-      <Header />
-      <Route path='/login' component={Login} />
-      <Route path='/register' component={Register} />
+      <Route path='/devices' component={Devices} />
+      <Route path='/applications' component={Applications} />
+      <Route path='/settings' component={Settings} />
     </div>
-  )
+  ) : null
 }
 
 class App extends Component {
+  constructor () {
+    super()
+    this.state = { isAuthenticated: false }
+    this.authenticate = this.authenticate.bind(this)
+    this.signout = this.signout.bind(this)
+  }
+
+  authenticate () {
+    this.setState({ isAuthenticated: true })
+  }
+
+  signout () {
+    this.setState({ isAuthenticated: false })
+  }
+
   render () {
+    console.log('auth:', this.state.isAuthenticated)
     return (
       <Router>
-        {isLoggedIn ? <AppLogged /> : <AppLoggedOut />}
+        <div>
+          {this.state.isAuthenticated
+            ? <HeaderLoggedIn onLogout={this.signout} />
+            : <HeaderLoggedOut onLogout={this.signout} />}
+
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={() => (
+            <Login auth={this.authenticate} />
+          )} />
+
+          <ProtectedPages isAuthenticated={this.state.isAuthenticated} />
+        </div>
       </Router>
     )
   }

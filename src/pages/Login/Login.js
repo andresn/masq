@@ -1,40 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import PlusButton from 'icons/Plusbutton'
 
 import './Login.css'
 
-export default function Login () {
+export default function Login (props) {
   return (
     <div className='Login'>
       <h1>Who is it ?</h1>
 
       <div className='avatars-grid'>
-        <div>
+        <Link to='devices' onClick={props.auth}>
           <div className='avatar' />
           <p>Clarisse</p>
-        </div>
-        <div>
+        </Link>
+        <Link to='devices' onClick={props.auth}>
           <div className='avatar' />
           <p>Clarisse</p>
-        </div>
-        <div>
+        </Link>
+        <Link to='devices' onClick={props.auth}>
           <div className='avatar' />
           <p>Clarisse</p>
-        </div>
-        <div>
-          <div className='avatar' />
-          <p>Clarisse</p>
-        </div>
-        <div>
-          <div className='avatar' />
-          <p>Clarisse</p>
-        </div>
+        </Link>
 
-        <div>
+        <Link to='register'>
           <PlusButton />
           <p>Add user</p>
-        </div>
+        </Link>
       </div>
     </div>
   )

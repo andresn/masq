@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import Chevron from 'icons/Chevron'
 import Home from 'icons/Home'
 
@@ -46,7 +48,9 @@ export default function Header (props) {
     <div className={'Header' + (shadow ? ' shadow' : '')}>
       <div style={style}>
         {username ? <AvatarSection username={username} /> : <TitleSection /> }
-        <Home className='home' />
+        <Link to='login'>
+          <Home className='home' onClick={props.onLogout} />
+        </Link>
       </div>
       {props.children}
       {props.children ? (<div className='children' />) : null}
