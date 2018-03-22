@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import TextInput from '../components/TextInput/TextInput'
-import Button from '../components/Button/Button'
-import Separator from '../components/Separator'
+import TextInput from 'components/TextInput/TextInput'
+import Button from 'components/Button/Button'
+import Separator from 'components/Separator'
 
-import Chevron from '../icons/Chevron'
+import Chevron from 'icons/Chevron'
 
 import './Register.css'
 

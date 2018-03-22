@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Button from '../components/Button/Button'
-import Card from '../components/Card/Card'
-import Separator from '../components/Separator'
-import CircleIndicator from '../components/CircleIndicator/CircleIndicator'
+import Button from 'components/Button/Button'
+import Card from 'components/Card/Card'
+import Separator from 'components/Separator'
+import CircleIndicator from 'components/CircleIndicator/CircleIndicator'
 
 import './Devices.css'
 

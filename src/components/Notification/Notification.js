@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Infos from '../../icons/Infos'
-import Close from '../../icons/Close'
+import Infos from 'icons/Infos'
+import Close from 'icons/Close'
 
 import './Notification.css'
 

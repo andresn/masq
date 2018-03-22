@@ -4,19 +4,19 @@ import {
   Route
 } from 'react-router-dom'
 
-import Devices from './pages/Devices'
-import Applications from './pages/Applications'
-import Settings from './pages/Settings'
-import Login from './pages/Login'
-import Register from './pages/Register'
+import Devices from 'pages/Devices/Devices'
+import Applications from 'pages/Applications/Applications'
+import Settings from 'pages/Settings/Settings'
+import Login from 'pages/Login/Login'
+import Register from 'pages/Register/Register'
 
-import Header from './components/Header/Header'
-import Tabs from './components/Tabs/Tabs'
-import Notification from './components/Notification/Notification'
+import Header from 'components/Header/Header'
+import Tabs from 'components/Tabs/Tabs'
+import Notification from 'components/Notification/Notification'
 
-import SmartphoneIcon from './icons/Smartphone'
-import AppsIcon from './icons/Apps'
-import SettingsIcon from './icons/Settings'
+import SmartphoneIcon from 'icons/Smartphone'
+import AppsIcon from 'icons/Apps'
+import SettingsIcon from 'icons/Settings'
 
 import './App.css'
 

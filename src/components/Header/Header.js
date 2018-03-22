@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Chevron from '../../icons/Chevron'
-import Home from '../../icons/Home'
+import Chevron from 'icons/Chevron'
+import Home from 'icons/Home'
 
 import './Header.css'
 

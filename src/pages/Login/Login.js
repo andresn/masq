@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PlusButton from '../icons/Plusbutton'
+import PlusButton from 'icons/Plusbutton'
 
 import './Login.css'
 

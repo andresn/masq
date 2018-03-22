@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SwitchButton from '../../SwitchButton/SwitchButton'
+import SwitchButton from 'components/SwitchButton/SwitchButton'
 
 import './CardHeader.css'
 
