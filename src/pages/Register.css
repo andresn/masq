@@ -24,3 +24,19 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.Register p {
+  font-size: 14px;
+  line-height: 1.79;
+  color: #191919;
+}
+
+.Register .goback {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+}
+
+.Register .goback p {
+  margin-left: 8px;
+}
