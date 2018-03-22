@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './TextInput.css'
 
@@ -9,4 +10,9 @@ export default function TextInput (props) {
       <label>{props.label}</label>
     </div>
   )
+}
+
+TextInput.propTypes = {
+  defaultValue: PropTypes.string,
+  label: PropTypes.string.isRequired
 }

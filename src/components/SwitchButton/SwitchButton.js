@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './SwitchButton.css'
 
@@ -44,4 +45,11 @@ export default class SwitchButton extends React.Component {
       </div>
     )
   }
+}
+
+SwitchButton.propTypes = {
+  onClick: PropTypes.func,
+  secondary: PropTypes.bool,
+  checked: PropTypes.bool.isRequired,
+  color: PropTypes.string.isRequired
 }

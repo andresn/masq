@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import CardHeader from './CardHeader/CardHeader'
 
@@ -12,9 +13,7 @@ export default class Card extends React.Component {
   }
 
   toggleState () {
-    this.setState({
-      enabled: !this.state.enabled
-    })
+    this.setState({ enabled: !this.state.enabled })
   }
 
   render () {
@@ -38,4 +37,9 @@ export default class Card extends React.Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  children: PropTypes.element,
+  enabled: PropTypes.bool.isRequired
 }

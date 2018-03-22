@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import PlusButton from 'icons/Plusbutton'
@@ -31,4 +32,8 @@ export default function Login (props) {
       </div>
     </div>
   )
+}
+
+Login.propTypes = {
+  auth: PropTypes.func.isRequired
 }

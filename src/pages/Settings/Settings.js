@@ -1,10 +1,10 @@
 import React from 'react'
 
+import Separator from 'components/Separator'
 import Button from 'components/Button/Button'
 import TextInput from 'components/TextInput/TextInput'
 import SwitchButton from 'components/SwitchButton/SwitchButton'
 import CircleIndicator from 'components/CircleIndicator/CircleIndicator'
-import Separator from 'components/Separator'
 
 import './Settings.css'
 

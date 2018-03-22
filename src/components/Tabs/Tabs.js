@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
 import './Tabs.css'
@@ -11,7 +12,6 @@ const style = {
   justifyContent: 'space-evenly',
   color: '#707070',
   position: 'relative'
-  // boxShadow: '0 0 8px 0 rgba(0, 0, 0, 0.15)'
 }
 
 class Tabs extends React.Component {
@@ -50,3 +50,14 @@ class Tabs extends React.Component {
 }
 
 export default withRouter(Tabs)
+
+Tabs.propTypes = {
+  tabs: PropTypes.arrayOf((propValue, key) => {
+    const requiredKeys = ['label', 'link', 'icon']
+    const propKeys = Object.keys(propValue[key])
+
+    for (let key of requiredKeys) {
+      if (!propKeys.includes(key)) return new Error(key + ' is required')
+    }
+  })
+}

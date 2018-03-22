@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
@@ -56,4 +57,11 @@ export default function Header (props) {
       {props.children ? (<div className='children' />) : null}
     </div>
   )
+}
+
+Header.propTypes = {
+  shadow: PropTypes.bool,
+  onLogout: PropTypes.func,
+  username: PropTypes.string,
+  children: PropTypes.element
 }

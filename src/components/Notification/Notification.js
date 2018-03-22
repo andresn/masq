@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Infos from 'icons/Infos'
 import Close from 'icons/Close'
@@ -15,4 +16,8 @@ export default function Notification (props) {
       <Close className='close-icon' />
     </div>
   )
+}
+
+Notification.propTypes = {
+  text: PropTypes.string.isRequired
 }
