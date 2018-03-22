@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import TextInput from '../components/TextInput/TextInput'
 import Button from '../components/Button/Button'
@@ -11,10 +12,10 @@ import './Register.css'
 export default function Register () {
   return (
     <div className='Register'>
-      <div className='goback'>
+      <Link to='login' className='goback'>
         <Chevron transform='rotate(90)' color='#458bf8' />
         <p>Go back to the users list</p>
-      </div>
+      </Link>
       <h1>New User</h1>
       <div className='container'>
         <div className='avatar' />

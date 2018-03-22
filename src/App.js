@@ -41,7 +41,6 @@ function AppLogged () {
 
       <Tabs tabs={tabs} />
 
-      <Route path='/login' component={Login} />
       <div>
         <Route path='/devices' component={Devices} />
         <Route path='/applications' component={Applications} />
@@ -55,8 +54,8 @@ function AppLoggedOut () {
   return (
     <div>
       <Header />
-      {/* <Login /> */}
-      <Register />
+      <Route path='/login' component={Login} />
+      <Route path='/register' component={Register} />
     </div>
   )
 }
