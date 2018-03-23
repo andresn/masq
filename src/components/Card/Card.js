@@ -17,7 +17,7 @@ export default class Card extends React.Component {
   }
 
   render () {
-    const { image, title, description, color, enabled } = this.props
+    const { image, title, description, color, enabled, children } = this.props
 
     return (
       <div className='Card'>
@@ -31,7 +31,7 @@ export default class Card extends React.Component {
             <CardHeader className='CardHeader' color={color} enabled={enabled} />
             <h1 className='title'>{title}</h1>
             <p className='description'>{description}</p>
-            {this.props.children}
+            {children}
           </div>
         </div>
       </div>
@@ -40,6 +40,10 @@ export default class Card extends React.Component {
 }
 
 Card.propTypes = {
+  image: PropTypes.string,
   children: PropTypes.element,
+  description: PropTypes.string,
+  color: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   enabled: PropTypes.bool.isRequired
 }
