@@ -5,7 +5,7 @@
    justify-content: space-evenly;
 }
 
-.permissions {
+.Applications .permissions {
   color: #191919;
   font-size: 10px;
   font-weight: 600;
@@ -14,18 +14,14 @@
   justify-content: space-between;
 }
 
-.more {
+.Applications .more {
   display: flex;
   align-items: center;
 }
 
-.caret-icon {
+.Applications .caret-icon {
   vertical-align: middle;
   display: table-cell;
   padding-left: 8px;
   height: 5px;
-}
-
-caret-icon path {
-  fill: red;
 }

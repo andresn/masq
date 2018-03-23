@@ -1,17 +1,23 @@
-.icon path {
-  fill: #707070;
+.Tabs {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-evenly;
+  background-color: #f5f7fa;
+  color: #707070;
 }
 
-.tab {
+.Tabs #tab {
   display: flex;
   align-items: center;
   cursor: default;
 }
 
-.active {
-  color: #6ba3fa;
+.Tabs p {
+  margin-left: 8px;
 }
 
-.active path {
-  fill: #6ba3fa;
+.Tabs .active {
+  color: #6ba3fa;
 }

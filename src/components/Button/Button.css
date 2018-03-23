@@ -8,13 +8,13 @@
   border: solid 2px #458bf8;
 }
 
-.primary {
+.Button.primary {
   color: white;
   background-color: #458bf8;
   transition: box-shadow 0.2s ease-in-out;
 }
 
-.primary:hover {
+.Button.primary:hover {
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.16), 0 10px 16px 0 rgba(69, 139, 248, 0.4);
   transition: box-shadow 0.2s ease-in-out;
 }

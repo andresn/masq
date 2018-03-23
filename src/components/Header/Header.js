@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { Link } from 'react-router-dom'
 
 import Chevron from 'icons/Chevron'
@@ -8,25 +7,10 @@ import Home from 'icons/Home'
 
 import './Header.css'
 
-const style = {
-  height: '64px',
-  fontSize: '14px',
-  fontWeight: 'bold',
-  textAlign: 'left',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  borderTopLeftRadius: '8px',
-  borderTopRightRadius: '8px',
-  marginLeft: '16px',
-  marginRight: '16px'
-}
-
 function TitleSection (props) {
   return (
-    <div className='title-section'>
-      <p className='title'>Masq</p>
+    <div id='title-section'>
+      <p id='title'>Masq</p>
       <p>&nbsp;by Qwant</p>
     </div>
   )
@@ -47,7 +31,7 @@ export default function Header (props) {
 
   return (
     <div className={'Header' + (shadow ? ' shadow' : '')}>
-      <div style={style}>
+      <div id='top-section'>
         {username ? <AvatarSection username={username} /> : <TitleSection /> }
         <Link to='login'>
           <Home className='home' onClick={props.onLogout} />

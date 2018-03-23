@@ -1,4 +1,4 @@
-.profile {
+.Settings .profile {
   display: flex;
   justify-content: space-between;
   padding-left: 16px;
@@ -6,7 +6,7 @@
   height: 220px;
 }
 
-.fields {
+.Settings .fields {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,17 +28,17 @@
   width: 224px;
 }
 
-.button-container {
+.Settings .button-container {
   display: flex;
   justify-content: center;
 }
 
-.parameters {
+.Settings .parameters {
   display: flex;
   justify-content: space-evenly;
 }
 
-.parameters p {
+.Settings .parameters p {
   margin: 0;
   font-size: 14px;
   line-height: 1.29;

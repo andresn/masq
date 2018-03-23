@@ -9,11 +9,11 @@ import './Notification.css'
 export default function Notification (props) {
   return (
     <div className='Notification'>
-      <div className='leftNotif'>
-        <Infos className='infos-icon' />
+      <div id='left-notif'>
+        <Infos id='infos-icon' />
         <p>{props.text}</p>
       </div>
-      <Close className='close-icon' />
+      <Close id='close-icon' />
     </div>
   )
 }

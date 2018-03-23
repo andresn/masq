@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import './CircleIndicator.css'
 
 export default function CircleIndicator (props) {
+  const { color } = props
   return (
-    <div className='circlestatus' style={{border: 'solid 2px' + props.color}} />
+    <div className='CircleIndicator' style={{border: 'solid 2px' + color}} />
   )
 }
 

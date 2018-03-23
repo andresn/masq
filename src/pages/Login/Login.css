@@ -5,7 +5,7 @@
   color: #191919;
 }
 
-.avatars-grid .avatar {
+.Login .avatars-grid .avatar {
   background-image: url('https://randomuser.me/api/portraits/women/79.jpg');
   width: 120px;
   height: 120px;
@@ -15,7 +15,7 @@
   border-radius: 50%;
 }
 
-.avatars-grid .add-avatar {
+.Login .avatars-grid .add-avatar {
   width: 120px;
   height: 120px;
   min-width: 120px;
@@ -24,7 +24,7 @@
   border-radius: 50%;
 }
 
-.avatars-grid p {
+.Login .avatars-grid p {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
@@ -32,7 +32,7 @@
   color: #4c4c4c;
 }
 
-.avatars-grid {
+.Login .avatars-grid {
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 40px;

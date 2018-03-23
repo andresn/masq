@@ -4,26 +4,41 @@
   background-color: white;
 }
 
+.Header #top-section {
+  display: flex;
+  height: 64px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-size: 14px;
+  text-align: left;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  justify-content: space-between;
+}
+
 .Header.shadow {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
 }
 
-.title-section p {
+.Header #title-section p {
   display: inline-block;
   font-size: 14px;
   color: #4c4c4c;
 }
 
-.title-section .title {
+.Header #title-section  #title {
   color: #69a1f9;
 }
 
-#avatar-section {
+.Header #avatar-section {
   display: flex;
   align-items: center;
 }
 
-#avatar {
+.Header #avatar {
   background-image: url('https://randomuser.me/api/portraits/women/76.jpg');
   width: 32px;
   height: 32px;
@@ -34,7 +49,7 @@
   display: table-cell;
 }
 
-#avatar-text {
+.Header #avatar-text {
   padding-left: 8px;
   vertical-align: middle;
   display: table-cell;

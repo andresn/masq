@@ -1,10 +1,10 @@
 .CardHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.line {
+.CardHeader .line {
   width: 40px;
   height: 4px;
   border-radius: 2px;

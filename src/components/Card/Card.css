@@ -6,30 +6,28 @@
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
-.flex {
+.Card .flex {
   display: flex;
-  /* margin-top: 16px; */
 }
 
-#content {
+.Card .content {
   margin: auto;
   margin-top: 16px;
   width: 330px;
 }
 
-.title {
+.Card .title {
   color: #191919;
   font-size: 20px;
   font-weight: 600;
 }
 
-.description {
+.Card .description {
   color: #707070;
   font-size: 14px;
 }
 
-.image {
-  /* width: 100%; */
+.Card .image {
   height: 100px;
   background-size: cover;
   background-position: top center;

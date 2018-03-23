@@ -4,16 +4,6 @@ import { withRouter } from 'react-router-dom'
 
 import './Tabs.css'
 
-const style = {
-  height: '65px',
-  backgroundColor: '#f5f7fa',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-evenly',
-  color: '#707070',
-  position: 'relative'
-}
-
 class Tabs extends React.Component {
   constructor (props) {
     super(props)
@@ -31,17 +21,18 @@ class Tabs extends React.Component {
   }
 
   render () {
+    const { tabs } = this.props
     const { activeTab } = this.state
 
     return (
-      <div style={style}>
-        {this.props.tabs.map((tab, index) => (
-          <div className={'tab ' + (index === activeTab ? 'active' : 'inactive')}
+      <div className='Tabs'>
+        {tabs.map((tab, index) => (
+          <div id='tab' className={index === activeTab ? 'active' : 'inactive'}
             key={index}
             onClick={() => this.onSelectTab(index)}
           >
             { tab.icon }
-            <p style={{marginLeft: '8px'}}>{tab.label}</p>
+            <p>{tab.label}</p>
           </div>
         ))}
       </div>

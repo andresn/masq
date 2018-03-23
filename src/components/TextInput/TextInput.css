@@ -4,8 +4,7 @@
   width: 100%;
 }
 
-input {
-  /* width: 301px; */
+.TextInput input {
   height: 33px;
   border-radius: 3px;
   border: solid 1px #cccccc;
@@ -13,12 +12,12 @@ input {
   padding-left: 8px;
 }
 
-input:focus {
+.TextInput input:focus {
   outline: none;
   border: solid 1px #458bf8;
 }
 
-input:focus + label {
+.TextInput input:focus + label {
   color: #458bf8;
 }
 
