@@ -11,7 +11,7 @@
 .Tabs #tab {
   display: flex;
   align-items: center;
-  cursor: default;
+  cursor: pointer;
 }
 
 .Tabs p {
