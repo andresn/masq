@@ -6,6 +6,7 @@
 .SwitchButton #switch-container {
   width: 50px;
   height: 24px;
+	cursor: pointer;
 }
 
 .SwitchButton #switch-container.secondary {
