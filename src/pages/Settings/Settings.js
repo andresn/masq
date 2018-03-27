@@ -1,20 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Separator from 'components/Separator'
 import Button from 'components/Button/Button'
+import Avatar from 'components/Avatar/Avatar'
 import TextInput from 'components/TextInput/TextInput'
 import SwitchButton from 'components/SwitchButton/SwitchButton'
 import CircleIndicator from 'components/CircleIndicator/CircleIndicator'
-import Avatar from 'components/Avatar/Avatar'
 
 import './Settings.css'
 
 export default function Devices (props) {
-  const user = {
-    lastname: 'Bonneville',
-    firstname: 'Geoffrey',
-    pseudo: 'G-Ray'
-  }
+  const { user } = props
 
   return (
     <div className='Settings' style={{ backgroundColor: '#f5f7fa', paddingTop: '1px' }}>
@@ -22,11 +19,11 @@ export default function Devices (props) {
       <h1 style={{marginLeft: '16px'}}>Your Profile</h1>
 
       <div className='profile'>
-        <Avatar upload image='https://randomuser.me/api/portraits/women/76.jpg' />
+        <Avatar upload image={user.image} />
         <div className='fields'>
           <TextInput label='Last Name' defaultValue={user.lastname} />
           <TextInput label='First Name' defaultValue={user.firstname} />
-          <TextInput label='Username (Displayed)' defaultValue={user.pseudo} />
+          <TextInput label='Username (Displayed)' defaultValue={user.username} />
         </div>
       </div>
 
@@ -44,4 +41,8 @@ export default function Devices (props) {
       </div>
     </div>
   )
+}
+
+Devices.propTypes = {
+  user: PropTypes.object.isRequired
 }

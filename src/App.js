@@ -27,9 +27,24 @@ const tabs = [
 ]
 
 const users = [
-  { image: 'https://randomuser.me/api/portraits/women/79.jpg', firstname: 'Clarisse' },
-  { image: 'https://randomuser.me/api/portraits/men/1.jpg', firstname: 'Benoit' },
-  { image: 'https://randomuser.me/api/portraits/women/10.jpg', firstname: 'Sandrine' }
+  {
+    image: 'https://randomuser.me/api/portraits/women/79.jpg',
+    firstname: 'Alicia',
+    lastname: 'Ford',
+    username: 'Mustang'
+  },
+  {
+    image: 'https://randomuser.me/api/portraits/men/1.jpg',
+    firstname: 'Jeffrey',
+    lastname: 'Hoffman',
+    username: 'Jeff'
+  },
+  {
+    image: 'https://randomuser.me/api/portraits/women/10.jpg',
+    firstname: 'Ida',
+    lastname: 'Meyer',
+    username: 'Idada'
+  }
 ]
 
 function HeaderLoggedIn (props) {
@@ -58,7 +73,7 @@ function ProtectedPages (props) {
     <div>
       <Route path='/devices' component={Devices} />
       <Route path='/applications' component={Applications} />
-      <Route path='/settings' component={Settings} />
+      <Route path='/settings' component={() => <Settings user={props.user} />} />
     </div>
   ) : null
 }
@@ -99,7 +114,7 @@ class App extends Component {
             <Login auth={this.authenticate} users={users} />
           )} />
 
-          <ProtectedPages isAuthenticated={this.state.isAuthenticated} />
+          <ProtectedPages isAuthenticated={this.state.isAuthenticated} user={this.state.currentUser} />
         </div>
       </Router>
     )
