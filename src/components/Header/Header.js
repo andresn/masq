@@ -21,7 +21,7 @@ function TitleSection (props) {
 function AvatarSection (props) {
   return (
     <div id='avatar-section'>
-      <Avatar image='https://randomuser.me/api/portraits/women/21.jpg' />
+      <Avatar image={props.image} />
       <span id='avatar-text' style={{fontSize: '14px'}}>{props.username}</span>
       <Chevron className='caret' />
     </div>
@@ -29,12 +29,12 @@ function AvatarSection (props) {
 }
 
 export default function Header (props) {
-  const {username, shadow} = props
+  const {user, shadow} = props
 
   return (
     <div className={'Header' + (shadow ? ' shadow' : '')}>
       <div id='top-section'>
-        {username ? <AvatarSection username={username} /> : <TitleSection /> }
+        {user ? <AvatarSection username={user.firstname} image={user.image} /> : <TitleSection /> }
         <Link to='login'>
           <Home className='home' onClick={props.onLogout} />
         </Link>
@@ -48,6 +48,6 @@ export default function Header (props) {
 Header.propTypes = {
   shadow: PropTypes.bool,
   onLogout: PropTypes.func,
-  username: PropTypes.string,
+  user: PropTypes.object,
   children: PropTypes.element
 }

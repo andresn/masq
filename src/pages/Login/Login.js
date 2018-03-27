@@ -9,23 +9,18 @@ import PlusButton from 'icons/Plusbutton'
 import './Login.css'
 
 export default function Login (props) {
+  const { users } = props
   return (
     <div className='Login'>
       <h1>Who is it ?</h1>
 
       <div className='avatars-grid'>
-        <Link to='devices' onClick={props.auth}>
-          <Avatar image='https://randomuser.me/api/portraits/women/79.jpg' />
-          <p>Clarisse</p>
-        </Link>
-        <Link to='devices' onClick={props.auth}>
-          <Avatar image='https://randomuser.me/api/portraits/men/1.jpg' />
-          <p>Benoit</p>
-        </Link>
-        <Link to='devices' onClick={props.auth}>
-          <Avatar image='https://randomuser.me/api/portraits/women/10.jpg' />
-          <p>Sandrine</p>
-        </Link>
+        {users.map((user, index) =>
+          <Link key={index} to='devices' onClick={() => props.auth(index)}>
+            <Avatar image={user.image} />
+            <p>{user.firstname}</p>
+          </Link>
+        )}
 
         <Link to='register'>
           <PlusButton />
@@ -37,5 +32,6 @@ export default function Login (props) {
 }
 
 Login.propTypes = {
-  auth: PropTypes.func.isRequired
+  auth: PropTypes.func.isRequired,
+  users: PropTypes.array.isRequired
 }

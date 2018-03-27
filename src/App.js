@@ -26,12 +26,18 @@ const tabs = [
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
+const users = [
+  { image: 'https://randomuser.me/api/portraits/women/79.jpg', firstname: 'Clarisse' },
+  { image: 'https://randomuser.me/api/portraits/men/1.jpg', firstname: 'Benoit' },
+  { image: 'https://randomuser.me/api/portraits/women/10.jpg', firstname: 'Sandrine' }
+]
+
 function HeaderLoggedIn (props) {
   return (
     <div>
       <Header
         title='Hello'
-        username='Geoffrey'
+        user={props.user}
         shadow
         onLogout={props.onLogout}
       >
@@ -65,26 +71,32 @@ class App extends Component {
     this.signout = this.signout.bind(this)
   }
 
-  authenticate () {
-    this.setState({ isAuthenticated: true })
+  authenticate (indexUser) {
+    this.setState({
+      isAuthenticated: true,
+      currentUser: users[indexUser]
+    })
   }
 
   signout () {
-    this.setState({ isAuthenticated: false })
+    this.setState({
+      currentUser: null,
+      isAuthenticated: false
+    })
   }
 
   render () {
-    console.log('auth:', this.state.isAuthenticated)
+    console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
     return (
       <Router>
         <div>
           {this.state.isAuthenticated
-            ? <HeaderLoggedIn onLogout={this.signout} />
+            ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} />
             : <HeaderLoggedOut onLogout={this.signout} />}
 
           <Route path='/register' component={Register} />
           <Route path='/login' component={() => (
-            <Login auth={this.authenticate} />
+            <Login auth={this.authenticate} users={users} />
           )} />
 
           <ProtectedPages isAuthenticated={this.state.isAuthenticated} />
