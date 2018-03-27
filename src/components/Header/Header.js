@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import Avatar from 'components/Avatar/Avatar'
+
 import Chevron from 'icons/Chevron'
 import Home from 'icons/Home'
 
@@ -19,7 +21,7 @@ function TitleSection (props) {
 function AvatarSection (props) {
   return (
     <div id='avatar-section'>
-      <span id='avatar' />
+      <Avatar image='https://randomuser.me/api/portraits/women/21.jpg' />
       <span id='avatar-text' style={{fontSize: '14px'}}>{props.username}</span>
       <Chevron className='caret' />
     </div>

@@ -5,6 +5,8 @@ import TextInput from 'components/TextInput/TextInput'
 import Button from 'components/Button/Button'
 import Separator from 'components/Separator'
 
+import Avatar from 'components/Avatar/Avatar'
+
 import Chevron from 'icons/Chevron'
 
 import './Register.css'
@@ -18,7 +20,7 @@ export default function Register () {
       </Link>
       <h1>New User</h1>
       <div className='container'>
-        <div className='avatar' />
+        <Avatar upload image='https://randomuser.me/api/portraits/women/21.jpg' />
         <TextInput label='Last Name' />
         <TextInput label='First Name' />
         <TextInput label='Username (displayed)' />

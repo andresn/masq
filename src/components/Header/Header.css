@@ -38,15 +38,9 @@
   align-items: center;
 }
 
-.Header #avatar {
-  background-image: url('https://randomuser.me/api/portraits/women/76.jpg');
+.Header .Avatar {
   width: 32px;
   height: 32px;
-  background-size: cover;
-  background-position: top center;
-  border-radius: 50%;
-  vertical-align: middle;
-  display: table-cell;
 }
 
 .Header #avatar-text {
