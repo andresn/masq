@@ -5,6 +5,7 @@ import Button from 'components/Button/Button'
 import TextInput from 'components/TextInput/TextInput'
 import SwitchButton from 'components/SwitchButton/SwitchButton'
 import CircleIndicator from 'components/CircleIndicator/CircleIndicator'
+import Avatar from 'components/Avatar/Avatar'
 
 import './Settings.css'
 
@@ -21,7 +22,7 @@ export default function Devices (props) {
       <h1 style={{marginLeft: '16px'}}>Your Profile</h1>
 
       <div className='profile'>
-        <div className='avatar' />
+        <Avatar />
         <div className='fields'>
           <TextInput label='Last Name' defaultValue={user.lastname} />
           <TextInput label='First Name' defaultValue={user.firstname} />
