@@ -22,7 +22,7 @@ export default function Devices (props) {
       <h1 style={{marginLeft: '16px'}}>Your Profile</h1>
 
       <div className='profile'>
-        <Avatar />
+        <Avatar upload image='https://randomuser.me/api/portraits/women/76.jpg' />
         <div className='fields'>
           <TextInput label='Last Name' defaultValue={user.lastname} />
           <TextInput label='First Name' defaultValue={user.firstname} />
