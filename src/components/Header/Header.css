@@ -26,11 +26,11 @@
 .Header #title-section p {
   display: inline-block;
   font-size: 14px;
-  color: #4c4c4c;
+  color: var(--grey3-color);
 }
 
 .Header #title-section  #title {
-  color: #69a1f9;
+  color: var(--main-highlight-color);
 }
 
 .Header #avatar-section {
@@ -48,7 +48,7 @@
   vertical-align: middle;
   display: table-cell;
   font-size: 14px;
-  color: #4c4c4c;
+  color: var(--grey4-color);
 }
 
 .caret {
@@ -59,11 +59,11 @@
 }
 
 .caret {
-  color: #b2b2b2;
+  color: var(--grey2-color);
 }
 
 .home {
-  color: #458bf8;
+  color: var(--main-highlight-color);
 }
 
 .children {

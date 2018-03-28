@@ -6,14 +6,14 @@
 	width: 378px;
 	height: 40px;
 	border-radius: 3px;
-	border: solid 1px #e5e5e5;
+	border: solid 1px var(--grey1-color);;
 	margin: auto;
 	vertical-align: middle;
 }
 
 .Notification p {
 	margin-left: 8px;
-	color: #707070;
+	color: var(--grey3-color);
 	font-size: 12px;
 }
 
@@ -25,11 +25,11 @@
 
 .Notification #infos-icon {
 	height: 15px;
-	color: #458bf8;
+	color: var(--main-highlight-color);
 }
 
 .Notification #close-icon {
 	height: 9px;
 	margin-right: 8px;
-	color: #999999;
+	color: var(--grey2-color);
 }

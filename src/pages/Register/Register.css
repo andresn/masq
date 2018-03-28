@@ -2,7 +2,7 @@
   font-size: 30px;
   line-height: 0.83;
   text-align: center;
-  color: #191919;
+  color: var(--grey5-color);
 }
 
 .Register .container {
@@ -18,7 +18,7 @@
 .Register p {
   font-size: 14px;
   line-height: 1.79;
-  color: #191919;
+  color: var(--grey5-color);
 }
 
 .Register .goback {

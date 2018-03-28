@@ -4,8 +4,8 @@
   align-items: center;
   position: relative;
   justify-content: space-evenly;
-  background-color: #f5f7fa;
-  color: #707070;
+  background-color: var(--main-bg-color);
+  color: var(--grey3-color);
 }
 
 .Tabs #tab {
@@ -19,5 +19,5 @@
 }
 
 .Tabs .active {
-  color: #6ba3fa;
+  color: var(--main-highlight-color);
 }

@@ -2,7 +2,7 @@
   font-size: 30px;
   line-height: 0.83;
   text-align: center;
-  color: #191919;
+  color: var(--grey5-color);
 }
 
 .Login .avatars-grid .add-avatar {
@@ -19,7 +19,7 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 1.11;
-  color: #4c4c4c;
+  color: var(--grey4-color)
 }
 
 .Login .avatars-grid {

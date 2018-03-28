@@ -7,23 +7,23 @@
 .TextInput input {
   height: 33px;
   border-radius: 3px;
-  border: solid 1px #cccccc;
+  border: solid 1px var(--grey2-color);
   font-size: 14px;
   padding-left: 8px;
 }
 
 .TextInput input:focus {
   outline: none;
-  border: solid 1px #458bf8;
+  border: solid 1px var(--main-highlight-color);
 }
 
 .TextInput input:focus + label {
-  color: #458bf8;
+  color: var(--main-highlight-color);
 }
 
 .TextInput label {
   margin: 0;
   font-size: 12px;
   margin-bottom: 8px;
-  color: #707070;
+  color: var(--grey3-color);
 }

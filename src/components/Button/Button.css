@@ -5,13 +5,13 @@
   outline: none;
   border-radius: 25px;
   font-weight: 600;
-  border: solid 2px #458bf8;
+  border: solid 2px var(--main-highlight-color);
   cursor: pointer;
 }
 
 .Button.primary {
   color: white;
-  background-color: #458bf8;
+  background-color: var(--main-highlight-color);
   transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -21,6 +21,6 @@
 }
 
 .Button.secondary {
-  color: #458bf8;
+  color: var(--main-highlight-color);
   background-color: white;
 }

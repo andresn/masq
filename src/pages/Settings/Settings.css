@@ -32,6 +32,6 @@
   line-height: 1.29;
   letter-spacing: 0.7px;
   text-align: left;
-  color: #666666;
+  color: var(--grey3-color);
   max-width: 277px;
 }

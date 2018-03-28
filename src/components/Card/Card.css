@@ -2,7 +2,7 @@
   width: 378px;
   min-height: 114px;
   border-radius: 3px;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -17,13 +17,13 @@
 }
 
 .Card .title {
-  color: #191919;
+  color: var(--grey5-color);
   font-size: 20px;
   font-weight: 600;
 }
 
 .Card .description {
-  color: #707070;
+  color: var(--grey3-color);
   font-size: 14px;
 }
 

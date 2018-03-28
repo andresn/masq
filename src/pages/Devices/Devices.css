@@ -10,12 +10,12 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: #b2b2b2;
+  color: var(--grey2-color);
   justify-content: space-between;
 }
 
 .Devices .syncstatus {
-  color: #191919;
+  color: var(--grey5-color);
   font-size: 10px;
   display: flex;
   align-items: center;

@@ -1,5 +1,12 @@
 * {
   font-family: Asap;
+  --main-bg-color: #f5f7fa;
+  --main-highlight-color: #6ba3fa;
+  --grey1-color: #e5e5e5;
+  --grey2-color: #b2b2b2;
+  --grey3-color: #707070;
+  --grey4-color: #4c4c4c;
+  --grey5-color: #191919;
 }
 
 body {
