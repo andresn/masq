@@ -25,9 +25,11 @@
 
 .Notification #infos-icon {
 	height: 15px;
+	color: #458bf8;
 }
 
 .Notification #close-icon {
 	height: 9px;
 	margin-right: 8px;
+	color: #999999;
 }
