@@ -116,11 +116,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path='/register' component={Register} />
           {this.state.isAuthenticated
             ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
             : <HeaderLoggedOut onLogout={this.signout} />
           }
+
+          <Route path='/register' component={Register} />
 
           <Switch>
             <Redirect exact from='/' to='/login' />
