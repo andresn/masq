@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
+  Redirect,
   Route
 } from 'react-router-dom'
 
@@ -114,12 +115,14 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Route path='/register' component={Register} />
           {this.state.isAuthenticated
             ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
-            : <HeaderLoggedOut onLogout={this.signout} />}
+            : <HeaderLoggedOut onLogout={this.signout} />
+          }
 
-          <Route path='/register' component={Register} />
-          <Route path='/login' component={() => (
+          <Route exact path='/' render={() => <Redirect to='/login' />} />
+          <Route exact path='/login' component={() => (
             <Login auth={this.authenticate} users={users} />
           )} />
 
