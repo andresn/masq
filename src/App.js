@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Redirect,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom'
 
 import Devices from 'pages/Devices/Devices'
@@ -121,10 +122,12 @@ class App extends Component {
             : <HeaderLoggedOut onLogout={this.signout} />
           }
 
-          <Route exact path='/' render={() => <Redirect to='/login' />} />
-          <Route exact path='/login' component={() => (
-            <Login auth={this.authenticate} users={users} />
-          )} />
+          <Switch>
+            <Redirect exact from='/' to='/login' />
+            <Route exact path='/login' component={() => (
+              <Login auth={this.authenticate} users={users} />
+            )} />
+          </Switch>
 
           <ProtectedPages isAuthenticated={this.state.isAuthenticated} user={this.state.currentUser} />
         </div>
