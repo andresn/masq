@@ -13,11 +13,12 @@ export default function Notification (props) {
         <Infos id='infos-icon' />
         <p>{props.text}</p>
       </div>
-      <Close id='close-icon' />
+      <Close id='close-icon' onClick={props.onClose} />
     </div>
   )
 }
 
 Notification.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  onClose: PropTypes.func
 }

@@ -56,7 +56,10 @@ function HeaderLoggedIn (props) {
         shadow
         onLogout={props.onLogout}
       >
-        <Notification text='This is a Notification!' />
+        {props.notif
+          ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
+          : null
+        }
       </Header>
 
       <Tabs tabs={tabs} />
@@ -81,13 +84,19 @@ function ProtectedPages (props) {
 class App extends Component {
   constructor () {
     super()
-    this.state = { isAuthenticated: false }
+    this.state = { isAuthenticated: false, notif: true }
     this.authenticate = this.authenticate.bind(this)
+    this.onCloseNotif = this.onCloseNotif.bind(this)
     this.signout = this.signout.bind(this)
+  }
+
+  onCloseNotif () {
+    this.setState({ notif: false })
   }
 
   authenticate (indexUser) {
     this.setState({
+      notif: true,
       isAuthenticated: true,
       currentUser: users[indexUser]
     })
@@ -106,7 +115,7 @@ class App extends Component {
       <Router>
         <div>
           {this.state.isAuthenticated
-            ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} />
+            ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
             : <HeaderLoggedOut onLogout={this.signout} />}
 
           <Route path='/register' component={Register} />
