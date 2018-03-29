@@ -50,6 +50,7 @@ const users = [
 ]
 
 const devices = [
+  { name: 'TV de Margaux', color: '#86e991', enabled: true, new: true },
   { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
   { name: 'iPad de Margaux', color: '#86e991', enabled: false },
   { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
