@@ -56,6 +56,30 @@ const devices = [
   { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
 ]
 
+const applications = [
+  {
+    name: 'Qwant Music',
+    color: '#5c00f3',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    enabled: true,
+    image: 'https://images.pexels.com/photos/63703/pexels-photo-63703.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    active: true
+  },
+  {
+    name: 'Qwant Maps',
+    color: '#a3005c',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    enabled: false,
+    image: 'https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
+  },
+  {
+    name: 'Qwant Shopping',
+    color: '#01cbd9',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    enabled: true
+  }
+]
+
 function HeaderLoggedIn (props) {
   return (
     <div>
@@ -145,7 +169,7 @@ class App extends Component {
             ? (
               <div>
                 <Route path='/devices' component={() => <Devices devices={devices} onChecked={this.onChecked} />} />
-                <Route path='/applications' component={Applications} />
+                <Route path='/applications' component={() => <Applications applications={applications} onChecked={this.onAppChecked} />} />
                 <Route path='/settings' component={() => <Settings user={this.state.currentUser} />} />
               </div>)
             : null
