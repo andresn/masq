@@ -28,7 +28,7 @@ function AppRows (props) {
       app.active === active
         ? (
           <div key={index} >
-            <AppRow app={app} />
+            <AppRow app={app} onChecked={() => props.onChecked(index)} />
             <Separator />
           </div>
         )
@@ -45,12 +45,12 @@ export default function Applications (props) {
 
       <h1 style={{marginLeft: '16px'}}>Currently active Applications</h1>
       <div className='Applications'>
-        <AppRows applications={applications} active />
+        <AppRows applications={applications} active onChecked={props.onChecked} />
       </div>
 
       <h1 style={{marginLeft: '16px'}}>Currently connected to your Masq</h1>
       <div className='Applications'>
-        <AppRows applications={applications} />
+        <AppRows applications={applications} onChecked={props.onChecked} />
       </div>
     </div>
   )

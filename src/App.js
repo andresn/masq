@@ -108,11 +108,17 @@ function HeaderLoggedOut (props) {
 class App extends Component {
   constructor () {
     super()
-    this.state = { isAuthenticated: false, notif: true, devices: devices.slice() }
+    this.state = {
+      isAuthenticated: false,
+      notif: true,
+      devices: devices.slice(),
+      applications: applications.slice()
+    }
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
     this.signout = this.signout.bind(this)
     this.onChecked = this.onChecked.bind(this)
+    this.onAppChecked = this.onAppChecked.bind(this)
   }
 
   onCloseNotif () {
@@ -131,7 +137,6 @@ class App extends Component {
     this.setState({
       currentUser: null,
       isAuthenticated: false
-
     })
   }
 
@@ -141,9 +146,16 @@ class App extends Component {
       return dev
     })
 
-    this.setState({
-      devices: devices
+    this.setState({ devices })
+  }
+
+  onAppChecked (index) {
+    const applications = this.state.applications.map((app, i) => {
+      if (index === i) app.enabled = !app.enabled
+      return app
     })
+
+    this.setState({ applications })
   }
 
   render () {
