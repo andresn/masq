@@ -20,7 +20,7 @@ function LastDevices (props) {
           <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={props.onChecked}>
             <div className='lastsync'>
               <p>LAST SYNCHRONIZATION</p>
-              <SyncStatus color={device.enabled ? device.color : '#707070'} />
+              <SyncStatus color={device.enabled ? device.color : '#b2b2b2'} />
             </div>
           </Card>
           <Separator />
@@ -54,7 +54,7 @@ export default function Devices (props) {
             <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={() => props.onChecked(index)}>
               <div className='lastsync'>
                 <p>LAST SYNCHRONIZATION</p>
-                <SyncStatus color={device.enabled ? device.color : '#707070'} />
+                <SyncStatus color={device.enabled ? device.color : '#b2b2b2'} />
               </div>
             </Card>
             <Separator />
