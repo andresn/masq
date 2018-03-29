@@ -11,8 +11,9 @@ export default class SwitchButton extends React.Component {
   }
 
   toggle () {
+    const checked = !this.state.checked
     this.setState({ checked: !this.state.checked })
-    if (this.props.onClick) this.props.onClick()
+    if (this.props.onChecked) { this.props.onChecked(checked) }
   }
 
   render () {
@@ -41,7 +42,7 @@ export default class SwitchButton extends React.Component {
 }
 
 SwitchButton.propTypes = {
-  onClick: PropTypes.func,
+  onToggle: PropTypes.func,
   secondary: PropTypes.bool,
   checked: PropTypes.bool.isRequired,
   color: PropTypes.string.isRequired

@@ -17,7 +17,7 @@ export default function Card (props) {
         : null}
       <div className='flex'>
         <div className='content'>
-          <CardHeader className='CardHeader' color={color} enabled={enabled} />
+          <CardHeader className='CardHeader' color={color} enabled={enabled} onChecked={props.onChecked} />
           <h1 className='title'>{title}</h1>
           <p className='description'>{description}</p>
           {children}
@@ -33,5 +33,6 @@ Card.propTypes = {
   description: PropTypes.string,
   color: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  enabled: PropTypes.bool.isRequired
+  enabled: PropTypes.bool.isRequired,
+  onChecked: PropTypes.func
 }

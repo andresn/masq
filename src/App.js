@@ -49,6 +49,12 @@ const users = [
   }
 ]
 
+const devices = [
+  { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
+  { name: 'iPad de Margaux', color: '#86e991', enabled: false },
+  { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
+]
+
 function HeaderLoggedIn (props) {
   return (
     <div>
@@ -61,6 +67,7 @@ function HeaderLoggedIn (props) {
         {props.notif
           ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
           : null
+
         }
       </Header>
 
@@ -73,23 +80,14 @@ function HeaderLoggedOut (props) {
   return <Header onLogout={props.onLogout} />
 }
 
-function ProtectedPages (props) {
-  return props.isAuthenticated ? (
-    <div>
-      <Route path='/devices' component={Devices} />
-      <Route path='/applications' component={Applications} />
-      <Route path='/settings' component={() => <Settings user={props.user} />} />
-    </div>
-  ) : null
-}
-
 class App extends Component {
   constructor () {
     super()
-    this.state = { isAuthenticated: false, notif: true }
+    this.state = { isAuthenticated: false, notif: true, devices: devices.slice() }
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
     this.signout = this.signout.bind(this)
+    this.onChecked = this.onChecked.bind(this)
   }
 
   onCloseNotif () {
@@ -108,6 +106,18 @@ class App extends Component {
     this.setState({
       currentUser: null,
       isAuthenticated: false
+
+    })
+  }
+
+  onChecked (index) {
+    const devices = this.state.devices.map((dev, i) => {
+      if (index === i) dev.enabled = !dev.enabled
+      return dev
+    })
+
+    this.setState({
+      devices: devices
     })
   }
 
@@ -130,7 +140,15 @@ class App extends Component {
             )} />
           </Switch>
 
-          <ProtectedPages isAuthenticated={this.state.isAuthenticated} user={this.state.currentUser} />
+          {this.state.isAuthenticated
+            ? (
+              <div>
+                <Route path='/devices' component={() => <Devices devices={devices} onChecked={this.onChecked} />} />
+                <Route path='/applications' component={Applications} />
+                <Route path='/settings' component={() => <Settings user={this.state.currentUser} />} />
+              </div>)
+            : null
+          }
         </div>
       </Router>
     )

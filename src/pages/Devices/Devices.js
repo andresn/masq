@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Button from 'components/Button/Button'
 import Card from 'components/Card/Card'
@@ -16,10 +17,10 @@ function LastDevices (props) {
       <h1 style={{marginLeft: '16px'}}>Nouvel appareil</h1>
       <div className='Devices'>
         <div>
-          <Card title={device.name} color={device.color} enabled={device.enabled}>
+          <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={props.onChecked}>
             <div className='lastsync'>
               <p>LAST SYNCHRONIZATION</p>
-              <SyncStatus color={device.color} />
+              <SyncStatus color={device.enabled ? device.color : '#707070'} />
             </div>
           </Card>
           <Separator />
@@ -40,12 +41,7 @@ function SyncStatus (props) {
 
 export default function Devices (props) {
   const newDevice = { name: 'TV de Margaux', color: '#86e991', enabled: true }
-
-  const devices = [
-    { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
-    { name: 'iPad de Margaux', color: '#86e991', enabled: false },
-    { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
-  ] // TODO: Fetch devices
+  const { devices } = props
 
   return (
     <div style={{ backgroundColor: '#f5f7fa', paddingTop: '1px' }}>
@@ -55,10 +51,10 @@ export default function Devices (props) {
       <div className='Devices'>
         {devices.map((device, index) => (
           <div key={index}>
-            <Card title={device.name} color={device.color} enabled={device.enabled} >
+            <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={() => props.onChecked(index)}>
               <div className='lastsync'>
                 <p>LAST SYNCHRONIZATION</p>
-                <SyncStatus color={device.color} />
+                <SyncStatus color={device.enabled ? device.color : '#707070'} />
               </div>
             </Card>
             <Separator />
@@ -69,4 +65,9 @@ export default function Devices (props) {
       </div>
     </div>
   )
+}
+
+Devices.propTypes = {
+  devices: PropTypes.array.isRequired, // TODO: Check properties
+  onChecked: PropTypes.func
 }
