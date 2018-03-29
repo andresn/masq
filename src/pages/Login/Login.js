@@ -23,7 +23,9 @@ export default function Login (props) {
         )}
 
         <Link to='register' style={{textDecoration: 'none'}}>
-          <PlusButton />
+          <div style={{height: '120px'}}>
+            <PlusButton />
+          </div>
           <p>Add user</p>
         </Link>
       </div>
