@@ -16,13 +16,13 @@ export default function Login (props) {
 
       <div className='avatars-grid'>
         {users.map((user, index) =>
-          <Link key={index} to='devices' onClick={() => props.auth(index)}>
+          <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => props.auth(index)}>
             <Avatar image={user.image} />
             <p>{user.firstname}</p>
           </Link>
         )}
 
-        <Link to='register'>
+        <Link to='register' style={{textDecoration: 'none'}}>
           <PlusButton />
           <p>Add user</p>
         </Link>

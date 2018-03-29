@@ -19,7 +19,7 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 1.11;
-  color: var(--grey4-color)
+  color: var(--grey4-color);
 }
 
 .Login .avatars-grid {
