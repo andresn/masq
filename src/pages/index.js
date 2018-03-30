@@ -1,0 +1,6 @@
+export { default as Applications } from './Applications/Applications'
+export { default as Devices } from './Devices/Devices'
+export { default as Loading } from './Loading/Loading'
+export { default as Login } from './Login/Login'
+export { default as Register } from './Register/Register'
+export { default as Settings } from './Settings/Settings'

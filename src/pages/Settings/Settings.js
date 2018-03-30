@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Separator from 'components/Separator'
-import Button from 'components/Button/Button'
-import Avatar from 'components/Avatar/Avatar'
-import TextInput from 'components/TextInput/TextInput'
-import SwitchButton from 'components/SwitchButton/SwitchButton'
-import CircleIndicator from 'components/CircleIndicator/CircleIndicator'
+import {
+  Avatar,
+  Button,
+  Separator,
+  TextInput,
+  SwitchButton,
+  CircleIndicator
+} from 'components'
 
 import './Settings.css'
 

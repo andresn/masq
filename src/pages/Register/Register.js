@@ -1,13 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import TextInput from 'components/TextInput/TextInput'
-import Button from 'components/Button/Button'
-import Separator from 'components/Separator'
-
-import Avatar from 'components/Avatar/Avatar'
-
-import Chevron from 'icons/Chevron'
+import { Chevron } from 'icons'
+import { TextInput, Button, Separator, Avatar } from 'components'
 
 import './Register.css'
 

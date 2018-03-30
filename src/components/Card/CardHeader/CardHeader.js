@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SwitchButton from 'components/SwitchButton/SwitchButton'
+import { SwitchButton } from 'components'
 
 import './CardHeader.css'
 

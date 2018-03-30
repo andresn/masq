@@ -2,10 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import Avatar from 'components/Avatar/Avatar'
-
-import Chevron from 'icons/Chevron'
-import Home from 'icons/Home'
+import { Avatar } from 'components'
+import { Chevron, Home } from 'icons'
 
 import './Header.css'
 

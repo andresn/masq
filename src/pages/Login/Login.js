@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import Avatar from 'components/Avatar/Avatar'
-
-import PlusButton from 'icons/Plusbutton'
+import { Plusbutton } from 'icons'
+import { Avatar } from 'components'
 
 import './Login.css'
 
@@ -24,7 +23,7 @@ export default function Login (props) {
 
         <Link to='register' style={{textDecoration: 'none'}}>
           <div style={{height: '120px'}}>
-            <PlusButton />
+            <Plusbutton />
           </div>
           <p>Add user</p>
         </Link>

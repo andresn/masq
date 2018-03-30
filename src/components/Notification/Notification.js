@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Infos from 'icons/Infos'
-import Close from 'icons/Close'
+import { Infos, Close } from 'icons'
 
 import './Notification.css'
 

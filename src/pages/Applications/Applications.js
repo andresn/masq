@@ -1,8 +1,7 @@
 import React from 'react'
 
-import Card from 'components/Card/Card'
-import Separator from 'components/Separator'
-import Chevron from 'icons/Chevron'
+import { Chevron } from 'icons'
+import { Card, Separator } from 'components'
 
 import './Applications.css'
 

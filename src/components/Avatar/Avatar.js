@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Camera from 'icons/Camera'
+
+import { Camera } from 'icons'
 
 import './Avatar.css'
 

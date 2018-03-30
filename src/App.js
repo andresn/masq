@@ -6,26 +6,15 @@ import {
   Switch
 } from 'react-router-dom'
 
-import Devices from 'pages/Devices/Devices'
-import Applications from 'pages/Applications/Applications'
-import Settings from 'pages/Settings/Settings'
-import Login from 'pages/Login/Login'
-import Register from 'pages/Register/Register'
-import Loading from 'pages/Loading/Loading'
-
-import Header from 'components/Header/Header'
-import Tabs from 'components/Tabs/Tabs'
-import Notification from 'components/Notification/Notification'
-
-import SmartphoneIcon from 'icons/Smartphone'
-import AppsIcon from 'icons/Apps'
-import SettingsIcon from 'icons/Settings'
+import { Header, Tabs, Notification } from 'components'
+import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
+import { Devices, Applications, Settings, Login, Register, Loading } from 'pages'
 
 import './App.css'
 
 const tabs = [
-  { label: 'Devices', link: '/devices', icon: <SmartphoneIcon /> },
-  { label: 'Applications', link: '/applications', icon: <AppsIcon /> },
+  { label: 'Devices', link: '/devices', icon: <Smartphone /> },
+  { label: 'Applications', link: '/applications', icon: <Apps /> },
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 

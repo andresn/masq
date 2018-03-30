@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Button from 'components/Button/Button'
-import Card from 'components/Card/Card'
-import Separator from 'components/Separator'
-import CircleIndicator from 'components/CircleIndicator/CircleIndicator'
+import { Button, Card, Separator, CircleIndicator } from 'components'
 
 import './Devices.css'
 
