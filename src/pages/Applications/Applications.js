@@ -8,13 +8,14 @@ import './Applications.css'
 
 function AppRow (props) {
   const { app } = props
+  const style = app.enabled ? { color: app.color } : {}
   return (
     <Card title={app.name} description={app.description} color={app.color} enabled={app.enabled} image={app.image} onChecked={props.onChecked}>
       <div className='permissions'>
         <p>5 PERMISSIONS</p>
         <div className='more'>
-          <p style={{ color: app.color }}>VOIR PLUS</p>
-          <Chevron className='caret-icon' color={app.color} />
+          <p style={style}>SEE MORE</p>
+          <Chevron className='caret-icon' style={style} />
         </div>
       </div>
     </Card>

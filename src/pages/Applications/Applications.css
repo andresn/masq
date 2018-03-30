@@ -17,6 +17,7 @@
 .Applications .more {
   display: flex;
   align-items: center;
+  color: var(--grey5-color);
 }
 
 .Applications .caret-icon {
