@@ -32,4 +32,5 @@
 	height: 9px;
 	margin-right: 8px;
 	color: var(--grey2-color);
+	cursor: pointer;
 }
