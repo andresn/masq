@@ -1,8 +1,8 @@
 import React from 'react'
 
-import './Loading.css'
+import './LoadingDots.css'
 
-export default function Loading () {
+export default function LoadingDots () {
   return (
     <div className='Loading'>
       <div className='loading-dots' />

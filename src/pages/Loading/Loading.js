@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Loading from 'components/Loading/Loading'
+import LoadingDots from 'components/LoadingDots/LoadingDots'
 import Avatar from 'components/Avatar/Avatar'
 import Separator from 'components/Separator'
 
-import './LoadingPage.css'
+import './Loading.css'
 
 export default function LoadingPage (props) {
   return (
@@ -13,7 +13,7 @@ export default function LoadingPage (props) {
         <Avatar image={props.user.image} />
         <h1>{props.user.username}</h1>
         <Separator />
-        <Loading />
+        <LoadingDots />
         <p>Connecting ...</p>
       </div>
     </div>

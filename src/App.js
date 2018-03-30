@@ -11,7 +11,7 @@ import Applications from 'pages/Applications/Applications'
 import Settings from 'pages/Settings/Settings'
 import Login from 'pages/Login/Login'
 import Register from 'pages/Register/Register'
-import LoadingPage from 'pages/LoadingPage/LoadingPage'
+import Loading from 'pages/Loading/Loading'
 
 import Header from 'components/Header/Header'
 import Tabs from 'components/Tabs/Tabs'
@@ -176,7 +176,7 @@ class App extends Component {
           }
 
           <Route path='/register' component={Register} />
-          <Route path='/loading' component={() => <LoadingPage user={users[0]} />} />
+          <Route path='/loading' component={() => <Loading user={users[0]} />} />
 
           <Switch>
             <Redirect exact from='/' to='/login' />
