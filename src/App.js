@@ -11,6 +11,7 @@ import Applications from 'pages/Applications/Applications'
 import Settings from 'pages/Settings/Settings'
 import Login from 'pages/Login/Login'
 import Register from 'pages/Register/Register'
+import LoadingPage from 'pages/LoadingPage/LoadingPage'
 
 import Header from 'components/Header/Header'
 import Tabs from 'components/Tabs/Tabs'
@@ -81,7 +82,7 @@ const applications = [
   {
     name: 'Qwant Shopping',
     color: '#01cbd9',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscinLoadingPageg elit, sed do eiusmod tempor incididunt ut labore.',
     enabled: true
   }
 ]
@@ -175,6 +176,7 @@ class App extends Component {
           }
 
           <Route path='/register' component={Register} />
+          <Route path='/loading' component={() => <LoadingPage user={users[0]} />} />
 
           <Switch>
             <Redirect exact from='/' to='/login' />

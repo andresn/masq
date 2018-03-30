@@ -1,0 +1,23 @@
+.LoadingPage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 600px;
+  justify-content: center;
+}
+
+.LoadingPage .content {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  text-align: center;
+}
+
+.LoadingPage h1 {
+  font-size: 18px;
+  color: var(--grey5-color);
+}
+
+.LoadingPage p {
+  color: var(--grey4-color);
+}
