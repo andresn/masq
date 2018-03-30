@@ -12,24 +12,25 @@ export default class SwitchButton extends React.Component {
 
   toggle () {
     const checked = !this.state.checked
-    this.setState({ checked: !this.state.checked })
+    this.setState({ checked: checked })
     if (this.props.onChecked) { this.props.onChecked(checked) }
   }
 
   render () {
     const { secondary, color } = this.props
-    const label = this.state.checked ? 'ENABLED' : 'DISABLED'
+    const { checked } = this.state
+    const label = checked ? 'ENABLED' : 'DISABLED'
     const translation = secondary ? '32px' : '26px'
-    const cursorStyle = this.state.checked ? {
+    const cursorStyle = checked ? {
       transform: 'translate3d(' + translation + ', 0, 0)'
     } : {}
-    const backgroundStyle = this.state.checked ? {
+    const backgroundStyle = checked ? {
       backgroundColor: color
     } : {}
 
     return (
       <div className='SwitchButton'>
-        {!this.props.secondary ? (<label>{label}</label>) : null}
+        {!this.props.secondary ? (<label style={{color: checked ? color : null}}>{label}</label>) : null}
         <div id='switch-container' className={secondary ? 'secondary' : ''} onClick={this.toggle}>
           <div id='background' className={secondary ? 'secondary' : ''} style={backgroundStyle} />
           <div id='cursor' className={secondary ? 'secondary' : ''}
