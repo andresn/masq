@@ -29,18 +29,22 @@ function AvatarSection (props) {
 }
 
 export default function Header (props) {
-  const {user, shadow} = props
+  const { user, shadow, children, onLogout, childrenHeight } = props
+  const height = childrenHeight ? 80 + childrenHeight : 64
 
   return (
-    <div className={'Header' + (shadow ? ' shadow' : '')}>
-      <div id='top-section'>
-        {user ? <AvatarSection username={user.firstname} image={user.image} /> : <TitleSection /> }
-        <Link to='login'>
-          <Home className='home' onClick={props.onLogout} />
-        </Link>
+    <div>
+      <div id='invisible' style={{height: height}} />
+      <div className={'Header' + (shadow ? ' shadow' : '')}>
+        <div id='top-section'>
+          {user ? <AvatarSection username={user.firstname} image={user.image} /> : <TitleSection /> }
+          <Link to='login'>
+            <Home className='home' onClick={onLogout} />
+          </Link>
+        </div>
+        {children}
+        {children ? (<div className='children' />) : null}
       </div>
-      {props.children}
-      {props.children ? (<div className='children' />) : null}
     </div>
   )
 }

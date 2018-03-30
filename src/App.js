@@ -77,6 +77,12 @@ const applications = [
     color: '#01cbd9',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
     enabled: true
+  },
+  {
+    name: 'Qwant Shopping',
+    color: '#01cbd9',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    enabled: true
   }
 ]
 
@@ -88,11 +94,11 @@ function HeaderLoggedIn (props) {
         user={props.user}
         shadow
         onLogout={props.onLogout}
+        childrenHeight={props.notif ? 40 : 0}
       >
         {props.notif
           ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
           : null
-
         }
       </Header>
 

@@ -1,7 +1,9 @@
 .Header {
   z-index: 1;
-  position: relative;
+  width: 410px;
+  position: fixed;
   background-color: white;
+  top: 0;
 }
 
 .Header #top-section {
