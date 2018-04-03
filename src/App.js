@@ -174,7 +174,7 @@ class App extends Component {
 
           {this.state.isAuthenticated
             ? (
-              <div style={{backgroundColor: 'var(--main-bg-color)'}}>
+              <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                 <Tabs tabs={tabs} />
                 <Route path='/devices' component={() => <Devices devices={devices} onChecked={this.onChecked} />} />
                 <Route path='/applications' component={() => <Applications applications={applications} onChecked={this.onAppChecked} />} />

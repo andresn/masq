@@ -17,8 +17,12 @@
   width: 75px;
 }
 
+.Devices .syncstatus p {
+  color: var(--grey5-color) !important;
+}
+
 .Devices .lastsync p {
-  color: var(--grey5-color);
+  color: var(--grey2-color);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.5px;
