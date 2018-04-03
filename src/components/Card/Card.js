@@ -24,7 +24,7 @@ export default function Card (props) {
         <div className='content'>
           <CardHeader className='CardHeader' color={color} enabled={enabled} onChecked={props.onChecked} />
           <h1>{title}</h1>
-          <p className='description'>{description}</p>
+          {description && <p className='description'>{description}</p>}
           {children}
         </div>
       </div>

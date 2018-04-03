@@ -19,6 +19,7 @@ h1 {
   font-weight: 600;
   line-height: 1.25;
   color: var(--grey5-color);
+  margin: 0;
 }
 
 h2 {

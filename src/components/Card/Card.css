@@ -1,6 +1,5 @@
 .Card {
   width: 378px;
-  min-height: 114px;
   border-radius: 3px;
   background-color: white;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12);
@@ -13,6 +12,7 @@
 .Card .content {
   margin: auto;
   margin-top: 16px;
+  margin-bottom: 8px;
   width: 330px;
 }
 
