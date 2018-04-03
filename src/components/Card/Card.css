@@ -9,6 +9,10 @@
   display: flex;
 }
 
+.Card h1 {
+  margin: 0;
+}
+
 .Card .content {
   margin: auto;
   margin-top: 16px;
