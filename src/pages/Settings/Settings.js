@@ -33,13 +33,13 @@ export default function Devices (props) {
 
       <div className='parameters'>
         <CircleIndicator style={{alignSelf: 'flex-start'}} color='#458bf8' />
-        <p>Accept new applications automatically automaticallyautomatically</p>
+        <p>Accept new applications automatically</p>
         <SwitchButton checked secondary color='#458bf8' />
       </div>
 
       <Separator />
       <div className='button-container'>
-        <Button label='SUPPRIMER MON COMPTE' />
+        <Button label='DELETE MY ACCOUNT' />
       </div>
     </div>
   )

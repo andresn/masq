@@ -35,16 +35,15 @@ export default function Devices (props) {
 
   return (
     <div style={{paddingBottom: '64px'}}>
-      <h2 style={{marginLeft: '16px'}}>Nouvel appareil</h2>
+      <h2 style={{marginLeft: '16px'}}>New Device</h2>
       <div className='Devices'>
         {newDeviceKey !== -1
           ? <DeviceRow index={newDeviceKey} device={devices[newDeviceKey]} onChecked={props.onChecked} />
           : null
         }
-        <Separator />
       </div>
 
-      <h2 style={{marginLeft: '16px'}}>Mes appareils connectés à Masq</h2>
+      <h2 style={{marginLeft: '16px'}}>My devices connected to Masq</h2>
       <div className='Devices'>
         {devices.map((device, index) => (
           !device.new
