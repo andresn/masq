@@ -13,6 +13,10 @@
   color: var(--grey4-color);
 }
 
+.Login #add-user {
+  color: var(--grey2-color);
+}
+
 .Login .avatars-grid {
   display: grid;
   grid-template-columns: auto auto;

@@ -25,7 +25,7 @@ export default function Login (props) {
           <div style={{height: '120px'}}>
             <Plusbutton />
           </div>
-          <p>Add user</p>
+          <p id='add-user'>Add user</p>
         </Link>
       </div>
     </div>
