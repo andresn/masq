@@ -12,9 +12,10 @@ This project is based on [create-react-app](https://github.com/facebook/create-r
 ```
 npm install
 npm start
+
 ```
- To build and test as a chrome extension:
+
+ To develop as an electron app:
  ```
- npm build
+ npm run electron-dev
  ```
-Then open [chrome://extensions/](chrome://extensions/) and drag and drop the `build/` folder to the page.
