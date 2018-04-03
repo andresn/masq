@@ -11,7 +11,7 @@ export default function Register () {
     <div className='Register'>
       <Link to='login' className='goback'>
         <Chevron transform='rotate(90)' color='#458bf8' />
-        <p>Go back to the users list</p>
+        <h3>Go back to the users list</h3>
       </Link>
       <h1>New User</h1>
       <div className='container'>
