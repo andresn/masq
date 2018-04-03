@@ -4,8 +4,8 @@ const Chevron = props => (
   <svg
     xmlnsXlink='http://www.w3.org/1999/xlink'
     width={14}
-    height={8}
-    viewBox='0 0 14 8'
+    height={10}
+    viewBox='0 0 14 10'
     {...props}
   >
     <defs>

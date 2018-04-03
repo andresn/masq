@@ -21,10 +21,14 @@
   color: var(--grey5-color);
 }
 
+.Register h3 {
+  margin-left: 8px;
+}
+
 .Register .goback {
   display: flex;
   align-items: center;
-  margin-left: 32px;
+  margin-left: 16px;
   text-decoration: none;
 }
 
