@@ -34,7 +34,7 @@ export default function Devices (props) {
   const newDeviceKey = devices.findIndex(dev => dev.new)
 
   return (
-    <div>
+    <div style={{paddingBottom: '64px'}}>
       <h2 style={{marginLeft: '16px'}}>Nouvel appareil</h2>
       <div className='Devices'>
         {newDeviceKey !== -1

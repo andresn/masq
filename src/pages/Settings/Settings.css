@@ -1,3 +1,7 @@
+.Settings {
+  padding-bottom: 64px;
+}
+
 .Settings .profile {
   display: flex;
   justify-content: space-between;
