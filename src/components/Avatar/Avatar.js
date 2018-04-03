@@ -1,9 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Camera } from 'icons'
+import { Camera, AddPictures } from 'icons'
 
 import './Avatar.css'
+
+function Replace (props) {
+  return (
+    <div className='Avatar upload' style={props.style} onClick={props.onClick}>
+      <Camera className='camera' height={33} width={40} color='white' />
+    </div>
+  )
+}
+
+function NewUpload (props) {
+  return (
+    <AddPictures
+      color='var(--grey2-color)'
+      className='Avatar upload'
+      style={props.style} onClick={props.onClick}
+    />
+  )
+}
 
 export default class Avatar extends React.Component {
   constructor (props) {
@@ -26,9 +44,11 @@ export default class Avatar extends React.Component {
             style={{ display: 'none' }} onChange={fileHandler}
             accept='.jpg, .jpeg, .png'
           />
-          <div className='Avatar upload' style={style} onClick={this.openDialog}>
-            <Camera className='camera' height={33} width={40} color='white' />
-          </div>
+
+          {image
+            ? <Replace style={style} onClick={this.openDialog} />
+            : <NewUpload style={style} onClick={this.openDialog} />
+          }
         </div>)
       : <div className='Avatar' style={style} />
   }

@@ -1,3 +1,4 @@
+export { default as AddPictures } from './AddPictures'
 export { default as Apps } from './Apps'
 export { default as Camera } from './Camera'
 export { default as Chevron } from './Chevron'

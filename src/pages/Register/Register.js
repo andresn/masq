@@ -15,7 +15,7 @@ export default function Register () {
       </Link>
       <h1>New User</h1>
       <div className='container'>
-        <Avatar upload image='https://randomuser.me/api/portraits/women/21.jpg' />
+        <Avatar upload />
         <TextInput label='Last Name' />
         <TextInput label='First Name' />
         <TextInput label='Username (displayed)' />
