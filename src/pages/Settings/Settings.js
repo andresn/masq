@@ -37,7 +37,7 @@ export default function Devices (props) {
         <SwitchButton checked secondary color='#458bf8' />
       </div>
 
-      <Separator />
+      <Separator height='48px' />
       <div className='button-container'>
         <Button label='DELETE MY ACCOUNT' />
       </div>
