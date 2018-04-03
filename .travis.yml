@@ -5,6 +5,7 @@ install:
   - npm install
 script:
   - npm run standard
+  - npm run build
 cache:
   directories:
     - "node_modules"
