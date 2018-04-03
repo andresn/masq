@@ -13,8 +13,10 @@
 
 .Notification p {
 	margin-left: 8px;
-	color: var(--grey3-color);
-	font-size: 12px;
+	font-family: Asap;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: normal;
 }
 
 .Notification #left-notif {

@@ -32,7 +32,7 @@ class Tabs extends React.Component {
             onClick={() => this.onSelectTab(index)}
           >
             { tab.icon }
-            <p>{tab.label}</p>
+            <p>{tab.label.toUpperCase()}</p>
           </div>
         ))}
       </div>

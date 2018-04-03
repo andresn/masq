@@ -43,12 +43,12 @@ export default function Applications (props) {
   return (
     <div style={{ backgroundColor: '#f5f7fa', paddingTop: '1px' }}>
 
-      <h1 style={{marginLeft: '16px'}}>Currently active Applications</h1>
+      <h2 style={{marginLeft: '16px'}}>Currently active Applications</h2>
       <div className='Applications'>
         <AppRows applications={applications} active onChecked={props.onChecked} />
       </div>
 
-      <h1 style={{marginLeft: '16px'}}>Currently connected to your Masq</h1>
+      <h2 style={{marginLeft: '16px'}}>Currently connected to your Masq</h2>
       <div className='Applications'>
         <AppRows applications={applications} onChecked={props.onChecked} />
       </div>

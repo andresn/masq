@@ -7,18 +7,19 @@
 
 .Devices .lastsync {
   display: flex;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--grey2-color);
   justify-content: space-between;
 }
 
 .Devices .syncstatus {
-  color: var(--grey5-color);
-  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 75px;
+}
+
+.Devices .lastsync p {
+  color: var(--grey5-color);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }

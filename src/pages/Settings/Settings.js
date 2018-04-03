@@ -18,7 +18,7 @@ export default function Devices (props) {
   return (
     <div className='Settings' style={{ backgroundColor: '#f5f7fa', paddingTop: '1px' }}>
 
-      <h1 style={{marginLeft: '16px'}}>Your Profile</h1>
+      <h2 style={{marginLeft: '16px'}}>Your Profile</h2>
 
       <div className='profile'>
         <Avatar upload image={user.image} />
@@ -29,7 +29,7 @@ export default function Devices (props) {
         </div>
       </div>
 
-      <h1 style={{marginLeft: '16px'}}>Masq Parameters</h1>
+      <h2 style={{marginLeft: '16px'}}>Masq Parameters</h2>
 
       <div className='parameters'>
         <CircleIndicator style={{alignSelf: 'flex-start'}} color='#458bf8' />

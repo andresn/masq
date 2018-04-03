@@ -23,7 +23,7 @@ export default function Card (props) {
       <div className='flex'>
         <div className='content'>
           <CardHeader className='CardHeader' color={color} enabled={enabled} onChecked={props.onChecked} />
-          <h1 className='title'>{title}</h1>
+          <h1>{title}</h1>
           <p className='description'>{description}</p>
           {children}
         </div>

@@ -16,12 +16,6 @@
   width: 330px;
 }
 
-.Card .title {
-  color: var(--grey5-color);
-  font-size: 20px;
-  font-weight: 600;
-}
-
 .Card .description {
   color: var(--grey3-color);
   font-size: 14px;
