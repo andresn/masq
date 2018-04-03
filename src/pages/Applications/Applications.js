@@ -41,7 +41,7 @@ export default function Applications (props) {
   const { applications } = props
 
   return (
-    <div style={{ backgroundColor: '#f5f7fa', paddingTop: '1px' }}>
+    <div>
 
       <h2 style={{marginLeft: '16px'}}>Currently active Applications</h2>
       <div className='Applications'>

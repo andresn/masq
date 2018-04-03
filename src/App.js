@@ -91,8 +91,6 @@ function HeaderLoggedIn (props) {
           : null
         }
       </Header>
-
-      <Tabs tabs={tabs} />
     </div>
   )
 }
@@ -176,7 +174,8 @@ class App extends Component {
 
           {this.state.isAuthenticated
             ? (
-              <div>
+              <div style={{backgroundColor: 'var(--main-bg-color)'}}>
+                <Tabs tabs={tabs} />
                 <Route path='/devices' component={() => <Devices devices={devices} onChecked={this.onChecked} />} />
                 <Route path='/applications' component={() => <Applications applications={applications} onChecked={this.onAppChecked} />} />
                 <Route path='/settings' component={() => <Settings user={this.state.currentUser} />} />

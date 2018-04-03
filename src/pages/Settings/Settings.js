@@ -16,7 +16,7 @@ export default function Devices (props) {
   const { user } = props
 
   return (
-    <div className='Settings' style={{ backgroundColor: '#f5f7fa', paddingTop: '1px' }}>
+    <div className='Settings'>
 
       <h2 style={{marginLeft: '16px'}}>Your Profile</h2>
 
