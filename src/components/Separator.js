@@ -1,9 +1,6 @@
 import React from 'react'
 
-const style = {
-  marginTop: '16px'
-}
-
-export default function Separator () {
+export default function Separator (props) {
+  const style = { marginTop: props.height || '16px' }
   return (<div id='separator' style={style} />)
 }
