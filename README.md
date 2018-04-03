@@ -12,7 +12,6 @@ This project is based on [create-react-app](https://github.com/facebook/create-r
 ```
 npm install
 npm start
-
 ```
 
  To develop as an electron app:
