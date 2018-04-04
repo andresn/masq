@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoadingDots 1`] = `
+<div
+  className="Loading"
+>
+  <div
+    className="loading-dots"
+  />
+  <div
+    className="loading-dots"
+  />
+  <div
+    className="loading-dots"
+  />
+</div>
+`;

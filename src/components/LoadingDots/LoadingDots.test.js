@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
 import LoadingDots from './LoadingDots'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<LoadingDots />, div)
+it('renders LoadingDots', () => {
+  const component = renderer.create(<LoadingDots />)
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
 })
