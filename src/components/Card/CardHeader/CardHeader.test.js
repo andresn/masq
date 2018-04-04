@@ -1,8 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
 import CardHeader from './CardHeader'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<CardHeader enabled color='blue' />, div)
+it('renders CardHeader disabled', () => {
+  const component = renderer.create(<CardHeader enabled={false} color='blue' />)
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders CardHeader enabled', () => {
+  const component = renderer.create(<CardHeader enabled color='blue' />)
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
 })
