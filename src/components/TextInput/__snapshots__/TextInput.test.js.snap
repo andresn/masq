@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders TextInput 1`] = `
+<div
+  className="TextInput"
+>
+  <input
+    defaultValue={undefined}
+    type="text"
+  />
+  <label>
+    some button
+  </label>
+</div>
+`;
+
+exports[`renders TextInput with a defaultValue 1`] = `
+<div
+  className="TextInput"
+>
+  <input
+    defaultValue="default text"
+    type="text"
+  />
+  <label>
+    some button
+  </label>
+</div>
+`;

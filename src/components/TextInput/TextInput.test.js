@@ -1,8 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
 import TextInput from './TextInput'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<TextInput label='some button' />, div)
+it('renders TextInput', () => {
+  const component = renderer.create(
+    <TextInput label='some button' />
+  )
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+it('renders TextInput with a defaultValue', () => {
+  const component = renderer.create(
+    <TextInput label='some button' defaultValue='default text' />
+  )
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
 })
