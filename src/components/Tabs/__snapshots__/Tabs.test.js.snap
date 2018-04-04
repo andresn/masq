@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Tabs with one tabs 1`] = `
+<div
+  className="Tabs"
+>
+  <div
+    className="active"
+    id="tab"
+    onClick={[Function]}
+  >
+    <svg
+      height={22}
+      viewBox="0 0 16 22"
+      width={16}
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <defs>
+        <path
+          d="M13 0H3C1.3 0 0 1.3 0 3v16c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V3c0-1.7-1.3-3-3-3zm1 19c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v16zm-6-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+          id="smartphone-svg"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        fillRule="nonzero"
+        xlinkHref="#smartphone-svg"
+      />
+    </svg>
+    <p>
+      DEVICES
+    </p>
+  </div>
+</div>
+`;
+
+exports[`renders Tabs with two tabs 1`] = `
+<div
+  className="Tabs"
+>
+  <div
+    className="active"
+    id="tab"
+    onClick={[Function]}
+  >
+    <svg
+      height={22}
+      viewBox="0 0 16 22"
+      width={16}
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <defs>
+        <path
+          d="M13 0H3C1.3 0 0 1.3 0 3v16c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V3c0-1.7-1.3-3-3-3zm1 19c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V3c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v16zm-6-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+          id="smartphone-svg"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        fillRule="nonzero"
+        xlinkHref="#smartphone-svg"
+      />
+    </svg>
+    <p>
+      DEVICES
+    </p>
+  </div>
+  <div
+    className="inactive"
+    id="tab"
+    onClick={[Function]}
+  >
+    <svg
+      height={20}
+      viewBox="0 0 20 20"
+      width={20}
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <defs>
+        <path
+          d="M17 0H3C1.3 0 0 1.3 0 3v14c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3V3c0-1.7-1.3-3-3-3zM3 2h14c.6 0 1 .4 1 1v3H2V3c0-.6.4-1 1-1zM2 17V8h4v10H3c-.6 0-1-.4-1-1zm15 1H8V8h10v9c0 .6-.4 1-1 1z"
+          id="apps-svg"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        fillRule="nonzero"
+        xlinkHref="#apps-svg"
+      />
+    </svg>
+    <p>
+      APPLICATIONS
+    </p>
+  </div>
+</div>
+`;
