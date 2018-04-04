@@ -2,6 +2,7 @@
 
 [![](https://img.shields.io/badge/project-Masq-7C4DFF.svg?style=flat-square)](https://github.com/QwantResearch/masq-app)
 [![](https://api.travis-ci.org/QwantResearch/masq-app.svg)](https://travis-ci.org/QwantResearch/masq-app)
+[![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 The Masq App based on electron.
 
