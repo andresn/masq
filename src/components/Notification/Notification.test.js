@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
 import Notification from './Notification'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<Notification text='some notification' />, div)
+it('renders Notification', () => {
+  const component = renderer.create(<Notification text='some notification' />)
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
 })
