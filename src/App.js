@@ -121,7 +121,7 @@ class App extends Component {
   }
 
   authenticate (indexUser) {
-    this.setState({ isLogging: true })
+    this.setState({ isLogging: true, currentUser: users[indexUser] })
     setTimeout(() => {
       this.setState({
         notif: true,
@@ -171,7 +171,7 @@ class App extends Component {
           <Switch>
             <Route path='/register' component={Register} />
             <Route path='/loading' component={
-              () => { return this.state.isLogging ? <Loading user={users[0]} /> : <Redirect to='devices' /> }
+              () => { return this.state.isLogging ? <Loading user={this.state.currentUser} /> : <Redirect to='devices' /> }
             } />
 
             <Redirect exact from='/' to='/login' />
