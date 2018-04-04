@@ -103,6 +103,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
+      isLogging: false,
       isAuthenticated: false,
       notif: true,
       devices: devices.slice(),
@@ -120,11 +121,15 @@ class App extends Component {
   }
 
   authenticate (indexUser) {
-    this.setState({
-      notif: true,
-      isAuthenticated: true,
-      currentUser: users[indexUser]
-    })
+    this.setState({ isLogging: true })
+    setTimeout(() => {
+      this.setState({
+        notif: true,
+        isAuthenticated: true,
+        isLogging: false,
+        currentUser: users[indexUser]
+      })
+    }, 2000)
   }
 
   signout () {
@@ -154,6 +159,7 @@ class App extends Component {
 
   render () {
     console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
+
     return (
       <Router>
         <div>
@@ -162,14 +168,17 @@ class App extends Component {
             : <HeaderLoggedOut onLogout={this.signout} />
           }
 
-          <Route path='/register' component={Register} />
-          <Route path='/loading' component={() => <Loading user={users[0]} />} />
-
           <Switch>
+            <Route path='/register' component={Register} />
+            <Route path='/loading' component={
+              () => { return this.state.isLogging ? <Loading user={users[0]} /> : <Redirect to='devices' /> }
+            } />
+
             <Redirect exact from='/' to='/login' />
             <Route exact path='/login' component={() => (
               <Login auth={this.authenticate} users={users} />
             )} />
+            {this.state.isLogging && <Redirect to='loading' />}
           </Switch>
 
           {this.state.isAuthenticated
