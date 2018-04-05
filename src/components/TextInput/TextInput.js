@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import './TextInput.css'
 
 export default function TextInput (props) {
-  const { defaultValue } = props
+  const { label, defaultValue } = props
   return (
     <div className='TextInput'>
       <input type='text' defaultValue={defaultValue} />
-      <label>{props.label}</label>
+      <label>{label}</label>
     </div>
   )
 }

@@ -15,10 +15,10 @@ function SyncStatus (props) {
 }
 
 function DeviceRow (props) {
-  const {device} = props
+  const { device, index } = props
   return (
     <div>
-      <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={() => props.onChecked(props.index)}>
+      <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={() => props.onChecked(index)}>
         <div className='lastsync'>
           <p>LAST SYNCHRONIZATION</p>
           <SyncStatus color={device.enabled ? device.color : '#b2b2b2'} />
@@ -30,7 +30,7 @@ function DeviceRow (props) {
 }
 
 export default function Devices (props) {
-  const { devices } = props
+  const { devices, onChecked } = props
   const newDeviceKey = devices.findIndex(dev => dev.new)
 
   return (
@@ -38,7 +38,7 @@ export default function Devices (props) {
       <h2 style={{marginLeft: '16px'}}>New Device</h2>
       <div className='Devices'>
         {newDeviceKey !== -1
-          ? <DeviceRow index={newDeviceKey} device={devices[newDeviceKey]} onChecked={props.onChecked} />
+          ? <DeviceRow index={newDeviceKey} device={devices[newDeviceKey]} onChecked={onChecked} />
           : null
         }
       </div>
@@ -47,7 +47,7 @@ export default function Devices (props) {
       <div className='Devices'>
         {devices.map((device, index) => (
           !device.new
-            ? <DeviceRow key={index} index={index} device={device} onChecked={props.onChecked} />
+            ? <DeviceRow key={index} index={index} device={device} onChecked={onChecked} />
             : null
         ))}
         <Separator />

@@ -6,13 +6,13 @@ import { SwitchButton } from 'components'
 import './CardHeader.css'
 
 export default function CardHeader (props) {
-  const { color, enabled } = props
+  const { color, enabled, onChecked } = props
   const style = { backgroundColor: enabled ? color : 'var(--grey2-color)' }
 
   return (
     <div className='CardHeader'>
       <div className='line' style={style} />
-      <SwitchButton color={color} checked={enabled} onChecked={props.onChecked} />
+      <SwitchButton color={color} checked={enabled} onChecked={onChecked} />
     </div>
   )
 }

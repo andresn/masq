@@ -4,9 +4,11 @@ import PropTypes from 'prop-types'
 import './Button.css'
 
 export default function Button (props) {
-  const classes = 'Button ' + (props.secondary ? 'secondary' : 'primary')
+  const { secondary, label } = props
+  const classes = 'Button ' + (secondary ? 'secondary' : 'primary')
+
   return (
-    <button className={classes}>{props.label}</button>
+    <button className={classes}>{label}</button>
   )
 }
 

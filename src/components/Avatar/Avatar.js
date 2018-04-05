@@ -6,19 +6,21 @@ import { Camera, AddPictures } from 'icons'
 import './Avatar.css'
 
 function Replace (props) {
+  const { style, onClick } = props
   return (
-    <div className='Avatar upload' style={props.style} onClick={props.onClick}>
+    <div className='Avatar upload' style={style} onClick={onClick}>
       <Camera className='camera' height={33} width={40} color='white' />
     </div>
   )
 }
 
 function NewUpload (props) {
+  const { style, onClick } = props
   return (
     <AddPictures
       color='var(--grey2-color)'
       className='Avatar upload'
-      style={props.style} onClick={props.onClick}
+      style={style} onClick={onClick}
     />
   )
 }

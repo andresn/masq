@@ -8,14 +8,14 @@ import { Avatar } from 'components'
 import './Login.css'
 
 export default function Login (props) {
-  const { users } = props
+  const { users, auth } = props
   return (
     <div className='Login'>
       <h1>Who is it ?</h1>
 
       <div className='avatars-grid'>
         {users.map((user, index) =>
-          <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => props.auth(index)}>
+          <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => auth(index)}>
             <Avatar image={user.image} />
             <p>{user.firstname}</p>
           </Link>

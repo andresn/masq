@@ -6,7 +6,7 @@ import './SwitchButton.css'
 export default class SwitchButton extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { checked: this.props.checked || false }
+    this.state = { checked: props.checked || false }
     this.toggle = this.toggle.bind(this)
   }
 
@@ -30,7 +30,7 @@ export default class SwitchButton extends React.Component {
 
     return (
       <div className='SwitchButton'>
-        {!this.props.secondary ? (<label style={{color: checked ? color : null}}>{label}</label>) : null}
+        {!secondary ? (<label style={{color: checked ? color : null}}>{label}</label>) : null}
         <div id='switch-container' className={secondary ? 'secondary' : ''} onClick={this.toggle}>
           <div id='background' className={secondary ? 'secondary' : ''} style={backgroundStyle} />
           <div id='cursor' className={secondary ? 'secondary' : ''}

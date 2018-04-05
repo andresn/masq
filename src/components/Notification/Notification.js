@@ -6,13 +6,14 @@ import { Infos, Close } from 'icons'
 import './Notification.css'
 
 export default function Notification (props) {
+  const { onClose, text } = props
   return (
     <div className='Notification'>
       <div id='left-notif'>
         <Infos id='infos-icon' />
-        <p>{props.text}</p>
+        <p>{text}</p>
       </div>
-      <Close id='close-icon' onClick={props.onClose} />
+      <Close id='close-icon' onClick={onClose} />
     </div>
   )
 }

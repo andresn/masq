@@ -17,10 +17,11 @@ function TitleSection (props) {
 }
 
 function AvatarSection (props) {
+  const { image, username } = props
   return (
     <div id='avatar-section'>
-      <Avatar image={props.image} />
-      <span id='avatar-text' style={{fontSize: '14px'}}>{props.username}</span>
+      <Avatar image={image} />
+      <span id='avatar-text' style={{fontSize: '14px'}}>{username}</span>
       <Chevron className='caret' />
     </div>
   )
