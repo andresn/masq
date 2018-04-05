@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Loading page 1`] = `
+<div
+  className="LoadingPage"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="Avatar"
+      style={
+        Object {
+          "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
+        }
+      }
+    />
+    <h1>
+      Mustang
+    </h1>
+    <div
+      id="separator"
+      style={
+        Object {
+          "marginTop": "16px",
+        }
+      }
+    />
+    <div
+      className="Loading"
+    >
+      <div
+        className="loading-dots"
+      />
+      <div
+        className="loading-dots"
+      />
+      <div
+        className="loading-dots"
+      />
+    </div>
+    <p>
+      Connecting ...
+    </p>
+  </div>
+</div>
+`;
