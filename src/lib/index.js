@@ -36,28 +36,6 @@ import * as localforage from 'localforage'
  */
 
 /**
- * Initialise a localforage instance
- *
- * @param {string} id - The id of the instance
- * @param {string} [description] - The description of the db
- * @returns {Object} - An instance of localforage
- *
- */
-const initDB = (id, description) => {
-  return localforage.config({
-    driver: localforage.INDEXEDDB,
-    name: id,
-    description: description || id
-  })
-}
-
-let usersDB = initDB('users')
-let curUserDB = null
-let curAppDB = null
-
-let currentUserId = ''
-
-/**
  * Create a new user, appends the object to the userList.
  * A uuid is added to the received objectn this allows to
  * change the username without modifying the key inside the db.
@@ -67,7 +45,7 @@ let currentUserId = ''
  *
  */
 const createUser = (user) => {
-  return usersDB.getItem('userList')
+  return localforage.getItem('userList')
     .then(users => {
       if (!users || users.length === 0) {
         console.log('userList is empty')
@@ -76,7 +54,7 @@ const createUser = (user) => {
       // Add a uuid.
       user._id = generateUUID()
       users.push(user)
-      return usersDB.setItem('userList', users)
+      return localforage.setItem('userList', users)
         .then(res => {
           console.log(`*** User ${user.username} has been stored : done ***`)
           // A new key corresponding to the generated uuid is created.
@@ -327,7 +305,7 @@ const getUserList = () => {
  *
  */
 const signIn = (username) => {
-  return usersDB.getItem('userList')
+  return localforage.getItem('userList')
     .then(users => {
       if (!users || users.length === 0) {
         console.log('userList is empty')
