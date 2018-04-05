@@ -1,0 +1,470 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders no devices 1`] = `
+<div
+  style={
+    Object {
+      "paddingBottom": "64px",
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    New Device
+  </h2>
+  <div
+    className="Devices"
+  />
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    My devices connected to Masq
+  </h2>
+  <div
+    className="Devices"
+  >
+    <div
+      id="separator"
+      style={
+        Object {
+          "marginTop": "16px",
+        }
+      }
+    />
+    <button
+      className="Button primary"
+    >
+      Add a new device
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders one disabled devices 1`] = `
+<div
+  style={
+    Object {
+      "paddingBottom": "64px",
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    New Device
+  </h2>
+  <div
+    className="Devices"
+  />
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    My devices connected to Masq
+  </h2>
+  <div
+    className="Devices"
+  >
+    <div>
+      <div
+        className="Card"
+      >
+        <div
+          className="flex"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="CardHeader"
+            >
+              <div
+                className="line"
+                style={
+                  Object {
+                    "backgroundColor": "var(--grey2-color)",
+                  }
+                }
+              />
+              <div
+                className="SwitchButton"
+              >
+                <label
+                  style={
+                    Object {
+                      "color": null,
+                    }
+                  }
+                >
+                  DISABLED
+                </label>
+                <div
+                  className=""
+                  id="switch-container"
+                  onClick={[Function]}
+                >
+                  <div
+                    className=""
+                    id="background"
+                    style={Object {}}
+                  />
+                  <div
+                    className=""
+                    id="cursor"
+                    style={Object {}}
+                  />
+                </div>
+              </div>
+            </div>
+            <h1>
+              Some device
+            </h1>
+            <div
+              className="lastsync"
+            >
+              <p>
+                LAST SYNCHRONIZATION
+              </p>
+              <div
+                className="syncstatus"
+              >
+                <div
+                  className="CircleIndicator"
+                  style={
+                    Object {
+                      "border": "solid 2px#b2b2b2",
+                    }
+                  }
+                />
+                <p>
+                  10 days ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="separator"
+        style={
+          Object {
+            "marginTop": "16px",
+          }
+        }
+      />
+    </div>
+    <div
+      id="separator"
+      style={
+        Object {
+          "marginTop": "16px",
+        }
+      }
+    />
+    <button
+      className="Button primary"
+    >
+      Add a new device
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders one enabled devices 1`] = `
+<div
+  style={
+    Object {
+      "paddingBottom": "64px",
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    New Device
+  </h2>
+  <div
+    className="Devices"
+  />
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    My devices connected to Masq
+  </h2>
+  <div
+    className="Devices"
+  >
+    <div>
+      <div
+        className="Card"
+      >
+        <div
+          className="flex"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="CardHeader"
+            >
+              <div
+                className="line"
+                style={
+                  Object {
+                    "backgroundColor": "#86e991",
+                  }
+                }
+              />
+              <div
+                className="SwitchButton"
+              >
+                <label
+                  style={
+                    Object {
+                      "color": "#86e991",
+                    }
+                  }
+                >
+                  ENABLED
+                </label>
+                <div
+                  className=""
+                  id="switch-container"
+                  onClick={[Function]}
+                >
+                  <div
+                    className=""
+                    id="background"
+                    style={
+                      Object {
+                        "backgroundColor": "#86e991",
+                      }
+                    }
+                  />
+                  <div
+                    className=""
+                    id="cursor"
+                    style={
+                      Object {
+                        "transform": "translate3d(26px, 0, 0)",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+            <h1>
+              Some device
+            </h1>
+            <div
+              className="lastsync"
+            >
+              <p>
+                LAST SYNCHRONIZATION
+              </p>
+              <div
+                className="syncstatus"
+              >
+                <div
+                  className="CircleIndicator"
+                  style={
+                    Object {
+                      "border": "solid 2px#86e991",
+                    }
+                  }
+                />
+                <p>
+                  10 days ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="separator"
+        style={
+          Object {
+            "marginTop": "16px",
+          }
+        }
+      />
+    </div>
+    <div
+      id="separator"
+      style={
+        Object {
+          "marginTop": "16px",
+        }
+      }
+    />
+    <button
+      className="Button primary"
+    >
+      Add a new device
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders one new devices 1`] = `
+<div
+  style={
+    Object {
+      "paddingBottom": "64px",
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    New Device
+  </h2>
+  <div
+    className="Devices"
+  >
+    <div>
+      <div
+        className="Card"
+      >
+        <div
+          className="flex"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="CardHeader"
+            >
+              <div
+                className="line"
+                style={
+                  Object {
+                    "backgroundColor": "var(--grey2-color)",
+                  }
+                }
+              />
+              <div
+                className="SwitchButton"
+              >
+                <label
+                  style={
+                    Object {
+                      "color": null,
+                    }
+                  }
+                >
+                  DISABLED
+                </label>
+                <div
+                  className=""
+                  id="switch-container"
+                  onClick={[Function]}
+                >
+                  <div
+                    className=""
+                    id="background"
+                    style={Object {}}
+                  />
+                  <div
+                    className=""
+                    id="cursor"
+                    style={Object {}}
+                  />
+                </div>
+              </div>
+            </div>
+            <h1>
+              Some device
+            </h1>
+            <div
+              className="lastsync"
+            >
+              <p>
+                LAST SYNCHRONIZATION
+              </p>
+              <div
+                className="syncstatus"
+              >
+                <div
+                  className="CircleIndicator"
+                  style={
+                    Object {
+                      "border": "solid 2px#b2b2b2",
+                    }
+                  }
+                />
+                <p>
+                  10 days ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="separator"
+        style={
+          Object {
+            "marginTop": "16px",
+          }
+        }
+      />
+    </div>
+  </div>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    My devices connected to Masq
+  </h2>
+  <div
+    className="Devices"
+  >
+    <div
+      id="separator"
+      style={
+        Object {
+          "marginTop": "16px",
+        }
+      }
+    />
+    <button
+      className="Button primary"
+    >
+      Add a new device
+    </button>
+  </div>
+</div>
+`;
