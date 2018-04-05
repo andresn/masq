@@ -1,3 +1,5 @@
+import * as localForage from "localforage";
+
 /**
  * The library fakeAppStore aim is to be
  * used with the masq-app UI in order to simulate
