@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Register page 1`] = `
+<div
+  className="Register"
+>
+  <a
+    className="goback"
+    href="login"
+    onClick={[Function]}
+  >
+    <svg
+      color="#458bf8"
+      height={10}
+      transform="rotate(90)"
+      viewBox="0 0 14 10"
+      width={14}
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <defs>
+        <path
+          d="M13.7 1.7l-6 6c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3l-6-6C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4z"
+          id="chevron-svg"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        fillRule="nonzero"
+        xlinkHref="#chevron-svg"
+      />
+    </svg>
+    <h3>
+      Go back to the users list
+    </h3>
+  </a>
+  <h1>
+    New User
+  </h1>
+  <div
+    className="container"
+  >
+    <div>
+      <input
+        accept=".jpg, .jpeg, .png"
+        name="avatar"
+        onChange={undefined}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="file"
+      />
+      <svg
+        className="Avatar upload"
+        color="var(--grey2-color)"
+        height={120}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundImage": "url(undefined)",
+          }
+        }
+        viewBox="0 0 120 120"
+        width={120}
+      >
+        <g
+          fill="none"
+          fillRule="evenodd"
+        >
+          <circle
+            cx={60}
+            cy={60}
+            fill="#fff"
+            r={60}
+          />
+          <circle
+            cx={60}
+            cy={60}
+            r={59}
+            stroke="currentColor"
+            strokeWidth={2}
+          />
+          <path
+            d="M76.8 46.933h-6.533l-3.174-4.853c-.373-.373-.933-.747-1.493-.747H54.4c-.56 0-1.12.374-1.493.747l-3.174 4.853H43.2c-3.173 0-5.6 2.427-5.6 5.6v20.534c0 3.173 2.427 5.6 5.6 5.6h33.6c3.173 0 5.6-2.427 5.6-5.6V52.533c0-3.173-2.427-5.6-5.6-5.6zm1.867 26.134c0 1.12-.747 1.866-1.867 1.866H43.2c-1.12 0-1.867-.746-1.867-1.866V52.533c0-1.12.747-1.866 1.867-1.866h7.467c.56 0 1.12-.374 1.493-.747l3.173-4.853h9.147l3.173 4.853c.56.373 1.12.747 1.68.747H76.8c1.12 0 1.867.746 1.867 1.866zM60 52.533c-5.227 0-9.333 4.107-9.333 9.334 0 5.226 4.106 9.333 9.333 9.333s9.333-4.107 9.333-9.333c0-5.227-4.106-9.334-9.333-9.334zm0 14.934c-3.173 0-5.6-2.427-5.6-5.6 0-3.174 2.427-5.6 5.6-5.6s5.6 2.426 5.6 5.6c0 3.173-2.427 5.6-5.6 5.6z"
+            fill="currentColor"
+            fillRule="nonzero"
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      className="TextInput"
+    >
+      <input
+        defaultValue={undefined}
+        type="text"
+      />
+      <label>
+        Last Name
+      </label>
+    </div>
+    <div
+      className="TextInput"
+    >
+      <input
+        defaultValue={undefined}
+        type="text"
+      />
+      <label>
+        First Name
+      </label>
+    </div>
+    <div
+      className="TextInput"
+    >
+      <input
+        defaultValue={undefined}
+        type="text"
+      />
+      <label>
+        Username (displayed)
+      </label>
+    </div>
+    <div
+      id="separator"
+      style={
+        Object {
+          "marginTop": "16px",
+        }
+      }
+    />
+    <button
+      className="Button primary"
+    >
+      Confirm
+    </button>
+  </div>
+</div>
+`;

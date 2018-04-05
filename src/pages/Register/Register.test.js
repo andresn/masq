@@ -1,9 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import Register from './Register'
+import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<MemoryRouter><Register /></MemoryRouter>, div)
+import Register from './Register'
+
+it('renders Register page', () => {
+  const component = renderer.create(<MemoryRouter><Register /></MemoryRouter>)
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
 })
