@@ -42,7 +42,6 @@ export default function Applications (props) {
 
   return (
     <div>
-
       <h2 style={{marginLeft: '16px'}}>Currently active Applications</h2>
       <div className='Applications'>
         <AppRows applications={applications} active onChecked={props.onChecked} />
