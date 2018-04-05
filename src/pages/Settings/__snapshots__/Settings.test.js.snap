@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Settings page 1`] = `
+<div
+  className="Settings"
+>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    Your Profile
+  </h2>
+  <div
+    className="profile"
+  >
+    <div>
+      <input
+        accept=".jpg, .jpeg, .png"
+        name="avatar"
+        onChange={undefined}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="file"
+      />
+      <div
+        className="Avatar upload"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
+          }
+        }
+      >
+        <svg
+          className="camera"
+          color="white"
+          height={33}
+          viewBox="0 0 24 20"
+          width={40}
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <path
+              d="M21 3h-3.5L15.8.4c-.2-.2-.5-.4-.8-.4H9c-.3 0-.6.2-.8.4L6.5 3H3C1.3 3 0 4.3 0 6v11c0 1.7 1.3 3 3 3h18c1.7 0 3-1.3 3-3V6c0-1.7-1.3-3-3-3zm1 14c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1h4c.3 0 .6-.2.8-.4L9.5 2h4.9l1.7 2.6c.3.2.6.4.9.4h4c.6 0 1 .4 1 1v11zM12 6c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"
+              id="camera-svg"
+            />
+          </defs>
+          <use
+            fill="currentColor"
+            fillRule="nonzero"
+            xlinkHref="#camera-svg"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      className="fields"
+    >
+      <div
+        className="TextInput"
+      >
+        <input
+          defaultValue="Ford"
+          type="text"
+        />
+        <label>
+          Last Name
+        </label>
+      </div>
+      <div
+        className="TextInput"
+      >
+        <input
+          defaultValue="Alicia"
+          type="text"
+        />
+        <label>
+          First Name
+        </label>
+      </div>
+      <div
+        className="TextInput"
+      >
+        <input
+          defaultValue="Mustang"
+          type="text"
+        />
+        <label>
+          Username (Displayed)
+        </label>
+      </div>
+    </div>
+  </div>
+  <h2
+    style={
+      Object {
+        "marginLeft": "16px",
+      }
+    }
+  >
+    Masq Parameters
+  </h2>
+  <div
+    className="parameters"
+  >
+    <div
+      className="CircleIndicator"
+      style={
+        Object {
+          "border": "solid 2px#458bf8",
+        }
+      }
+    />
+    <p>
+      Accept new applications automatically
+    </p>
+    <div
+      className="SwitchButton"
+    >
+      <div
+        className="secondary"
+        id="switch-container"
+        onClick={[Function]}
+      >
+        <div
+          className="secondary"
+          id="background"
+          style={
+            Object {
+              "backgroundColor": "#458bf8",
+            }
+          }
+        />
+        <div
+          className="secondary"
+          id="cursor"
+          style={
+            Object {
+              "transform": "translate3d(32px, 0, 0)",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    id="separator"
+    style={
+      Object {
+        "marginTop": "48px",
+      }
+    }
+  />
+  <div
+    className="button-container"
+  >
+    <button
+      className="Button primary"
+    >
+      DELETE MY ACCOUNT
+    </button>
+  </div>
+</div>
+`;
