@@ -383,7 +383,6 @@ const generateUUID = () => {
   })
 }
 
-export default createUser
 export {
   createUser,
   deleteUser,
