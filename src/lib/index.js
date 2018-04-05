@@ -1,4 +1,4 @@
-import * as localForage from "localforage";
+import * as localforage from 'localforage'
 
 /**
  * The library fakeAppStore aim is to be
@@ -35,20 +35,25 @@ import * as localForage from "localforage";
  @property {string} image - The link to the profil picture
  */
 
-const initDB = () => {
-  localforage.config({
+/**
+ * Initialise a localforage instance
+ *
+ * @param {string} id - The id of the instance
+ * @param {string} [description] - The description of the db
+ * @returns {Object} - An instance of localforage
+ *
+ */
+const initDB = (id, description) => {
+  return localforage.config({
     driver: localforage.INDEXEDDB,
-    name: 'masqApp-store',
-    version: 1.0,
-    storeName: 'masqAppStore', // Should be alphanumeric, with underscores.
-    description: 'Store the applications data'
+    name: id,
+    description: description || id
   })
 }
 
-/**
- * Initialisation of IndexedDB with localforage
- */
-initDB()
+let usersDB = initDB('users')
+let curUserDB = null
+let curAppDB = null
 
 let currentUserId = ''
 
@@ -62,7 +67,7 @@ let currentUserId = ''
  *
  */
 const createUser = (user) => {
-  return localforage.getItem('userList')
+  return usersDB.getItem('userList')
     .then(users => {
       if (!users || users.length === 0) {
         console.log('userList is empty')
@@ -71,7 +76,7 @@ const createUser = (user) => {
       // Add a uuid.
       user._id = generateUUID()
       users.push(user)
-      return localforage.setItem('userList', users)
+      return usersDB.setItem('userList', users)
         .then(res => {
           console.log(`*** User ${user.username} has been stored : done ***`)
           // A new key corresponding to the generated uuid is created.
@@ -121,6 +126,7 @@ const getDeviceList = () => {
     console.log('No user is logged')
     return Promise.reject(new Error('No logged user'))
   }
+  let db = initDB(currentUserId)
   return localforage.getItem(currentUserId)
     .then(data => {
       return data.deviceList
@@ -321,7 +327,7 @@ const getUserList = () => {
  *
  */
 const signIn = (username) => {
-  return localforage.getItem('userList')
+  return usersDB.getItem('userList')
     .then(users => {
       if (!users || users.length === 0) {
         console.log('userList is empty')
