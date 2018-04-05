@@ -1,5 +1,7 @@
 import * as localforage from 'localforage'
 
+let currentUserId = ''
+
 /**
  * The library fakeAppStore aim is to be
  * used with the masq-app UI in order to simulate
@@ -93,6 +95,16 @@ const addDevice = (device) => {
     .catch(err => console.log(err))
 }
 
+const initDB = () => {
+  localforage.config({
+    driver: localforage.INDEXEDDB,
+    name: 'masqApp-store',
+    version: 1.0,
+    storeName: 'masqAppStore', // Should be alphanumeric, with underscores.
+    description: 'Store the applications data'
+  })
+}
+initDB()
 /**
  * Return the list of registered devices for the logged user.
  *
@@ -104,7 +116,6 @@ const getDeviceList = () => {
     console.log('No user is logged')
     return Promise.reject(new Error('No logged user'))
   }
-  let db = initDB(currentUserId)
   return localforage.getItem(currentUserId)
     .then(data => {
       return data.deviceList
