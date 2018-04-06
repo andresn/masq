@@ -10,6 +10,8 @@ import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading } from 'pages'
 
+import { getUserList, createUser } from './lib/'
+
 import './App.css'
 
 const tabs = [
@@ -18,26 +20,26 @@ const tabs = [
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
-const users = [
-  {
-    image: 'https://randomuser.me/api/portraits/women/79.jpg',
-    firstname: 'Alicia',
-    lastname: 'Ford',
-    username: 'Mustang'
-  },
-  {
-    image: 'https://randomuser.me/api/portraits/men/1.jpg',
-    firstname: 'Jeffrey',
-    lastname: 'Hoffman',
-    username: 'Jeff'
-  },
-  {
-    image: 'https://randomuser.me/api/portraits/women/10.jpg',
-    firstname: 'Ida',
-    lastname: 'Meyer',
-    username: 'Idada'
-  }
-]
+// const users = [
+//   {
+//     image: 'https://randomuser.me/api/portraits/women/79.jpg',
+//     firstname: 'Alicia',
+//     lastname: 'Ford',
+//     username: 'Mustang'
+//   },
+//   {
+//     image: 'https://randomuser.me/api/portraits/men/1.jpg',
+//     firstname: 'Jeffrey',
+//     lastname: 'Hoffman',
+//     username: 'Jeff'
+//   },
+//   {
+//     image: 'https://randomuser.me/api/portraits/women/10.jpg',
+//     firstname: 'Ida',
+//     lastname: 'Meyer',
+//     username: 'Idada'
+//   }
+// ]
 
 const devices = [
   { name: 'TV de Margaux', color: '#86e991', enabled: true, new: true },
@@ -103,6 +105,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
+      users: [],
       isLogging: false,
       isAuthenticated: false,
       notif: true,
@@ -114,6 +117,13 @@ class App extends Component {
     this.signout = this.signout.bind(this)
     this.onChecked = this.onChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
+    this.onRegister = this.onRegister.bind(this)
+
+    this.fetchData()
+  }
+
+  async fetchData () {
+    this.setState({users: await getUserList()})
   }
 
   onCloseNotif () {
@@ -121,13 +131,13 @@ class App extends Component {
   }
 
   authenticate (indexUser) {
-    this.setState({ isLogging: true, currentUser: users[indexUser] })
+    this.setState({ isLogging: true, currentUser: this.state.users[indexUser] })
     setTimeout(() => {
       this.setState({
         notif: true,
         isAuthenticated: true,
         isLogging: false,
-        currentUser: users[indexUser]
+        currentUser: this.state.users[indexUser]
       })
     }, 2000)
   }
@@ -157,6 +167,11 @@ class App extends Component {
     this.setState({ applications })
   }
 
+  async onRegister (user) {
+    await createUser(user)
+    this.fetchData()
+  }
+
   render () {
     console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
 
@@ -169,14 +184,16 @@ class App extends Component {
           }
 
           <Switch>
-            <Route path='/register' component={Register} />
+            <Route path='/register' component={
+              () => <Register onRegister={this.onRegister} />
+            } />
             <Route path='/loading' component={
               () => { return this.state.isLogging ? <Loading user={this.state.currentUser} /> : <Redirect to='devices' /> }
             } />
 
             <Redirect exact from='/' to='/login' />
             <Route exact path='/login' component={() => (
-              <Login auth={this.authenticate} users={users} />
+              <Login auth={this.authenticate} users={this.state.users} />
             )} />
             {this.state.isLogging && <Redirect to='loading' />}
           </Switch>

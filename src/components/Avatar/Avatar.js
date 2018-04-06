@@ -36,14 +36,14 @@ export default class Avatar extends React.Component {
   }
 
   render () {
-    const { image, upload, fileHandler } = this.props
+    const { image, upload, onChange } = this.props
     const style = { backgroundImage: 'url(' + image + ')' }
 
     return upload
       ? (
         <div>
           <input name='avatar' type='file' ref='fileDialog'
-            style={{ display: 'none' }} onChange={fileHandler}
+            style={{ display: 'none' }} onChange={onChange}
             accept='.jpg, .jpeg, .png'
           />
 

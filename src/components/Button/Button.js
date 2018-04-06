@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import './Button.css'
 
 export default function Button (props) {
-  const { secondary, label } = props
+  const { secondary, label, onClick } = props
   const classes = 'Button ' + (secondary ? 'secondary' : 'primary')
 
   return (
-    <button className={classes}>{label}</button>
+    <button className={classes} onClick={onClick}>{label}</button>
   )
 }
 
