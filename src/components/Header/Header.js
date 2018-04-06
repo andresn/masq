@@ -36,7 +36,7 @@ export default function Header (props) {
       <div id='invisible' style={{height: height}} />
       <div className={'Header' + (shadow ? ' shadow' : '')}>
         <div id='top-section'>
-          {user ? <AvatarSection username={user.firstname} image={user.image} /> : <TitleSection /> }
+          {user ? <AvatarSection username={user.username} image={user.image} /> : <TitleSection /> }
           <Link to='login'>
             <Home className='home' onClick={onLogout} />
           </Link>

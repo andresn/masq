@@ -93,7 +93,7 @@ exports[`renders Header with a user 1`] = `
             }
           }
         >
-          some firstname
+          some username
         </span>
         <svg
           className="caret"

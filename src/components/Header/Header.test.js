@@ -18,6 +18,7 @@ it('renders Header with shadow', () => {
 
 it('renders Header with a user', () => {
   const user = {
+    username: 'some username',
     firstname: 'some firstname',
     lastname: 'some lastname',
     image: 'https://randomuser.me/api/portraits/women/79.jpg'
