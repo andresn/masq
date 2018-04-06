@@ -97,7 +97,7 @@ const initDB = async () => {
       storeName: 'masqAppStore', // Should be alphanumeric, with underscores.
       description: 'Store the applications data'
     })
-  } catch (e) { }
+  } catch (e) { console.log(e) }
 }
 initDB()
 /**

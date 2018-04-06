@@ -13,7 +13,7 @@ import {
 import './Settings.css'
 
 export default function Devices (props) {
-  const { user } = props
+  const { user, onDeleteUser } = props
 
   return (
     <div className='Settings'>
@@ -39,7 +39,7 @@ export default function Devices (props) {
 
       <Separator height='48px' />
       <div className='button-container'>
-        <Button label='DELETE MY ACCOUNT' />
+        <Button label='DELETE MY ACCOUNT' onClick={onDeleteUser} />
       </div>
     </div>
   )

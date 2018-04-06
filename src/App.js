@@ -10,7 +10,7 @@ import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading } from 'pages'
 
-import { getUserList, createUser } from './lib/'
+import { getUserList, createUser, deleteUser, signIn } from './lib/'
 
 import './App.css'
 
@@ -118,20 +118,28 @@ class App extends Component {
     this.onChecked = this.onChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onRegister = this.onRegister.bind(this)
+    this.onDeleteUser = this.onDeleteUser.bind()
+  }
 
+  componentDidMount () {
     this.fetchData()
   }
 
   async fetchData () {
-    this.setState({users: await getUserList()})
+    let users = []
+    try {
+      users = await getUserList()
+      this.setState({users: users})
+    } catch (e) {}
   }
 
   onCloseNotif () {
     this.setState({ notif: false })
   }
 
-  authenticate (indexUser) {
+  async authenticate (indexUser) {
     this.setState({ isLogging: true, currentUser: this.state.users[indexUser] })
+    await signIn(this.state.users[indexUser].username)
     setTimeout(() => {
       this.setState({
         notif: true,
@@ -172,6 +180,11 @@ class App extends Component {
     this.fetchData()
   }
 
+  async onDeleteUser (user) {
+    await deleteUser()
+    this.fetchData()
+  }
+
   render () {
     console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
 
@@ -204,7 +217,7 @@ class App extends Component {
                 <Tabs tabs={tabs} />
                 <Route path='/devices' component={() => <Devices devices={devices} onChecked={this.onChecked} />} />
                 <Route path='/applications' component={() => <Applications applications={applications} onChecked={this.onAppChecked} />} />
-                <Route path='/settings' component={() => <Settings user={this.state.currentUser} />} />
+                <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} />} />
               </div>)
             : null
           }
