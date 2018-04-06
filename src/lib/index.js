@@ -46,30 +46,23 @@ let currentUserId = ''
  * @returns {Promise}
  *
  */
-const createUser = (user) => {
-  return localforage.getItem('userList')
-    .then(users => {
-      if (!users || users.length === 0) {
-        console.log('userList is empty')
-        users = []
-      }
-      // Add a uuid.
-      user._id = generateUUID()
-      users.push(user)
-      return localforage.setItem('userList', users)
-        .then(res => {
-          console.log(`*** User ${user.username} has been stored : done ***`)
-          // A new key corresponding to the generated uuid is created.
-          // We initialize the appList and deviceList.
-          return localforage.setItem(user._id, { appList: [], deviceList: [] })
-            .then(res => {
-              console.log(`*** Applist and device list have been created for ${user.username}.***`)
-            })
-            .catch(err => console.log(err))
-        })
-        .catch(err => console.log(err))
-    })
-    .catch(err => console.log(err))
+const createUser = async (user) => {
+  let users = await localforage.getItem('userList')
+
+  if (!users || users.length === 0) {
+    console.log('userList is empty')
+    users = []
+  }
+
+  // Add a uuid.
+  user._id = generateUUID()
+  users.push(user)
+
+  await localforage.setItem('userList', users)
+  console.log(`*** User ${user.username} has been stored : done ***`)
+
+  await localforage.setItem(user._id, { appList: [], deviceList: [] })
+  console.log(`*** Applist and device list have been created for ${user.username}.***`)
 }
 
 /**
@@ -295,16 +288,13 @@ const updateUser = (user) => {
  * @returns {Promise<masqUser[]>} - The list of users
  *
  */
-const getUserList = () => {
-  return localforage.getItem('userList')
-    .then(users => {
-      if (!users || users.length === 0) {
-        console.log('userList is empty')
-        return []
-      }
-      return users
-    })
-    .catch(err => console.log(err))
+const getUserList = async () => {
+  const users = await localforage.getItem('userList')
+  if (!users || users.length === 0) {
+    console.log('userList is empty')
+    return []
+  }
+  return users
 }
 
 /**
