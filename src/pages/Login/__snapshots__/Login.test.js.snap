@@ -28,7 +28,7 @@ exports[`renders Login with users 1`] = `
         }
       />
       <p>
-        Alicia
+        Mustang
       </p>
     </a>
     <a
@@ -49,7 +49,7 @@ exports[`renders Login with users 1`] = `
         }
       />
       <p>
-        Jeffrey
+        Jeff
       </p>
     </a>
     <a

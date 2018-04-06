@@ -17,7 +17,7 @@ export default function Login (props) {
         {users.map((user, index) =>
           <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => auth(index)}>
             <Avatar image={user.image} />
-            <p>{user.firstname}</p>
+            <p>{user.username}</p>
           </Link>
         )}
 
