@@ -118,7 +118,7 @@ class App extends Component {
     this.onChecked = this.onChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onRegister = this.onRegister.bind(this)
-    this.onDeleteUser = this.onDeleteUser.bind()
+    this.onDeleteUser = this.onDeleteUser.bind(this)
   }
 
   componentDidMount () {
