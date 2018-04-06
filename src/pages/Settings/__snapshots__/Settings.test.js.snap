@@ -67,6 +67,7 @@ exports[`renders Settings page 1`] = `
       >
         <input
           defaultValue="Ford"
+          onChange={undefined}
           type="text"
         />
         <label>
@@ -78,6 +79,7 @@ exports[`renders Settings page 1`] = `
       >
         <input
           defaultValue="Alicia"
+          onChange={undefined}
           type="text"
         />
         <label>
@@ -89,6 +91,7 @@ exports[`renders Settings page 1`] = `
       >
         <input
           defaultValue="Mustang"
+          onChange={undefined}
           type="text"
         />
         <label>
@@ -162,6 +165,7 @@ exports[`renders Settings page 1`] = `
   >
     <button
       className="Button primary"
+      onClick={undefined}
     >
       DELETE MY ACCOUNT
     </button>

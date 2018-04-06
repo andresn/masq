@@ -3,6 +3,7 @@
 exports[`renders primary button 1`] = `
 <button
   className="Button primary"
+  onClick={undefined}
 >
   somebutton
 </button>
@@ -11,6 +12,7 @@ exports[`renders primary button 1`] = `
 exports[`renders secondary button 1`] = `
 <button
   className="Button secondary"
+  onClick={undefined}
 >
   somebutton
 </button>

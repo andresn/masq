@@ -6,6 +6,7 @@ exports[`renders TextInput 1`] = `
 >
   <input
     defaultValue={undefined}
+    onChange={undefined}
     type="text"
   />
   <label>
@@ -20,6 +21,7 @@ exports[`renders TextInput with a defaultValue 1`] = `
 >
   <input
     defaultValue="default text"
+    onChange={undefined}
     type="text"
   />
   <label>

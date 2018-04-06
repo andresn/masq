@@ -43,7 +43,7 @@ exports[`renders Register page 1`] = `
       <input
         accept=".jpg, .jpeg, .png"
         name="avatar"
-        onChange={undefined}
+        onChange={[Function]}
         style={
           Object {
             "display": "none",
@@ -58,7 +58,7 @@ exports[`renders Register page 1`] = `
         onClick={[Function]}
         style={
           Object {
-            "backgroundImage": "url(undefined)",
+            "backgroundImage": "url(null)",
           }
         }
         viewBox="0 0 120 120"
@@ -94,6 +94,7 @@ exports[`renders Register page 1`] = `
     >
       <input
         defaultValue={undefined}
+        onChange={[Function]}
         type="text"
       />
       <label>
@@ -105,6 +106,7 @@ exports[`renders Register page 1`] = `
     >
       <input
         defaultValue={undefined}
+        onChange={[Function]}
         type="text"
       />
       <label>
@@ -116,6 +118,7 @@ exports[`renders Register page 1`] = `
     >
       <input
         defaultValue={undefined}
+        onChange={[Function]}
         type="text"
       />
       <label>
@@ -132,6 +135,7 @@ exports[`renders Register page 1`] = `
     />
     <button
       className="Button primary"
+      onClick={[Function]}
     >
       Confirm
     </button>

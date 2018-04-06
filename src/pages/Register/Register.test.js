@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router'
 import Register from './Register'
 
 it('renders Register page', () => {
-  const component = renderer.create(<MemoryRouter><Register /></MemoryRouter>)
+  const component = renderer.create(<MemoryRouter><Register onRegister={() => {}} /></MemoryRouter>)
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })

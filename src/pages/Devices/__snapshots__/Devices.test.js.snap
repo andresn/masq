@@ -42,6 +42,7 @@ exports[`renders no devices 1`] = `
     />
     <button
       className="Button primary"
+      onClick={undefined}
     >
       Add a new device
     </button>
@@ -179,6 +180,7 @@ exports[`renders one disabled devices 1`] = `
     />
     <button
       className="Button primary"
+      onClick={undefined}
     >
       Add a new device
     </button>
@@ -324,6 +326,7 @@ exports[`renders one enabled devices 1`] = `
     />
     <button
       className="Button primary"
+      onClick={undefined}
     >
       Add a new device
     </button>
@@ -462,6 +465,7 @@ exports[`renders one new devices 1`] = `
     />
     <button
       className="Button primary"
+      onClick={undefined}
     >
       Add a new device
     </button>
