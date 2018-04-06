@@ -1,4 +1,4 @@
-import * as localforage from 'localforage'
+import localforage from 'localforage'
 
 let currentUserId = ''
 
@@ -95,14 +95,16 @@ const addDevice = (device) => {
     .catch(err => console.log(err))
 }
 
-const initDB = () => {
-  localforage.config({
-    driver: localforage.INDEXEDDB,
-    name: 'masqApp-store',
-    version: 1.0,
-    storeName: 'masqAppStore', // Should be alphanumeric, with underscores.
-    description: 'Store the applications data'
-  })
+const initDB = async () => {
+  try {
+    await localforage.config({
+      driver: localforage.INDEXEDDB,
+      name: 'masqApp-store',
+      version: 1.0,
+      storeName: 'masqAppStore', // Should be alphanumeric, with underscores.
+      description: 'Store the applications data'
+    })
+  } catch (e) { }
 }
 initDB()
 /**
