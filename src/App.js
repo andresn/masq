@@ -10,7 +10,7 @@ import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading } from 'pages'
 
-import { getUserList, createUser, deleteUser, signIn, getDeviceList, addDevice, getApplicationList, registerApp } from './lib/'
+import * as lib from './lib/'
 
 import './App.css'
 
@@ -127,7 +127,7 @@ class App extends Component {
 
   async fetchUsers () {
     try {
-      const users = await getUserList()
+      const users = await lib.getUserList()
       this.setState({ users: users })
     } catch (e) { console.log(e) }
   }
@@ -137,32 +137,32 @@ class App extends Component {
   }
 
   async fetchDevices () {
-    let devices = await getDeviceList()
+    let devices = await lib.getDeviceList()
     // FIXME: use mock data for now
     if (!devices.length) {
       for (let dev of devicesMock) {
-        await addDevice(dev)
+        await lib.addDevice(dev)
       }
-      devices = await getDeviceList()
+      devices = await lib.getDeviceList()
     }
     this.setState({ devices: devices })
   }
 
   async fetchApps () {
-    let apps = await getApplicationList()
+    let apps = await lib.getApplicationList()
     // FIXME: use mock data for now
     if (!apps.length) {
       for (let app of appsMock) {
-        await registerApp(app)
+        await lib.registerApp(app)
       }
-      apps = await getApplicationList()
+      apps = await lib.getApplicationList()
     }
     this.setState({ apps: apps })
   }
 
   async authenticate (indexUser) {
     this.setState({ isLogging: true, currentUser: this.state.users[indexUser] })
-    await signIn(this.state.users[indexUser].username)
+    await lib.signIn(this.state.users[indexUser].username)
     setTimeout(() => {
       this.setState({
         notif: true,
@@ -202,12 +202,12 @@ class App extends Component {
   }
 
   async onRegister (user) {
-    await createUser(user)
+    await lib.createUser(user)
     this.fetchUsers()
   }
 
   async onDeleteUser (user) {
-    await deleteUser()
+    await lib.deleteUser()
     this.fetchUsers()
   }
 
