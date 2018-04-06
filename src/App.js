@@ -10,7 +10,7 @@ import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading } from 'pages'
 
-import { getUserList, createUser, deleteUser, signIn } from './lib/'
+import { getUserList, createUser, deleteUser, signIn, getDeviceList, addDevice, getApplicationList, registerApp } from './lib/'
 
 import './App.css'
 
@@ -41,14 +41,14 @@ const tabs = [
 //   }
 // ]
 
-const devices = [
+const devicesMock = [
   { name: 'TV de Margaux', color: '#86e991', enabled: true, new: true },
   { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
   { name: 'iPad de Margaux', color: '#86e991', enabled: false },
   { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
 ]
 
-const applications = [
+const appsMock = [
   {
     name: 'Qwant Music',
     color: '#5c00f3',
@@ -109,8 +109,8 @@ class App extends Component {
       isLogging: false,
       isAuthenticated: false,
       notif: true,
-      devices: devices.slice(),
-      applications: applications.slice()
+      devices: [],
+      apps: []
     }
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
@@ -122,19 +122,42 @@ class App extends Component {
   }
 
   componentDidMount () {
-    this.fetchData()
+    this.fetchUsers()
   }
 
-  async fetchData () {
-    let users = []
+  async fetchUsers () {
     try {
-      users = await getUserList()
-      this.setState({users: users})
-    } catch (e) {}
+      const users = await getUserList()
+      this.setState({ users: users })
+    } catch (e) { console.log(e) }
   }
 
   onCloseNotif () {
     this.setState({ notif: false })
+  }
+
+  async fetchDevices () {
+    let devices = await getDeviceList()
+    // FIXME: use mock data for now
+    if (!devices.length) {
+      for (let dev of devicesMock) {
+        await addDevice(dev)
+      }
+      devices = await getDeviceList()
+    }
+    this.setState({ devices: devices })
+  }
+
+  async fetchApps () {
+    let apps = await getApplicationList()
+    // FIXME: use mock data for now
+    if (!apps.length) {
+      for (let app of appsMock) {
+        await registerApp(app)
+      }
+      apps = await getApplicationList()
+    }
+    this.setState({ apps: apps })
   }
 
   async authenticate (indexUser) {
@@ -148,6 +171,9 @@ class App extends Component {
         currentUser: this.state.users[indexUser]
       })
     }, 2000)
+
+    await this.fetchDevices()
+    await this.fetchApps()
   }
 
   signout () {
@@ -167,22 +193,22 @@ class App extends Component {
   }
 
   onAppChecked (index) {
-    const applications = this.state.applications.map((app, i) => {
+    const apps = this.state.apps.map((app, i) => {
       if (index === i) app.enabled = !app.enabled
       return app
     })
 
-    this.setState({ applications })
+    this.setState({ apps })
   }
 
   async onRegister (user) {
     await createUser(user)
-    this.fetchData()
+    this.fetchUsers()
   }
 
   async onDeleteUser (user) {
     await deleteUser()
-    this.fetchData()
+    this.fetchUsers()
   }
 
   render () {
@@ -215,8 +241,8 @@ class App extends Component {
             ? (
               <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                 <Tabs tabs={tabs} />
-                <Route path='/devices' component={() => <Devices devices={devices} onChecked={this.onChecked} />} />
-                <Route path='/applications' component={() => <Applications applications={applications} onChecked={this.onAppChecked} />} />
+                <Route path='/devices' component={() => <Devices devices={this.state.devices} onChecked={this.onChecked} />} />
+                <Route path='/applications' component={() => <Applications applications={this.state.apps} onChecked={this.onAppChecked} />} />
                 <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} />} />
               </div>)
             : null
