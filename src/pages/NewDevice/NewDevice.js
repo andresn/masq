@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Chevron } from 'icons'
-import { Button } from 'components'
+import { Button, QRCode } from 'components'
 
 import './NewDevice.css'
 
@@ -41,7 +41,7 @@ export default class NewDevice extends React.Component {
           <h3>Go back to the devices list</h3>
         </Link>
         <div className='container'>
-          <div style={{width: 125, height: 125, backgroundColor: 'black'}} />
+          <QRCode image='http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png' />
           <p className='link'>{'QWA.NT/0BJ8ZX'}</p>
           <p>Scan your QR Code on the devices you want to sync with</p>
           <p style={style}>OR</p>
