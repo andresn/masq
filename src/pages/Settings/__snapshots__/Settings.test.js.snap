@@ -20,7 +20,7 @@ exports[`renders Settings page 1`] = `
       <input
         accept=".jpg, .jpeg, .png"
         name="avatar"
-        onChange={undefined}
+        onChange={[Function]}
         style={
           Object {
             "display": "none",
@@ -67,7 +67,7 @@ exports[`renders Settings page 1`] = `
       >
         <input
           defaultValue="Ford"
-          onChange={undefined}
+          onChange={[Function]}
           type="text"
         />
         <label>
@@ -79,7 +79,7 @@ exports[`renders Settings page 1`] = `
       >
         <input
           defaultValue="Alicia"
-          onChange={undefined}
+          onChange={[Function]}
           type="text"
         />
         <label>
@@ -91,7 +91,7 @@ exports[`renders Settings page 1`] = `
       >
         <input
           defaultValue="Mustang"
-          onChange={undefined}
+          onChange={[Function]}
           type="text"
         />
         <label>
@@ -157,6 +157,24 @@ exports[`renders Settings page 1`] = `
     style={
       Object {
         "marginTop": "48px",
+      }
+    }
+  />
+  <div
+    className="button-container"
+  >
+    <button
+      className="Button primary"
+      onClick={[Function]}
+    >
+      SAVE CHANGES
+    </button>
+  </div>
+  <div
+    id="separator"
+    style={
+      Object {
+        "marginTop": "16px",
       }
     }
   />

@@ -211,9 +211,13 @@ class App extends Component {
     history.push('login')
   }
 
-  async onDeleteUser (user) {
+  async onDeleteUser () {
     await lib.deleteUser()
     this.fetchUsers()
+  }
+
+  async onUpdateUser (user) {
+    await lib.updateUser(user)
   }
 
   render () {
@@ -248,7 +252,7 @@ class App extends Component {
                 <Tabs tabs={tabs} />
                 <Route path='/devices' component={() => <Devices devices={this.state.devices} onChecked={this.onChecked} />} />
                 <Route path='/applications' component={() => <Applications applications={this.state.apps} onChecked={this.onAppChecked} />} />
-                <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} />} />
+                <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
               </div>)
             : null
           }
