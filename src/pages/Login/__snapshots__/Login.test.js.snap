@@ -9,6 +9,7 @@ exports[`renders Login with users 1`] = `
   </h1>
   <div
     className="avatars-grid"
+    style={Object {}}
   >
     <a
       href="devices"
@@ -128,6 +129,11 @@ exports[`renders Login without users 1`] = `
   </h1>
   <div
     className="avatars-grid"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
   >
     <a
       href="register"

@@ -9,11 +9,12 @@ import './Login.css'
 
 export default function Login (props) {
   const { users, auth } = props
+  const style = !users.length ? { display: 'flex' } : {}
   return (
     <div className='Login'>
       <h1>Who is it ?</h1>
 
-      <div className='avatars-grid'>
+      <div className='avatars-grid' style={style}>
         {users.map((user, index) =>
           <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => auth(index)}>
             <Avatar image={user.image} />
