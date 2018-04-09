@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as Router,
+  Router,
   Redirect,
   Route,
   Switch
 } from 'react-router-dom'
+
+import createBrowserHistory from 'history/createBrowserHistory'
 
 import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
@@ -13,6 +15,8 @@ import { Devices, Applications, Settings, Login, Register, Loading } from 'pages
 import * as lib from './lib/'
 
 import './App.css'
+
+const history = createBrowserHistory()
 
 const tabs = [
   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
@@ -203,7 +207,8 @@ class App extends Component {
 
   async onRegister (user) {
     await lib.createUser(user)
-    this.fetchUsers()
+    await this.fetchUsers()
+    history.push('login')
   }
 
   async onDeleteUser (user) {
@@ -215,7 +220,7 @@ class App extends Component {
     console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
 
     return (
-      <Router>
+      <Router history={history}>
         <div>
           {this.state.isAuthenticated
             ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
