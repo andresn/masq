@@ -10,7 +10,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
-import { Devices, Applications, Settings, Login, Register, Loading } from 'pages'
+import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 
 import * as lib from './lib/'
 
@@ -250,12 +250,13 @@ class App extends Component {
             ? (
               <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                 <Tabs tabs={tabs} />
-                <Route path='/devices' component={() => <Devices devices={this.state.devices} onChecked={this.onChecked} />} />
+                <Route path='/devices' component={() => <Devices devices={this.state.devices} onChecked={this.onChecked} onNewDevice={() => history.push('newdevice')} />} />
                 <Route path='/applications' component={() => <Applications applications={this.state.apps} onChecked={this.onAppChecked} />} />
                 <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
               </div>)
             : null
           }
+          {this.state.isAuthenticated && <Route path='/newdevice' component={() => <NewDevice />} /> }
         </div>
       </Router>
     )

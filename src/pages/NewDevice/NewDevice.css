@@ -1,0 +1,43 @@
+.NewDevice h1 {
+  font-size: 30px;
+  line-height: 0.83;
+  text-align: center;
+  color: var(--grey5-color);
+}
+
+.NewDevice .container {
+  width: 80%;
+  height: 470px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.NewDevice .link {
+  color: var(--main-highlight-color);
+  font-weight: 600;
+}
+
+.NewDevice p {
+  font-size: 14px;
+  line-height: 1.79;
+  color: var(--grey5-color);
+}
+
+.NewDevice h3 {
+  margin-left: 8px;
+}
+
+.NewDevice .goback {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  text-decoration: none;
+}
+
+.NewDevice .goback p {
+  margin-left: 8px;
+}

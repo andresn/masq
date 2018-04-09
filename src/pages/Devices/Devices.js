@@ -51,7 +51,7 @@ export default function Devices (props) {
             : null
         ))}
         <Separator />
-        <Button label='Add a new device' />
+        <Button label='Add a new device' onClick={props.onNewDevice} />
       </div>
     </div>
   )
