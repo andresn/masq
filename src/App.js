@@ -165,14 +165,16 @@ class App extends Component {
   }
 
   async authenticate (indexUser) {
-    this.setState({ isLogging: true, currentUser: this.state.users[indexUser] })
+    this.setState({
+      isAuthenticated: true,
+      isLogging: true,
+      currentUser: this.state.users[indexUser]
+    })
     await lib.signIn(this.state.users[indexUser].username)
     setTimeout(() => {
       this.setState({
         notif: true,
-        isAuthenticated: true,
-        isLogging: false,
-        currentUser: this.state.users[indexUser]
+        isLogging: false
       })
     }, 2000)
 
@@ -183,7 +185,8 @@ class App extends Component {
   signout () {
     this.setState({
       currentUser: null,
-      isAuthenticated: false
+      isAuthenticated: false,
+      isLogging: false
     })
   }
 
@@ -226,7 +229,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          {this.state.isAuthenticated
+          {this.state.isAuthenticated && !this.state.isLogging
             ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
             : <HeaderLoggedOut onLogout={this.signout} />
           }
@@ -246,7 +249,7 @@ class App extends Component {
             {this.state.isLogging && <Redirect to='loading' />}
           </Switch>
 
-          {this.state.isAuthenticated
+          {this.state.isAuthenticated && !this.state.isLogging
             ? (
               <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                 <Tabs tabs={tabs} />
