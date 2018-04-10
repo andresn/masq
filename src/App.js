@@ -23,20 +23,18 @@ const tabs = [
 
 function HeaderLoggedIn (props) {
   return (
-    <div>
-      <Header
-        title='Hello'
-        user={props.user}
-        shadow
-        onLogout={props.onLogout}
-        childrenHeight={props.notif ? 40 : 0}
-      >
-        {props.notif
-          ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
-          : null
-        }
-      </Header>
-    </div>
+    <Header
+      title='Hello'
+      user={props.user}
+      shadow
+      onLogout={props.onLogout}
+      childrenHeight={props.notif ? 40 : 0}
+    >
+      {props.notif
+        ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
+        : null
+      }
+    </Header>
   )
 }
 
