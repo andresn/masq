@@ -52,5 +52,6 @@ Header.propTypes = {
   shadow: PropTypes.bool,
   onLogout: PropTypes.func,
   user: PropTypes.object,
-  children: PropTypes.element
+  children: PropTypes.element,
+  childrenHeight: PropTypes.number
 }

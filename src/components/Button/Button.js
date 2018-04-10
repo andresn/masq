@@ -13,6 +13,7 @@ export default function Button (props) {
 }
 
 Button.propTypes = {
+  onClick: PropTypes.func,
   secondary: PropTypes.bool,
   label: PropTypes.string.isRequired
 }

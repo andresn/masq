@@ -43,8 +43,8 @@ export default class SwitchButton extends React.Component {
 }
 
 SwitchButton.propTypes = {
-  onToggle: PropTypes.func,
+  checked: PropTypes.bool,
+  onChecked: PropTypes.func,
   secondary: PropTypes.bool,
-  checked: PropTypes.bool.isRequired,
   color: PropTypes.string.isRequired
 }
