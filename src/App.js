@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
-import {
-  Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom'
-
+import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
+
+import devicesMock from './mocks/devices'
+import appsMock from './mocks/apps'
 
 import * as lib from './lib/'
 
@@ -22,43 +19,6 @@ const tabs = [
   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
   { label: 'Applications', link: '/applications', icon: <Apps /> },
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
-]
-
-const devicesMock = [
-  { name: 'TV de Margaux', color: '#86e991', enabled: true, new: true },
-  { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
-  { name: 'iPad de Margaux', color: '#86e991', enabled: false },
-  { name: 'Oneplus de Matthieu', color: '#ee6e7e', enabled: true }
-]
-
-const appsMock = [
-  {
-    name: 'Qwant Music',
-    color: '#5c00f3',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-    enabled: true,
-    image: 'https://images.pexels.com/photos/63703/pexels-photo-63703.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-    active: true
-  },
-  {
-    name: 'Qwant Maps',
-    color: '#a3005c',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-    enabled: false,
-    image: 'https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
-  },
-  {
-    name: 'Qwant Shopping',
-    color: '#01cbd9',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-    enabled: true
-  },
-  {
-    name: 'Qwant Shopping',
-    color: '#01cbd9',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscinLoadingPageg elit, sed do eiusmod tempor incididunt ut labore.',
-    enabled: true
-  }
 ]
 
 function HeaderLoggedIn (props) {
