@@ -8,6 +8,7 @@ import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } 
 
 import devicesMock from './mocks/devices'
 import appsMock from './mocks/apps'
+import { UserContext } from 'context/user'
 
 import * as lib from './lib/'
 
@@ -25,7 +26,6 @@ function HeaderLoggedIn (props) {
   return (
     <Header
       title='Hello'
-      user={props.user}
       shadow
       onLogout={props.onLogout}
       childrenHeight={props.notif ? 40 : 0}
@@ -49,7 +49,8 @@ class App extends Component {
       users: [],
       isLogging: false,
       isAuthenticated: false,
-      notif: true
+      notif: true,
+      currentUser: null
     }
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
@@ -155,41 +156,43 @@ class App extends Component {
     console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
 
     return (
-      <Router history={history}>
-        <div>
-          {this.state.isAuthenticated && !this.state.isLogging
-            ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
-            : <HeaderLoggedOut onLogout={this.signout} />
-          }
+      <UserContext.Provider value={this.state.currentUser}>
+        <Router history={history}>
+          <div>
+            {this.state.isAuthenticated && !this.state.isLogging
+              ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
+              : <HeaderLoggedOut onLogout={this.signout} />
+            }
 
-          <Switch>
-            <Route path='/register' component={
-              () => <Register onRegister={this.onRegister} />
-            } />
-            <Route path='/loading' component={
-              () => { return this.state.isLogging ? <Loading user={this.state.currentUser} /> : <Redirect to='devices' /> }
-            } />
+            <Switch>
+              <Route path='/register' component={
+                () => <Register onRegister={this.onRegister} />
+              } />
+              <Route path='/loading' component={
+                () => { return this.state.isLogging ? <Loading /> : <Redirect to='devices' /> }
+              } />
 
-            <Redirect exact from='/' to='/login' />
-            <Route exact path='/login' component={() => (
-              <Login auth={this.authenticate} users={this.state.users} />
-            )} />
-            {this.state.isLogging && <Redirect to='loading' />}
-          </Switch>
+              <Redirect exact from='/' to='/login' />
+              <Route exact path='/login' component={() => (
+                <Login auth={this.authenticate} users={this.state.users} />
+              )} />
+              {this.state.isLogging && <Redirect to='loading' />}
+            </Switch>
 
-          {this.state.isAuthenticated && !this.state.isLogging
-            ? (
-              <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
-                <Tabs tabs={tabs} />
-                <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onChecked} onNewDevice={() => history.push('newdevice')} />} />
-                <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
-                <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
-              </div>)
-            : null
-          }
-          {this.state.isAuthenticated && <Route path='/newdevice' component={() => <NewDevice />} /> }
-        </div>
-      </Router>
+            {this.state.isAuthenticated && !this.state.isLogging
+              ? (
+                <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
+                  <Tabs tabs={tabs} />
+                  <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onChecked} onNewDevice={() => history.push('newdevice')} />} />
+                  <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
+                  <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+                </div>)
+              : null
+            }
+            {this.state.isAuthenticated && <Route path='/newdevice' component={() => <NewDevice />} /> }
+          </div>
+        </Router>
+      </UserContext.Provider>
     )
   }
 }

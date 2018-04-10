@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { Avatar } from 'components'
 import { Chevron, Home } from 'icons'
 
+import { UserContext } from 'context/user'
+
 import './Header.css'
 
 function TitleSection (props) {
@@ -28,30 +30,33 @@ function AvatarSection (props) {
 }
 
 export default function Header (props) {
-  const { user, shadow, children, onLogout, childrenHeight } = props
+  const { shadow, children, onLogout, childrenHeight } = props
   const height = childrenHeight ? 80 + childrenHeight : 64
 
   return (
-    <div>
-      <div id='invisible' style={{height: height}} />
-      <div className={'Header' + (shadow ? ' shadow' : '')}>
-        <div id='top-section'>
-          {user ? <AvatarSection username={user.username} image={user.image} /> : <TitleSection /> }
-          <Link to='login'>
-            <Home className='home' onClick={onLogout} />
-          </Link>
+    <UserContext.Consumer>
+      {user =>
+        <div>
+          <div id='invisible' style={{height: height}} />
+          <div className={'Header' + (shadow ? ' shadow' : '')}>
+            <div id='top-section'>
+              {user ? <AvatarSection username={user.username} image={user.image} /> : <TitleSection /> }
+              <Link to='login'>
+                <Home className='home' onClick={onLogout} />
+              </Link>
+            </div>
+            {children}
+            {children ? (<div className='children' />) : null}
+          </div>
         </div>
-        {children}
-        {children ? (<div className='children' />) : null}
-      </div>
-    </div>
+      }
+    </UserContext.Consumer>
   )
 }
 
 Header.propTypes = {
   shadow: PropTypes.bool,
   onLogout: PropTypes.func,
-  user: PropTypes.object,
   children: PropTypes.element,
   childrenHeight: PropTypes.number
 }

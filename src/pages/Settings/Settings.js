@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import {
   Avatar,
@@ -10,9 +9,11 @@ import {
   CircleIndicator
 } from 'components'
 
+import { UserContext } from 'context/user'
+
 import './Settings.css'
 
-export default class Devices extends React.Component {
+class Settings extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -41,7 +42,6 @@ export default class Devices extends React.Component {
 
     return (
       <div className='Settings'>
-
         <h2 style={{marginLeft: '16px'}}>Your Profile</h2>
 
         <div className='profile'>
@@ -75,6 +75,8 @@ export default class Devices extends React.Component {
   }
 }
 
-Devices.propTypes = {
-  user: PropTypes.object.isRequired
-}
+export default props => (
+  <UserContext.Consumer>
+    {user => <Settings {...props} user={user} />}
+  </UserContext.Consumer>
+)

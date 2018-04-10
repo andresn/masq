@@ -1,6 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
+import { UserContext } from 'context/user'
+
 import Settings from './Settings'
 
 it('renders Settings page', () => {
@@ -10,7 +12,11 @@ it('renders Settings page', () => {
     lastname: 'Ford',
     username: 'Mustang'
   }
-  const component = renderer.create(<Settings user={user} />)
+  const component = renderer.create(
+    <UserContext.Provider value={user}>
+      <Settings user={user} />
+    </UserContext.Provider>
+  )
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
