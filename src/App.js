@@ -24,27 +24,6 @@ const tabs = [
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
-// const users = [
-//   {
-//     image: 'https://randomuser.me/api/portraits/women/79.jpg',
-//     firstname: 'Alicia',
-//     lastname: 'Ford',
-//     username: 'Mustang'
-//   },
-//   {
-//     image: 'https://randomuser.me/api/portraits/men/1.jpg',
-//     firstname: 'Jeffrey',
-//     lastname: 'Hoffman',
-//     username: 'Jeff'
-//   },
-//   {
-//     image: 'https://randomuser.me/api/portraits/women/10.jpg',
-//     firstname: 'Ida',
-//     lastname: 'Meyer',
-//     username: 'Idada'
-//   }
-// ]
-
 const devicesMock = [
   { name: 'TV de Margaux', color: '#86e991', enabled: true, new: true },
   { name: 'iPhone de Margaux', color: '#86e991', enabled: true },
@@ -112,9 +91,7 @@ class App extends Component {
       users: [],
       isLogging: false,
       isAuthenticated: false,
-      notif: true,
-      devices: [],
-      apps: []
+      notif: true
     }
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
@@ -123,6 +100,9 @@ class App extends Component {
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onRegister = this.onRegister.bind(this)
     this.onDeleteUser = this.onDeleteUser.bind(this)
+
+    this.devices = []
+    this.apps = []
   }
 
   componentDidMount () {
@@ -149,7 +129,7 @@ class App extends Component {
       }
       devices = await lib.getDeviceList()
     }
-    this.setState({ devices: devices })
+    this.devices = devices
   }
 
   async fetchApps () {
@@ -161,16 +141,16 @@ class App extends Component {
       }
       apps = await lib.getApplicationList()
     }
-    this.setState({ apps: apps })
+    this.apps = apps
   }
 
   async authenticate (indexUser) {
+    await lib.signIn(this.state.users[indexUser].username)
     this.setState({
       isAuthenticated: true,
       isLogging: true,
       currentUser: this.state.users[indexUser]
     })
-    await lib.signIn(this.state.users[indexUser].username)
     setTimeout(() => {
       this.setState({
         notif: true,
@@ -191,21 +171,11 @@ class App extends Component {
   }
 
   onChecked (index) {
-    const devices = this.state.devices.map((dev, i) => {
-      if (index === i) dev.enabled = !dev.enabled
-      return dev
-    })
-
-    this.setState({ devices })
+    this.devices[index].enabled = !this.devices[index].enabled
   }
 
   onAppChecked (index) {
-    const apps = this.state.apps.map((app, i) => {
-      if (index === i) app.enabled = !app.enabled
-      return app
-    })
-
-    this.setState({ apps })
+    this.apps[index].enabled = !this.apps[index].enabled
   }
 
   async onRegister (user) {
@@ -253,8 +223,8 @@ class App extends Component {
             ? (
               <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                 <Tabs tabs={tabs} />
-                <Route path='/devices' component={() => <Devices devices={this.state.devices} onChecked={this.onChecked} onNewDevice={() => history.push('newdevice')} />} />
-                <Route path='/applications' component={() => <Applications applications={this.state.apps} onChecked={this.onAppChecked} />} />
+                <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onChecked} onNewDevice={() => history.push('newdevice')} />} />
+                <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
                 <Route path='/settings' component={() => <Settings user={this.state.currentUser} onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
               </div>)
             : null
