@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import { Chevron } from 'icons'
@@ -32,6 +33,7 @@ export default class NewDevice extends React.Component {
   }
 
   render () {
+    const { link, image } = this.props
     const style = {color: 'var(--main-highlight-color)'}
 
     return (
@@ -41,8 +43,8 @@ export default class NewDevice extends React.Component {
           <h3>Go back to the devices list</h3>
         </Link>
         <div className='container'>
-          <QRCode image='http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png' />
-          <p className='link'>{'QWA.NT/0BJ8ZX'}</p>
+          <QRCode image={image} />
+          <p className='link'>{link}</p>
           <p>Scan your QR Code on the devices you want to sync with</p>
           <p style={style}>OR</p>
           <p>Receive a link by email</p>
@@ -54,4 +56,6 @@ export default class NewDevice extends React.Component {
 }
 
 NewDevice.propTypes = {
+  link: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 }
