@@ -133,8 +133,9 @@ class App extends Component {
     this.devices[index].enabled = !this.devices[index].enabled
   }
 
-  onAppChecked (index) {
+  async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
+    await lib.updateApp(this.apps[index])
   }
 
   async onRegister (user) {
