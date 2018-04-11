@@ -1,7 +1,11 @@
 {
-  "name": "reactextension",
+  "name": "masq-app",
+  "description": "masq-app by Qwant",
+  "author": "Qwant",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "localforage": "^1.7.1",
     "react": "^16.3.1",
@@ -12,12 +16,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "ENV=development concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "standard": "standard \"src/**/*.js\"",
-    "standard-fix": "standard --fix \"src/**/*.js\""
+    "standard-fix": "standard --fix \"src/**/*.js\"",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
   },
   "standard": {
     "env": [
@@ -27,8 +33,12 @@
   "devDependencies": {
     "concurrently": "^3.5.1",
     "electron": "^1.8.4",
+    "electron-builder": "^20.8.1",
     "react-test-renderer": "^16.3.1",
     "standard": "^11.0.1",
     "wait-on": "^2.1.0"
+  },
+  "build": {
+    "appId": "masq-app"
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
+import createHashHistory from 'history/createHashHistory'
 
 import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
@@ -14,7 +14,7 @@ import * as lib from './lib/'
 
 import './App.css'
 
-const history = createBrowserHistory()
+const history = createHashHistory()
 
 const tabs = [
   { label: 'Devices', link: '/devices', icon: <Smartphone /> },

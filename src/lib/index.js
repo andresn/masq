@@ -107,6 +107,7 @@ initDB()
  *
  */
 const getDeviceList = () => {
+  console.log(currentUserId)
   if (!currentUserId || currentUserId === '') {
     console.log('No user is logged')
     return Promise.reject(new Error('No logged user'))
@@ -321,6 +322,7 @@ const signIn = (username) => {
       } else {
         console.log(`The user ${username} does not exist.`)
       }
+      console.log('#######', currentUserId)
     })
     .catch(err => console.log(err))
 }
