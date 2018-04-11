@@ -22,6 +22,7 @@ class Settings extends React.Component {
       firstname: props.user.firstname,
       username: props.user.username
     }
+    this.validate = this.validate.bind(this)
   }
 
   onChange (field, event) {
@@ -37,8 +38,14 @@ class Settings extends React.Component {
     reader.readAsDataURL(file)
   }
 
+  validate () {
+    const isValid = !Object.values(this.state).some(val => !val)
+    if (!isValid) return window.alert('Invalid form')
+    this.props.onUpdateUser(this.state)
+  }
+
   render () {
-    const { onUpdateUser, onDeleteUser } = this.props
+    const { onDeleteUser } = this.props
 
     return (
       <div className='Settings'>
@@ -63,7 +70,7 @@ class Settings extends React.Component {
 
         <Separator height='48px' />
         <div className='button-container'>
-          <Button label='SAVE CHANGES' onClick={() => onUpdateUser(this.state)} />
+          <Button label='SAVE CHANGES' onClick={this.validate} />
         </div>
 
         <Separator height='16px' />
