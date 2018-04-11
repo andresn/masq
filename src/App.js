@@ -55,7 +55,7 @@ class App extends Component {
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
     this.signout = this.signout.bind(this)
-    this.onChecked = this.onChecked.bind(this)
+    this.onDevChecked = this.onDevChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onRegister = this.onRegister.bind(this)
     this.onDeleteUser = this.onDeleteUser.bind(this)
@@ -129,7 +129,7 @@ class App extends Component {
     })
   }
 
-  onChecked (index) {
+  onDevChecked (index) {
     this.devices[index].enabled = !this.devices[index].enabled
   }
 
@@ -183,7 +183,7 @@ class App extends Component {
               ? (
                 <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                   <Tabs tabs={tabs} />
-                  <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onChecked} onNewDevice={() => history.push('newdevice')} />} />
+                  <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
                   <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
                   <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
                 </div>)
