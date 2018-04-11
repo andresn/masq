@@ -14,19 +14,34 @@ function SyncStatus (props) {
   )
 }
 
-function DeviceRow (props) {
-  const { device, index } = props
-  return (
-    <div>
-      <Card title={device.name} color={device.color} enabled={device.enabled} onChecked={() => props.onChecked(index)}>
-        <div className='lastsync'>
-          <p>LAST SYNCHRONIZATION</p>
-          <SyncStatus color={device.enabled ? device.color : '#b2b2b2'} />
-        </div>
-      </Card>
-      <Separator />
-    </div>
-  )
+class DeviceRow extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      enabled: props.device.enabled
+    }
+  }
+
+  onChecked (index, state) {
+    const { onChecked } = this.props
+    this.setState({ enabled: state })
+    if (onChecked) { onChecked(index, state) }
+  }
+
+  render () {
+    const { device, index } = this.props
+    return (
+      <div>
+        <Card title={device.name} color={device.color} enabled={this.state.enabled} onChecked={(state) => this.onChecked(index, state)}>
+          <div className='lastsync'>
+            <p>LAST SYNCHRONIZATION</p>
+            <SyncStatus color={this.state.enabled ? device.color : '#b2b2b2'} />
+          </div>
+        </Card>
+        <Separator />
+      </div>
+    )
+  }
 }
 
 export default function Devices (props) {
