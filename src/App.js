@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import createHashHistory from 'history/createHashHistory'
+import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
 import { Header, Tabs, Notification } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 
+import { UserContext } from 'context/user'
+
+// FIXME: remove mocks data when lib is ready
 import devicesMock from './mocks/devices'
 import appsMock from './mocks/apps'
-import { UserContext } from 'context/user'
 
 import * as lib from './lib/'
 
@@ -52,31 +54,31 @@ class App extends Component {
       notif: true,
       currentUser: null
     }
+
+    this.signout = this.signout.bind(this)
+    this.onRegister = this.onRegister.bind(this)
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
-    this.signout = this.signout.bind(this)
     this.onDevChecked = this.onDevChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
-    this.onRegister = this.onRegister.bind(this)
     this.onDeleteUser = this.onDeleteUser.bind(this)
 
-    this.devices = []
     this.apps = []
+    this.devices = []
   }
 
   componentDidMount () {
     this.fetchUsers()
   }
 
-  async fetchUsers () {
-    try {
-      const users = await lib.getUserList()
-      this.setState({ users: users })
-    } catch (e) { console.log(e) }
-  }
-
   onCloseNotif () {
     this.setState({ notif: false })
+  }
+
+  async fetchUsers () {
+    try {
+      this.setState({ users: await lib.getUserList() })
+    } catch (e) { console.log(e) }
   }
 
   async fetchDevices () {
@@ -110,11 +112,10 @@ class App extends Component {
       isLogging: true,
       currentUser: this.state.users[indexUser]
     })
+
+    // simulate auth
     setTimeout(() => {
-      this.setState({
-        notif: true,
-        isLogging: false
-      })
+      this.setState({ notif: true, isLogging: false })
     }, 2000)
 
     await this.fetchDevices()
@@ -154,8 +155,6 @@ class App extends Component {
   }
 
   render () {
-    console.log('auth:', this.state.isAuthenticated, this.state.currentUser)
-
     return (
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
@@ -170,7 +169,7 @@ class App extends Component {
                 () => <Register onRegister={this.onRegister} />
               } />
               <Route path='/loading' component={
-                () => { return this.state.isLogging ? <Loading /> : <Redirect to='devices' /> }
+                () => this.state.isLogging ? <Loading /> : <Redirect to='devices' />
               } />
 
               <Redirect exact from='/' to='/login' />
