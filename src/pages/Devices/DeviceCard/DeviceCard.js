@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Card, CircleIndicator, Separator } from 'components'
 
@@ -39,4 +40,13 @@ export default class DeviceCard extends React.Component {
       </div>
     )
   }
+}
+
+DeviceCard.propTypes = {
+  enabled: PropTypes.bool,
+  onChecked: PropTypes.func
+}
+
+SyncStatus.propTypes = {
+  color: PropTypes.string.isRequired
 }
