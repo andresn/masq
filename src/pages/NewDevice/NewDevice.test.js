@@ -7,7 +7,7 @@ import NewDevice from './NewDevice'
 it('renders Register page', () => {
   const component = renderer.create(
     <MemoryRouter>
-      <NewDevice />
+      <NewDevice link='QWA.NT/0BJ8ZX' image='http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png' />
     </MemoryRouter>
   )
   const tree = component.toJSON()

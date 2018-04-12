@@ -40,13 +40,15 @@ exports[`renders Register page 1`] = `
       className="QRCode"
       style={
         Object {
-          "backgroundImage": "url(undefined)",
+          "backgroundImage": "url(http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png)",
         }
       }
     />
     <p
       className="link"
-    />
+    >
+      QWA.NT/0BJ8ZX
+    </p>
     <p>
       Scan your QR Code on the devices you want to sync with
     </p>
