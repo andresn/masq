@@ -1,13 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-import {
-  Avatar,
-  Button,
-  Separator,
-  TextInput,
-  SwitchButton,
-  CircleIndicator
-} from 'components'
+import { Avatar, Button, Separator, TextInput, SwitchButton, CircleIndicator } from 'components'
 
 import { UserContext } from 'context/user'
 
@@ -87,3 +81,7 @@ export default props => (
     {user => <Settings {...props} user={user} />}
   </UserContext.Consumer>
 )
+
+Settings.propTypes = {
+  user: PropTypes.object.isRequired
+}
