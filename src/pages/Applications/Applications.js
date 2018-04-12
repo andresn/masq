@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Chevron } from 'icons'
 import { Card, Separator } from 'components'
@@ -66,4 +67,9 @@ export default function Applications (props) {
       </div>
     </div>
   )
+}
+
+Applications.propTypes = {
+  applications: PropTypes.array,
+  onChecked: PropTypes.func
 }
