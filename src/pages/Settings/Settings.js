@@ -33,9 +33,10 @@ class Settings extends React.Component {
   }
 
   validate () {
+    const { onUpdateUser } = this.props
     const isValid = !Object.values(this.state).some(val => !val)
     if (!isValid) return window.alert('Invalid form')
-    this.props.onUpdateUser(this.state)
+    onUpdateUser(this.state)
   }
 
   render () {
@@ -83,5 +84,7 @@ export default props => (
 )
 
 Settings.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  onUpdateUser: PropTypes.func,
+  onDeleteUser: PropTypes.func
 }
