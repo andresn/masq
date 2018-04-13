@@ -12,29 +12,49 @@ export default class Register extends React.Component {
     super(props)
 
     this.state = {
-      image: '',
-      lastname: '',
-      firstname: '',
-      username: ''
+      image: { value: '', error: false },
+      lastname: { value: '', error: false },
+      firstname: { value: '', error: false },
+      username: { value: '', error: false }
     }
+    this.validate = this.validate.bind(this)
   }
 
   onChange (field, event) {
-    this.setState({[field]: event.target.value})
+    const value = event.target.value.trim()
+    this.setState({
+      [field]: {
+        value: value,
+        error: !value.length
+      }
+    })
   }
 
   onImageChange (event) {
     const reader = new window.FileReader()
     const file = event.target.files[0]
     reader.addEventListener('load', () => {
-      this.setState({image: reader.result})
+      this.setState({
+        image: { value: reader.result, error: false }
+      })
     })
     reader.readAsDataURL(file)
   }
 
-  render () {
+  validate () {
     const { onRegister } = this.props
+    const isValid = !Object.values(this.state).some(field => field.error)
+    if (!isValid) return window.alert('Invalid form')
 
+    // Re-create a simple object like { field: value }
+    let fields = {}
+    Object.keys(this.state).forEach(key => {
+      fields[key] = this.state[key].value
+    })
+    onRegister(fields)
+  }
+
+  render () {
     return (
       <div className='Register'>
         <Link to='login' className='goback'>
@@ -43,12 +63,12 @@ export default class Register extends React.Component {
         </Link>
         <h1>New User</h1>
         <div className='container'>
-          <Avatar upload onChange={(e) => this.onImageChange(e)} image={this.state.image || null} />
-          <TextInput label='Last Name' onChange={(e) => this.onChange('lastname', e)} />
-          <TextInput label='First Name' onChange={(e) => this.onChange('firstname', e)} />
-          <TextInput label='Username (displayed)' onChange={(e) => this.onChange('username', e)} />
+          <Avatar upload onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />
+          <TextInput label='Last Name' error={this.state.lastname.error} onChange={(e) => this.onChange('lastname', e)} />
+          <TextInput label='First Name' error={this.state.firstname.error} onChange={(e) => this.onChange('firstname', e)} />
+          <TextInput label='Username (displayed)' error={this.state.username.error} onChange={(e) => this.onChange('username', e)} />
           <Separator />
-          <Button label='Confirm' onClick={() => onRegister(this.state)} />
+          <Button label='Confirm' onClick={this.validate} />
         </div>
       </div>
     )
