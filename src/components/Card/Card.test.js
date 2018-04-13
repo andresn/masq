@@ -31,3 +31,12 @@ it('renders Card with an image', () => {
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+it('renders Card with a logo', () => {
+  const component = renderer.create(
+    <Card enabled={false} color='blue' title='sometitle'
+      logo='https://upload.wikimedia.org/wikipedia/commons/f/fd/Qwant-v3.png'
+    />)
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
