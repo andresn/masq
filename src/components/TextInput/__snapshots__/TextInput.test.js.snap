@@ -29,3 +29,18 @@ exports[`renders TextInput with a defaultValue 1`] = `
   </label>
 </div>
 `;
+
+exports[`renders TextInput with error 1`] = `
+<div
+  className="TextInput error"
+>
+  <input
+    defaultValue={undefined}
+    onChange={undefined}
+    type="text"
+  />
+  <label>
+    some button
+  </label>
+</div>
+`;

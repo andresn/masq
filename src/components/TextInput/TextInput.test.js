@@ -17,3 +17,11 @@ it('renders TextInput with a defaultValue', () => {
   const tree = component.toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+it('renders TextInput with error', () => {
+  const component = renderer.create(
+    <TextInput label='some button' error />
+  )
+  const tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+})
