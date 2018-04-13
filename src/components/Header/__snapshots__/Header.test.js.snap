@@ -75,16 +75,45 @@ exports[`renders Header with a user 1`] = `
       id="top-section"
     >
       <div
-        id="title-section"
+        id="avatar-section"
       >
-        <p
-          id="title"
+        <div
+          className="Avatar"
+          style={
+            Object {
+              "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
+            }
+          }
+        />
+        <span
+          id="avatar-text"
+          style={
+            Object {
+              "fontSize": "14px",
+            }
+          }
         >
-          Masq
-        </p>
-        <p>
-           by Qwant
-        </p>
+          some username
+        </span>
+        <svg
+          className="caret"
+          height={10}
+          viewBox="0 0 14 10"
+          width={14}
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <path
+              d="M13.7 1.7l-6 6c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3l-6-6C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4z"
+              id="chevron-svg"
+            />
+          </defs>
+          <use
+            fill="currentColor"
+            fillRule="nonzero"
+            xlinkHref="#chevron-svg"
+          />
+        </svg>
       </div>
       <a
         href="login"
