@@ -17,8 +17,16 @@
   border: solid 1px var(--main-highlight-color);
 }
 
+.TextInput.error input:focus {
+  border: solid 1px var(--error-color);
+}
+
 .TextInput input:focus + label {
   color: var(--main-highlight-color);
+}
+
+.TextInput.error input:focus + label {
+  color: var(--error-color);
 }
 
 .TextInput label {

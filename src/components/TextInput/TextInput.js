@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 import './TextInput.css'
 
 export default function TextInput (props) {
-  const { label, defaultValue, onChange } = props
+  const { error, label, defaultValue, onChange } = props
+  const classes = 'TextInput' + (error ? ' error' : '')
   return (
-    <div className='TextInput'>
+    <div className={classes}>
       <input type='text' defaultValue={defaultValue} onChange={onChange} />
       <label>{label}</label>
     </div>
@@ -14,6 +15,7 @@ export default function TextInput (props) {
 }
 
 TextInput.propTypes = {
+  error: PropTypes.bool,
   onChange: PropTypes.func,
   defaultValue: PropTypes.string,
   label: PropTypes.string.isRequired
