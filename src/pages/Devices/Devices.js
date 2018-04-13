@@ -8,7 +8,7 @@ import DeviceCard from './DeviceCard/DeviceCard'
 import './Devices.css'
 
 export default function Devices (props) {
-  const { devices, onChecked } = props
+  const { devices, onChecked, onNewDevice } = props
   const newDeviceKey = devices.findIndex(dev => dev.new)
 
   return (
@@ -29,13 +29,14 @@ export default function Devices (props) {
             : null
         ))}
         <Separator />
-        <Button label='Add a new device' onClick={props.onNewDevice} />
+        <Button label='Add a new device' onClick={onNewDevice} />
       </div>
     </div>
   )
 }
 
 Devices.propTypes = {
-  devices: PropTypes.array.isRequired, // TODO: Check properties
-  onChecked: PropTypes.func
+  onChecked: PropTypes.func,
+  onNewDevice: PropTypes.func,
+  devices: PropTypes.array.isRequired // TODO: Check properties
 }
