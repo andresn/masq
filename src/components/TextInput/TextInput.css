@@ -17,7 +17,7 @@
   border: solid 1px var(--main-highlight-color);
 }
 
-.TextInput.error input:focus {
+.TextInput.error input {
   border: solid 1px var(--error-color);
 }
 
@@ -25,7 +25,7 @@
   color: var(--main-highlight-color);
 }
 
-.TextInput.error input:focus + label {
+.TextInput.error input + label {
   color: var(--error-color);
 }
 
