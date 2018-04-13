@@ -19,6 +19,7 @@ export default class AppCard extends React.Component {
     const { app } = this.props
     return (
       <Card
+        logo={app.logo}
         title={app.name}
         description={app.description}
         color={app.color}

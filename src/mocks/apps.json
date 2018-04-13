@@ -12,7 +12,8 @@
     "color": "#a3005c",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
     "enabled": false,
-    "image": "https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"
+    "image": "https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Qwant-v3.png"
   },
   {
     "name": "Qwant Shopping",
