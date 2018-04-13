@@ -201,6 +201,18 @@ const updateApp = (app) => {
     .catch(err => console.log(err))
 }
 
+const updateDevice = async (device) => {
+  if (!currentUserId || currentUserId === '') {
+    return new Error('No logged user')
+  }
+
+  const data = await localforage.getItem(currentUserId)
+  const index = data.deviceList.findIndex(dev => dev.name === device.name)
+  data.deviceList[index] = device
+  await localforage.setItem(currentUserId, data)
+  console.log(`Device ${device.name} has been updated. `)
+}
+
 /**
  * Return the list of registered applications for the logged user.
  *
@@ -387,6 +399,7 @@ export {
   signOut,
   getCurrentUserInfo,
   addDevice,
+  updateDevice,
   getDeviceList,
   getApplicationList,
   registerApp,

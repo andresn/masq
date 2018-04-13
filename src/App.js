@@ -130,8 +130,9 @@ class App extends Component {
     })
   }
 
-  onDevChecked (index) {
+  async onDevChecked (index) {
     this.devices[index].enabled = !this.devices[index].enabled
+    await lib.updateDevice(this.devices[index])
   }
 
   async onAppChecked (index) {
