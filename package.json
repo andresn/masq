@@ -2,6 +2,7 @@
   "name": "masq-app",
   "description": "masq-app by Qwant",
   "author": "Qwant",
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
