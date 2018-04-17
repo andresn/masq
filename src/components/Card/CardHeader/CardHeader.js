@@ -18,6 +18,6 @@ export default function CardHeader (props) {
 }
 CardHeader.propTypes = {
   color: PropTypes.string.isRequired,
-  enabled: PropTypes.bool.isRequired,
+  enabled: PropTypes.bool,
   onChecked: PropTypes.func
 }

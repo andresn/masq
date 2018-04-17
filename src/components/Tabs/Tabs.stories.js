@@ -1,27 +1,20 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import Tabs from './Tabs'
 import { MemoryRouter } from 'react-router'
+import { storiesOf } from '@storybook/react'
 
 import { Smartphone, Apps } from 'icons'
+
+import Tabs from './Tabs'
 
 const tabs = [
   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
   { label: 'Applications', link: '/applications', icon: <Apps /> }
 ]
 
-it('renders Tabs with one tabs', () => {
-  const component = renderer.create(
+storiesOf('Tabs', module)
+  .add('with one tab', () => (
     <MemoryRouter><Tabs tabs={[tabs[0]]} /></MemoryRouter>
-  )
-  const tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-it('renders Tabs with two tabs', () => {
-  const component = renderer.create(
+  ))
+  .add('with two tabs', () => (
     <MemoryRouter><Tabs tabs={tabs} /></MemoryRouter>
-  )
-  const tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})
+  ))

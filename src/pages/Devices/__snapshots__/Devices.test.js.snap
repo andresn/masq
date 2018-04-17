@@ -149,7 +149,7 @@ exports[`renders one disabled devices 1`] = `
                   className="CircleIndicator"
                   style={
                     Object {
-                      "border": "solid 2px#b2b2b2",
+                      "border": "solid 2px #b2b2b2",
                     }
                   }
                 />
@@ -295,7 +295,7 @@ exports[`renders one enabled devices 1`] = `
                   className="CircleIndicator"
                   style={
                     Object {
-                      "border": "solid 2px#86e991",
+                      "border": "solid 2px #86e991",
                     }
                   }
                 />
@@ -421,7 +421,7 @@ exports[`renders one new devices 1`] = `
                   className="CircleIndicator"
                   style={
                     Object {
-                      "border": "solid 2px#b2b2b2",
+                      "border": "solid 2px #b2b2b2",
                     }
                   }
                 />

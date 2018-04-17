@@ -5,7 +5,7 @@ exports[`renders CircleIndicator with color blue 1`] = `
   className="CircleIndicator"
   style={
     Object {
-      "border": "solid 2pxblue",
+      "border": "solid 2px blue",
     }
   }
 />
@@ -16,7 +16,7 @@ exports[`renders CircleIndicator with color red 1`] = `
   className="CircleIndicator"
   style={
     Object {
-      "border": "solid 2pxred",
+      "border": "solid 2px red",
     }
   }
 />

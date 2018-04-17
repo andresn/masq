@@ -59,6 +59,5 @@ export default class Avatar extends React.Component {
 Avatar.propTypes = {
   upload: PropTypes.bool,
   onChange: PropTypes.func,
-  image: PropTypes.string,
-  fileHandler: PropTypes.func
+  image: PropTypes.string
 }

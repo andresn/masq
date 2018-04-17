@@ -116,7 +116,7 @@ exports[`renders Settings page 1`] = `
       className="CircleIndicator"
       style={
         Object {
-          "border": "solid 2px#458bf8",
+          "border": "solid 2px #458bf8",
         }
       }
     />
