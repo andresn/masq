@@ -15,7 +15,14 @@ npm install
 npm start
 ```
 
- To develop as an electron app:
- ```
- npm run electron-dev
- ```
+To develop as an electron app:
+```
+npm run electron-dev
+```
+
+# Storybook
+To see all components and their props, and develop them in isolation, you
+can start the Storybook with:
+```
+npm run storybook
+```
