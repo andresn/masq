@@ -1,9 +1,9 @@
 .Avatar {
-  width: 120px;
-  height: 120px;
+  width: 64px;
+  height: 64px;
   background-size: cover;
   background-position: top center;
-  border-radius: 50%;
+  border-radius: 6px;
   vertical-align: middle;
   display: flex;
 }
