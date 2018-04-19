@@ -24,6 +24,12 @@
 
 .Button.secondary {
   color: #999999;
+  border-radius: 6px;
   background-color: #f7f7f7;
   border: solid 1px #c8cbd3;
+}
+
+.Button.secondary:hover {
+  color: var(--grey3-color);
+  border: solid 1px var(--grey3-color);
 }
