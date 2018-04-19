@@ -17,7 +17,6 @@
 
 .Loading .loading-dots {
   animation: dot-keyframes 2s infinite ease-in-out;
-  background-color: var(--main-highlight-color);
   border-radius: 17px;
   display: inline-block;
   height: 17px;

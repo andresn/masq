@@ -31,12 +31,27 @@ exports[`renders Loading page 1`] = `
     >
       <div
         className="loading-dots"
+        style={
+          Object {
+            "backgroundColor": "#4ebbc2",
+          }
+        }
       />
       <div
         className="loading-dots"
+        style={
+          Object {
+            "backgroundColor": "#3394d2",
+          }
+        }
       />
       <div
         className="loading-dots"
+        style={
+          Object {
+            "backgroundColor": "#e53b5b",
+          }
+        }
       />
     </div>
     <p>
