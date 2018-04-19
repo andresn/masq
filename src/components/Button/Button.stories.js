@@ -7,8 +7,8 @@ import Button from './Button'
 
 storiesOf('Button', module)
   .add('primary with a label', () => (
-    <Button label='somebutton' onClick={action('clicked')} />)
+    <Button label='SOME BUTTON' onClick={action('clicked')} />)
   )
   .add('secondary with a label', () => (
-    <Button label='somebutton' secondary onClick={action('clicked')} />)
+    <Button label='SOME BUTTON' secondary onClick={action('clicked')} />)
   )

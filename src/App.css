@@ -1,7 +1,7 @@
 * {
   font-family: Asap;
   --main-bg-color: #f5f7fa;
-  --main-highlight-color: #6ba3fa;
+  --main-highlight-color: #458bf8;
   --grey1-color: #e5e5e5;
   --grey2-color: #b2b2b2;
   --grey3-color: #707070;
@@ -11,8 +11,8 @@
 }
 
 body {
-  width: 410px;
-  height: 600px;
+  /* width: 410px;
+  height: 600px; */
 }
 
 h1 {

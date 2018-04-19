@@ -1,14 +1,17 @@
 .Button {
-  width: 225px;
+  padding-left: 32px;
+  padding-right: 32px;
   height: 50px;
   outline: none;
-  border-radius: 25px;
-  font-weight: 600;
+  border-radius: 6px;
   border: solid 2px var(--main-highlight-color);
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .Button.primary {
+  border: solid 2px #458bf8;
   color: white;
   background-color: var(--main-highlight-color);
   transition: box-shadow 0.2s ease-in-out;
@@ -20,6 +23,7 @@
 }
 
 .Button.secondary {
-  color: var(--main-highlight-color);
-  background-color: white;
+  color: #999999;
+  background-color: #f7f7f7;
+  border: solid 1px #c8cbd3;
 }
