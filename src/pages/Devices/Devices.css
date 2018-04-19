@@ -1,8 +1,18 @@
 .Devices {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto 300px;
+  width: 100%;
+  height: 100%;
+}
+
+.Devices .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 32px;
+}
+
+.Devices .sidebar {
+  text-align: center;
 }
 
 .Devices .lastsync {
