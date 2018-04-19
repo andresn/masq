@@ -23,6 +23,12 @@
 .Card .description {
   color: var(--grey3-color);
   font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: left;
 }
 
 .Card .image {

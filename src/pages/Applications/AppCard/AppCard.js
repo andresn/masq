@@ -12,7 +12,7 @@ export default class AppCard extends React.Component {
 
   onChecked (state) {
     this.setState({ enabled: state })
-    this.props.onChecked(state)
+    // this.props.onChecked(state)
   }
 
   render () {

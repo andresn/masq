@@ -1,40 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Separator } from 'components'
+import { Button } from 'components'
 import AppCard from './AppCard/AppCard'
 
 import './Applications.css'
 
-function AppRows (props) {
-  const { applications, active } = props
-  return (
-    applications.map((app, index) => (
-      app.active === active
-        ? (
-          <div key={index} >
-            <AppCard app={app} onChecked={() => props.onChecked(index)} />
-            <Separator />
-          </div>
-        )
-        : null
-    ))
-  )
-}
-
 export default function Applications (props) {
-  const { applications, onChecked } = props
+  const { applications } = props
 
   return (
-    <div>
-      <h2 style={{marginLeft: '16px'}}>Currently active Applications</h2>
-      <div className='Applications'>
-        <AppRows applications={applications} active onChecked={onChecked} />
-      </div>
+    <div className='Applications'>
+      <div>
+        <h2>Currently active</h2>
+        <div className='cards-grid'>
+          {applications.map((app, index) =>
+            <AppCard key={index} index={index} app={app} />
+          )}
+        </div>
 
-      <h2 style={{marginLeft: '16px'}}>Currently connected to your Masq</h2>
-      <div className='Applications'>
-        <AppRows applications={applications} onChecked={onChecked} />
+        <h2>My applications</h2>
+        <div className='cards-grid'>
+          {applications.map((app, index) =>
+            <AppCard key={index} index={index} app={app} />
+          )}
+        </div>
+      </div>
+      <div className='sidebar'>
+        <Button secondary label='ADD A NEW APPLICATION' />
       </div>
     </div>
   )

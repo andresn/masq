@@ -10,6 +10,6 @@ const devices = [
 ]
 
 storiesOf('Devices Page', module)
-  .add('without devices', () => (
+  .add('with devices', () => (
     <Devices devices={devices} />
   ))
