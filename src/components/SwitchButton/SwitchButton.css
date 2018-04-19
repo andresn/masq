@@ -56,7 +56,7 @@
 .SwitchButton label {
   font-size: 10px;
   font-weight: 600;
-  color: var(--grey5-color);
+  color: #cccccc;
   letter-spacing: 0.5px;
   margin-right: 8px;
 }

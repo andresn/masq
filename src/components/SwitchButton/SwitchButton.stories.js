@@ -5,14 +5,14 @@ import SwitchButton from './SwitchButton'
 
 storiesOf('SwitchButton', module)
   .add('primary unchecked', () => (
-    <SwitchButton color='blue' />
+    <SwitchButton color='#40ae6c' />
   ))
   .add('primary checked', () => (
-    <SwitchButton checked color='blue' />
+    <SwitchButton checked color='#40ae6c' />
   ))
   .add('secondary unchecked', () => (
-    <SwitchButton secondary color='blue' />
+    <SwitchButton secondary color='#458bf8' />
   ))
   .add('secondary checked', () => (
-    <SwitchButton secondary checked color='blue' />
+    <SwitchButton secondary checked color='#458bf8' />
   ))
