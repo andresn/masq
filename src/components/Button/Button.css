@@ -4,16 +4,15 @@
   height: 50px;
   outline: none;
   border-radius: 6px;
-  border: solid 2px var(--main-highlight-color);
+  border: solid 2px var(--blue-300);
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 .Button.primary {
-  border: solid 2px #458bf8;
   color: white;
-  background-color: var(--main-highlight-color);
+  background-color: var(--blue-300);
   transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -23,13 +22,13 @@
 }
 
 .Button.secondary {
-  color: #999999;
+  color: var(--grey-200);
   border-radius: 6px;
-  background-color: #f7f7f7;
-  border: solid 1px #c8cbd3;
+  background-color: var(--grey-100);
+  border: solid 1px var(--grey-200);
 }
 
 .Button.secondary:hover {
-  color: var(--grey3-color);
-  border: solid 1px var(--grey3-color);
+  color: var(--blue-200);
+  border: solid 1px var(--blue-200);
 }

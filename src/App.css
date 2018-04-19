@@ -8,6 +8,20 @@
   --grey4-color: #4c4c4c;
   --grey5-color: #191919;
   --error-color: #ee6e7e;
+
+  /* Desktop colors */
+  --blue-100: #c8cbd3;
+  --blue-200: #697496;
+  --blue-300: #458bf8;
+  --blue-400: #1f2330;
+  --blue-500: #252a39;
+
+  --red-100: #ee6e7e;
+  --green-100: #40ae6c;
+
+  --grey-100: #f9f9f9;
+  --grey-200: #b2b2b2;
+  --grey-300: #707070;
 }
 
 body {
