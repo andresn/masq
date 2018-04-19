@@ -4,10 +4,15 @@ import { withInfo } from '@storybook/addon-info';
 import 'typeface-asap'
 import 'App.css'
 
-const req = require.context('../src/components', true, /\.stories\.js$/)
+const reqs = [
+  require.context('../src/components', true, /\.stories\.js$/),
+  require.context('../src/pages', true, /\.stories\.js$/)
+]
 
 function loadStories() {
-  req.keys().forEach((filename) => req(filename))
+  reqs.forEach(req =>
+    req.keys().forEach((filename) => req(filename))
+  )
 }
 
 addDecorator((story, context) => withInfo('common info')(story)(context));
