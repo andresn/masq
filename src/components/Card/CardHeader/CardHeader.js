@@ -7,7 +7,7 @@ import './CardHeader.css'
 
 export default function CardHeader (props) {
   const { color, enabled, onChecked } = props
-  const style = { backgroundColor: enabled ? color : '#cccccc' }
+  const style = { backgroundColor: enabled ? color : 'var(--blue-100)' }
 
   return (
     <div className='CardHeader'>
