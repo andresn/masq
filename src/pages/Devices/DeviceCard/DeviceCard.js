@@ -33,7 +33,7 @@ export default class DeviceCard extends React.Component {
         <Card title={device.name} color={device.color} enabled={this.state.enabled} onChecked={(state) => this.onChecked(index, state)}>
           <div className='lastsync'>
             <p>LAST SYNCHRONIZATION</p>
-            <SyncStatus color={this.state.enabled ? device.color : '#cccccc'} />
+            <SyncStatus color={this.state.enabled ? device.color : 'var(--blue-100)'} />
           </div>
         </Card>
       </div>

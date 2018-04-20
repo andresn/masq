@@ -6,9 +6,9 @@ import { Background, Smartphone, Apps, Settings as SettingsIcon, Logout } from '
 import './Sidebar.css'
 
 const tabs = [
-  { label: 'Devices', link: '/devices', icon: <Smartphone color='white' /> },
-  { label: 'Applications', link: '/applications', icon: <Apps color='white' /> },
-  { label: 'Settings', link: '/settings', icon: <SettingsIcon color='white' /> }
+  { label: 'Devices', link: '/devices', icon: <Smartphone /> },
+  { label: 'Applications', link: '/applications', icon: <Apps /> },
+  { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
 const styles = {
@@ -40,12 +40,6 @@ const styles = {
     position: 'absolute',
     bottom: 0
   },
-  tab: {
-    marginTop: 32,
-    display: 'grid',
-    alignItems: 'center',
-    gridTemplateColumns: '40% 60%'
-  },
   header: {
     height: 212,
     display: 'flex',
@@ -70,7 +64,7 @@ const styles = {
 export default class Sidebar extends React.Component {
   render () {
     return (
-      <div style={styles.Sidebar}>
+      <div className='Sidebar' style={styles.Sidebar}>
 
         <div id='header' style={styles.header}>
           <Avatar image='https://randomuser.me/api/portraits/women/79.jpg' />
@@ -81,7 +75,7 @@ export default class Sidebar extends React.Component {
         <div style={styles.tabs}>
           <div>
             {tabs.map((tab, index) => (
-              <div key={index} style={styles.tab}>
+              <div className='tab' key={index}>
                 {/* <div style={styles.indicator} /> */}
                 <div style={{margin: 'auto'}}>{ tab.icon }</div>
                 <p>{tab.label.toUpperCase()}</p>
@@ -90,7 +84,7 @@ export default class Sidebar extends React.Component {
           </div>
         </div>
         <div style={styles.logout}>
-          <div style={styles.tab}>
+          <div className='tab'>
             <Logout color='white' />
             <p>LOGOUT</p>
           </div>

@@ -1,4 +1,4 @@
-p {
+.Sidebar p {
   color: white;
   font-size: 10px;
   font-weight: 600;
@@ -6,4 +6,26 @@ p {
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
+}
+
+.Sidebar .tab {
+  margin-top: 32px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40% 60%;
+  color: white;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.Sidebar .tab:hover{
+  opacity: 1;
+}
+
+.Sidebar .tab.active {
+  color: var(--blue-300);
+}
+
+.Sidebar .tab.active p {
+  color: var(--blue-300);
 }
