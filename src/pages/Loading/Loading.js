@@ -1,24 +1,27 @@
 import React from 'react'
 
-import { LoadingDots, Avatar, Separator } from 'components'
-import { UserContext } from 'context/user'
+import { LoadingDots } from 'components'
+import { Background, Logo } from 'icons'
 
 import './Loading.css'
 
-export default function LoadingPage () {
+const styles = {
+  background: {
+    bottom: 0,
+    position: 'absolute'
+  },
+  logo: {
+    paddingBottom: 64
+  }
+}
+
+export default function Loading () {
   return (
-    <UserContext.Consumer>
-      {user =>
-        <div className='LoadingPage'>
-          <div className='content'>
-            <Avatar image={user.image} />
-            <h1>{user.username}</h1>
-            <Separator />
-            <LoadingDots />
-            <p>Connecting ...</p>
-          </div>
-        </div>
-      }
-    </UserContext.Consumer>
+    <div className='LoadingPage'>
+      <Logo style={styles.logo} />
+      <LoadingDots />
+      <p>Loading</p>
+      <Background style={styles.background} />
+    </div>
   )
 }
