@@ -9,7 +9,6 @@ import './Devices.css'
 
 export default function Devices (props) {
   const { devices } = props
-  // const newDeviceKey = devices.findIndex(dev => dev.new)
 
   return (
     <div className='Devices'>
