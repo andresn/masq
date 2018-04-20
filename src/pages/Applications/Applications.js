@@ -12,14 +12,20 @@ export default function Applications (props) {
   return (
     <div className='Applications'>
       <div>
-        <h2>Currently active</h2>
+        <div className='title-container'>
+          <h1>Currently active</h1>
+          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+        </div>
         <div className='cards-grid'>
           {applications.map((app, index) =>
             <AppCard key={index} index={index} app={app} />
           )}
         </div>
 
-        <h2>My applications</h2>
+        <div className='title-container'>
+          <h1>My applications</h1>
+          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+        </div>
         <div className='cards-grid'>
           {applications.map((app, index) =>
             <AppCard key={index} index={index} app={app} />

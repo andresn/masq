@@ -39,10 +39,10 @@ export default function Card (props) {
             ? (
               <div style={styles.title}>
                 {logo && <div id='logo' style={styles.logo} />}
-                <h1>{title}</h1>
+                <h2>{title}</h2>
               </div>
             )
-            : <h1>{title}</h1>
+            : <h2>{title}</h2>
           }
           {description && <p className='description'>{description}</p>}
           {children}

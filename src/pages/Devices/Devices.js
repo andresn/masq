@@ -14,14 +14,20 @@ export default function Devices (props) {
   return (
     <div className='Devices'>
       <div>
-        <h2>Currently active</h2>
+        <div className='title-container'>
+          <h1>Currently active</h1>
+          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+        </div>
         <div className='cards-grid'>
           {devices.map((device, index) =>
             <DeviceCard key={index} index={index} device={device} />
           )}
         </div>
 
-        <h2>My devices</h2>
+        <div className='title-container'>
+          <h1>My devices</h1>
+          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+        </div>
         <div className='cards-grid'>
           {devices.map((device, index) =>
             <DeviceCard key={index} index={index} device={device} />

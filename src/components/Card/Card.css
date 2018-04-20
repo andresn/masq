@@ -8,8 +8,9 @@
   display: flex;
 }
 
-.Card h1 {
-  margin: 0;
+.Card h2 {
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
 .Card .content {
