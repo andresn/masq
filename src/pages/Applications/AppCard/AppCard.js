@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Card } from 'components'
+import { Qrcode } from 'icons'
 
 export default class AppCard extends React.Component {
   constructor (props) {
@@ -26,7 +27,9 @@ export default class AppCard extends React.Component {
         enabled={this.state.enabled}
         image={app.image}
         onChecked={this.onChecked}
-      />
+      >
+        <Qrcode style={{float: 'right'}} color={this.state.enabled ? app.color : 'var(--blue-100)'} />
+      </Card>
     )
   }
 }
