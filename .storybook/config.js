@@ -6,7 +6,8 @@ import 'App.css'
 
 const reqs = [
   require.context('../src/components', true, /\.stories\.js$/),
-  require.context('../src/pages', true, /\.stories\.js$/)
+  require.context('../src/pages', true, /\.stories\.js$/),
+  require.context('../src/modals', true, /\.stories\.js$/)
 ]
 
 function loadStories() {

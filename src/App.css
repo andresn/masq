@@ -40,7 +40,7 @@ h1 {
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.1px;
-  color: var(--grey5-color);
+  color: var(--blue-500);
 }
 
 h2 {
@@ -51,7 +51,7 @@ h2 {
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  color: var(--grey5-color);
+  color: var(--blue-500);
 }
 
 h3 {

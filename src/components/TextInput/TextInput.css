@@ -7,7 +7,7 @@
 .TextInput input {
   height: 33px;
   border-radius: 3px;
-  border: solid 1px var(--grey2-color);
+  border: solid 1px var(--blue-100);
   font-size: 14px;
   padding-left: 8px;
 }
@@ -33,5 +33,5 @@
   margin: 0;
   font-size: 12px;
   margin-bottom: 8px;
-  color: var(--grey3-color);
+  color: var(--grey-300);
 }

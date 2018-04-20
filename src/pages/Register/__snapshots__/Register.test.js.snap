@@ -53,7 +53,7 @@ exports[`renders Register page 1`] = `
       />
       <svg
         className="Avatar upload"
-        color="var(--grey2-color)"
+        color="var(--grey-200)"
         height={120}
         onClick={[Function]}
         style={

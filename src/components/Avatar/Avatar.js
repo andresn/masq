@@ -18,7 +18,7 @@ function NewUpload (props) {
   const { style, onClick } = props
   return (
     <AddPictures
-      color='var(--grey2-color)'
+      color='var(--grey-200)'
       className='Avatar upload'
       style={style} onClick={onClick}
     />
