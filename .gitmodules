@@ -1,3 +1,3 @@
-[submodule "masq"]
-	path = masq
-	url = https://github.com/QwantResearch/masq.git
+[submodule "src/masq"]
+	path = src/masq
+	url = git@github.com:QwantResearch/masq.git
