@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
-import { Header, Tabs, Notification } from 'components'
+import { Tabs } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 
@@ -24,25 +24,25 @@ const tabs = [
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 
-function HeaderLoggedIn (props) {
-  return (
-    <Header
-      title='Hello'
-      shadow
-      onLogout={props.onLogout}
-      childrenHeight={props.notif ? 40 : 0}
-    >
-      {props.notif
-        ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
-        : null
-      }
-    </Header>
-  )
-}
+// function HeaderLoggedIn (props) {
+//   return (
+//     <Header
+//       title='Hello'
+//       shadow
+//       onLogout={props.onLogout}
+//       childrenHeight={props.notif ? 40 : 0}
+//     >
+//       {props.notif
+//         ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
+//         : null
+//       }
+//     </Header>
+//   )
+// }
 
-function HeaderLoggedOut (props) {
-  return <Header onLogout={props.onLogout} />
-}
+// function HeaderLoggedOut (props) {
+//   return <Header onLogout={props.onLogout} />
+// }
 
 class App extends Component {
   constructor () {
@@ -159,12 +159,7 @@ class App extends Component {
     return (
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
-          <div>
-            {this.state.isAuthenticated && !this.state.isLogging
-              ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
-              : <HeaderLoggedOut onLogout={this.signout} />
-            }
-
+          <div style={{height: '100%'}}>
             <Switch>
               <Route path='/register' component={
                 () => <Register onRegister={this.onRegister} />

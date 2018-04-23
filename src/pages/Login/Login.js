@@ -21,25 +21,6 @@ export default function Login (props) {
   const { users } = props // auth
   // const style = !users.length ? { display: 'flex' } : {}
   return (
-    // <div className='Login'>
-    //   <h1>Who Avataris it ?</h1>
-    //
-    //   <div className='avatars-grid' style={style}>
-    //     {users.map((user, index) =>
-    //       <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => auth(index)}>
-    //         <Avatar image={user.image} />
-    //         <p>{user.username}</p>
-    //       </Link>
-    //     )}
-    //
-    //     <Link to='register' style={{textDecoration: 'none'}}>
-    //       <div style={{height: '120px'}}>
-    //         <Plusbutton />
-    //       </div>
-    //       <p id='add-user'>Add user</p>
-    //     </Link>
-    //   </div>
-    // </div>
     <div className='Login'>
       <div className='header'>
         <Logo style={styles.logo} />
