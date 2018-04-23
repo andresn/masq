@@ -11,7 +11,7 @@
     "start": "react-scripts start",
     "electron-dev": "ENV=development concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --testPathIgnorePatterns=\"<rootDir>/src/masq\"",
     "eject": "react-scripts eject",
     "standard": "standard \"src/**/*.js\"",
     "standard-fix": "standard --fix \"src/**/*.js\"",

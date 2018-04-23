@@ -12,11 +12,13 @@ import { UserContext } from 'context/user'
 import devicesMock from './mocks/devices'
 import appsMock from './mocks/apps'
 
-import * as lib from './lib/'
+import { MasqStore } from './masq/store'
 
 import './App.css'
 
 const history = createHashHistory()
+const store = new MasqStore()
+store.init()
 
 const tabs = [
   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
@@ -77,36 +79,37 @@ class App extends Component {
 
   async fetchUsers () {
     try {
-      this.setState({ users: await lib.getUserList() })
+      console.log(await store.listUsers())
+      this.setState({ users: await store.listUsers() })
     } catch (e) { console.log(e) }
   }
 
   async fetchDevices () {
-    let devices = await lib.getDeviceList()
+    let devices = await store.getDeviceList()
     // FIXME: use mock data for now
     if (!devices.length) {
       for (let dev of devicesMock) {
-        await lib.addDevice(dev)
+        await store.addDevice(dev)
       }
-      devices = await lib.getDeviceList()
+      devices = await store.getDeviceList()
     }
     this.devices = devices
   }
 
   async fetchApps () {
-    let apps = await lib.getApplicationList()
+    let apps = await store.getApplicationList()
     // FIXME: use mock data for now
     if (!apps.length) {
       for (let app of appsMock) {
-        await lib.registerApp(app)
+        await store.registerApp(app)
       }
-      apps = await lib.getApplicationList()
+      apps = await store.getApplicationList()
     }
     this.apps = apps
   }
 
   async authenticate (indexUser) {
-    await lib.signIn(this.state.users[indexUser].username)
+    await store.signIn(this.state.users[indexUser].username)
     this.setState({
       isAuthenticated: true,
       isLogging: true,
@@ -132,27 +135,27 @@ class App extends Component {
 
   async onDevChecked (index) {
     this.devices[index].enabled = !this.devices[index].enabled
-    await lib.updateDevice(this.devices[index])
+    await store.updateDevice(this.devices[index])
   }
 
   async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
-    await lib.updateApp(this.apps[index])
+    await store.updateApp(this.apps[index])
   }
 
   async onRegister (user) {
-    await lib.createUser(user)
+    await store.createUser(user)
     await this.fetchUsers()
     history.push('login')
   }
 
   async onDeleteUser () {
-    await lib.deleteUser()
+    await store.deleteUser()
     this.fetchUsers()
   }
 
   async onUpdateUser (user) {
-    await lib.updateUser(user)
+    await store.updateUser(user)
   }
 
   render () {
