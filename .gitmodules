@@ -1,0 +1,3 @@
+[submodule "masq"]
+	path = masq
+	url = git@github.com:QwantResearch/masq.git

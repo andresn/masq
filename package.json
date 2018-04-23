@@ -7,14 +7,6 @@
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
-  "dependencies": {
-    "localforage": "^1.7.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4",
-    "typeface-asap": "0.0.54"
-  },
   "scripts": {
     "start": "react-scripts start",
     "electron-dev": "ENV=development concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
@@ -32,6 +24,15 @@
     "env": [
       "jest"
     ]
+  },
+  "dependencies": {
+    "localforage": "^1.7.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "store": "file:masq/store",
+    "typeface-asap": "0.0.54"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.1",
