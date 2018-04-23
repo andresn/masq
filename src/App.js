@@ -10,7 +10,6 @@ import { UserContext } from 'context/user'
 
 // FIXME: remove mocks data when lib is ready
 import devicesMock from './mocks/devices'
-import appsMock from './mocks/apps'
 
 import { MasqStore } from './masq/store'
 
@@ -85,27 +84,19 @@ class App extends Component {
   }
 
   async fetchDevices () {
-    let devices = await store.getDeviceList()
+    let devices = await store.listDevices()
     // FIXME: use mock data for now
     if (!devices.length) {
       for (let dev of devicesMock) {
         await store.addDevice(dev)
       }
-      devices = await store.getDeviceList()
+      devices = await store.listDevices()
     }
     this.devices = devices
   }
 
   async fetchApps () {
-    let apps = await store.getApplicationList()
-    // FIXME: use mock data for now
-    if (!apps.length) {
-      for (let app of appsMock) {
-        await store.registerApp(app)
-      }
-      apps = await store.getApplicationList()
-    }
-    this.apps = apps
+    this.apps = await store.listApps()
   }
 
   async authenticate (indexUser) {
