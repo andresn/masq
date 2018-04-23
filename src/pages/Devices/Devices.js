@@ -13,6 +13,7 @@ export default function Devices (props) {
 
   return (
     <div style={{paddingBottom: '64px'}}>
+
       <h2 style={{marginLeft: '16px'}}>New Device</h2>
       <div className='Devices'>
         {newDeviceKey !== -1

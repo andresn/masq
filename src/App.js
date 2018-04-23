@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
-import { Header, Tabs, Notification } from 'components'
+import { Header, Tabs, Notification, Button, Modal } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 
@@ -15,6 +15,12 @@ import { MasqStore } from './masq/store'
 
 import './App.css'
 
+const win = window.require('electron').remote.getCurrentWindow()
+
+setTimeout(function () {
+  win.focus()
+}, 8000)
+
 const history = createHashHistory()
 const store = new MasqStore()
 store.init()
@@ -24,6 +30,22 @@ const tabs = [
   { label: 'Applications', link: '/applications', icon: <Apps /> },
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
+
+function AuthorizeAppModal (props) {
+  const { onAccept, onReject } = props
+  win.focus()
+  return (
+    <Modal>
+      <div style={{paddingTop: 16, margin: 16}}>
+        <p style={{paddingBottom: 16}}>A new app is requesting access to use your Masq. Authorize ?</p>
+        <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+          <Button label='NO' onClick={onReject} />
+          <Button label='YES' onClick={onAccept} />
+        </div>
+      </div>
+    </Modal>
+  )
+}
 
 function HeaderLoggedIn (props) {
   return (
@@ -154,6 +176,8 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div>
+            <AuthorizeAppModal />
+
             {this.state.isAuthenticated && !this.state.isLogging
               ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
               : <HeaderLoggedOut onLogout={this.signout} />

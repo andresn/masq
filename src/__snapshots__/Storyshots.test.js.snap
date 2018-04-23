@@ -827,6 +827,113 @@ exports[`Storyshots LoadingDots LoadingDots 1`] = `
 </div>
 `;
 
+exports[`Storyshots Modal empty modal 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
+      "left": "50%",
+      "position": "absolute",
+      "top": "50%",
+      "transform": "translate(-50%, 0)",
+      "zIndex": 1,
+    }
+  }
+>
+  <svg
+    height={9}
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "#191919",
+        "cursor": "pointer",
+        "float": "right",
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 0.4,
+      }
+    }
+    viewBox="0 0 14 14"
+    width={9}
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+  >
+    <defs>
+      <path
+        d="M13.7 12.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L7 8.4l-5.3 5.3c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L8.4 7l5.3 5.3z"
+        id="close-svg"
+      />
+    </defs>
+    <use
+      fill="currentColor"
+      fillRule="nonzero"
+      xlinkHref="#close-svg"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Storyshots Modal with a button as children 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
+      "left": "50%",
+      "position": "absolute",
+      "top": "50%",
+      "transform": "translate(-50%, 0)",
+      "zIndex": 1,
+    }
+  }
+>
+  <svg
+    height={9}
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "#191919",
+        "cursor": "pointer",
+        "float": "right",
+        "marginRight": 20,
+        "marginTop": 20,
+        "opacity": 0.4,
+      }
+    }
+    viewBox="0 0 14 14"
+    width={9}
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+  >
+    <defs>
+      <path
+        d="M13.7 12.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L7 8.4l-5.3 5.3c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L8.4 7l5.3 5.3z"
+        id="close-svg"
+      />
+    </defs>
+    <use
+      fill="currentColor"
+      fillRule="nonzero"
+      xlinkHref="#close-svg"
+    />
+  </svg>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <button
+      className="Button primary"
+      onClick={undefined}
+    >
+      A button inside a modal
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Notification notification 1`] = `
 <div
   className="Notification"
