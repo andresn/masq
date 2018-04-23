@@ -23,6 +23,9 @@
   "standard": {
     "env": [
       "jest"
+    ],
+    "ignore": [
+      "src/masq/"
     ]
   },
   "dependencies": {
