@@ -14,7 +14,8 @@ const styles = {
     marginTop: 20,
     marginRight: 20,
     color: '#191919',
-    opacity: 0.4
+    opacity: 0.4,
+    cursor: 'pointer'
   }
 }
 
