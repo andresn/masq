@@ -77,3 +77,8 @@ p {
 #root {
   height: 100vh;
 }
+
+.App {
+  display: grid;
+  height: 100%;
+}

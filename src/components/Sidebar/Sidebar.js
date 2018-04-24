@@ -14,7 +14,7 @@ const tabs = [
 const styles = {
   Sidebar: {
     width: 252,
-    height: 826,
+    height: '100%',
     backgroundColor: '#252a39'
   },
   flex: {

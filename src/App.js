@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
-// import { Tabs } from 'components'
+import { Sidebar } from 'components'
 // import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 // import { Signup } from 'modals'
@@ -140,7 +140,7 @@ class App extends Component {
     return (
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
-          <div style={{height: '100%'}}>
+          <div className='App'>
             {/* <Signup /> */}
             <Switch>
               <Route path='/register' component={
@@ -159,7 +159,8 @@ class App extends Component {
 
             {this.state.isAuthenticated && !this.state.isLogging
               ? (
-                <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '252px auto', backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
+                  <Sidebar />
                   <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
                   <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
                   <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
