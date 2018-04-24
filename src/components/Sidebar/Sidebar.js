@@ -84,7 +84,7 @@ export default class Sidebar extends React.Component {
           </div>
         </div>
         <div style={styles.logout}>
-          <div className='tab'>
+          <div className='tab' onClick={this.props.onLogout}>
             <Logout color='white' />
             <p>LOGOUT</p>
           </div>
