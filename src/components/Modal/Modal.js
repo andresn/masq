@@ -4,6 +4,11 @@ import { Close } from 'icons'
 
 const styles = {
   modal: {
+    zIndex: 1,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    position: 'absolute',
     backgroundColor: 'white',
     width: 511,
     height: 670,

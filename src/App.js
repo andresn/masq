@@ -5,6 +5,7 @@ import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { Tabs } from 'components'
 import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
+import { Signup } from 'modals'
 
 import { UserContext } from 'context/user'
 
@@ -23,26 +24,6 @@ const tabs = [
   { label: 'Applications', link: '/applications', icon: <Apps /> },
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
-
-// function HeaderLoggedIn (props) {
-//   return (
-//     <Header
-//       title='Hello'
-//       shadow
-//       onLogout={props.onLogout}
-//       childrenHeight={props.notif ? 40 : 0}
-//     >
-//       {props.notif
-//         ? <Notification text='This is a Notification!' onClose={props.onCloseNotif} />
-//         : null
-//       }
-//     </Header>
-//   )
-// }
-
-// function HeaderLoggedOut (props) {
-//   return <Header onLogout={props.onLogout} />
-// }
 
 class App extends Component {
   constructor () {
@@ -160,6 +141,7 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div style={{height: '100%'}}>
+            <Signup />
             <Switch>
               <Route path='/register' component={
                 () => <Register onRegister={this.onRegister} />
