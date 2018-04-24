@@ -18,7 +18,7 @@ const styles = {
 }
 
 export default function Login (props) {
-  const { users } = props // auth
+  const { users, onAuth } = props
   // const style = !users.length ? { display: 'flex' } : {}
   return (
     <div className='Login'>
@@ -29,7 +29,7 @@ export default function Login (props) {
 
       <div className='users'>
         {users.map((user, index) =>
-          <Link style={{textDecoration: 'none'}} key={index} to='devices'>
+          <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => onAuth(index)}>
             <Avatar image={user.image} />
             <p>{user.username}</p>
           </Link>
@@ -47,6 +47,6 @@ export default function Login (props) {
 }
 
 Login.propTypes = {
-  auth: PropTypes.func.isRequired,
+  onAuth: PropTypes.func.isRequired,
   users: PropTypes.array.isRequired
 }

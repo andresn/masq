@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
-import { Tabs } from 'components'
-import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
+// import { Tabs } from 'components'
+// import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
-import { Signup } from 'modals'
+// import { Signup } from 'modals'
 
 import { UserContext } from 'context/user'
 
@@ -19,11 +19,11 @@ import './App.css'
 
 const history = createHashHistory()
 
-const tabs = [
-  { label: 'Devices', link: '/devices', icon: <Smartphone /> },
-  { label: 'Applications', link: '/applications', icon: <Apps /> },
-  { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
-]
+// const tabs = [
+//   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
+//   { label: 'Applications', link: '/applications', icon: <Apps /> },
+//   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
+// ]
 
 class App extends Component {
   constructor () {
@@ -141,7 +141,7 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div style={{height: '100%'}}>
-            <Signup />
+            {/* <Signup /> */}
             <Switch>
               <Route path='/register' component={
                 () => <Register onRegister={this.onRegister} />
@@ -152,7 +152,7 @@ class App extends Component {
 
               <Redirect exact from='/' to='/login' />
               <Route exact path='/login' component={() => (
-                <Login auth={this.authenticate} users={this.state.users} />
+                <Login onAuth={this.authenticate} users={this.state.users} />
               )} />
               {this.state.isLogging && <Redirect to='loading' />}
             </Switch>
@@ -160,7 +160,6 @@ class App extends Component {
             {this.state.isAuthenticated && !this.state.isLogging
               ? (
                 <div style={{backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
-                  <Tabs tabs={tabs} />
                   <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
                   <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
                   <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
