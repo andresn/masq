@@ -32,15 +32,15 @@ const tabs = [
 ]
 
 function AuthorizeAppModal (props) {
-  const { onAccept, onReject } = props
+  const { onAuthorized } = props
   win.focus()
   return (
     <Modal>
       <div style={{paddingTop: 16, margin: 16}}>
         <p style={{paddingBottom: 16}}>A new app is requesting access to use your Masq. Authorize ?</p>
         <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-          <Button label='NO' onClick={onReject} />
-          <Button label='YES' onClick={onAccept} />
+          <Button label='NO' onClick={() => onAuthorized(false)} />
+          <Button label='YES' onClick={() => onAuthorized(true)} />
         </div>
       </div>
     </Modal>
@@ -75,7 +75,8 @@ class App extends Component {
       isLogging: false,
       isAuthenticated: false,
       notif: true,
-      currentUser: null
+      currentUser: null,
+      authorizeApp: true
     }
 
     this.signout = this.signout.bind(this)
@@ -85,6 +86,7 @@ class App extends Component {
     this.onDevChecked = this.onDevChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onDeleteUser = this.onDeleteUser.bind(this)
+    this.onAuthorizedApp = this.onAuthorizedApp.bind(this)
 
     this.apps = []
     this.devices = []
@@ -96,6 +98,16 @@ class App extends Component {
 
   onCloseNotif () {
     this.setState({ notif: false })
+  }
+
+  authorizeApp () {
+    this.setState({ authorizeApp: true })
+  }
+
+  onAuthorizedApp (isAuthorized) {
+    console.log('authorize app', isAuthorized)
+    this.setState({ authorizeApp: false })
+    // TODO: store.addApp()
   }
 
   async fetchUsers () {
@@ -176,7 +188,7 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div>
-            <AuthorizeAppModal />
+            {this.state.authorizeApp && <AuthorizeAppModal onAuthorized={this.onAuthorizedApp} />}
 
             {this.state.isAuthenticated && !this.state.isLogging
               ? <HeaderLoggedIn onLogout={this.signout} user={this.state.currentUser} notif={this.state.notif} onCloseNotif={this.onCloseNotif} />
