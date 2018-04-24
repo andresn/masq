@@ -19,3 +19,17 @@
   color: white;
   opacity: 0.8;
 }
+
+.LoadingPage .user {
+  padding-bottom: 32px;
+}
+
+.LoadingPage .user p {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.11;
+  letter-spacing: normal;
+  text-align: center;
+}
