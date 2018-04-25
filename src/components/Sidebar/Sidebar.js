@@ -58,7 +58,10 @@ const styles = {
     width: 2,
     height: 21,
     borderRadius: 1,
-    backgroundColor: '#458bf8'
+    backgroundColor: '#458bf8',
+    position: 'absolute',
+    marginTop: 4,
+    marginRight: 8
   }
 }
 
@@ -87,12 +90,14 @@ class Sidebar extends React.Component {
         </div>
 
         <div style={styles.tabs}>
-          <div>
+          <div style={{width: 170}}>
             {tabs.map((tab, index) => (
-              <div className={'tab' + (index === this.state.currentTab ? ' active' : '')} key={index} onClick={() => this.onSelectTab(index)}>
-                {/* <div style={styles.indicator} /> */}
-                <div style={{margin: 'auto'}}>{ tab.icon }</div>
-                <p>{tab.label.toUpperCase()}</p>
+              <div key={index} onClick={() => this.onSelectTab(index)}>
+                {(index === this.state.currentTab) && <div style={styles.indicator} />}
+                <div className={'tab' + (index === this.state.currentTab ? ' active' : '')}>
+                  <div style={{margin: 'auto'}}>{ tab.icon }</div>
+                  <p>{tab.label.toUpperCase()}</p>
+                </div>
               </div>
             ))}
           </div>
