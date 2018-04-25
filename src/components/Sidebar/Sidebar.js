@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { Avatar } from 'components'
 import { Background, Smartphone, Apps, Settings as SettingsIcon, Logout } from 'icons'
 
+import { UserContext } from 'context/user'
+
 import './Sidebar.css'
 
 const tabs = [
@@ -84,8 +86,8 @@ class Sidebar extends React.Component {
       <div className='Sidebar' style={styles.Sidebar}>
 
         <div id='header' style={styles.header}>
-          <Avatar image='https://randomuser.me/api/portraits/women/79.jpg' />
-          <h2 style={styles.h2}>Ashley</h2>
+          <Avatar image={this.props.user.image} />
+          <h2 style={styles.h2}>{this.props.user.username}</h2>
           <p>Change user</p>
         </div>
 
@@ -114,4 +116,8 @@ class Sidebar extends React.Component {
   }
 }
 
-export default withRouter(Sidebar)
+export default withRouter((props) =>
+  <UserContext.Consumer>
+    {user => <Sidebar {...props} user={user} />}
+  </UserContext.Consumer>
+)
