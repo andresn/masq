@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Avatar, Button, Separator, TextInput, SwitchButton, CircleIndicator } from 'components'
+import { Avatar, Button, TextInput, SwitchButton, CircleIndicator } from 'components'
 
 import { UserContext } from 'context/user'
 
@@ -52,37 +52,61 @@ class Settings extends React.Component {
   }
 
   render () {
-    const { onDeleteUser } = this.props
+    // const { onDeleteUser } = this.props
 
     return (
       <div className='Settings'>
-        <h2 style={{marginLeft: '16px'}}>Your Profile</h2>
-
-        <div className='profile'>
-          <Avatar upload image={this.state.image.value} onChange={(e) => this.onImageChange(e)} />
-          <div className='fields'>
-            <TextInput label='Last Name' error={this.state.lastname.error} defaultValue={this.state.lastname.value} onChange={(e) => this.onChange('lastname', e)} />
-            <TextInput label='First Name' error={this.state.firstname.error} defaultValue={this.state.firstname.value} onChange={(e) => this.onChange('firstname', e)} />
-            <TextInput label='Username (Displayed)' error={this.state.username.error} defaultValue={this.state.username.value} onChange={(e) => this.onChange('username', e)} />
+        <div>
+          <div className='title-container'>
+            <h1>Your profile</h1>
+            <h3>Edit your personal informations</h3>
           </div>
+
+          <div className='profile'>
+            <Avatar upload image={this.state.image.value} onChange={(e) => this.onImageChange(e)} />
+            <div style={{marginTop: 32}}>
+              <TextInput label='Last Name' error={this.state.lastname.error} defaultValue={this.state.lastname.value} onChange={(e) => this.onChange('lastname', e)} />
+              <TextInput label='First Name' error={this.state.firstname.error} defaultValue={this.state.firstname.value} onChange={(e) => this.onChange('firstname', e)} />
+            </div>
+            <div style={{marginTop: 32}}>
+              <TextInput label='Username (Displayed)' error={this.state.username.error} defaultValue={this.state.username.value} onChange={(e) => this.onChange('username', e)} />
+            </div>
+          </div>
+
+          <div className='title-container'>
+            <h1>Qwant Masq settings</h1>
+            <h3>Edit app's behavior</h3>
+          </div>
+
+          <div className='app-settings'>
+            <div style={{marginRight: 16}}>
+              <CircleIndicator color='#458bf8' />
+            </div>
+            <p style={{marginRight: 16}}>Accept new applications automatically</p>
+            <SwitchButton checked secondary color='#458bf8' />
+          </div>
+
+          <div className='app-settings'>
+            <div style={{marginRight: 16}}>
+              <CircleIndicator color='#458bf8' />
+            </div>
+            <p style={{marginRight: 16}}>Accept new applications automatically</p>
+            <SwitchButton checked secondary color='#458bf8' />
+          </div>
+
+          <div className='app-settings'>
+            <div style={{marginRight: 16}}>
+              <CircleIndicator color='#458bf8' />
+            </div>
+            <p style={{marginRight: 16}}>Accept new applications automatically</p>
+            <SwitchButton checked secondary color='#458bf8' />
+          </div>
+
+          <Button label='Add a new device' />
         </div>
 
-        <h2 style={{marginLeft: '16px'}}>Masq Parameters</h2>
-
-        <div className='parameters'>
-          <CircleIndicator style={{alignSelf: 'flex-start'}} color='#458bf8' />
-          <p>Accept new applications automatically</p>
-          <SwitchButton checked secondary color='#458bf8' />
-        </div>
-
-        <Separator height='48px' />
-        <div className='button-container'>
-          <Button label='SAVE CHANGES' onClick={this.validate} />
-        </div>
-
-        <Separator height='16px' />
-        <div className='button-container'>
-          <Button label='DELETE MY ACCOUNT' onClick={onDeleteUser} />
+        <div className='sidebar'>
+          <Button label='SAVE' />
         </div>
       </div>
     )
