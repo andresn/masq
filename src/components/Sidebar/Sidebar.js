@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import { Avatar } from 'components'
 import { Background, Smartphone, Apps, Settings as SettingsIcon, Logout } from 'icons'
@@ -61,7 +62,12 @@ const styles = {
   }
 }
 
-export default class Sidebar extends React.Component {
+class Sidebar extends React.Component {
+  onSelectTab (key) {
+    const { history } = this.props
+    history.push(tabs[key].link)
+  }
+
   render () {
     return (
       <div className='Sidebar' style={styles.Sidebar}>
@@ -75,7 +81,7 @@ export default class Sidebar extends React.Component {
         <div style={styles.tabs}>
           <div>
             {tabs.map((tab, index) => (
-              <div className='tab' key={index}>
+              <div className='tab' key={index} onClick={() => this.onSelectTab(index)}>
                 {/* <div style={styles.indicator} /> */}
                 <div style={{margin: 'auto'}}>{ tab.icon }</div>
                 <p>{tab.label.toUpperCase()}</p>
@@ -94,3 +100,5 @@ export default class Sidebar extends React.Component {
     )
   }
 }
+
+export default withRouter(Sidebar)
