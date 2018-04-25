@@ -162,9 +162,11 @@ class App extends Component {
               ? (
                 <div style={{display: 'grid', gridTemplateColumns: '252px auto', backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
                   <Sidebar onLogout={this.signout} />
-                  <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
-                  <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
-                  <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+                  <div style={{marginTop: 59, marginLeft: 40}} >
+                    <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
+                    <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
+                    <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+                  </div>
                 </div>)
               : null
             }
