@@ -19,12 +19,6 @@ import './App.css'
 
 const history = createHashHistory()
 
-// const tabs = [
-//   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
-//   { label: 'Applications', link: '/applications', icon: <Apps /> },
-//   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
-// ]
-
 class App extends Component {
   constructor () {
     super()
@@ -160,7 +154,7 @@ class App extends Component {
 
             {this.state.isAuthenticated && !this.state.isLogging
               ? (
-                <div style={{display: 'grid', gridTemplateColumns: '252px auto', backgroundColor: 'var(--main-bg-color)', height: '100%'}}>
+                <div style={{display: 'grid', gridTemplateColumns: '252px auto', height: '100%'}}>
                   <Sidebar onLogout={this.signout} />
                   <div style={{marginTop: 59, marginLeft: 40}} >
                     <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
