@@ -136,7 +136,6 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div className='App'>
-            {/* <Signup /> */}
             <Switch>
               <Route path='/register' component={
                 () => <Register onRegister={this.onRegister} />
@@ -147,7 +146,7 @@ class App extends Component {
 
               <Redirect exact from='/' to='/login' />
               <Route exact path='/login' component={() => (
-                <Login onAuth={this.authenticate} users={this.state.users} />
+                <Login onAuth={this.authenticate} users={this.state.users} onSignup={this.onRegister} />
               )} />
               {this.state.isLogging && <Redirect to='loading' />}
             </Switch>

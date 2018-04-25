@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Avatar } from 'components'
 import { Background, Logo, Plusbutton } from 'icons'
+import { Signup } from 'modals'
 
 import './Login.css'
 
@@ -17,33 +18,50 @@ const styles = {
   }
 }
 
-export default function Login (props) {
-  const { users, onAuth } = props
-  // const style = !users.length ? { display: 'flex' } : {}
-  return (
-    <div className='Login'>
-      <div className='header'>
-        <Logo style={styles.logo} />
-        <h1>Who is it ?</h1>
-      </div>
+export default class Login extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isModalOpened: false
+    }
+    this.toggleModal = this.toggleModal.bind(this)
+  }
 
-      <div className='users'>
-        {users.map((user, index) =>
-          <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => onAuth(index)}>
-            <Avatar image={user.image} />
-            <p>{user.username}</p>
-          </Link>
-        )}
-        <Link to='register' style={{textDecoration: 'none'}}>
-          <div style={{height: '120px'}}>
-            <Plusbutton />
+  toggleModal (state) {
+    this.setState({ isModalOpened: state })
+  }
+
+  render () {
+    const { users, onAuth, onSignup } = this.props
+    // const style = !users.length ? { display: 'flex' } : {}
+    return (
+      <div className='Login'>
+        {this.state.isModalOpened &&
+          <Signup onClose={() => this.toggleModal(false)} onSignup={onSignup} />
+        }
+        <div className='header'>
+          <Logo style={styles.logo} />
+          <h1>Who is it ?</h1>
+        </div>
+
+        <div className='users'>
+          {users.map((user, index) =>
+            <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => onAuth(index)}>
+              <Avatar image={user.image} />
+              <p>{user.username}</p>
+            </Link>
+          )}
+          <div style={{textDecoration: 'none', cursor: 'pointer'}} onClick={() => this.toggleModal(true)}>
+            <div style={{height: '120px'}}>
+              <Plusbutton />
+            </div>
+            <p id='add-user'>Add user</p>
           </div>
-          <p id='add-user'>Add user</p>
-        </Link>
+        </div>
+        <Background style={styles.background} />
       </div>
-      <Background style={styles.background} />
-    </div>
-  )
+    )
+  }
 }
 
 Login.propTypes = {
