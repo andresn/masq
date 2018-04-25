@@ -63,9 +63,17 @@ const styles = {
 }
 
 class Sidebar extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      currentTab: 0
+    }
+  }
+
   onSelectTab (key) {
     const { history } = this.props
     history.push(tabs[key].link)
+    this.setState({ currentTab: key })
   }
 
   render () {
@@ -81,7 +89,7 @@ class Sidebar extends React.Component {
         <div style={styles.tabs}>
           <div>
             {tabs.map((tab, index) => (
-              <div className='tab' key={index} onClick={() => this.onSelectTab(index)}>
+              <div className={'tab' + (index === this.state.currentTab ? ' active' : '')} key={index} onClick={() => this.onSelectTab(index)}>
                 {/* <div style={styles.indicator} /> */}
                 <div style={{margin: 'auto'}}>{ tab.icon }</div>
                 <p>{tab.label.toUpperCase()}</p>
