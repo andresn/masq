@@ -29,6 +29,7 @@
 
 .Sidebar .tab.active {
   color: var(--blue-300);
+  opacity: 1;
 }
 
 .Sidebar .tab.active p {
