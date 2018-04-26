@@ -6,5 +6,7 @@ import Signup from './AddDevice'
 
 storiesOf('AddDevice Modal', module)
   .add('addDevice modal', () => (
-    <Signup onClose={action('onClosed')} />
+    <div style={{marginTop: '35%'}}>
+      <Signup onClose={action('onClosed')} />
+    </div>
   ))

@@ -6,5 +6,7 @@ import Signup from './Signup'
 
 storiesOf('Signup Modal', module)
   .add('signup modal', () => (
-    <Signup onClose={action('onClosed')} />
+    <div style={{marginTop: '35%'}}>
+      <Signup onClose={action('onClosed')} />
+    </div>
   ))
