@@ -48,7 +48,7 @@ class Settings extends React.Component {
     Object.keys(this.state).forEach(key => {
       fields[key] = this.state[key].value
     })
-    onUpdateUser(this.state)
+    onUpdateUser(fields)
   }
 
   render () {
@@ -104,7 +104,7 @@ class Settings extends React.Component {
         </div>
 
         <div className='sidebar'>
-          <Button label='SAVE' />
+          <Button label='SAVE' onClick={this.validate} />
         </div>
       </div>
     )

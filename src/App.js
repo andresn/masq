@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
+import localforage from 'localforage'
+
 import { Sidebar } from 'components'
 // import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
@@ -10,14 +12,16 @@ import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } 
 import { UserContext } from 'context/user'
 
 // FIXME: remove mocks data when lib is ready
-import devicesMock from './mocks/devices'
-import appsMock from './mocks/apps'
+// import devicesMock from './mocks/devices'
+// import appsMock from './mocks/apps'
 
-import * as lib from './lib/'
+import { MasqStore } from './masq/store'
 
 import './App.css'
 
 const history = createHashHistory()
+
+const store = new MasqStore({ storage: localforage })
 
 class App extends Component {
   constructor () {
@@ -37,12 +41,14 @@ class App extends Component {
     this.onDevChecked = this.onDevChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onDeleteUser = this.onDeleteUser.bind(this)
+    this.onUpdateUser = this.onUpdateUser.bind(this)
 
     this.apps = []
     this.devices = []
   }
 
-  componentDidMount () {
+  async componentDidMount () {
+    await store.init()
     this.fetchUsers()
   }
 
@@ -51,37 +57,23 @@ class App extends Component {
   }
 
   async fetchUsers () {
+    const users = Object.values(await store.listUsers())
     try {
-      this.setState({ users: await lib.getUserList() })
+      this.setState({ users: users })
     } catch (e) { console.log(e) }
   }
 
   async fetchDevices () {
-    let devices = await lib.getDeviceList()
-    // FIXME: use mock data for now
-    if (!devices.length) {
-      for (let dev of devicesMock) {
-        await lib.addDevice(dev)
-      }
-      devices = await lib.getDeviceList()
-    }
-    this.devices = devices
+    // TODO: Use lib when it's ready
+    this.devices = []
   }
 
   async fetchApps () {
-    let apps = await lib.getApplicationList()
-    // FIXME: use mock data for now
-    if (!apps.length) {
-      for (let app of appsMock) {
-        await lib.registerApp(app)
-      }
-      apps = await lib.getApplicationList()
-    }
-    this.apps = apps
+    this.apps = Object.values(await store.listApps())
   }
 
   async authenticate (indexUser) {
-    await lib.signIn(this.state.users[indexUser].username)
+    await store.signIn(this.state.users[indexUser].username)
     this.setState({
       isAuthenticated: true,
       isLogging: true,
@@ -108,27 +100,33 @@ class App extends Component {
 
   async onDevChecked (index) {
     this.devices[index].enabled = !this.devices[index].enabled
-    await lib.updateDevice(this.devices[index])
+    await store.updateDevice(this.devices[index])
   }
 
   async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
-    await lib.updateApp(this.apps[index])
+    await store.updateApp(this.apps[index])
   }
 
   async onRegister (user) {
-    await lib.createUser(user)
+    await store.createUser(user)
     await this.fetchUsers()
     history.push('login')
   }
 
   async onDeleteUser () {
-    await lib.deleteUser()
+    await store.deleteUser()
     this.fetchUsers()
   }
 
   async onUpdateUser (user) {
-    await lib.updateUser(user)
+    try {
+      await store.updateUser(user)
+      await this.fetchUsers()
+      this.setState({ currentUser: user })
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   render () {
