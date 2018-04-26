@@ -2,7 +2,6 @@ language: node_js
 node_js:
   - "node"
 install:
-  - git submodule update --init --recursive
   - npm install
 script:
   - npm run standard
