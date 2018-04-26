@@ -12,9 +12,11 @@ export default class Signup extends React.Component {
       image: { value: '', error: false },
       lastname: { value: '', error: false },
       firstname: { value: '', error: false },
-      username: { value: '', error: false }
+      username: { value: '', error: false },
+      openDialog: false
     }
     this.validate = this.validate.bind(this)
+    this.openDialog = this.openDialog.bind(this)
   }
 
   onChange (field, event) {
@@ -38,6 +40,12 @@ export default class Signup extends React.Component {
     reader.readAsDataURL(file)
   }
 
+  openDialog () {
+    this.setState({
+      openDialog: true
+    })
+  }
+
   validate () {
     const { onSignup } = this.props
     const isValid = !Object.values(this.state).some(field => field.error)
@@ -45,7 +53,8 @@ export default class Signup extends React.Component {
 
     // Re-create a simple object like { field: value }
     let fields = {}
-    Object.keys(this.state).forEach(key => {
+    Object.keys(this.state).forEach((key, index) => {
+      if (index > 3) return // ignore openDialog and others if any
       fields[key] = this.state[key].value
     })
     onSignup(fields)
@@ -56,8 +65,8 @@ export default class Signup extends React.Component {
       <Modal onClose={this.props.onClose}>
         <div className='Signup'>
           <h1>Add a new user</h1>
-          <Avatar upload onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />
-          <Button secondary label='IMPORT A PHOTO' />
+          <Avatar upload openDialog={this.state.openDialog} onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />
+          <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
 
           <TextInput label='Last Name' error={this.state.lastname.error} onChange={(e) => this.onChange('lastname', e)} />
           <TextInput label='First Name' error={this.state.firstname.error} onChange={(e) => this.onChange('firstname', e)} />
