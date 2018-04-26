@@ -16,6 +16,7 @@ const tabs = [
 
 const styles = {
   Sidebar: {
+    position: 'relative',
     width: 252,
     height: '100%',
     backgroundColor: '#252a39'
