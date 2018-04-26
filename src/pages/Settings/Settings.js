@@ -101,8 +101,6 @@ class Settings extends React.Component {
             <p style={{marginRight: 16}}>Accept new applications automatically</p>
             <SwitchButton checked secondary color='#458bf8' />
           </div>
-
-          <Button label='Add a new device' />
         </div>
 
         <div className='sidebar'>
