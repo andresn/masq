@@ -12,7 +12,7 @@ export default function Applications (props) {
   return (
     <div className='Applications'>
       <div>
-        <div className='title-container'>
+        {/* <div className='title-container'>
           <h1>Currently active</h1>
           <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
         </div>
@@ -20,7 +20,7 @@ export default function Applications (props) {
           {applications.map((app, index) =>
             <AppCard key={index} index={index} app={app} />
           )}
-        </div>
+        </div> */}
 
         <div className='title-container'>
           <h1>My applications</h1>

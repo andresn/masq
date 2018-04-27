@@ -23,7 +23,7 @@ export default class AppCard extends React.Component {
         logo={app.logo}
         title={app.name}
         description={app.description}
-        color={app.color}
+        color={app.color || 'var(--green-100)'}
         enabled={this.state.enabled}
         image={app.image}
         onChecked={this.onChecked}

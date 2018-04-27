@@ -5,23 +5,39 @@ import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import localforage from 'localforage'
 
 import { Sidebar } from 'components'
-// import { Smartphone, Apps, Settings as SettingsIcon } from 'icons'
-import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
-// import { Signup } from 'modals'
-
 import { UserContext } from 'context/user'
+import { AuthApp } from 'modals'
+import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 
-// FIXME: remove mocks data when lib is ready
-// import devicesMock from './mocks/devices'
-// import appsMock from './mocks/apps'
-
+import { Client } from './masq/client'
 import { MasqStore } from './masq/store'
+import { Server } from './masq/socket/server'
 
 import './App.css'
 
 const history = createHashHistory()
-
 const store = new MasqStore({ storage: localforage })
+
+const server = new Server(8080, store, localforage)
+
+async function testAddApp () {
+  server.init()
+
+  // Client test
+  try {
+    const client = new Client({ socketUrl: 'ws://localhost:8080' })
+    await client.initWS()
+
+    const appInfo = {
+      url: 'https://masq.io/search',
+      name: 'Masq Search',
+      description: 'Masq Search'
+    }
+    client.addApp(appInfo)
+  } catch (err) {
+    console.error(err)
+  }
+}
 
 class App extends Component {
   constructor () {
@@ -31,7 +47,8 @@ class App extends Component {
       isLogging: false,
       isAuthenticated: false,
       notif: true,
-      currentUser: null
+      currentUser: null,
+      appsRequests: []
     }
 
     this.signout = this.signout.bind(this)
@@ -47,8 +64,39 @@ class App extends Component {
     this.devices = []
   }
 
+  async authorizeApp (isAuthorized) {
+    const appsRequests = this.state.appsRequests.slice()
+
+    if (isAuthorized) {
+      const app = appsRequests[0]
+      app.enabled = true
+      const token = await store.addApp(app)
+      console.log('app authorized', app, 'token', token)
+      server.finishRegistration(token)
+      this.apps.push(app)
+    }
+
+    appsRequests.splice(0, 1)
+
+    this.setState({
+      appsRequests: appsRequests
+    })
+  }
+
   async componentDidMount () {
     await store.init()
+
+    server.onRegister(async (appMeta) => {
+      const appsRequests = this.state.appsRequests.slice()
+      console.log('onRegister', appMeta)
+      appsRequests.push(appMeta)
+      this.setState({
+        appsRequests: appsRequests
+      })
+    })
+
+    await testAddApp()
+
     this.fetchUsers()
   }
 
@@ -69,6 +117,8 @@ class App extends Component {
   }
 
   async fetchApps () {
+    console.log('fetchApps')
+    console.log(await store.listApps())
     this.apps = Object.values(await store.listApps())
   }
 
@@ -157,6 +207,13 @@ class App extends Component {
                     <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
                     <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
                     <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+                    {this.state.appsRequests.length &&
+                      <AuthApp
+                        app={this.state.appsRequests[0]}
+                        onAccept={() => this.authorizeApp(true)}
+                        onReject={() => this.authorizeApp(false)}
+                      />
+                    }
                   </div>
                 </div>)
               : null
