@@ -3,6 +3,15 @@ import React from 'react'
 import { Close } from 'icons'
 
 const styles = {
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    zIndex: 1
+  },
   modal: {
     zIndex: 1,
     top: '50%',
@@ -12,7 +21,8 @@ const styles = {
     backgroundColor: 'white',
     width: 511,
     height: 670,
-    boxShadow: '0 2px 16px 0 rgba(0, 0, 0, 0.16)'
+    boxShadow: '0 2px 16px 0 rgba(0, 0, 0, 0.16)',
+    opacity: 1
   },
   close: {
     float: 'right',
@@ -26,9 +36,12 @@ const styles = {
 
 export default function Modal (props) {
   return (
-    <div style={styles.modal}>
-      <Close style={styles.close} width={9} height={9} onClick={props.onClose} />
-      {props.children}
+    <div>
+      <div style={styles.overlay} />
+      <div style={styles.modal}>
+        <Close style={styles.close} width={9} height={9} onClick={props.onClose} />
+        {props.children}
+      </div>
     </div>
   )
 }
