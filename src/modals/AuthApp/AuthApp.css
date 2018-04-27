@@ -33,3 +33,7 @@
   text-align: center;
   color: var(--blue-500);
 }
+
+.AuthApp Button {
+  width: 185px;
+}
