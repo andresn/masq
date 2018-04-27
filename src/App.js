@@ -69,6 +69,7 @@ class App extends Component {
       const app = appsRequests[0]
       app.enabled = true
       const token = await store.addApp(app)
+      console.log(await store.getProfile())
       await server.finishRegistration(token)
       this.apps.push(app)
     }
@@ -153,6 +154,7 @@ class App extends Component {
 
   async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
+    console.log('updateApp')
     await store.updateApp(this.apps[index])
   }
 

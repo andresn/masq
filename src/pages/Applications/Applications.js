@@ -7,7 +7,7 @@ import AppCard from './AppCard/AppCard'
 import './Applications.css'
 
 export default function Applications (props) {
-  const { applications } = props
+  const { applications, onChecked } = props
 
   return (
     <div className='Applications'>
@@ -28,7 +28,7 @@ export default function Applications (props) {
         </div>
         <div className='cards-grid'>
           {applications.map((app, index) =>
-            <AppCard key={index} index={index} app={app} />
+            <AppCard key={index} index={index} app={app} onChecked={() => onChecked(index)} />
           )}
         </div>
       </div>
