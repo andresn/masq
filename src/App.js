@@ -21,8 +21,6 @@ const store = new MasqStore({ storage: localforage })
 const server = new Server(8080, store, localforage)
 
 async function testAddApp () {
-  server.init()
-
   // Client test
   try {
     const client = new Client({ socketUrl: 'ws://localhost:8080' })
@@ -71,8 +69,7 @@ class App extends Component {
       const app = appsRequests[0]
       app.enabled = true
       const token = await store.addApp(app)
-      console.log('app authorized', app, 'token', token)
-      server.finishRegistration(token)
+      await server.finishRegistration(token)
       this.apps.push(app)
     }
 
@@ -85,6 +82,7 @@ class App extends Component {
 
   async componentDidMount () {
     await store.init()
+    await server.init()
 
     server.onRegister(async (appMeta) => {
       const appsRequests = this.state.appsRequests.slice()
