@@ -3,10 +3,8 @@ node_js:
   - "node"
 install:
   - npm install
-  # TODO: Pull client and socket as npm packages
-  - cd src/masq/client
-  - npm install
-  - cd ../socket
+  # TODO: Pull socket as a npm package
+  - cd src/masq/socket
   - npm install
   - cd ../..
 script:
