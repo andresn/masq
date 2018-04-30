@@ -9,7 +9,6 @@ import { UserContext } from 'context/user'
 import { AuthApp } from 'modals'
 import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
 
-import { Client } from './masq/client'
 import { MasqStore } from './masq/store'
 import { Server } from './masq/socket/server'
 
@@ -17,25 +16,7 @@ import './App.css'
 
 const history = createHashHistory()
 const store = new MasqStore({ storage: localforage })
-
 const server = new Server(8080, store, localforage)
-
-async function testAddApp () {
-  // Client test
-  try {
-    const client = new Client({ socketUrl: 'ws://localhost:8080' })
-    await client.initWS()
-
-    const appInfo = {
-      url: 'https://masq.io/search',
-      name: 'Masq Search',
-      description: 'Masq Search'
-    }
-    client.addApp(appInfo)
-  } catch (err) {
-    console.error(err)
-  }
-}
 
 class App extends Component {
   constructor () {
@@ -93,8 +74,6 @@ class App extends Component {
         appsRequests: appsRequests
       })
     })
-
-    await testAddApp()
 
     this.fetchUsers()
   }
