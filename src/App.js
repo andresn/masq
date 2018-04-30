@@ -14,6 +14,7 @@ import { Server } from './masq/socket/server'
 
 import './App.css'
 
+const win = require('electron').remote.getCurrentWindow()
 const history = createHashHistory()
 const store = new MasqStore({ storage: localforage })
 const server = new Server(8080, store, localforage)
@@ -69,6 +70,7 @@ class App extends Component {
     server.onRegister(async (appMeta) => {
       const appsRequests = this.state.appsRequests.slice()
       console.log('onRegister', appMeta)
+      win.focus()
       appsRequests.push(appMeta)
       this.setState({
         appsRequests: appsRequests
