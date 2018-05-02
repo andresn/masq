@@ -32,7 +32,7 @@ export default class Devices extends React.Component {
           {this.state.isModalOpened &&
             <AddDevice onClose={() => this.toggleModal(false)} />
           }
-          <div className='title-container'>
+          {/* <div className='title-container'>
             <h1>Currently active</h1>
             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
           </div>
@@ -40,11 +40,11 @@ export default class Devices extends React.Component {
             {devices.map((device, index) =>
               <DeviceCard key={index} index={index} device={device} />
             )}
-          </div>
+          </div> */}
 
           <div className='title-container'>
             <h1>My devices</h1>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+            <h3>Find your devices connected to Masq</h3>
           </div>
           <div className='cards-grid'>
             {devices.map((device, index) =>

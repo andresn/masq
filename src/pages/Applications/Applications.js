@@ -24,7 +24,7 @@ export default function Applications (props) {
 
         <div className='title-container'>
           <h1>My applications</h1>
-          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+          <h3>Find your apps connected to Masq</h3>
         </div>
         <div className='cards-grid'>
           {applications.map((app, index) =>
@@ -32,9 +32,9 @@ export default function Applications (props) {
           )}
         </div>
       </div>
-      <div className='sidebar'>
+      {/* <div className='sidebar'>
         <Button secondary label='ADD A NEW APPLICATION' />
-      </div>
+      </div> */}
     </div>
   )
 }
