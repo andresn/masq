@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Button } from 'components'
 import AppCard from './AppCard/AppCard'
 
 import './Applications.css'

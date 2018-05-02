@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Avatar, Button, TextInput, SwitchButton, CircleIndicator } from 'components'
+import { Avatar, TextInput, Button } from 'components'
 
 import { UserContext } from 'context/user'
 
