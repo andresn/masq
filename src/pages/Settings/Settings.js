@@ -73,7 +73,7 @@ class Settings extends React.Component {
             </div>
           </div>
 
-          <div className='title-container'>
+          {/* <div className='title-container'>
             <h1>Qwant Masq settings</h1>
             <h3>Edit app's behavior</h3>
           </div>
@@ -84,23 +84,7 @@ class Settings extends React.Component {
             </div>
             <p style={{marginRight: 16}}>Accept new applications automatically</p>
             <SwitchButton checked secondary color='#458bf8' />
-          </div>
-
-          <div className='app-settings'>
-            <div style={{marginRight: 16}}>
-              <CircleIndicator color='#458bf8' />
-            </div>
-            <p style={{marginRight: 16}}>Accept new applications automatically</p>
-            <SwitchButton checked secondary color='#458bf8' />
-          </div>
-
-          <div className='app-settings'>
-            <div style={{marginRight: 16}}>
-              <CircleIndicator color='#458bf8' />
-            </div>
-            <p style={{marginRight: 16}}>Accept new applications automatically</p>
-            <SwitchButton checked secondary color='#458bf8' />
-          </div>
+          </div> */}
         </div>
 
         <div className='sidebar'>
