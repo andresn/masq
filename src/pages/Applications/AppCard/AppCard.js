@@ -28,7 +28,10 @@ export default class AppCard extends React.Component {
         image={app.image}
         onChecked={this.onChecked}
       >
-        <Qrcode style={{float: 'right'}} color={this.state.enabled ? app.color : 'var(--blue-100)'} />
+        <Qrcode
+          style={{float: 'right'}}
+          color={this.state.enabled ? app.color || 'var(--green-100)' : 'var(--blue-100)'}
+        />
       </Card>
     )
   }
