@@ -29,7 +29,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 75px;
 }
 
 .Devices .syncstatus p {
