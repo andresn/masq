@@ -41,7 +41,9 @@ class App extends Component {
     this.onUpdateUser = this.onUpdateUser.bind(this)
 
     this.apps = []
-    this.devices = []
+    this.devices = [
+      { name: 'This device', color: '#40ae6c', enabled: true }
+    ]
   }
 
   async authorizeApp (isAuthorized) {
@@ -115,7 +117,7 @@ class App extends Component {
       this.setState({ notif: true, isLogging: false })
     }, 2000)
 
-    await this.fetchDevices()
+    // await this.fetchDevices()
     await this.fetchApps()
   }
 

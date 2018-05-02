@@ -7,7 +7,7 @@ function SyncStatus (props) {
   return (
     <div className='syncstatus'>
       <CircleIndicator color={props.color} />
-      <p>10 days ago</p>
+      <p>now</p>
     </div>
   )
 }
