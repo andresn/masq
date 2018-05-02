@@ -188,7 +188,7 @@ class App extends Component {
                     <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
                     <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
                     <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
-                    {this.state.appsRequests.length &&
+                    {this.state.appsRequests.length > 0 &&
                       <AuthApp
                         app={this.state.appsRequests[0]}
                         onAccept={() => this.authorizeApp(true)}
