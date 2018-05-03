@@ -32,12 +32,17 @@ export default class Signup extends React.Component {
   onImageChange (event) {
     const reader = new window.FileReader()
     const file = event.target.files[0]
+
     reader.addEventListener('load', () => {
       this.setState({
         image: { value: reader.result, error: false }
       })
     })
     reader.readAsDataURL(file)
+
+    this.setState({
+      openDialog: false
+    })
   }
 
   openDialog () {
