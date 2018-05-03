@@ -73,7 +73,6 @@ class App extends Component {
 
     server.onRegister(async (appMeta) => {
       const appsRequests = this.state.appsRequests.slice()
-      console.log('onRegister', appMeta)
       win.focus()
       appsRequests.push(appMeta)
       this.setState({
@@ -92,7 +91,9 @@ class App extends Component {
     const users = Object.values(await store.listUsers())
     try {
       this.setState({ users: users })
-    } catch (e) { console.log(e) }
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   async fetchDevices () {
@@ -101,8 +102,6 @@ class App extends Component {
   }
 
   async fetchApps () {
-    console.log('fetchApps')
-    console.log(await store.listApps())
     this.apps = Object.values(await store.listApps())
   }
 
@@ -144,13 +143,11 @@ class App extends Component {
 
   async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
-    console.log('updateApp')
     await store.updateApp(this.apps[index])
   }
 
   async onAppTrash (index) {
     const url = this.apps[index].url
-    console.log('onAppTrash', index)
     await store.deleteApp(url)
     this.apps.splice(index, 1)
     this.forceUpdate()
