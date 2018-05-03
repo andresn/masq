@@ -56,7 +56,9 @@ class App extends Component {
       const token = await store.addApp(app)
       console.log(await store.getProfile())
       await server.finishRegistration(token)
-      this.apps.push(app)
+      if (!this.apps.find(a => app.url === a.url)) {
+        this.apps.push(app)
+      }
     }
 
     appsRequests.splice(0, 1)
