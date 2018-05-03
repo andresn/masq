@@ -9,8 +9,8 @@ import { UserContext } from 'context/user'
 import './Sidebar.css'
 
 const tabs = [
-  { label: 'Devices', link: '/devices', icon: <Smartphone /> },
   { label: 'Applications', link: '/applications', icon: <Apps /> },
+  { label: 'Devices', link: '/devices', icon: <Smartphone /> },
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
 

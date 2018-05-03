@@ -183,7 +183,7 @@ class App extends Component {
                 () => <Register onRegister={this.onRegister} />
               } />
               <Route path='/loading' component={
-                () => this.state.isLogging ? <Loading /> : <Redirect to='devices' />
+                () => this.state.isLogging ? <Loading /> : <Redirect to='applications' />
               } />
 
               <Redirect exact from='/' to='/login' />
