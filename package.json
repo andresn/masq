@@ -52,6 +52,9 @@
     "wait-on": "^2.1.0"
   },
   "build": {
-    "appId": "masq-app"
+    "appId": "masq-app",
+    "directories": {
+      "buildResources": "res"
+    }
   }
 }
