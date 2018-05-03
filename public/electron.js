@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 const isDev = process.env.ENV === 'development'
@@ -12,8 +12,6 @@ function createWindow () {
     height: 768
   })
 
-  console.log(path.join(__dirname, '../build/index.html'))
-
   // and load the index.html of the app.
   win.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`)
 
@@ -24,3 +22,7 @@ function createWindow () {
 }
 
 app.on('ready', createWindow)
+
+app.on('window-all-closed', () => {
+  app.quit()
+})
