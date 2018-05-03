@@ -124,7 +124,7 @@ class App extends Component {
 
   async signout () {
     try {
-      await store.signout()
+      await store.signOut()
       this.setState({
         currentUser: null,
         isAuthenticated: false,
