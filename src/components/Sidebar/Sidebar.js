@@ -83,13 +83,15 @@ class Sidebar extends React.Component {
   }
 
   render () {
+    const { user } = this.props
+
     return (
       <div className='Sidebar' style={styles.Sidebar}>
 
         <div id='header' style={styles.header}>
-          <Avatar image={this.props.user.image} />
-          <h2 style={styles.h2}>{this.props.user.username}</h2>
-          <p>Change user</p>
+          <Avatar image={user.image} />
+          <h2 style={styles.h2}>{user.username}</h2>
+          <p>{user.firstname} {user.lastname} </p>
         </div>
 
         <div style={styles.tabs}>
