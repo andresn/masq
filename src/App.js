@@ -33,6 +33,7 @@ class App extends Component {
 
     this.signout = this.signout.bind(this)
     this.onRegister = this.onRegister.bind(this)
+    this.onAppTrash = this.onAppTrash.bind(this)
     this.authenticate = this.authenticate.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
     this.onDevChecked = this.onDevChecked.bind(this)
@@ -141,6 +142,14 @@ class App extends Component {
     await store.updateApp(this.apps[index])
   }
 
+  async onAppTrash (index) {
+    const url = this.apps[index].url
+    console.log('onAppTrash', index)
+    await store.deleteApp(url)
+    this.apps.splice(index, 1)
+    this.forceUpdate()
+  }
+
   async onRegister (user) {
     await store.createUser(user)
     await this.fetchUsers()
@@ -188,7 +197,7 @@ class App extends Component {
                   <Sidebar onLogout={this.signout} />
                   <div style={{marginTop: 59, marginLeft: 40}} >
                     <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
-                    <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} />} />
+                    <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
                     <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
                     {this.state.appsRequests.length > 0 &&
                       <AuthApp

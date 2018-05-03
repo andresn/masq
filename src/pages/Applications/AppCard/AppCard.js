@@ -17,7 +17,7 @@ export default class AppCard extends React.Component {
   }
 
   render () {
-    const { app } = this.props
+    const { app, onTrash } = this.props
     return (
       <Card
         logo={app.logo}
@@ -27,6 +27,7 @@ export default class AppCard extends React.Component {
         enabled={this.state.enabled}
         image={app.image}
         onChecked={this.onChecked}
+        onTrash={onTrash}
       >
         <Qrcode
           style={{float: 'right'}}

@@ -6,7 +6,7 @@ import CardHeader from './CardHeader/CardHeader'
 import './Card.css'
 
 export default function Card (props) {
-  const { logo, image, title, description, color, enabled, children, onChecked } = props
+  const { logo, image, title, description, color, enabled, children, onChecked, onTrash } = props
   const styles = {
     title: {
       display: 'flex',
@@ -34,7 +34,7 @@ export default function Card (props) {
       {image && <div className='image' style={style} />}
       <div className='flex'>
         <div className='content'>
-          <CardHeader className='CardHeader' color={color} enabled={enabled} onChecked={onChecked} />
+          <CardHeader className='CardHeader' color={color} enabled={enabled} onChecked={onChecked} onTrash={onTrash} />
           {logo
             ? (
               <div style={styles.title}>

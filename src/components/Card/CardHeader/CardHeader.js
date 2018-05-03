@@ -2,17 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { SwitchButton } from 'components'
+import { Trash } from 'icons'
 
 import './CardHeader.css'
 
 export default function CardHeader (props) {
-  const { color, enabled, onChecked } = props
+  const { color, enabled, onChecked, onTrash } = props
   const style = { backgroundColor: enabled ? color : 'var(--blue-100)' }
 
   return (
     <div className='CardHeader'>
       <div className='line' style={style} />
-      <SwitchButton color={color} checked={enabled} onChecked={onChecked} />
+      {onTrash
+        ? (
+          <div className='right'>
+            <SwitchButton color={color} checked={enabled} onChecked={onChecked} />
+            <Trash color='#191919' style={{opacity: 0.5, cursor: 'pointer'}} onClick={onTrash} />
+          </div>
+        )
+        : <SwitchButton color={color} checked={enabled} onChecked={onChecked} />
+      }
     </div>
   )
 }

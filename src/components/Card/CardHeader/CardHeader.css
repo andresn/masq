@@ -9,3 +9,10 @@
   height: 4px;
   border-radius: 2px;
 }
+
+.CardHeader .right {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  grid-gap: 16px;
+}
