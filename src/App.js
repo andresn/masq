@@ -54,7 +54,6 @@ class App extends Component {
       const app = appsRequests[0]
       app.enabled = true
       const token = await store.addApp(app)
-      console.log(await store.getProfile())
       await server.finishRegistration(token)
       if (!this.apps.find(a => app.url === a.url)) {
         this.apps.push(app)
@@ -124,13 +123,18 @@ class App extends Component {
     await this.fetchApps()
   }
 
-  signout () {
-    this.setState({
-      currentUser: null,
-      isAuthenticated: false,
-      isLogging: false
-    })
-    history.push('/')
+  async signout () {
+    try {
+      await store.signout()
+      this.setState({
+        currentUser: null,
+        isAuthenticated: false,
+        isLogging: false
+      })
+      history.push('/')
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   async onDevChecked (index) {
