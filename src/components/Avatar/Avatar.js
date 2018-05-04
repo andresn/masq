@@ -56,7 +56,13 @@ export default class Avatar extends React.Component {
             : <NewUpload style={style} onClick={this.openDialog} />
           }
         </div>)
-      : <div className='Avatar' style={style} />
+      : image
+        ? <div className='Avatar' style={style} />
+        : (
+          <div className='Avatar initials' style={{backgroundColor: 'green', position: 'relative'}}>
+            <p>GB</p>
+          </div>
+        )
   }
 }
 

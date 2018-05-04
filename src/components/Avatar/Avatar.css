@@ -26,3 +26,14 @@
 .Avatar.upload:hover .camera {
   display: block;
 }
+
+.Avatar.initials p {
+  color: white;
+  font-size: 32px;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}

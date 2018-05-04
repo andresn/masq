@@ -7,6 +7,9 @@ storiesOf('Avatar', module)
   .add('without upload and with image', () => (
     <Avatar image='https://randomuser.me/api/portraits/women/79.jpg' />
   ))
+  .add('without upload without image', () => (
+    <Avatar />
+  ))
   .add('with upload and without image', () => (
     <Avatar upload />
   ))
