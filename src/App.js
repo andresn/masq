@@ -1,21 +1,30 @@
+import localforage from 'localforage'
 import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 
-import localforage from 'localforage'
-
+import { AuthApp } from 'modals'
 import { Sidebar } from 'components'
 import { UserContext } from 'context/user'
-import { AuthApp } from 'modals'
-import { Devices, Applications, Settings, Login, Register, Loading, NewDevice } from 'pages'
+import {
+  Login,
+  Loading,
+  Devices,
+  Settings,
+  Register,
+  NewDevice,
+  Applications
+} from 'pages'
 
 import { MasqStore } from './masq/store'
 import { Server } from './masq/socket/server'
 
 import './App.css'
 
-const win = require('electron').remote.getCurrentWindow()
 const history = createHashHistory()
+const win = require('electron').remote.getCurrentWindow()
+
+// Initialize masq store and server
 const store = new MasqStore({ storage: localforage })
 const server = new Server(8080, store, localforage)
 
@@ -42,6 +51,8 @@ class App extends Component {
     this.onUpdateUser = this.onUpdateUser.bind(this)
 
     this.apps = []
+
+    // FIXME
     this.devices = [
       { name: 'This device', color: '#40ae6c', enabled: true }
     ]
@@ -61,7 +72,6 @@ class App extends Component {
     }
 
     appsRequests.splice(0, 1)
-
     this.setState({
       appsRequests: appsRequests
     })
@@ -73,13 +83,13 @@ class App extends Component {
 
     server.onRegister(async (appMeta) => {
       const appsRequests = this.state.appsRequests.slice()
-      win.focus()
       appsRequests.push(appMeta)
+      // Focus on window to let user authorize the app
+      win.focus()
       this.setState({
         appsRequests: appsRequests
       })
     })
-
     this.fetchUsers()
   }
 
@@ -89,11 +99,7 @@ class App extends Component {
 
   async fetchUsers () {
     const users = Object.values(await store.listUsers())
-    try {
-      this.setState({ users: users })
-    } catch (err) {
-      console.error(err)
-    }
+    this.setState({ users: users })
   }
 
   async fetchDevices () {
@@ -106,14 +112,16 @@ class App extends Component {
   }
 
   async authenticate (indexUser) {
-    await store.signIn(this.state.users[indexUser].username)
+    const user = this.state.users[indexUser]
+    await store.signIn(user.username)
     this.setState({
       isAuthenticated: true,
       isLogging: true,
-      currentUser: this.state.users[indexUser]
+      currentUser: user
     })
 
-    // simulate auth
+    // simulate auth for 2 seconds
+    // FIXME
     setTimeout(() => {
       this.setState({ notif: true, isLogging: false })
     }, 2000)
@@ -161,17 +169,14 @@ class App extends Component {
 
   async onDeleteUser () {
     await store.deleteUser()
-    this.fetchUsers()
+    await this.fetchUsers()
+    history.push('login')
   }
 
   async onUpdateUser (user) {
-    try {
-      await store.updateUser(user)
-      await this.fetchUsers()
-      this.setState({ currentUser: user })
-    } catch (err) {
-      console.error(err)
-    }
+    await store.updateUser(user)
+    await this.fetchUsers()
+    this.setState({ currentUser: user })
   }
 
   render () {
