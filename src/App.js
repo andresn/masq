@@ -130,7 +130,7 @@ class App extends Component {
         isAuthenticated: false,
         isLogging: false
       })
-      history.push('/')
+      history.push('login')
     } catch (err) {
       console.error(err)
     }
@@ -187,13 +187,13 @@ class App extends Component {
                 () => this.state.isLogging ? <Loading /> : <Redirect to='applications' />
               } />
 
-              <Redirect exact from='/' to='/login' />
               <Route exact path='/login' component={() => (
                 <Login onAuth={this.authenticate} users={this.state.users} onSignup={this.onRegister} />
               )} />
               {this.state.isLogging && <Redirect to='loading' />}
             </Switch>
 
+            {!this.state.isAuthenticated && !this.state.isLogging && <Redirect to='login' />}
             {this.state.isAuthenticated && !this.state.isLogging
               ? (
                 <div style={{display: 'grid', gridTemplateColumns: '252px auto', height: '100%'}}>
