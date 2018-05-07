@@ -2,14 +2,14 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { Avatar } from 'components'
-import { Background, Smartphone, Apps, Settings as SettingsIcon, Logout } from 'icons'
+import { Background, Smartphone, Cards, Settings as SettingsIcon, Logout } from 'icons'
 
 import { UserContext } from 'context/user'
 
 import './Sidebar.css'
 
 const tabs = [
-  { label: 'Applications', link: '/applications', icon: <Apps /> },
+  { label: 'Applications', link: '/applications', icon: <Cards /> },
   { label: 'Devices', link: '/devices', icon: <Smartphone /> },
   { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
 ]
