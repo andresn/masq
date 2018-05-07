@@ -1,7 +1,7 @@
 import localforage from 'localforage'
 import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
-import { Router, Redirect, Route, Switch } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
 
 import { AuthApp } from 'modals'
 import { Sidebar } from 'components'
@@ -11,7 +11,6 @@ import {
   Loading,
   Devices,
   Settings,
-  Register,
   NewDevice,
   Applications
 } from 'pages'
@@ -80,6 +79,7 @@ class App extends Component {
   async componentDidMount () {
     await store.init()
     await server.init()
+    history.push('login')
 
     server.onRegister(async (appMeta) => {
       const appsRequests = this.state.appsRequests.slice()
@@ -122,8 +122,10 @@ class App extends Component {
 
     // simulate auth for 2 seconds
     // FIXME
+    history.push('loading')
     setTimeout(() => {
       this.setState({ notif: true, isLogging: false })
+      history.push('applications')
     }, 2000)
 
     // await this.fetchDevices()
@@ -131,17 +133,13 @@ class App extends Component {
   }
 
   async signout () {
-    try {
-      await store.signOut()
-      this.setState({
-        currentUser: null,
-        isAuthenticated: false,
-        isLogging: false
-      })
-      history.push('login')
-    } catch (err) {
-      console.error(err)
-    }
+    await store.signOut()
+    this.setState({
+      currentUser: null,
+      isAuthenticated: false,
+      isLogging: false
+    })
+    history.push('login')
   }
 
   async onDevChecked (index) {
@@ -184,29 +182,23 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div className='App'>
-            <Switch>
-              <Route path='/register' component={
-                () => <Register onRegister={this.onRegister} />
-              } />
-              <Route path='/loading' component={
-                () => this.state.isLogging ? <Loading /> : <Redirect to='applications' />
-              } />
 
-              <Route exact path='/login' component={() => (
+            <Route path='/loading' component={Loading} />
+            <Route
+              path='/login'
+              render={() =>
                 <Login onAuth={this.authenticate} users={this.state.users} onSignup={this.onRegister} />
-              )} />
-              {this.state.isLogging && <Redirect to='loading' />}
-            </Switch>
+              }
+            />
 
-            {!this.state.isAuthenticated && !this.state.isLogging && <Redirect to='login' />}
             {this.state.isAuthenticated && !this.state.isLogging
               ? (
                 <div style={{display: 'grid', gridTemplateColumns: '252px auto', height: '100%'}}>
                   <Sidebar onLogout={this.signout} />
                   <div style={{marginTop: 59, marginLeft: 40}} >
-                    <Route path='/devices' component={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
-                    <Route path='/applications' component={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
-                    <Route path='/settings' component={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+                    <Route path='/devices' render={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
+                    <Route path='/applications' render={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
+                    <Route path='/settings' render={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
                     {this.state.appsRequests.length > 0 &&
                       <AuthApp
                         app={this.state.appsRequests[0]}
@@ -218,7 +210,8 @@ class App extends Component {
                 </div>)
               : null
             }
-            {this.state.isAuthenticated && <Route path='/newdevice' component={() =>
+
+            {this.state.isAuthenticated && <Route path='/newdevice' render={() =>
               <NewDevice image='http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png' link='QWA.NT/0BJ8ZX' />}
             /> }
           </div>
