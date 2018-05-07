@@ -25,19 +25,25 @@ export default class Login extends React.Component {
       isModalOpened: false
     }
     this.toggleModal = this.toggleModal.bind(this)
+    this.onSignup = this.onSignup.bind(this)
   }
 
   toggleModal (state) {
     this.setState({ isModalOpened: state })
   }
 
+  onSignup (user) {
+    this.toggleModal(false)
+    this.props.onSignup(user)
+  }
+
   render () {
-    const { users, onAuth, onSignup } = this.props
+    const { users, onAuth } = this.props
     // const style = !users.length ? { display: 'flex' } : {}
     return (
       <div className='Login'>
         {this.state.isModalOpened &&
-          <Signup onClose={() => this.toggleModal(false)} onSignup={onSignup} />
+          <Signup onClose={() => this.toggleModal(false)} onSignup={this.onSignup} />
         }
         <div className='header'>
           <Logo style={styles.logo} />
