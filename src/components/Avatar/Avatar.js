@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Camera, AddPictures } from 'icons'
+import { Camera, CameraSquare } from 'icons'
 
 import './Avatar.css'
 
@@ -17,7 +17,7 @@ function Replace (props) {
 function NewUpload (props) {
   const { style, onClick } = props
   return (
-    <AddPictures
+    <CameraSquare
       color='var(--grey-200)'
       className='Avatar upload'
       style={style} onClick={onClick}
