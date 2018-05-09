@@ -11,7 +11,6 @@ import {
   Loading,
   Devices,
   Settings,
-  NewDevice,
   Applications
 } from 'pages'
 
@@ -210,10 +209,6 @@ class App extends Component {
                 </div>)
               : null
             }
-
-            {this.state.isAuthenticated && <Route path='/newdevice' render={() =>
-              <NewDevice image='http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png' link='QWA.NT/0BJ8ZX' />}
-            /> }
           </div>
         </Router>
       </UserContext.Provider>
