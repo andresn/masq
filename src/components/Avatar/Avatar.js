@@ -36,11 +36,11 @@ export default class Avatar extends React.Component {
   }
 
   render () {
-    const { image, upload, onChange } = this.props
+    const { image, user, upload, onChange } = this.props
     const style = { backgroundImage: 'url(' + image + ')' }
 
-    return upload
-      ? (
+    if (upload) {
+      return (
         <div>
           <input name='avatar' type='file' ref='fileDialog'
             style={{ display: 'none' }} onChange={onChange}
@@ -52,13 +52,15 @@ export default class Avatar extends React.Component {
             : <NewUpload style={style} onClick={this.openDialog} />
           }
         </div>)
-      : image
-        ? <div className='Avatar' style={style} />
-        : (
-          <div className='Avatar initials' style={{backgroundColor: 'green', position: 'relative'}}>
-            <p>GB</p>
-          </div>
-        )
+    }
+
+    return image
+      ? <div className='Avatar' style={style} />
+      : (
+        <div className='Avatar initials' style={{backgroundColor: 'var(--blue-300)', position: 'relative'}}>
+          <p>{user.firstname[0].toUpperCase() + user.lastname[0].toUpperCase()}</p>
+        </div>
+      )
   }
 }
 

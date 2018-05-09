@@ -23,7 +23,7 @@ export default function Loading (props) {
       <Logo style={styles.logo} />
       {user &&
         <div className='user'>
-          <Avatar image={user.image} />
+          <Avatar user={user} image={user.image} />
           <p className='username'>{user.username}</p>
         </div>
       }

@@ -53,7 +53,7 @@ export default class Login extends React.Component {
         <div className='users'>
           {users.map((user, index) =>
             <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => onAuth(index)}>
-              <Avatar image={user.image} />
+              <Avatar image={user.image} user={user} />
               <p>{user.username}</p>
             </Link>
           )}

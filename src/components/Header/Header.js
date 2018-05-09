@@ -19,11 +19,11 @@ function TitleSection (props) {
 }
 
 function AvatarSection (props) {
-  const { image, username } = props
+  const { image, user } = props
   return (
     <div id='avatar-section'>
-      <Avatar image={image} />
-      <span id='avatar-text' style={{fontSize: '14px'}}>{username}</span>
+      <Avatar image={image} user={user} />
+      <span id='avatar-text' style={{fontSize: '14px'}}>{user.username}</span>
       <Chevron className='caret' />
     </div>
   )
@@ -40,7 +40,7 @@ export default function Header (props) {
           <div id='invisible' style={{height: height}} />
           <div className={'Header' + (shadow ? ' shadow' : '')}>
             <div id='top-section'>
-              {user ? <AvatarSection username={user.username} image={user.image} /> : <TitleSection /> }
+              {user ? <AvatarSection user={user} image={user.image} /> : <TitleSection /> }
               <Link to='login'>
                 <Home className='home' onClick={onLogout} />
               </Link>

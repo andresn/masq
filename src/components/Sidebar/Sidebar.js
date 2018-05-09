@@ -89,7 +89,7 @@ class Sidebar extends React.Component {
       <div className='Sidebar' style={styles.Sidebar}>
 
         <div id='header' style={styles.header}>
-          <Avatar image={user.image} />
+          <Avatar image={user.image} user={user} />
           <h2 style={styles.h2}>{user.username}</h2>
           <p>{user.firstname} {user.lastname} </p>
         </div>
