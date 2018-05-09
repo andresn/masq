@@ -82,3 +82,20 @@ p {
   display: grid;
   height: 100%;
 }
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--blue-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 2px;
+  background-color: var(--blue-500);
+}
