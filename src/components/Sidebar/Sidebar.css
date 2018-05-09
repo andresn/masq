@@ -14,16 +14,11 @@
 }
 
 .Sidebar .tab {
-  margin-top: 32px;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 40% 60%;
-  color: white;
   opacity: 0.8;
-  cursor: pointer;
+  color: white;
 }
 
-.Sidebar .tab:hover{
+.Sidebar .tab:hover {
   opacity: 1;
 }
 

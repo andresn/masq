@@ -6,7 +6,7 @@ const isDev = process.env.ENV === 'development'
 function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
-    minWidth: 1024,
+    minWidth: 600,
     minHeight: 768,
     width: 1024,
     height: 768
