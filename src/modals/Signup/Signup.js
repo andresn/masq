@@ -12,11 +12,12 @@ export default class Signup extends React.Component {
       image: { value: '', error: false },
       lastname: { value: '', error: false },
       firstname: { value: '', error: false },
-      username: { value: '', error: false },
-      openDialog: false
+      username: { value: '', error: false }
     }
     this.validate = this.validate.bind(this)
     this.openDialog = this.openDialog.bind(this)
+
+    this.refAvatar = React.createRef()
   }
 
   onChange (field, event) {
@@ -30,8 +31,12 @@ export default class Signup extends React.Component {
   }
 
   onImageChange (event) {
-    const reader = new window.FileReader()
     const file = event.target.files[0]
+    if (!file) {
+      return
+    }
+
+    const reader = new window.FileReader()
 
     reader.addEventListener('load', () => {
       this.setState({
@@ -39,16 +44,10 @@ export default class Signup extends React.Component {
       })
     })
     reader.readAsDataURL(file)
-
-    this.setState({
-      openDialog: false
-    })
   }
 
   openDialog () {
-    this.setState({
-      openDialog: true
-    })
+    this.refAvatar.current.openDialog()
   }
 
   validate () {
@@ -70,7 +69,7 @@ export default class Signup extends React.Component {
       <Modal onClose={this.props.onClose}>
         <div className='Signup'>
           <h1>Add a new user</h1>
-          <Avatar upload openDialog={this.state.openDialog} onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />
+          <Avatar upload ref={this.refAvatar} onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />
           <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
 
           <TextInput label='Last Name' error={this.state.lastname.error} onChange={(e) => this.onChange('lastname', e)} />

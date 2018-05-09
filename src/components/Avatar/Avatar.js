@@ -36,12 +36,8 @@ export default class Avatar extends React.Component {
   }
 
   render () {
-    const { image, upload, onChange, openDialog } = this.props
+    const { image, upload, onChange } = this.props
     const style = { backgroundImage: 'url(' + image + ')' }
-
-    if (openDialog) {
-      this.openDialog()
-    }
 
     return upload
       ? (
