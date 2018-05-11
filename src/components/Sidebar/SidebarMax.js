@@ -12,6 +12,9 @@ const styles = {
     height: '100%',
     backgroundColor: '#252a39'
   },
+  user: {
+    fontSize: 14
+  },
   flex: {
     paddingTop: 64,
     display: 'flex',
@@ -74,7 +77,7 @@ export default function SidebarMin (props) {
       <div id='header' style={styles.header}>
         <Avatar image={user.image} user={user} />
         <h2 style={styles.h2}>{user.username}</h2>
-        <p>{user.firstname} {user.lastname} </p>
+        <p style={styles.user}>{user.firstname} {user.lastname} </p>
       </div>
 
       <div style={styles.tabs}>

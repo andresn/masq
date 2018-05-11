@@ -33,7 +33,6 @@ class Sidebar extends React.Component {
   }
 
   render () {
-    console.log('Sidebar render()')
     const { user, onLogout } = this.props
 
     return (
