@@ -16,11 +16,13 @@ class Settings extends React.Component {
       firstname: { value: props.user.firstname, error: false },
       username: { value: props.user.username, error: false }
     }
+    this.hasChanged = false
     this.validate = this.validate.bind(this)
   }
 
   onChange (field, event) {
     const value = event.target.value.trim()
+    this.hasChanged = true
     this.setState({
       [field]: {
         value: value,
@@ -39,6 +41,10 @@ class Settings extends React.Component {
   }
 
   validate () {
+    if (!this.hasChanged) {
+      return
+    }
+
     const { onUpdateUser } = this.props
     const isValid = !Object.values(this.state).some(field => field.error)
     if (!isValid) return window.alert('Invalid form')
@@ -88,7 +94,7 @@ class Settings extends React.Component {
         </div>
 
         <div className='sidebar'>
-          <Button label='SAVE' onClick={this.validate} />
+          <Button secondary={!this.hasChanged} label='SAVE' onClick={this.validate} />
         </div>
       </div>
     )
