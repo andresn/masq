@@ -83,8 +83,10 @@ class App extends Component {
     server.onRegister(async (appMeta) => {
       const appsRequests = this.state.appsRequests.slice()
       appsRequests.push(appMeta)
-      // Focus on window to let user authorize the app
-      win.focus()
+      const notif = new window.Notification('Masq App', {
+        body: appMeta.url + ' is requesting access to Masq'
+      })
+      notif.onclick = () => win.focus()
       this.setState({
         appsRequests: appsRequests
       })
