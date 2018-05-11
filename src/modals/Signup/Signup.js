@@ -76,7 +76,7 @@ export default class Signup extends React.Component {
           <TextInput label='First Name' error={this.state.firstname.error} onChange={(e) => this.onChange('firstname', e)} />
           <TextInput label='Username (displayed)' error={this.state.username.error} onChange={(e) => this.onChange('username', e)} />
 
-          <Button label='Next' onClick={this.validate} />
+          <Button label='Finish' onClick={this.validate} />
         </div>
       </Modal>
     )
