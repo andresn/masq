@@ -86,16 +86,15 @@ p {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 2px;
+  border-radius: 100px;
   background-color: var(--blue-100);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  border-radius: 2px;
-  background-color: var(--blue-500);
+  background-color: var(--blue-200);
 }
