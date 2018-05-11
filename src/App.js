@@ -192,7 +192,7 @@ class App extends Component {
 
             {this.state.isAuthenticated && !this.state.isLogging
               ? (
-                <div style={{display: 'grid', gridTemplateColumns: '252px auto', height: '100%'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'auto 1fr', height: '100%'}}>
                   <Sidebar onLogout={this.signout} />
                   <div style={{marginTop: 59, marginLeft: 40}} >
                     <Route path='/devices' render={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
