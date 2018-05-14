@@ -35,40 +35,9 @@
 }
 
 .Login .users {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
-  transform: translate(-50%, -50%);
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 120px);
   grid-gap: 64px;
 }
-
-/* .Login h1 {
-  font-size: 30px;
-  line-height: 0.83;
-  text-align: center;
-  color: var(--grey5-color);
-}
-
-.Login .avatars-grid p {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.11;
-  color: var(--grey4-color);
-}
-
-.Login #add-user {
-  color: var(--grey2-color);
-}
-
-.Login .avatars-grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-column-gap: 40px;
-  grid-row-gap: 15px;
-  justify-content: center;
-} */
