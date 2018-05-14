@@ -3,10 +3,6 @@ node_js:
   - "node"
 install:
   - npm install
-  # TODO: Pull socket as a npm package
-  - cd src/masq/socket
-  - npm install
-  - cd ../..
 script:
   - npm run standard
   - npm test -- --coverage
