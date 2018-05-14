@@ -70,11 +70,9 @@ class Settings extends React.Component {
 
           <div className='profile'>
             <Avatar upload image={this.state.image.value} onChange={(e) => this.onImageChange(e)} />
-            <div style={{marginTop: 32}}>
+            <div className='inputs'>
               <TextInput label='Last Name' error={this.state.lastname.error} defaultValue={this.state.lastname.value} onChange={(e) => this.onChange('lastname', e)} />
               <TextInput label='First Name' error={this.state.firstname.error} defaultValue={this.state.firstname.value} onChange={(e) => this.onChange('firstname', e)} />
-            </div>
-            <div style={{marginTop: 32}}>
               <TextInput label='Username (Displayed)' error={this.state.username.error} defaultValue={this.state.username.value} onChange={(e) => this.onChange('username', e)} />
             </div>
           </div>
