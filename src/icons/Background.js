@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Background = props => (
-  <svg id='Calque_1' viewBox='0 0 252 52' {...props}>
+  <svg id='Calque_1' preserveAspectRatio='none' viewBox='0 0 252 52' {...props}>
     <path
       className='st0'
       d='M10.2 41.8c2 3.5 4.2 6.9 6.6 10.1H0v-3.5c3.3-2.3 6.7-4.5 10.2-6.6zM206.1 40.5c-4.6 3.4-8.8 7.2-12.6 11.4h-22.3c5.1-6.9 9.3-14.5 12.5-22.6 7.7 3.3 15.2 7 22.4 11.2z'

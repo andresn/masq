@@ -11,6 +11,7 @@ import './Login.css'
 const styles = {
   background: {
     bottom: 0,
+    maxHeight: 252,
     position: 'absolute'
   },
   logo: {
