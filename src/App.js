@@ -23,8 +23,8 @@ const history = createHashHistory()
 const win = require('electron').remote.getCurrentWindow()
 
 // Initialize masq store and server
-const store = new Masq({ storage: localforage })
-const server = new Server(8080, store, localforage)
+const masq = new Masq({ storage: localforage })
+const server = new Server(8080, masq, localforage)
 
 class App extends Component {
   constructor () {
@@ -62,7 +62,7 @@ class App extends Component {
     if (isAuthorized) {
       const app = appsRequests[0]
       app.enabled = true
-      const token = await store.addApp(app)
+      const token = await masq.addApp(app)
       await server.finishRegistration(token)
       if (!this.apps.find(a => app.url === a.url)) {
         this.apps.push(app)
@@ -76,7 +76,7 @@ class App extends Component {
   }
 
   async componentDidMount () {
-    await store.init()
+    await masq.init()
     await server.init()
     history.push('login')
 
@@ -99,7 +99,7 @@ class App extends Component {
   }
 
   async fetchUsers () {
-    const users = Object.values(await store.listUsers())
+    const users = Object.values(await masq.listUsers())
     this.setState({ users: users })
   }
 
@@ -109,12 +109,12 @@ class App extends Component {
   }
 
   async fetchApps () {
-    this.apps = Object.values(await store.listApps())
+    this.apps = Object.values(await masq.listApps())
   }
 
   async authenticate (indexUser) {
     const user = this.state.users[indexUser]
-    await store.signIn(user.username)
+    await masq.signIn(user.username)
     this.setState({
       isAuthenticated: true,
       isLogging: true,
@@ -134,7 +134,7 @@ class App extends Component {
   }
 
   async signout () {
-    await store.signOut()
+    await masq.signOut()
     this.setState({
       currentUser: null,
       isAuthenticated: false,
@@ -145,35 +145,35 @@ class App extends Component {
 
   async onDevChecked (index) {
     this.devices[index].enabled = !this.devices[index].enabled
-    await store.updateDevice(this.devices[index])
+    await masq.updateDevice(this.devices[index])
   }
 
   async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
-    await store.updateApp(this.apps[index])
+    await masq.updateApp(this.apps[index])
   }
 
   async onAppTrash (index) {
     const url = this.apps[index].url
-    await store.deleteApp(url)
+    await masq.deleteApp(url)
     this.apps.splice(index, 1)
     this.forceUpdate()
   }
 
   async onRegister (user) {
-    await store.createUser(user)
+    await masq.createUser(user)
     await this.fetchUsers()
     history.push('login')
   }
 
   async onDeleteUser () {
-    await store.deleteUser()
+    await masq.deleteUser()
     await this.fetchUsers()
     history.push('login')
   }
 
   async onUpdateUser (user) {
-    await store.updateUser(user)
+    await masq.updateUser(user)
     await this.fetchUsers()
     this.setState({ currentUser: user })
   }
