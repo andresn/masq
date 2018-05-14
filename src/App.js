@@ -14,8 +14,8 @@ import {
   Applications
 } from 'pages'
 
-import { MasqStore } from './masq/store'
-import { Server } from './masq/socket/server'
+import { Masq } from 'masq-store'
+import { Server } from 'masq-socket'
 
 import './App.css'
 
@@ -23,7 +23,7 @@ const history = createHashHistory()
 const win = require('electron').remote.getCurrentWindow()
 
 // Initialize masq store and server
-const store = new MasqStore({ storage: localforage })
+const store = new Masq({ storage: localforage })
 const server = new Server(8080, store, localforage)
 
 class App extends Component {

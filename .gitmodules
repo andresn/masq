@@ -1,3 +1,0 @@
-[submodule "src/masq"]
-	path = src/masq
-	url = https://github.com/QwantResearch/masq.git
