@@ -50,7 +50,7 @@ const styles = {
 export default class AuthApp extends React.Component {
   render () {
     return (
-      <Modal onClose={this.props.onClose}>
+      <Modal onClose={this.props.onClose} height={670} width={511}>
         <div style={styles.header} />
         <div className='AuthApp'>
           <p style={styles.title}>New connection request from:</p>

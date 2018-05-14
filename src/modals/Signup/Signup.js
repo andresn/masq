@@ -66,7 +66,7 @@ export default class Signup extends React.Component {
 
   render () {
     return (
-      <Modal onClose={this.props.onClose}>
+      <Modal onClose={this.props.onClose} height={670} width={511}>
         <div className='Signup'>
           <h1>Add a new user</h1>
           <Avatar upload ref={this.refAvatar} onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />

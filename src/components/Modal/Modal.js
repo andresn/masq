@@ -19,8 +19,6 @@ const styles = {
     transform: 'translate(-50%, -50%)',
     position: 'absolute',
     backgroundColor: 'white',
-    width: 511,
-    height: 670,
     boxShadow: '0 2px 16px 0 rgba(0, 0, 0, 0.16)',
     opacity: 1
   },
@@ -35,10 +33,14 @@ const styles = {
 }
 
 export default function Modal (props) {
+  const modalStyle = Object.assign({}, styles.modal)
+  modalStyle['height'] = props.height
+  modalStyle['width'] = props.width
+
   return (
     <div>
       <div style={styles.overlay} />
-      <div style={styles.modal}>
+      <div style={modalStyle}>
         <Close style={styles.close} width={9} height={9} onClick={props.onClose} />
         {props.children}
       </div>

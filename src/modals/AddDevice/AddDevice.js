@@ -7,7 +7,7 @@ import './AddDevice.css'
 export default class Signup extends React.Component {
   render () {
     return (
-      <Modal onClose={this.props.onClose}>
+      <Modal height={547} width={417} onClose={this.props.onClose}>
         <div className='AddDevice'>
           <h1>Add a new device</h1>
           <QRCode image='http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png' />
