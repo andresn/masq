@@ -1,4 +1,5 @@
 * {
+  user-select: none;
   font-family: Asap;
   --main-bg-color: #f5f7fa;
   --main-highlight-color: #458bf8;
@@ -25,12 +26,11 @@
 }
 
 body {
-  /* width: 410px;
-  height: 600px; */
   height: 100%;
 }
 
 h1 {
+  cursor: default;
   margin-top: 6px;
   margin-bottom: 6px;
   font-size: 20px;
@@ -45,6 +45,7 @@ h1 {
 }
 
 h2 {
+  cursor: default;
   font-size: 20px;
   font-weight: 600;
   font-style: normal;
@@ -56,6 +57,7 @@ h2 {
 }
 
 h3 {
+  cursor: default;
   margin-top: 6px;
   margin-bottom: 6px;
   font-size: 16px;
@@ -68,6 +70,7 @@ h3 {
 }
 
 p {
+  cursor: default;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: 0.7px;
