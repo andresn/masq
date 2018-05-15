@@ -9,7 +9,7 @@ import { UserContext } from 'context/user'
 
 import './Header.css'
 
-function TitleSection (props) {
+function TitleSection () {
   return (
     <div id='title-section'>
       <p id='title'>Masq</p>

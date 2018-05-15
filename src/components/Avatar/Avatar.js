@@ -31,7 +31,7 @@ export default class Avatar extends React.Component {
     this.openDialog = this.openDialog.bind(this)
   }
 
-  openDialog (e) {
+  openDialog () {
     this.refs.fileDialog.click()
   }
 
