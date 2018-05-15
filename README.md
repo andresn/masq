@@ -10,19 +10,6 @@ The Masq App based on electron.
 This project is based on [create-react-app](https://github.com/facebook/create-react-app).
 
 ## Quick start
-Initialize submodule in `src/masq`
-```
-git submodule init && git submodule update
-```
-
-install libs dependencies
-```
-cd src/masq/store && npm i
-cd ../socket && npm i
-cd ../../.. # go back to the root
-```
-
-Start the app
 ```
 npm install
 npm start
