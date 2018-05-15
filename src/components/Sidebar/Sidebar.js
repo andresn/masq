@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
         <MediaQuery maxWidth={800}>
           <SidebarMin user={user} currentTab={this.state.currentTab} onLogout={onLogout} onSelectTab={this.onSelectTab} tabs={tabs} />
         </MediaQuery>
-        <MediaQuery minWidth={800}>
+        <MediaQuery minWidth={801}>
           <SidebarMax user={user} currentTab={this.state.currentTab} onLogout={onLogout} onSelectTab={this.onSelectTab} tabs={tabs} />
         </MediaQuery>
       </div>
