@@ -25,7 +25,7 @@ cd ../../.. # go back to the root
 Start the app
 ```
 npm install
-npm run electron-dev
+npm start
 ```
 
 # Storybook
