@@ -43,6 +43,7 @@
     "@storybook/addon-storyshots": "^3.4.3",
     "@storybook/addons": "^3.4.3",
     "@storybook/react": "^3.4.3",
+    "babel-core": "^6.26.3",
     "concurrently": "^3.5.1",
     "electron": "^2.0.0",
     "electron-builder": "^20.11.1",
