@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
     const { user, onLogout } = this.props
 
     return (
-      <div>
+      <div style={{height: '100%'}}>
         <MediaQuery maxWidth={800}>
           <SidebarMin user={user} currentTab={this.state.currentTab} onLogout={onLogout} onSelectTab={this.onSelectTab} tabs={tabs} />
         </MediaQuery>

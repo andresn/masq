@@ -16,10 +16,10 @@ const user = {
 storiesOf('Sidebar', module)
   .add('with a user', () => (
     <MemoryRouter>
-      <div style={{height: 800}}>
-        <UserContext.Provider value={user}>
+      <UserContext.Provider value={user}>
+        <div style={{height: 800}}>
           <Sidebar user={user} />
-        </UserContext.Provider>
-      </div>
+        </div>
+      </UserContext.Provider>
     </MemoryRouter>
   ))
