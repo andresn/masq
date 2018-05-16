@@ -55,6 +55,7 @@ class Settings extends React.Component {
       fields[key] = this.state[key].value
     })
     onUpdateUser(fields)
+    this.hasChanged = false
   }
 
   render () {
