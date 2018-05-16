@@ -8,7 +8,7 @@ export default function Button (props) {
   const classes = 'Button ' + (secondary ? 'secondary' : 'primary')
 
   return (
-    <button className={classes} onClick={onClick}>{label}</button>
+    <button style={{width: props.width}} className={classes} onClick={onClick}>{label}</button>
   )
 }
 

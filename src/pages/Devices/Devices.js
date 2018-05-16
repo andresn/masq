@@ -53,7 +53,7 @@ export default class Devices extends React.Component {
           </div>
         </div>
         <div className='sidebar'>
-          <Button secondary label='ADD A NEW DEVICE' onClick={() => this.toggleModal(true)} />
+          <Button secondary width={200} label='ADD A NEW DEVICE' onClick={() => this.toggleModal(true)} />
         </div>
       </div>
     )

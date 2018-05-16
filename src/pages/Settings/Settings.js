@@ -92,7 +92,7 @@ class Settings extends React.Component {
         </div>
 
         <div className='sidebar'>
-          <Button secondary={!this.hasChanged} label='SAVE' onClick={this.validate} />
+          <Button width={200} secondary={!this.hasChanged} label='SAVE' onClick={this.validate} />
         </div>
       </div>
     )
