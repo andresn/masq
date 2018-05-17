@@ -16,6 +16,10 @@
   margin-bottom: 48px;
 }
 
+.Applications .Card {
+  max-width: 600px;
+}
+
 .Applications .sidebar {
   text-align: center;
 }

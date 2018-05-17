@@ -16,6 +16,10 @@
   margin-bottom: 48px;
 }
 
+.Devices .Card {
+  max-width: 600px;
+}
+
 .Devices .sidebar {
   text-align: center;
 }
