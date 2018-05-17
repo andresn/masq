@@ -23,7 +23,7 @@ storiesOf('Login Page', module)
   .add('login', () => (
     <div style={{ height: 800 }}>
       <MemoryRouter>
-        <Login users={users} auth={() => true} />
+        <Login users={users} onAuth={() => true} />
       </MemoryRouter>
     </div>
   ))
