@@ -5,8 +5,8 @@ install:
   - npm install
 script:
   - npm run standard
-  # - npm test -- --coverage
-  # - npm run build
+  - npm test -- --coverage
+  - npm run build
 cache:
   directories:
     - "node_modules"
