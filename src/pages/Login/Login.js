@@ -48,7 +48,7 @@ export default class Login extends React.Component {
         }
         <div className='header'>
           <Logo style={styles.logo} />
-          <h1>Who is it ?</h1>
+          <h1 className='title'>Who is it ?</h1>
         </div>
 
         <div className='users'>

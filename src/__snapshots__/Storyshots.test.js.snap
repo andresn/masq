@@ -2306,7 +2306,9 @@ exports[`Storyshots Login Page login 1`] = `
           />
         </g>
       </svg>
-      <h1>
+      <h1
+        className="title"
+      >
         Who is it ?
       </h1>
     </div>

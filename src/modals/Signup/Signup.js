@@ -9,24 +9,34 @@ export default class Signup extends React.Component {
     super(props)
 
     this.state = {
-      image: { value: '', error: false },
-      lastname: { value: '', error: false },
-      firstname: { value: '', error: false },
-      username: { value: '', error: false }
+      image: '',
+      lastname: '',
+      firstname: '',
+      username: ''
     }
+
+    this.validationEnabled = false
+    this.refAvatar = React.createRef()
+
+    this.isValid = this.isValid.bind(this)
     this.validate = this.validate.bind(this)
     this.openDialog = this.openDialog.bind(this)
+  }
 
-    this.refAvatar = React.createRef()
+  isValid (fieldName) {
+    if (!this.validationEnabled) {
+      // Don't show error as long as the user do not click Finish btn
+      return true
+    }
+
+    if (fieldName === 'image') return true
+    return this.state[fieldName].length > 0
   }
 
   onChange (field, event) {
     const value = event.target.value.trim()
     this.setState({
-      [field]: {
-        value: value,
-        error: !value.length
-      }
+      [field]: value
     })
   }
 
@@ -40,7 +50,7 @@ export default class Signup extends React.Component {
 
     reader.addEventListener('load', () => {
       this.setState({
-        image: { value: reader.result, error: false }
+        image: reader.result
       })
     })
     reader.readAsDataURL(file)
@@ -52,16 +62,18 @@ export default class Signup extends React.Component {
 
   validate () {
     const { onSignup } = this.props
-    const isValid = !Object.values(this.state).some(field => field.error)
-    if (!isValid) return window.alert('Invalid form')
+    this.validationEnabled = true
 
-    // Re-create a simple object like { field: value }
-    let fields = {}
-    Object.keys(this.state).forEach((key, index) => {
-      if (index > 3) return // ignore openDialog and others if any
-      fields[key] = this.state[key].value
-    })
-    onSignup(fields)
+    // Every fields should be valid
+    const isValid = Object.keys(this.state).every(key => this.isValid(key))
+
+    // If invalid, return
+    if (!isValid) {
+      // forceUpdate to revalidate the fields
+      return this.forceUpdate()
+    }
+
+    onSignup(this.state)
   }
 
   render () {
@@ -69,12 +81,31 @@ export default class Signup extends React.Component {
       <Modal onClose={this.props.onClose} height={670} width={511}>
         <div className='Signup'>
           <h1>Add a new user</h1>
-          <Avatar upload ref={this.refAvatar} onChange={(e) => this.onImageChange(e)} image={this.state.image.value || null} />
+          <Avatar
+            upload
+            ref={this.refAvatar}
+            onChange={(e) => this.onImageChange(e)}
+            image={this.state.image.value || null}
+          />
           <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
 
-          <TextInput label='Last Name' error={this.state.lastname.error} onChange={(e) => this.onChange('lastname', e)} />
-          <TextInput label='First Name' error={this.state.firstname.error} onChange={(e) => this.onChange('firstname', e)} />
-          <TextInput label='Username (displayed)' error={this.state.username.error} onChange={(e) => this.onChange('username', e)} />
+          <TextInput
+            label='Last Name'
+            error={!this.isValid('lastname')}
+            onChange={(e) => this.onChange('lastname', e)}
+          />
+
+          <TextInput
+            label='First Name'
+            error={!this.isValid('firstname')}
+            onChange={(e) => this.onChange('firstname', e)}
+          />
+
+          <TextInput
+            label='Username (displayed)'
+            error={!this.isValid('username')}
+            onChange={(e) => this.onChange('username', e)}
+          />
 
           <Button label='Finish' onClick={this.validate} />
         </div>
