@@ -41,17 +41,14 @@ export default class Signup extends React.Component {
   }
 
   onImageChange (event) {
+    const reader = new window.FileReader()
     const file = event.target.files[0]
     if (!file) {
       return
     }
 
-    const reader = new window.FileReader()
-
     reader.addEventListener('load', () => {
-      this.setState({
-        image: reader.result
-      })
+      this.setState({ image: reader.result })
     })
     reader.readAsDataURL(file)
   }
@@ -69,7 +66,7 @@ export default class Signup extends React.Component {
 
     // If invalid, return
     if (!isValid) {
-      // forceUpdate to revalidate the fields
+      // forceUpdate to show errors
       return this.forceUpdate()
     }
 
@@ -94,13 +91,11 @@ export default class Signup extends React.Component {
             error={!this.isValid('lastname')}
             onChange={(e) => this.onChange('lastname', e)}
           />
-
           <TextInput
             label='First Name'
             error={!this.isValid('firstname')}
             onChange={(e) => this.onChange('firstname', e)}
           />
-
           <TextInput
             label='Username (displayed)'
             error={!this.isValid('username')}
