@@ -120,7 +120,7 @@ export default class Login extends React.Component {
       ? (
         <UsersSelection
           {...this.props}
-          onSignup={this.toggleModal}
+          onSignup={this.onSignup}
           selectUser={this.selectUser}
           toggleModal={this.toggleModal}
           isModalOpened={this.state.isModalOpened}
