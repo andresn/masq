@@ -39,9 +39,9 @@ class App extends Component {
     }
 
     this.signout = this.signout.bind(this)
-    this.onRegister = this.onRegister.bind(this)
+    this.onSignup = this.onSignup.bind(this)
     this.onAppTrash = this.onAppTrash.bind(this)
-    this.authenticate = this.authenticate.bind(this)
+    this.signin = this.signin.bind(this)
     this.onCloseNotif = this.onCloseNotif.bind(this)
     this.onDevChecked = this.onDevChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
@@ -112,7 +112,7 @@ class App extends Component {
     this.apps = Object.values(await masq.listApps())
   }
 
-  async authenticate (indexUser) {
+  async signin (indexUser) {
     const user = this.state.users[indexUser]
     await masq.signIn(user.username)
     this.setState({
@@ -160,7 +160,7 @@ class App extends Component {
     this.forceUpdate()
   }
 
-  async onRegister (user) {
+  async onSignup (user) {
     await masq.createUser(user)
     await this.fetchUsers()
     history.push('login')
@@ -188,7 +188,7 @@ class App extends Component {
             <Route
               path='/login'
               render={() =>
-                <Login onAuth={this.authenticate} users={this.state.users} onSignup={this.onRegister} />
+                <Login onAuth={this.signin} users={this.state.users} onSignup={this.onSignup} />
               }
             />
 

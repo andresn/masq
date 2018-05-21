@@ -12,14 +12,17 @@ export default class Signup extends React.Component {
       image: '',
       lastname: '',
       firstname: '',
-      username: ''
+      username: '',
+      password: ''
     }
 
+    this.currentStep = 0
     this.validationEnabled = false
     this.refAvatar = React.createRef()
 
+    this.next = this.next.bind(this)
     this.isValid = this.isValid.bind(this)
-    this.validate = this.validate.bind(this)
+    this.finish = this.finish.bind(this)
     this.openDialog = this.openDialog.bind(this)
   }
 
@@ -30,6 +33,10 @@ export default class Signup extends React.Component {
     }
 
     if (fieldName === 'image') return true
+    if (fieldName === 'password') {
+      return this.state[fieldName].length >= 8
+    }
+
     return this.state[fieldName].length > 0
   }
 
@@ -57,15 +64,28 @@ export default class Signup extends React.Component {
     this.refAvatar.current.openDialog()
   }
 
-  validate () {
-    const { onSignup } = this.props
+  next () {
+    const fieldsToValidate = ['lastname', 'firstname', 'username']
     this.validationEnabled = true
 
-    // Every fields should be valid
-    const isValid = Object.keys(this.state).every(key => this.isValid(key))
+    const isValid = fieldsToValidate.every(key => this.isValid(key))
 
     // If invalid, return
     if (!isValid) {
+      // forceUpdate to show errors
+      return this.forceUpdate()
+    }
+
+    this.validationEnabled = false // do not display error on the next step for now
+    this.currentStep++
+    this.forceUpdate()
+  }
+
+  finish () {
+    const { onSignup } = this.props
+    this.validationEnabled = true
+
+    if (!this.isValid('password')) {
       // forceUpdate to show errors
       return this.forceUpdate()
     }
@@ -78,31 +98,49 @@ export default class Signup extends React.Component {
       <Modal onClose={this.props.onClose} height={670} width={511}>
         <div className='Signup'>
           <h1>Add a new user</h1>
-          <Avatar
-            upload
-            ref={this.refAvatar}
-            onChange={(e) => this.onImageChange(e)}
-            image={this.state.image.value || null}
-          />
-          <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
 
-          <TextInput
-            label='Last Name'
-            error={!this.isValid('lastname')}
-            onChange={(e) => this.onChange('lastname', e)}
-          />
-          <TextInput
-            label='First Name'
-            error={!this.isValid('firstname')}
-            onChange={(e) => this.onChange('firstname', e)}
-          />
-          <TextInput
-            label='Username (displayed)'
-            error={!this.isValid('username')}
-            onChange={(e) => this.onChange('username', e)}
-          />
+          {this.currentStep === 0 && (
+            <React.Fragment>
+              <Avatar
+                upload
+                ref={this.refAvatar}
+                onChange={(e) => this.onImageChange(e)}
+                image={this.state.image.value || null}
+              />
+              <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
 
-          <Button label='Finish' onClick={this.validate} />
+              <TextInput
+                label='Last Name'
+                error={!this.isValid('lastname')}
+                onChange={(e) => this.onChange('lastname', e)}
+              />
+              <TextInput
+                label='First Name'
+                error={!this.isValid('firstname')}
+                onChange={(e) => this.onChange('firstname', e)}
+              />
+              <TextInput
+                label='Username (displayed)'
+                error={!this.isValid('username')}
+                onChange={(e) => this.onChange('username', e)}
+              />
+
+              <Button label='Next' onClick={this.next} />
+            </React.Fragment>
+          )}
+
+          {this.currentStep === 1 && (
+            <React.Fragment>
+              <TextInput
+                label='Password'
+                labelError='Password must be at least 8 characters long'
+                error={!this.isValid('password')}
+                onChange={(e) => this.onChange('password', e)}
+              />
+
+              <Button label='Finish' onClick={this.finish} />
+            </React.Fragment>
+          )}
         </div>
       </Modal>
     )
