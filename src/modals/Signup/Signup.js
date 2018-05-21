@@ -159,7 +159,7 @@ export default class Signup extends React.Component {
               <TextInput
                 password
                 label='Password confirmation'
-                labelError='Passwords does not match'
+                labelError='Passwords do not match'
                 error={!this.isValid('passwordConfirmation')}
                 onChange={(e) => this.onChange('passwordConfirmation', e)}
               />
