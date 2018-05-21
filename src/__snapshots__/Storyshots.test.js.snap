@@ -2942,7 +2942,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           className="TextInput"
         >
           <input
-            defaultValue={undefined}
+            defaultValue=""
             onChange={[Function]}
             type="text"
           />
@@ -2954,7 +2954,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           className="TextInput"
         >
           <input
-            defaultValue={undefined}
+            defaultValue=""
             onChange={[Function]}
             type="text"
           />
@@ -2966,7 +2966,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           className="TextInput"
         >
           <input
-            defaultValue={undefined}
+            defaultValue=""
             onChange={[Function]}
             type="text"
           />
@@ -2974,17 +2974,21 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
             Username (displayed)
           </label>
         </div>
-        <button
-          className="Button primary"
-          onClick={[Function]}
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+        <div
+          className="buttons"
         >
-          Next
-        </button>
+          <button
+            className="Button primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "width": 185,
+              }
+            }
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>

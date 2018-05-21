@@ -22,8 +22,9 @@ export default class Signup extends React.Component {
     this.refAvatar = React.createRef()
 
     this.next = this.next.bind(this)
-    this.isValid = this.isValid.bind(this)
     this.finish = this.finish.bind(this)
+    this.isValid = this.isValid.bind(this)
+    this.previous = this.previous.bind(this)
     this.openDialog = this.openDialog.bind(this)
   }
 
@@ -85,6 +86,11 @@ export default class Signup extends React.Component {
     this.forceUpdate()
   }
 
+  previous () {
+    this.currentStep--
+    this.forceUpdate()
+  }
+
   finish () {
     const { onSignup } = this.props
     this.validationEnabled = true
@@ -116,20 +122,25 @@ export default class Signup extends React.Component {
               <TextInput
                 label='Last Name'
                 error={!this.isValid('lastname')}
+                defaultValue={this.state.lastname}
                 onChange={(e) => this.onChange('lastname', e)}
               />
               <TextInput
                 label='First Name'
                 error={!this.isValid('firstname')}
+                defaultValue={this.state.firstname}
                 onChange={(e) => this.onChange('firstname', e)}
               />
               <TextInput
                 label='Username (displayed)'
                 error={!this.isValid('username')}
+                defaultValue={this.state.username}
                 onChange={(e) => this.onChange('username', e)}
               />
 
-              <Button label='Next' onClick={this.next} />
+              <div className='buttons'>
+                <Button label='Next' onClick={this.next} width={185} />
+              </div>
             </React.Fragment>
           )}
 
@@ -138,6 +149,7 @@ export default class Signup extends React.Component {
               <Avatar image={this.state.image.value} user={this.state} />
               <p className='user'>{this.state.username}</p>
               <TextInput
+                password
                 label='Password'
                 labelError='Password must be at least 8 characters long'
                 error={!this.isValid('password')}
@@ -145,13 +157,17 @@ export default class Signup extends React.Component {
               />
 
               <TextInput
+                password
                 label='Password confirmation'
                 labelError='Passwords does not match'
                 error={!this.isValid('passwordConfirmation')}
                 onChange={(e) => this.onChange('passwordConfirmation', e)}
               />
 
-              <Button label='Finish' onClick={this.finish} />
+              <div className='buttons'>
+                <Button label='Previous' onClick={this.previous} width={185} />
+                <Button label='Finish' onClick={this.finish} width={185} />
+              </div>
             </React.Fragment>
           )}
         </div>

@@ -27,8 +27,13 @@
   margin-bottom: 24px;
 }
 
-.Signup .Button {
-  margin-bottom: 32px;
+.Signup .buttons {
+  bottom: 0;
+  display: grid;
+  position: absolute;
+  margin-bottom: 48px;
+  grid-column-gap: 16px;
+  grid-template-columns: auto auto;
 }
 
 .Signup .TextInput {
