@@ -2332,7 +2332,9 @@ exports[`Storyshots Login Page login 1`] = `
             }
           }
         />
-        <p>
+        <p
+          className="username"
+        >
           Mustang
         </p>
       </a>
@@ -2353,7 +2355,9 @@ exports[`Storyshots Login Page login 1`] = `
             }
           }
         />
-        <p>
+        <p
+          className="username"
+        >
           Jeff
         </p>
       </a>
@@ -2411,6 +2415,7 @@ exports[`Storyshots Login Page login 1`] = `
           </svg>
         </div>
         <p
+          className="username"
           id="add-user"
         >
           Add user

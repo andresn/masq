@@ -11,6 +11,18 @@
   margin-bottom: 32px;
 }
 
+.Signup .user {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.11;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--blue-500);
+}
+
 .Signup .Avatar {
   margin-bottom: 24px;
 }

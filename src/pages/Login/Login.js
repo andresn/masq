@@ -55,14 +55,14 @@ export default class Login extends React.Component {
           {users.map((user, index) =>
             <Link style={{textDecoration: 'none'}} key={index} to='devices' onClick={() => onAuth(index)}>
               <Avatar image={user.image} user={user} />
-              <p>{user.username}</p>
+              <p className='username'>{user.username}</p>
             </Link>
           )}
           <div style={{textDecoration: 'none', cursor: 'pointer'}} onClick={() => this.toggleModal(true)}>
             <div style={{height: '120px'}}>
               <Plusbutton />
             </div>
-            <p id='add-user'>Add user</p>
+            <p className='username' id='add-user'>Add user</p>
           </div>
         </div>
         <Background style={styles.background} />

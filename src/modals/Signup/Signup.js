@@ -135,6 +135,8 @@ export default class Signup extends React.Component {
 
           {this.currentStep === 1 && (
             <React.Fragment>
+              <Avatar image={this.state.image.value} user={this.state} />
+              <p className='user'>{this.state.username}</p>
               <TextInput
                 label='Password'
                 labelError='Password must be at least 8 characters long'
