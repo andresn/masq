@@ -13,7 +13,8 @@ export default class Signup extends React.Component {
       lastname: '',
       firstname: '',
       username: '',
-      password: ''
+      password: '',
+      passwordConfirmation: ''
     }
 
     this.currentStep = 0
@@ -35,6 +36,9 @@ export default class Signup extends React.Component {
     if (fieldName === 'image') return true
     if (fieldName === 'password') {
       return this.state[fieldName].length >= 8
+    }
+    if (fieldName === 'passwordConfirmation') {
+      return this.state[fieldName] === this.state.password
     }
 
     return this.state[fieldName].length > 0
@@ -136,6 +140,13 @@ export default class Signup extends React.Component {
                 labelError='Password must be at least 8 characters long'
                 error={!this.isValid('password')}
                 onChange={(e) => this.onChange('password', e)}
+              />
+
+              <TextInput
+                label='Password confirmation'
+                labelError='Passwords does not match'
+                error={!this.isValid('passwordConfirmation')}
+                onChange={(e) => this.onChange('passwordConfirmation', e)}
               />
 
               <Button label='Finish' onClick={this.finish} />
