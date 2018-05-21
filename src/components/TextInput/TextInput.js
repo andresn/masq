@@ -10,7 +10,7 @@ export default function TextInput (props) {
 
   return (
     <div className={classes}>
-      <input type={password ? 'password' : 'text'} defaultValue={defaultValue} onChange={onChange} />
+      <input type={password ? 'password' : 'text'} defaultValue={defaultValue} onChange={onChange} onKeyUp={props.onKeyUp} />
       <label>{displayedLabel}</label>
     </div>
   )
@@ -18,8 +18,8 @@ export default function TextInput (props) {
 
 TextInput.propTypes = {
   error: PropTypes.bool,
+  label: PropTypes.string,
   onChange: PropTypes.func,
   password: PropTypes.bool,
-  defaultValue: PropTypes.string,
-  label: PropTypes.string.isRequired
+  defaultValue: PropTypes.string
 }

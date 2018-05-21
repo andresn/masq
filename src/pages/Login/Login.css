@@ -23,6 +23,23 @@
   color: white;
 }
 
+.Login .password {
+  width: 300px;
+  margin: auto;
+}
+
+.Login .password p {
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
 .Login .username {
   font-size: 18px;
   font-weight: 600;

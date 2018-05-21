@@ -112,8 +112,7 @@ class App extends Component {
     this.apps = Object.values(await masq.listApps())
   }
 
-  async signin (indexUser) {
-    const user = this.state.users[indexUser]
+  async signin (user) {
     await masq.signIn(user.username)
     this.setState({
       isAuthenticated: true,

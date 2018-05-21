@@ -2315,8 +2315,7 @@ exports[`Storyshots Login Page login 1`] = `
     <div
       className="users"
     >
-      <a
-        href="devices"
+      <div
         onClick={[Function]}
         style={
           Object {
@@ -2325,21 +2324,28 @@ exports[`Storyshots Login Page login 1`] = `
         }
       >
         <div
-          className="Avatar"
           style={
             Object {
-              "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
+              "cursor": "pointer",
             }
           }
-        />
+        >
+          <div
+            className="Avatar"
+            style={
+              Object {
+                "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
+              }
+            }
+          />
+        </div>
         <p
           className="username"
         >
           Mustang
         </p>
-      </a>
-      <a
-        href="devices"
+      </div>
+      <div
         onClick={[Function]}
         style={
           Object {
@@ -2348,24 +2354,31 @@ exports[`Storyshots Login Page login 1`] = `
         }
       >
         <div
-          className="Avatar"
           style={
             Object {
-              "backgroundImage": "url(https://randomuser.me/api/portraits/men/1.jpg)",
+              "cursor": "pointer",
             }
           }
-        />
+        >
+          <div
+            className="Avatar"
+            style={
+              Object {
+                "backgroundImage": "url(https://randomuser.me/api/portraits/men/1.jpg)",
+              }
+            }
+          />
+        </div>
         <p
           className="username"
         >
           Jeff
         </p>
-      </a>
+      </div>
       <div
         onClick={[Function]}
         style={
           Object {
-            "cursor": "pointer",
             "textDecoration": "none",
           }
         }
@@ -2373,6 +2386,7 @@ exports[`Storyshots Login Page login 1`] = `
         <div
           style={
             Object {
+              "cursor": "pointer",
               "height": "120px",
             }
           }
@@ -2738,6 +2752,7 @@ exports[`Storyshots Settings Page settings 1`] = `
           <input
             defaultValue="Ford"
             onChange={[Function]}
+            onKeyUp={undefined}
             type="text"
           />
           <label>
@@ -2750,6 +2765,7 @@ exports[`Storyshots Settings Page settings 1`] = `
           <input
             defaultValue="Alicia"
             onChange={[Function]}
+            onKeyUp={undefined}
             type="text"
           />
           <label>
@@ -2762,6 +2778,7 @@ exports[`Storyshots Settings Page settings 1`] = `
           <input
             defaultValue="Mustang"
             onChange={[Function]}
+            onKeyUp={undefined}
             type="text"
           />
           <label>
@@ -2944,6 +2961,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           <input
             defaultValue=""
             onChange={[Function]}
+            onKeyUp={undefined}
             type="text"
           />
           <label>
@@ -2956,6 +2974,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           <input
             defaultValue=""
             onChange={[Function]}
+            onKeyUp={undefined}
             type="text"
           />
           <label>
@@ -2968,6 +2987,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           <input
             defaultValue=""
             onChange={[Function]}
+            onKeyUp={undefined}
             type="text"
           />
           <label>
@@ -3331,6 +3351,7 @@ exports[`Storyshots TextInput with error 1`] = `
   <input
     defaultValue={undefined}
     onChange={undefined}
+    onKeyUp={undefined}
     type="text"
   />
   <label>
@@ -3346,6 +3367,7 @@ exports[`Storyshots TextInput with one label 1`] = `
   <input
     defaultValue={undefined}
     onChange={undefined}
+    onKeyUp={undefined}
     type="text"
   />
   <label>
@@ -3361,6 +3383,7 @@ exports[`Storyshots TextInput with one label and a default value 1`] = `
   <input
     defaultValue="default text"
     onChange={undefined}
+    onKeyUp={undefined}
     type="text"
   />
   <label>
