@@ -2978,7 +2978,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
             }
           }
         >
-          Finish
+          Next
         </button>
       </div>
     </div>
