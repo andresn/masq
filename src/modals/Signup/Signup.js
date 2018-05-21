@@ -115,7 +115,7 @@ export default class Signup extends React.Component {
                 upload
                 ref={this.refAvatar}
                 onChange={(e) => this.onImageChange(e)}
-                image={this.state.image.value || null}
+                image={this.state.image || null}
               />
               <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
 
@@ -146,7 +146,7 @@ export default class Signup extends React.Component {
 
           {this.currentStep === 1 && (
             <React.Fragment>
-              <Avatar image={this.state.image.value} user={this.state} />
+              <Avatar image={this.state.image} user={this.state} />
               <p className='user'>{this.state.username}</p>
               <TextInput
                 password
