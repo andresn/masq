@@ -6,16 +6,16 @@
 [![Travis badge](https://api.travis-ci.org/QwantResearch/masq-app.svg)](https://travis-ci.org/QwantResearch/masq-app)
 [![Standard badge](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-The Masq App based on electron.
+Masq App based on Electron + React.
 
-# Overview
-This project is based on [create-react-app](https://github.com/facebook/create-react-app).
-
-## Quick start
+# Quick start
 ```
 npm install
 npm start
 ```
+
+# Demo Apps
+You can find demo apps in the following repo https://github.com/QwantResearch/masq-demos
 
 # Storybook
 To see all components and their props, and develop them in isolation, you
