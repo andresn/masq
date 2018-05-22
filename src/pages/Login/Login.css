@@ -52,9 +52,11 @@
 }
 
 .Login .users {
+  z-index: 1;
   width: 100%;
   display: grid;
+  grid-gap: 64px;
+  position: relative;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 120px);
-  grid-gap: 64px;
 }
