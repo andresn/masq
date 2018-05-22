@@ -14,6 +14,7 @@ const styles = {
     position: 'absolute'
   },
   logo: {
+    marginTop: 32,
     paddingBottom: 64
   }
 }

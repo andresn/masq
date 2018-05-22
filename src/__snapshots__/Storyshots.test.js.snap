@@ -2250,6 +2250,7 @@ exports[`Storyshots Login Page login 1`] = `
         height={102}
         style={
           Object {
+            "marginTop": 32,
             "paddingBottom": 64,
           }
         }
