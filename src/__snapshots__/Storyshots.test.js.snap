@@ -2957,6 +2957,13 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           IMPORT A PHOTO
         </button>
         <div
+          style={
+            Object {
+              "paddingBottom": 32,
+            }
+          }
+        />
+        <div
           className="TextInput"
         >
           <input
@@ -2988,7 +2995,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           <input
             defaultValue=""
             onChange={[Function]}
-            onKeyUp={undefined}
+            onKeyUp={[Function]}
             type="text"
           />
           <label>

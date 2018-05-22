@@ -26,6 +26,7 @@ export default class Signup extends React.Component {
     this.isValid = this.isValid.bind(this)
     this.previous = this.previous.bind(this)
     this.openDialog = this.openDialog.bind(this)
+    this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
   isValid (fieldName) {
@@ -103,6 +104,18 @@ export default class Signup extends React.Component {
     onSignup(this.state)
   }
 
+  handleKeyUp (e) {
+    if (e.key !== 'Enter') {
+      return
+    }
+
+    if (this.currentStep === 0) {
+      this.next()
+    } else {
+      this.finish()
+    }
+  }
+
   render () {
     return (
       <Modal onClose={this.props.onClose} height={670} width={511}>
@@ -118,6 +131,7 @@ export default class Signup extends React.Component {
                 image={this.state.image || null}
               />
               <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
+              <div style={{paddingBottom: 32}} />
 
               <TextInput
                 label='Last Name'
@@ -136,6 +150,7 @@ export default class Signup extends React.Component {
                 error={!this.isValid('username')}
                 defaultValue={this.state.username}
                 onChange={(e) => this.onChange('username', e)}
+                onKeyUp={this.handleKeyUp}
               />
 
               <div className='buttons'>
@@ -161,6 +176,7 @@ export default class Signup extends React.Component {
                 label='Password confirmation'
                 labelError='Passwords do not match'
                 error={!this.isValid('passwordConfirmation')}
+                onKeyUp={this.handleKeyUp}
                 onChange={(e) => this.onChange('passwordConfirmation', e)}
               />
 
