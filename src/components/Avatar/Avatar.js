@@ -58,7 +58,7 @@ export default class Avatar extends React.Component {
       ? <div className='Avatar' style={style} />
       : (
         <div className='Avatar initials' style={{backgroundColor: 'var(--blue-300)', position: 'relative'}}>
-          <p>{user.firstname[0].toUpperCase() + user.lastname[0].toUpperCase()}</p>
+          <p style={{cursor: 'pointer'}}>{user.firstname[0].toUpperCase() + user.lastname[0].toUpperCase()}</p>
         </div>
       )
   }

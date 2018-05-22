@@ -789,7 +789,13 @@ exports[`Storyshots Avatar without upload without image 1`] = `
     }
   }
 >
-  <p>
+  <p
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  >
     JD
   </p>
 </div>
