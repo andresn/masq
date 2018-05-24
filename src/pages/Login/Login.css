@@ -2,6 +2,8 @@
   background-color: var(--blue-500);
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 0;
 }
 
 .Login .header {
@@ -77,7 +79,6 @@
 }
 
 .Login .users {
-  z-index: 1;
   width: 100%;
   display: grid;
   grid-gap: 64px;

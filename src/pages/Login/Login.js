@@ -11,7 +11,8 @@ const styles = {
   background: {
     bottom: 0,
     maxHeight: 252,
-    position: 'absolute'
+    position: 'absolute',
+    zIndex: -1
   },
   logo: {
     marginTop: 32,
