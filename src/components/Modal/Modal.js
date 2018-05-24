@@ -10,10 +10,10 @@ const styles = {
     width: '100%',
     height: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    zIndex: 1
+    zIndex: 2
   },
   modal: {
-    zIndex: 1,
+    zIndex: 2,
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',

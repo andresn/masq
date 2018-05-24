@@ -18,7 +18,7 @@ exports[`Storyshots AddDevice Modal addDevice modal 1`] = `
           "position": "absolute",
           "top": 0,
           "width": "100%",
-          "zIndex": 1,
+          "zIndex": 2,
         }
       }
     />
@@ -34,7 +34,7 @@ exports[`Storyshots AddDevice Modal addDevice modal 1`] = `
           "top": "50%",
           "transform": "translate(-50%, -50%)",
           "width": 417,
-          "zIndex": 1,
+          "zIndex": 2,
         }
       }
     >
@@ -508,7 +508,7 @@ exports[`Storyshots AuthApp Modal authApp modal 1`] = `
           "position": "absolute",
           "top": 0,
           "width": "100%",
-          "zIndex": 1,
+          "zIndex": 2,
         }
       }
     />
@@ -524,7 +524,7 @@ exports[`Storyshots AuthApp Modal authApp modal 1`] = `
           "top": "50%",
           "transform": "translate(-50%, -50%)",
           "width": 511,
-          "zIndex": 1,
+          "zIndex": 2,
         }
       }
     >
@@ -2285,7 +2285,7 @@ exports[`Storyshots Modal empty modal 1`] = `
         "position": "absolute",
         "top": 0,
         "width": "100%",
-        "zIndex": 1,
+        "zIndex": 2,
       }
     }
   />
@@ -2301,7 +2301,7 @@ exports[`Storyshots Modal empty modal 1`] = `
         "top": "50%",
         "transform": "translate(-50%, -50%)",
         "width": undefined,
-        "zIndex": 1,
+        "zIndex": 2,
       }
     }
   >
@@ -2349,7 +2349,7 @@ exports[`Storyshots Modal with a button as children 1`] = `
         "position": "absolute",
         "top": 0,
         "width": "100%",
-        "zIndex": 1,
+        "zIndex": 2,
       }
     }
   />
@@ -2365,7 +2365,7 @@ exports[`Storyshots Modal with a button as children 1`] = `
         "top": "50%",
         "transform": "translate(-50%, -50%)",
         "width": undefined,
-        "zIndex": 1,
+        "zIndex": 2,
       }
     }
   >
@@ -2593,7 +2593,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           "position": "absolute",
           "top": 0,
           "width": "100%",
-          "zIndex": 1,
+          "zIndex": 2,
         }
       }
     />
@@ -2609,7 +2609,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           "top": "50%",
           "transform": "translate(-50%, -50%)",
           "width": 511,
-          "zIndex": 1,
+          "zIndex": 2,
         }
       }
     >
