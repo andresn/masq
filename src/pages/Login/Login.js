@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Avatar, TextInput } from 'components'
-import { Background, Logo, Plusbutton } from 'icons'
+import { Background, Logo, Plusbutton, Chevron } from 'icons'
 import { Signup } from 'modals'
 
 import './Login.css'
@@ -53,7 +53,7 @@ export function UsersSelection (props) {
 }
 
 export function UserPassword (props) {
-  const { user, onAuth } = props
+  const { user, onAuth, clearUser } = props
   let password = ''
 
   function onChange (e) {
@@ -73,13 +73,18 @@ export function UserPassword (props) {
         <Logo style={styles.logo} />
       </div>
 
+      <div className='goback'>
+        <Chevron style={{transform: 'rotate(90deg)', cursor: 'pointer'}} onClick={clearUser} />
+        <p onClick={clearUser}>Change user</p>
+      </div>
+
       <div className='users'>
         <div style={{textDecoration: 'none'}}>
           <Avatar image={user.image} user={user} />
           <p className='username'>{user.username}</p>
         </div>
       </div>
-      <div className='password'>
+      <div className='text'>
         <p>Enter your password</p>
         <TextInput password onChange={onChange} onKeyUp={onKeyUp} />
       </div>
@@ -131,6 +136,7 @@ export default class Login extends React.Component {
         <UserPassword
           onAuth={onAuth}
           user={this.state.user}
+          clearUser={() => this.setState({user: null})}
         />
       )
   }

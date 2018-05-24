@@ -23,12 +23,37 @@
   color: white;
 }
 
-.Login .password {
+.Login .text {
   width: 300px;
   margin: auto;
 }
 
-.Login .password p {
+.Login .goback {
+  text-decoration: none;
+  margin: auto;
+  display: grid;
+  opacity: 0.8;
+  color: white;
+  grid-column-gap: 8px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto auto;
+}
+
+.Login .goback p {
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  /* text-align: center; */
+  color: #ffffff;
+}
+
+.Login .text p {
   opacity: 0.8;
   font-size: 16px;
   font-weight: normal;
