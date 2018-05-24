@@ -71,7 +71,7 @@
     "mac": {
       "target": [
         {
-          "target": "tar.xz",
+          "target": "zip",
           "arch": ["x64"]
         }
       ]
