@@ -64,9 +64,7 @@ class App extends Component {
       app.enabled = true
       const token = await masq.addApp(app)
       await server.finishRegistration(token)
-      if (!this.apps.find(a => app.url === a.url)) {
-        this.apps.push(app)
-      }
+      this.fetchApps()
     }
 
     appsRequests.splice(0, 1)
@@ -81,6 +79,10 @@ class App extends Component {
     history.push('login')
 
     server.onRegister(async (appMeta) => {
+      if (this.apps.find(a => appMeta.url === a.url)) {
+        return
+      }
+
       const appsRequests = this.state.appsRequests.slice()
       appsRequests.push(appMeta)
       const notif = new window.Notification('Masq App', {
@@ -110,6 +112,7 @@ class App extends Component {
 
   async fetchApps () {
     this.apps = Object.values(await masq.listApps())
+    this.forceUpdate()
   }
 
   async signin (user) {
