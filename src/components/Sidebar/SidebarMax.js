@@ -72,7 +72,6 @@ const styles = {
 
 export default function SidebarMax (props) {
   const { user, currentTab, onLogout, onSelectTab, tabs } = props
-  console.log('currentTab', currentTab)
   return (
     <div className='Sidebar' style={styles.Sidebar}>
       <div id='header' style={styles.header}>
