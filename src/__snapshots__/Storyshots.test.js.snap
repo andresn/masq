@@ -2457,7 +2457,7 @@ exports[`Storyshots Settings Page settings 1`] = `
             autoFocus={undefined}
             defaultValue="Ford"
             onChange={[Function]}
-            onKeyUp={undefined}
+            onKeyUp={[Function]}
             type="text"
           />
           <label>
@@ -2471,7 +2471,7 @@ exports[`Storyshots Settings Page settings 1`] = `
             autoFocus={undefined}
             defaultValue="Alicia"
             onChange={[Function]}
-            onKeyUp={undefined}
+            onKeyUp={[Function]}
             type="text"
           />
           <label>
@@ -2485,7 +2485,7 @@ exports[`Storyshots Settings Page settings 1`] = `
             autoFocus={undefined}
             defaultValue="Mustang"
             onChange={[Function]}
-            onKeyUp={undefined}
+            onKeyUp={[Function]}
             type="text"
           />
           <label>

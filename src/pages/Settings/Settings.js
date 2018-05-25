@@ -22,6 +22,7 @@ class Settings extends React.Component {
 
     this.validate = this.validate.bind(this)
     this.isValid = this.isValid.bind(this)
+    this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
   isValid (fieldName) {
@@ -68,6 +69,12 @@ class Settings extends React.Component {
     this.hasChanged = false
   }
 
+  handleKeyUp (e) {
+    if (e.key === 'Enter') {
+      this.validate()
+    }
+  }
+
   render () {
     // const { onDeleteUser } = this.props
 
@@ -85,16 +92,19 @@ class Settings extends React.Component {
               <TextInput
                 label='Last Name'
                 error={!this.isValid('lastname')}
+                onKeyUp={this.handleKeyUp}
                 defaultValue={this.state.lastname} onChange={(e) => this.onChange('lastname', e)}
               />
               <TextInput
                 label='First Name'
                 error={!this.isValid('firstname')}
+                onKeyUp={this.handleKeyUp}
                 defaultValue={this.state.firstname} onChange={(e) => this.onChange('firstname', e)}
               />
               <TextInput
                 label='Username (Displayed)'
                 error={!this.isValid('username')}
+                onKeyUp={this.handleKeyUp}
                 defaultValue={this.state.username} onChange={(e) => this.onChange('username', e)}
               />
             </div>
