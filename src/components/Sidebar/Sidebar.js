@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import MediaQuery from 'react-responsive'
+import PropTypes from 'prop-types'
 
 import { Smartphone, Cards, Settings as SettingsIcon } from 'icons'
 
@@ -46,6 +47,11 @@ class Sidebar extends React.Component {
       </div>
     )
   }
+}
+
+Sidebar.propTypes = {
+  user: PropTypes.object,
+  onLogout: PropTypes.func
 }
 
 export default withRouter((props) =>

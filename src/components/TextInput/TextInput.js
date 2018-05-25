@@ -19,6 +19,8 @@ export default function TextInput (props) {
 TextInput.propTypes = {
   error: PropTypes.bool,
   label: PropTypes.string,
+  onKeyUp: PropTypes.func,
+  labelError: PropTypes.bool,
   onChange: PropTypes.func,
   password: PropTypes.bool,
   defaultValue: PropTypes.string

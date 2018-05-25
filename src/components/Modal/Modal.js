@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Close } from 'icons'
 
@@ -46,4 +47,8 @@ export default function Modal (props) {
       </div>
     </div>
   )
+}
+
+Modal.propTypes = {
+  onClose: PropTypes.func
 }

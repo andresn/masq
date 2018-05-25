@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Avatar } from 'components'
 import { Logout } from 'icons'
@@ -88,4 +89,12 @@ export default function SidebarMin (props) {
       </div>
     </div>
   )
+}
+
+SidebarMin.propTypes = {
+  user: PropTypes.object,
+  currentTab: PropTypes.number,
+  onLogout: PropTypes.func,
+  onSelectTab: PropTypes.func,
+  tabs: PropTypes.array
 }

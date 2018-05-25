@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Avatar } from 'components'
 import { Background, Logout } from 'icons'
@@ -69,7 +70,7 @@ const styles = {
   }
 }
 
-export default function SidebarMin (props) {
+export default function SidebarMax (props) {
   const { user, currentTab, onLogout, onSelectTab, tabs } = props
   console.log('currentTab', currentTab)
   return (
@@ -102,4 +103,12 @@ export default function SidebarMin (props) {
       <Background style={styles.background} />
     </div>
   )
+}
+
+SidebarMax.propTypes = {
+  user: PropTypes.object,
+  currentTab: PropTypes.number,
+  onLogout: PropTypes.func,
+  onSelectTab: PropTypes.func,
+  tabs: PropTypes.array
 }
