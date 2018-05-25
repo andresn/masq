@@ -20,7 +20,7 @@ TextInput.propTypes = {
   error: PropTypes.bool,
   label: PropTypes.string,
   onKeyUp: PropTypes.func,
-  labelError: PropTypes.bool,
+  labelError: PropTypes.string,
   onChange: PropTypes.func,
   password: PropTypes.bool,
   defaultValue: PropTypes.string,
