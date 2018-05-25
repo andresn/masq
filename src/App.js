@@ -1,27 +1,21 @@
-import localforage from 'localforage'
-import React, { Component } from 'react'
 import createHashHistory from 'history/createHashHistory'
 import { Router, Route } from 'react-router-dom'
+import React, { Component } from 'react'
+import localforage from 'localforage'
+import { remote } from 'electron'
 
-import { AuthApp } from 'modals'
-import { Sidebar } from 'components'
-import { UserContext } from 'context/user'
-import {
-  Login,
-  Loading,
-  Devices,
-  Settings,
-  Applications
-} from 'pages'
-
-import { Masq } from 'masq-store'
 import { Server } from 'masq-socket'
+import { Masq } from 'masq-store'
+
+import { Login, Loading, Devices, Settings, Applications } from 'pages'
+import { UserContext } from 'context/user'
+import { Sidebar } from 'components'
+import { AuthApp } from 'modals'
 
 import './App.css'
 
+const win = remote.getCurrentWindow()
 const history = createHashHistory()
-const win = require('electron').remote.getCurrentWindow()
-
 // Initialize masq store and server
 const masq = new Masq({ storage: localforage })
 const server = new Server(8080, masq, localforage)
@@ -33,16 +27,14 @@ class App extends Component {
       users: [],
       isLogging: false,
       isAuthenticated: false,
-      notif: true,
       currentUser: null,
       appsRequests: []
     }
 
+    this.signin = this.signin.bind(this)
     this.signout = this.signout.bind(this)
     this.onSignup = this.onSignup.bind(this)
     this.onAppTrash = this.onAppTrash.bind(this)
-    this.signin = this.signin.bind(this)
-    this.onCloseNotif = this.onCloseNotif.bind(this)
     this.onDevChecked = this.onDevChecked.bind(this)
     this.onAppChecked = this.onAppChecked.bind(this)
     this.onDeleteUser = this.onDeleteUser.bind(this)
@@ -79,6 +71,10 @@ class App extends Component {
     history.push('login')
 
     server.onRegister(async (appMeta) => {
+      if (!this.state.currentUser) {
+        win.focus()
+      }
+
       if (this.apps.find(a => appMeta.url === a.url)) {
         return
       }
@@ -94,10 +90,6 @@ class App extends Component {
       })
     })
     this.fetchUsers()
-  }
-
-  onCloseNotif () {
-    this.setState({ notif: false })
   }
 
   async fetchUsers () {
@@ -127,7 +119,7 @@ class App extends Component {
     // FIXME
     history.push('loading')
     setTimeout(() => {
-      this.setState({ notif: true, isLogging: false })
+      this.setState({ isLogging: false })
       history.push('applications')
     }, 2000)
 
