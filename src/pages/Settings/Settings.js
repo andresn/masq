@@ -46,6 +46,7 @@ class Settings extends React.Component {
     }
 
     reader.addEventListener('load', () => {
+      this.hasChanged = true
       this.setState({ image: reader.result })
     })
     reader.readAsDataURL(file)
