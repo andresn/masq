@@ -87,7 +87,7 @@ export function UserPassword (props) {
       </div>
       <div className='text'>
         <p>Enter your password</p>
-        <TextInput password onChange={onChange} onKeyUp={onKeyUp} />
+        <TextInput password focus onChange={onChange} onKeyUp={onKeyUp} />
       </div>
       <Background style={styles.background} />
     </div>

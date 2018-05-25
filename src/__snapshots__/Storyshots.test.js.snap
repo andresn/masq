@@ -2454,6 +2454,7 @@ exports[`Storyshots Settings Page settings 1`] = `
           className="TextInput"
         >
           <input
+            autoFocus={undefined}
             defaultValue="Ford"
             onChange={[Function]}
             onKeyUp={undefined}
@@ -2467,6 +2468,7 @@ exports[`Storyshots Settings Page settings 1`] = `
           className="TextInput"
         >
           <input
+            autoFocus={undefined}
             defaultValue="Alicia"
             onChange={[Function]}
             onKeyUp={undefined}
@@ -2480,6 +2482,7 @@ exports[`Storyshots Settings Page settings 1`] = `
           className="TextInput"
         >
           <input
+            autoFocus={undefined}
             defaultValue="Mustang"
             onChange={[Function]}
             onKeyUp={undefined}
@@ -2670,6 +2673,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           className="TextInput"
         >
           <input
+            autoFocus={undefined}
             defaultValue=""
             onChange={[Function]}
             onKeyUp={undefined}
@@ -2683,6 +2687,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           className="TextInput"
         >
           <input
+            autoFocus={undefined}
             defaultValue=""
             onChange={[Function]}
             onKeyUp={undefined}
@@ -2696,6 +2701,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
           className="TextInput"
         >
           <input
+            autoFocus={undefined}
             defaultValue=""
             onChange={[Function]}
             onKeyUp={[Function]}
@@ -2965,6 +2971,7 @@ exports[`Storyshots TextInput with error 1`] = `
   className="TextInput error"
 >
   <input
+    autoFocus={undefined}
     defaultValue={undefined}
     onChange={undefined}
     onKeyUp={undefined}
@@ -2981,6 +2988,7 @@ exports[`Storyshots TextInput with one label 1`] = `
   className="TextInput"
 >
   <input
+    autoFocus={undefined}
     defaultValue={undefined}
     onChange={undefined}
     onKeyUp={undefined}
@@ -2997,6 +3005,7 @@ exports[`Storyshots TextInput with one label and a default value 1`] = `
   className="TextInput"
 >
   <input
+    autoFocus={undefined}
     defaultValue="default text"
     onChange={undefined}
     onKeyUp={undefined}
