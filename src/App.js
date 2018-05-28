@@ -1,4 +1,4 @@
-import createHashHistory from 'history/createHashHistory'
+import createBrowserHistory from 'history/createBrowserHistory'
 import { Router, Route } from 'react-router-dom'
 import React, { Component } from 'react'
 import localforage from 'localforage'
@@ -15,7 +15,7 @@ import { AuthApp } from 'modals'
 import './App.css'
 
 const win = remote.getCurrentWindow()
-const history = createHashHistory()
+const history = createBrowserHistory()
 // Initialize masq store and server
 const masq = new Masq({ storage: localforage })
 const server = new Server(8080, masq, localforage)
