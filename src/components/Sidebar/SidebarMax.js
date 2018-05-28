@@ -94,8 +94,8 @@ export default function SidebarMax (props) {
         </div>
       </div>
       <div style={styles.logout}>
-        <div style={styles.tab} onClick={onLogout}>
-          <Logout color='white' />
+        <div style={styles.tab} className='tab' onClick={onLogout}>
+          <Logout />
           <p>LOGOUT</p>
         </div>
       </div>

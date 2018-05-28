@@ -83,8 +83,8 @@ export default function SidebarMin (props) {
       </div>
 
       <div style={styles.logout}>
-        <div style={styles.tab} onClick={onLogout}>
-          <Logout color='white' />
+        <div style={styles.tab} className='tab' onClick={onLogout}>
+          <Logout />
         </div>
       </div>
     </div>
