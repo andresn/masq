@@ -10,6 +10,7 @@ exports[`Storyshots AddDevice Modal addDevice modal 1`] = `
 >
   <div>
     <div
+      onClick={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.7)",
@@ -452,6 +453,7 @@ exports[`Storyshots AuthApp Modal authApp modal 1`] = `
 >
   <div>
     <div
+      onClick={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.7)",
@@ -2230,6 +2232,7 @@ exports[`Storyshots Login Page login 1`] = `
 exports[`Storyshots Modal empty modal 1`] = `
 <div>
   <div
+    onClick={[Function]}
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.7)",
@@ -2294,6 +2297,7 @@ exports[`Storyshots Modal empty modal 1`] = `
 exports[`Storyshots Modal with a button as children 1`] = `
 <div>
   <div
+    onClick={[Function]}
     style={
       Object {
         "backgroundColor": "rgba(0, 0, 0, 0.7)",
@@ -2541,6 +2545,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
 >
   <div>
     <div
+      onClick={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.7)",

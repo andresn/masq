@@ -40,7 +40,7 @@ export default function Modal (props) {
 
   return (
     <div>
-      <div style={styles.overlay} />
+      <div style={styles.overlay} onClick={props.onClose} />
       <div style={modalStyle}>
         <Close style={styles.close} width={9} height={9} onClick={props.onClose} />
         {props.children}
