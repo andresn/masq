@@ -53,37 +53,5 @@
   },
   "browserslist": [
     "Electron >= 2.0.0"
-  ],
-  "build": {
-    "appId": "masq-app",
-    "directories": {
-      "buildResources": "res"
-    },
-    "publish": ["github"],
-    "linux": {
-      "target": [
-        {
-          "target": "tar.xz",
-          "arch": ["x64"]
-        }
-      ]
-    },
-    "mac": {
-      "target": [
-        {
-          "target": "zip",
-          "arch": ["x64"]
-        }
-      ]
-    },
-    "win": {
-      "target": [
-        {
-          "target": "zip",
-          "arch": ["x64"]
-        }
-      ]
-    },
-    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}"
-  }
+  ]
 }
