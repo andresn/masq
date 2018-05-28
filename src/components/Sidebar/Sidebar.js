@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { Smartphone, Cards, Settings as SettingsIcon } from 'icons'
 
-import { UserContext } from 'context/user'
+import { UserContext } from 'contexts/user'
 
 import SidebarMin from './SidebarMin'
 import SidebarMax from './SidebarMax'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserContext } from 'context/user'
+import { UserContext } from 'contexts/user'
 import { storiesOf } from '@storybook/react'
 
 import Settings from './Settings'

@@ -2,7 +2,7 @@ import React from 'react'
 import { MemoryRouter } from 'react-router'
 import { storiesOf } from '@storybook/react'
 
-import { UserContext } from 'context/user'
+import { UserContext } from 'contexts/user'
 
 import Sidebar from './Sidebar'
 

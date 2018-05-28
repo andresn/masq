@@ -8,7 +8,7 @@ import { Server } from 'masq-socket'
 import { Masq } from 'masq-store'
 
 import { Login, Loading, Devices, Settings, Applications } from 'pages'
-import { UserContext } from 'context/user'
+import { UserContext } from 'contexts/user'
 import { Sidebar } from 'components'
 import { AuthApp } from 'modals'
 

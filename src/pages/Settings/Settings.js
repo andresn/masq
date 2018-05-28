@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Avatar, TextInput, Button } from 'components'
 
-import { UserContext } from 'context/user'
+import { UserContext } from 'contexts/user'
 
 import './Settings.css'
 
