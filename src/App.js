@@ -25,7 +25,6 @@ class App extends Component {
     super()
     this.state = {
       users: [],
-      isLogging: false,
       isAuthenticated: false,
       currentUser: null,
       appsRequests: []
@@ -108,21 +107,13 @@ class App extends Component {
   }
 
   async signin (user) {
+    history.push('loading')
     await masq.signIn(user.username)
     this.setState({
       isAuthenticated: true,
-      isLogging: true,
       currentUser: user
     })
-
-    // simulate auth for 2 seconds
-    // FIXME
-    history.push('loading')
-    setTimeout(() => {
-      this.setState({ isLogging: false })
-      history.push('applications')
-    }, 2000)
-
+    history.push('applications')
     // await this.fetchDevices()
     await this.fetchApps()
   }
@@ -131,8 +122,7 @@ class App extends Component {
     await masq.signOut()
     this.setState({
       currentUser: null,
-      isAuthenticated: false,
-      isLogging: false
+      isAuthenticated: false
     })
     history.push('login')
   }
@@ -186,7 +176,7 @@ class App extends Component {
               }
             />
 
-            {this.state.isAuthenticated && !this.state.isLogging
+            {this.state.isAuthenticated
               ? (
                 <div style={{display: 'grid', gridTemplateColumns: 'auto 1fr', height: '100%'}}>
                   <Sidebar onLogout={this.signout} />
