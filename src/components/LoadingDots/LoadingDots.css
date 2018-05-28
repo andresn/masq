@@ -1,4 +1,4 @@
-@-webkit-keyframes dot-keyframes {
+@keyframes dot-keyframes {
   0% {
     opacity: .4;
   }
