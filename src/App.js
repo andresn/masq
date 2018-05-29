@@ -16,7 +16,7 @@ import './App.css'
 
 const win = remote.getCurrentWindow()
 const history = createBrowserHistory()
-// Initialize masq store and server
+// Initialize Masq libraries
 const masq = new Masq({ storage: localforage })
 const server = new Server(8080, masq, localforage)
 
@@ -47,6 +47,10 @@ class App extends Component {
     ]
   }
 
+  /**
+   * Authorize or reject an application
+   * @param {string} isAuthorized - Authorize if true, reject if false
+   */
   async authorizeApp (isAuthorized) {
     const appsRequests = this.state.appsRequests.slice()
 
@@ -65,21 +69,27 @@ class App extends Component {
   }
 
   async componentDidMount () {
+    // Init masq and server
     await masq.init()
     await server.init()
+
     history.push('login')
 
+    // Register handler when a new app requests authorization
     server.onRegister(async (appMeta) => {
+      // No user logged, then bring window to front
       if (!this.state.currentUser) {
         win.focus()
       }
 
+      // If the app is already registered, ignore it
       if (this.apps.find(a => appMeta.url === a.url)) {
         return
       }
 
       const appsRequests = this.state.appsRequests.slice()
       appsRequests.push(appMeta)
+      // Display notification to asks user to open mask
       const notif = new window.Notification('Masq App', {
         body: appMeta.url + ' is requesting access to Masq'
       })
@@ -91,21 +101,35 @@ class App extends Component {
     this.fetchUsers()
   }
 
+  /**
+   * Fetch list of registered users
+   */
   async fetchUsers () {
     const users = Object.values(await masq.listUsers())
     this.setState({ users: users })
   }
 
+  /**
+   * TODO
+   * Fetch list of devices
+   */
   async fetchDevices () {
     // TODO: Use lib when it's ready
     this.devices = []
   }
 
+  /**
+   * Fetch list of apps
+   */
   async fetchApps () {
     this.apps = Object.values(await masq.listApps())
     this.forceUpdate()
   }
 
+  /**
+   * Sign in a user
+   * @param {Object} user - The user who is signin in
+   */
   async signin (user) {
     history.push('loading')
     await masq.signIn(user.username)
@@ -118,6 +142,9 @@ class App extends Component {
     await this.fetchApps()
   }
 
+  /**
+   * Sign out the current user
+   */
   async signout () {
     await masq.signOut()
     this.setState({
@@ -127,16 +154,28 @@ class App extends Component {
     history.push('login')
   }
 
+  /**
+   * On device checked/unchecked
+   * @param {number} index - The device index
+   */
   async onDevChecked (index) {
     this.devices[index].enabled = !this.devices[index].enabled
     await masq.updateDevice(this.devices[index])
   }
 
+  /**
+   * On application checked/unchecked
+   * @param {number} index - The Application index
+   */
   async onAppChecked (index) {
     this.apps[index].enabled = !this.apps[index].enabled
     await masq.updateApp(this.apps[index])
   }
 
+  /**
+   * On app trash button clicked
+   * @param {number} index - The index of the app to delete
+   */
   async onAppTrash (index) {
     const url = this.apps[index].url
     await masq.deleteApp(url)
@@ -144,18 +183,29 @@ class App extends Component {
     this.forceUpdate()
   }
 
+  /**
+   * Signup a user
+   * @param {Object} user - The user to register
+   */
   async onSignup (user) {
     await masq.createUser(user)
     await this.fetchUsers()
     history.push('login')
   }
 
+  /**
+   * Delete the current user
+   */
   async onDeleteUser () {
     await masq.deleteUser()
     await this.fetchUsers()
     history.push('login')
   }
 
+  /**
+   * Update the current user
+   * @param {Object} user - The updapted user object
+   */
   async onUpdateUser (user) {
     await masq.updateUser(user)
     await this.fetchUsers()
