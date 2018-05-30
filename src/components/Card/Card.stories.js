@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
 import Card from './Card'
 
@@ -23,5 +24,14 @@ storiesOf('Card', module)
   .add('enabled with a logo', () => (
     <Card enabled color='blue' title='sometitle'
       logo='https://upload.wikimedia.org/wikipedia/commons/f/fd/Qwant-v3.png'
+    />
+  ))
+  .add('with trash icon', () => (
+    <Card
+      enabled
+      color='blue'
+      onTrash={action('onTrash')}
+      title='sometitle'
+      description='some description'
     />
   ))

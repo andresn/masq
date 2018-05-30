@@ -60,5 +60,6 @@ Card.propTypes = {
   color: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   enabled: PropTypes.bool,
-  onChecked: PropTypes.func
+  onChecked: PropTypes.func,
+  onTrash: PropTypes.func
 }
