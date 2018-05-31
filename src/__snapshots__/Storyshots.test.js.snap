@@ -223,33 +223,33 @@ exports[`Storyshots Applications Page with applications 1`] = `
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
@@ -350,33 +350,33 @@ exports[`Storyshots Applications Page with applications 1`] = `
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
@@ -498,33 +498,33 @@ exports[`Storyshots Applications Page with applications 1`] = `
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
                     <div
                       style={
                         Object {
-                          "border": "solid 2px var(--grey-200)",
+                          "backgroundColor": "var(--grey-200)",
                           "borderRadius": "50%",
-                          "height": 2,
-                          "marginBottom": 1,
-                          "width": 2,
+                          "height": 4,
+                          "marginBottom": 2,
+                          "width": 4,
                         }
                       }
                     />
@@ -1332,33 +1332,33 @@ exports[`Storyshots Card with trash icon 1`] = `
               <div
                 style={
                   Object {
-                    "border": "solid 2px var(--grey-200)",
+                    "backgroundColor": "var(--grey-200)",
                     "borderRadius": "50%",
-                    "height": 2,
-                    "marginBottom": 1,
-                    "width": 2,
+                    "height": 4,
+                    "marginBottom": 2,
+                    "width": 4,
                   }
                 }
               />
               <div
                 style={
                   Object {
-                    "border": "solid 2px var(--grey-200)",
+                    "backgroundColor": "var(--grey-200)",
                     "borderRadius": "50%",
-                    "height": 2,
-                    "marginBottom": 1,
-                    "width": 2,
+                    "height": 4,
+                    "marginBottom": 2,
+                    "width": 4,
                   }
                 }
               />
               <div
                 style={
                   Object {
-                    "border": "solid 2px var(--grey-200)",
+                    "backgroundColor": "var(--grey-200)",
                     "borderRadius": "50%",
-                    "height": 2,
-                    "marginBottom": 1,
-                    "width": 2,
+                    "height": 4,
+                    "marginBottom": 2,
+                    "width": 4,
                   }
                 }
               />

@@ -32,11 +32,11 @@ export default class ButtonsGroup extends React.Component {
         marginRight: 16
       },
       dot: {
-        width: 2,
-        height: 2,
-        marginBottom: 1,
-        borderRadius: '50%',
-        border: 'solid 2px var(--grey-200)'
+        width: 4,
+        height: 4,
+        backgroundColor: 'var(--grey-200)',
+        marginBottom: 2,
+        borderRadius: '50%'
       }
     }
 
