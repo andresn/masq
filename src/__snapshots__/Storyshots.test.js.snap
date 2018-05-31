@@ -202,24 +202,59 @@ exports[`Storyshots Applications Page with applications 1`] = `
                     />
                   </div>
                 </div>
-                <svg
-                  color="#191919"
-                  height={15}
-                  onClick={[Function]}
+                <div
                   style={
                     Object {
-                      "cursor": "pointer",
-                      "opacity": 0.5,
+                      "alignItems": "center",
+                      "display": "flex",
                     }
                   }
-                  viewBox="0 0 20 22"
-                  width={13}
                 >
-                  <path
-                    d="M19 4h-4V3c0-1.7-1.3-3-3-3H8C6.3 0 5 1.3 5 3v1H1c-.6 0-1 .4-1 1s.4 1 1 1h1v13c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V6h1c.6 0 1-.4 1-1s-.4-1-1-1zM7 3c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v1H7zm9 16c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1V6h12zm-7-9v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1zm4 0v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1z"
-                    fill="currentColor"
-                  />
-                </svg>
+                  <div
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "cursor": "pointer",
+                        "transitionDuration": "0.3s",
+                        "transitionProperty": "transform",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <h2>
@@ -294,24 +329,59 @@ exports[`Storyshots Applications Page with applications 1`] = `
                     />
                   </div>
                 </div>
-                <svg
-                  color="#191919"
-                  height={15}
-                  onClick={[Function]}
+                <div
                   style={
                     Object {
-                      "cursor": "pointer",
-                      "opacity": 0.5,
+                      "alignItems": "center",
+                      "display": "flex",
                     }
                   }
-                  viewBox="0 0 20 22"
-                  width={13}
                 >
-                  <path
-                    d="M19 4h-4V3c0-1.7-1.3-3-3-3H8C6.3 0 5 1.3 5 3v1H1c-.6 0-1 .4-1 1s.4 1 1 1h1v13c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V6h1c.6 0 1-.4 1-1s-.4-1-1-1zM7 3c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v1H7zm9 16c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1V6h12zm-7-9v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1zm4 0v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1z"
-                    fill="currentColor"
-                  />
-                </svg>
+                  <div
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "cursor": "pointer",
+                        "transitionDuration": "0.3s",
+                        "transitionProperty": "transform",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div
@@ -407,24 +477,59 @@ exports[`Storyshots Applications Page with applications 1`] = `
                     />
                   </div>
                 </div>
-                <svg
-                  color="#191919"
-                  height={15}
-                  onClick={[Function]}
+                <div
                   style={
                     Object {
-                      "cursor": "pointer",
-                      "opacity": 0.5,
+                      "alignItems": "center",
+                      "display": "flex",
                     }
                   }
-                  viewBox="0 0 20 22"
-                  width={13}
                 >
-                  <path
-                    d="M19 4h-4V3c0-1.7-1.3-3-3-3H8C6.3 0 5 1.3 5 3v1H1c-.6 0-1 .4-1 1s.4 1 1 1h1v13c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V6h1c.6 0 1-.4 1-1s-.4-1-1-1zM7 3c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v1H7zm9 16c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1V6h12zm-7-9v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1zm4 0v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1z"
-                    fill="currentColor"
-                  />
-                </svg>
+                  <div
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "cursor": "pointer",
+                        "transitionDuration": "0.3s",
+                        "transitionProperty": "transform",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                    <div
+                      style={
+                        Object {
+                          "border": "solid 2px var(--grey-200)",
+                          "borderRadius": "50%",
+                          "height": 2,
+                          "marginBottom": 1,
+                          "width": 2,
+                        }
+                      }
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <h2>
@@ -1206,24 +1311,59 @@ exports[`Storyshots Card with trash icon 1`] = `
               />
             </div>
           </div>
-          <svg
-            color="#191919"
-            height={15}
-            onClick={[Function]}
+          <div
             style={
               Object {
-                "cursor": "pointer",
-                "opacity": 0.5,
+                "alignItems": "center",
+                "display": "flex",
               }
             }
-            viewBox="0 0 20 22"
-            width={13}
           >
-            <path
-              d="M19 4h-4V3c0-1.7-1.3-3-3-3H8C6.3 0 5 1.3 5 3v1H1c-.6 0-1 .4-1 1s.4 1 1 1h1v13c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3V6h1c.6 0 1-.4 1-1s-.4-1-1-1zM7 3c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v1H7zm9 16c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1V6h12zm-7-9v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1zm4 0v6c0 .6-.4 1-1 1s-1-.4-1-1v-6c0-.6.4-1 1-1s1 .4 1 1z"
-              fill="currentColor"
-            />
-          </svg>
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "cursor": "pointer",
+                  "transitionDuration": "0.3s",
+                  "transitionProperty": "transform",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "border": "solid 2px var(--grey-200)",
+                    "borderRadius": "50%",
+                    "height": 2,
+                    "marginBottom": 1,
+                    "width": 2,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "border": "solid 2px var(--grey-200)",
+                    "borderRadius": "50%",
+                    "height": 2,
+                    "marginBottom": 1,
+                    "width": 2,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "border": "solid 2px var(--grey-200)",
+                    "borderRadius": "50%",
+                    "height": 2,
+                    "marginBottom": 1,
+                    "width": 2,
+                  }
+                }
+              />
+            </div>
+          </div>
         </div>
       </div>
       <h2>
