@@ -15,7 +15,10 @@ import { AuthApp } from 'modals'
 import './App.css'
 
 const win = remote.getCurrentWindow()
-const history = createBrowserHistory()
+const history = createBrowserHistory({
+  basename: window.location.pathname
+})
+
 // Initialize Masq libraries
 const masq = new Masq({ storage: localforage })
 const server = new Server(8080, masq, localforage)
