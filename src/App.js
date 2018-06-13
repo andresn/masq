@@ -85,11 +85,6 @@ class App extends Component {
         win.focus()
       }
 
-      // If the app is already registered, ignore it
-      if (this.apps.find(a => appMeta.url === a.url)) {
-        return
-      }
-
       const appsRequests = this.state.appsRequests.slice()
       appsRequests.push(appMeta)
       // Display notification to asks user to open mask
