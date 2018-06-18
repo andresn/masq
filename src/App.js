@@ -211,6 +211,24 @@ class App extends Component {
   }
 
   render () {
+    const AuthenticatedSection = () => (
+      <div style={{display: 'grid', gridTemplateColumns: 'auto 1fr', height: '100%'}}>
+        <Sidebar onLogout={this.signout} />
+        <div style={{marginTop: 59, marginLeft: 40}} >
+          <Route path='/devices' render={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
+          <Route path='/applications' render={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
+          <Route path='/settings' render={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+          {this.state.appsRequests.length > 0 &&
+            <AuthApp
+              app={this.state.appsRequests[0]}
+              onAccept={() => this.authorizeApp(true)}
+              onReject={() => this.authorizeApp(false)}
+            />
+          }
+        </div>
+      </div>
+    )
+
     return (
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
@@ -224,25 +242,7 @@ class App extends Component {
               }
             />
 
-            {this.state.isAuthenticated
-              ? (
-                <div style={{display: 'grid', gridTemplateColumns: 'auto 1fr', height: '100%'}}>
-                  <Sidebar onLogout={this.signout} />
-                  <div style={{marginTop: 59, marginLeft: 40}} >
-                    <Route path='/devices' render={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
-                    <Route path='/applications' render={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
-                    <Route path='/settings' render={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
-                    {this.state.appsRequests.length > 0 &&
-                      <AuthApp
-                        app={this.state.appsRequests[0]}
-                        onAccept={() => this.authorizeApp(true)}
-                        onReject={() => this.authorizeApp(false)}
-                      />
-                    }
-                  </div>
-                </div>)
-              : null
-            }
+            {this.state.isAuthenticated ? <AuthenticatedSection /> : false}
           </div>
         </Router>
       </UserContext.Provider>
