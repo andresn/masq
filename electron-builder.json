@@ -1,5 +1,5 @@
 {
-  "appId": "masq-app",
+  "appId": "com.qwant.masq-app",
   "directories": {
     "buildResources": "res"
   },
