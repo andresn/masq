@@ -27,14 +27,14 @@
   },
   "dependencies": {
     "localforage": "^1.7.2",
+    "masq-socket": "git+https://github.com/QwantResearch/masq-socket.git",
+    "masq-store": "git+https://github.com/QwantResearch/masq-store.git",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-responsive": "^4.1.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.0-next.3e165448",
-    "typeface-asap": "0.0.35",
-    "masq-socket": "git+https://github.com/QwantResearch/masq-socket.git",
-    "masq-store": "git+https://github.com/QwantResearch/masq-store.git"
+    "typeface-asap": "0.0.35"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.7",
@@ -45,7 +45,7 @@
     "@storybook/react": "^3.4.7",
     "concurrently": "^3.5.1",
     "electron": "^2.0.2",
-    "electron-builder": "^20.15.1",
+    "electron-builder": "~20.14.7",
     "react-app-rewired": "^2.0.0",
     "react-test-renderer": "^16.4.1",
     "standard": "^11.0.1",
