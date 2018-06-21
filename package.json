@@ -26,6 +26,7 @@
     ]
   },
   "dependencies": {
+    "electron-updater": "^2.21.10",
     "localforage": "^1.7.2",
     "masq-socket": "git+https://github.com/QwantResearch/masq-socket.git",
     "masq-store": "git+https://github.com/QwantResearch/masq-store.git",

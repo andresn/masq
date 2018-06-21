@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const { autoUpdater } = require('electron-updater')
 const path = require('path')
 
 const isDev = process.env.ENV === 'development'
@@ -18,6 +19,8 @@ function createWindow () {
   // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools()
+  } else {
+    autoUpdater.checkForUpdatesAndNotify()
   }
 }
 
