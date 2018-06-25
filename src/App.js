@@ -1,6 +1,8 @@
 import createBrowserHistory from 'history/createBrowserHistory'
 import { Router, Route } from 'react-router-dom'
 import React, { Component } from 'react'
+import i18next from 'i18next'
+import { translate } from 'react-i18next'
 import localforage from 'localforage'
 import { remote } from 'electron'
 
@@ -46,7 +48,7 @@ class App extends Component {
 
     // FIXME
     this.devices = [
-      { name: 'This device', color: '#40ae6c', enabled: true }
+      { name: i18next.t('This device'), color: '#40ae6c', enabled: true }
     ]
   }
 
@@ -233,7 +235,6 @@ class App extends Component {
       <UserContext.Provider value={this.state.currentUser}>
         <Router history={history}>
           <div className='App'>
-
             <Route path='/loading' component={Loading} />
             <Route
               path='/login'
@@ -250,4 +251,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default translate('translations')(App)

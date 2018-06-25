@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'react-i18next'
 
 import { Avatar } from 'components'
 import { Background, Logout } from 'icons'
@@ -96,7 +97,7 @@ export default function SidebarMax (props) {
       <div style={styles.logout}>
         <div style={styles.tab} className='tab' onClick={onLogout}>
           <Logout />
-          <p>LOGOUT</p>
+          <p><Trans>LOGOUT</Trans></p>
         </div>
       </div>
       <Background style={styles.background} />

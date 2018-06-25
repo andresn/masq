@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'react-i18next'
 
 import { Avatar, TextInput } from 'components'
 import { Background, Logo, Plusbutton, Chevron } from 'icons'
@@ -29,7 +30,7 @@ export function UsersSelection (props) {
       }
       <div className='header'>
         <Logo style={styles.logo} />
-        <h1 className='title'>Who is it ?</h1>
+        <h1 className='title'><Trans>Who is it ?</Trans></h1>
       </div>
 
       <div className='users'>
@@ -45,7 +46,7 @@ export function UsersSelection (props) {
           <div style={{height: '120px', cursor: 'pointer'}}>
             <Plusbutton />
           </div>
-          <p className='username' id='add-user'>Add user</p>
+          <p className='username' id='add-user'><Trans>Add a user</Trans></p>
         </div>
       </div>
       <Background style={styles.background} />
@@ -76,7 +77,7 @@ export function UserPassword (props) {
 
       <div className='goback'>
         <Chevron style={{transform: 'rotate(90deg)', cursor: 'pointer'}} onClick={clearUser} />
-        <p onClick={clearUser}>Change user</p>
+        <p onClick={clearUser}><Trans i18nKey='Change user' /></p>
       </div>
 
       <div className='users'>
@@ -86,7 +87,7 @@ export function UserPassword (props) {
         </div>
       </div>
       <div className='text'>
-        <p>Enter your password</p>
+        <p><Trans i18nKey='Enter your password' /></p>
         <TextInput password focus onChange={onChange} onKeyUp={onKeyUp} />
       </div>
       <Background style={styles.background} />

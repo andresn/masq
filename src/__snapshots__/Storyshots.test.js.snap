@@ -2424,7 +2424,7 @@ exports[`Storyshots Login Page login 1`] = `
           className="username"
           id="add-user"
         >
-          Add user
+          Add a user
         </p>
       </div>
     </div>
@@ -2727,7 +2727,7 @@ exports[`Storyshots Settings Page settings 1`] = `
             type="text"
           />
           <label>
-            Username (Displayed)
+            Username (displayed)
           </label>
         </div>
       </div>
@@ -2841,7 +2841,7 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
         className="Signup"
       >
         <h1>
-          Add a new user
+          Add a user
         </h1>
         <div>
           <input

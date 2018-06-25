@@ -1,4 +1,6 @@
 import React from 'react'
+import i18next from 'i18next'
+import { Trans } from 'react-i18next'
 
 import { Avatar, Modal, Button, TextInput } from 'components'
 
@@ -120,7 +122,7 @@ export default class Signup extends React.Component {
     return (
       <Modal onClose={this.props.onClose} height={670} width={511}>
         <div className='Signup'>
-          <h1>Add a new user</h1>
+          <h1><Trans i18nKey='Add a user' /></h1>
 
           {this.currentStep === 0 && (
             <React.Fragment>
@@ -130,23 +132,23 @@ export default class Signup extends React.Component {
                 onChange={(e) => this.onImageChange(e)}
                 image={this.state.image || null}
               />
-              <Button secondary label='IMPORT A PHOTO' onClick={this.openDialog} />
+              <Button secondary label={i18next.t('importphoto')} onClick={this.openDialog} />
               <div style={{paddingBottom: 32}} />
 
               <TextInput
-                label='Last Name'
+                label={i18next.t('Last Name')}
                 error={!this.isValid('lastname')}
                 defaultValue={this.state.lastname}
                 onChange={(e) => this.onChange('lastname', e)}
               />
               <TextInput
-                label='First Name'
+                label={i18next.t('First Name')}
                 error={!this.isValid('firstname')}
                 defaultValue={this.state.firstname}
                 onChange={(e) => this.onChange('firstname', e)}
               />
               <TextInput
-                label='Username (displayed)'
+                label={i18next.t('Username (displayed)')}
                 error={!this.isValid('username')}
                 defaultValue={this.state.username}
                 onChange={(e) => this.onChange('username', e)}
@@ -154,7 +156,7 @@ export default class Signup extends React.Component {
               />
 
               <div className='buttons'>
-                <Button label='Next' onClick={this.next} width={185} />
+                <Button label={i18next.t('Next')} onClick={this.next} width={185} />
               </div>
             </React.Fragment>
           )}
@@ -165,24 +167,24 @@ export default class Signup extends React.Component {
               <p className='user'>{this.state.username}</p>
               <TextInput
                 password
-                label='Password'
-                labelError='Password must be at least 8 characters long'
+                label={i18next.t('Password')}
+                labelError={i18next.t('Password must be at least 8 characters long')}
                 error={!this.isValid('password')}
                 onChange={(e) => this.onChange('password', e)}
               />
 
               <TextInput
                 password
-                label='Password confirmation'
-                labelError='Passwords do not match'
+                label={i18next.t('Password confirmation')}
+                labelError={i18next.t('Passwords do not match')}
                 error={!this.isValid('passwordConfirmation')}
                 onKeyUp={this.handleKeyUp}
                 onChange={(e) => this.onChange('passwordConfirmation', e)}
               />
 
               <div className='buttons'>
-                <Button label='Previous' onClick={this.previous} width={185} />
-                <Button label='Finish' onClick={this.finish} width={185} />
+                <Button label={i18next.t('Previous')} onClick={this.previous} width={185} />
+                <Button label={i18next.t('Finish')} onClick={this.finish} width={185} />
               </div>
             </React.Fragment>
           )}

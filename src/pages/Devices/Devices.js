@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'react-i18next'
+import i18next from 'i18next'
 
 import { Button } from 'components'
 
@@ -43,8 +45,8 @@ export default class Devices extends React.Component {
           </div> */}
 
           <div className='title-container'>
-            <h1>My devices</h1>
-            <h3>Find your devices connected to Masq</h3>
+            <h1><Trans>My devices</Trans></h1>
+            <h3><Trans>Find your devices connected to Masq</Trans></h3>
           </div>
           <div className='cards-grid'>
             {devices.map((device, index) =>
@@ -53,7 +55,7 @@ export default class Devices extends React.Component {
           </div>
         </div>
         <div className='sidebar'>
-          <Button secondary width={200} label='ADD A NEW DEVICE' onClick={() => this.toggleModal(true)} />
+          <Button secondary width={200} label={i18next.t('ADD A NEW DEVICE')} onClick={() => this.toggleModal(true)} />
         </div>
       </div>
     )

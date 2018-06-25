@@ -16,6 +16,6 @@ function loadStories() {
   )
 }
 
-addDecorator((story, context) => withInfo('common info')(story)(context));
+addDecorator((story, context) => withInfo('common info')(story)(context))
 
 configure(loadStories, module);

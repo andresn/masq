@@ -1,6 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Applications from './Applications'
+import { I18nextProvider } from 'react-i18next'
+
+import i18n from 'i18n/i18n'
 
 const applications = [
   {
@@ -29,5 +32,7 @@ const applications = [
 
 storiesOf('Applications Page', module)
   .add('with applications', () => (
-    <Applications applications={applications} />
+    <I18nextProvider i18n={i18n}>
+      <Applications applications={applications} t={key => key} />
+    </I18nextProvider>
   ))

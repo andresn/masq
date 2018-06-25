@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import i18next from 'i18next'
+import { Trans } from 'react-i18next'
 
 import { Avatar, TextInput, Button } from 'components'
 
@@ -83,27 +85,27 @@ class Settings extends React.Component {
       <div className='Settings'>
         <div>
           <div className='title-container'>
-            <h1>Your profile</h1>
-            <h3>Edit your personal informations</h3>
+            <h1><Trans>Your profile</Trans></h1>
+            <h3><Trans>Edit your personal informations</Trans></h3>
           </div>
 
           <div className='profile'>
             <Avatar upload image={this.state.image} onChange={(e) => this.onImageChange(e)} />
             <div className='inputs'>
               <TextInput
-                label='Last Name'
+                label={i18next.t('Last Name')}
                 error={!this.isValid('lastname')}
                 onKeyUp={this.handleKeyUp}
                 defaultValue={this.state.lastname} onChange={(e) => this.onChange('lastname', e)}
               />
               <TextInput
-                label='First Name'
+                label={i18next.t('First Name')}
                 error={!this.isValid('firstname')}
                 onKeyUp={this.handleKeyUp}
                 defaultValue={this.state.firstname} onChange={(e) => this.onChange('firstname', e)}
               />
               <TextInput
-                label='Username (Displayed)'
+                label={i18next.t('Username (displayed)')}
                 error={!this.isValid('username')}
                 onKeyUp={this.handleKeyUp}
                 defaultValue={this.state.username} onChange={(e) => this.onChange('username', e)}
@@ -126,7 +128,7 @@ class Settings extends React.Component {
         </div>
 
         <div className='sidebar'>
-          <Button width={200} secondary={!this.hasChanged} label='SAVE' onClick={this.validate} />
+          <Button width={200} secondary={!this.hasChanged} label={i18next.t('SAVE')} onClick={this.validate} />
         </div>
       </div>
     )

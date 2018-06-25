@@ -1,8 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { MemoryRouter } from 'react-router'
+import { I18nextProvider } from 'react-i18next'
+
+import i18n from 'i18n/i18n'
 
 import Login from './Login'
-import { MemoryRouter } from 'react-router'
 
 const users = [
   {
@@ -21,9 +24,11 @@ const users = [
 
 storiesOf('Login Page', module)
   .add('login', () => (
-    <div style={{ height: 800 }}>
-      <MemoryRouter>
-        <Login users={users} onAuth={() => true} />
-      </MemoryRouter>
-    </div>
+    <I18nextProvider i18n={i18n}>
+      <div style={{ height: 800 }}>
+        <MemoryRouter>
+          <Login users={users} onAuth={() => true} />
+        </MemoryRouter>
+      </div>
+    </I18nextProvider>
   ))

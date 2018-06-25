@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'react-i18next'
 
 import AppCard from './AppCard/AppCard'
 
@@ -22,8 +23,8 @@ export default function Applications (props) {
         </div> */}
 
         <div className='title-container'>
-          <h1>My applications</h1>
-          <h3>Find your apps connected to Masq</h3>
+          <h1><Trans>My applications</Trans></h1>
+          <h3><Trans>Find your apps connected to Masq</Trans></h3>
         </div>
         <div className='cards-grid'>
           {applications.map((app, index) =>

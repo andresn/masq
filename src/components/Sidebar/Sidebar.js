@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
+import i18next from 'i18next'
 
 import { Smartphone, Cards, Settings as SettingsIcon } from 'icons'
 
@@ -13,9 +14,9 @@ import SidebarMax from './SidebarMax'
 import './Sidebar.css'
 
 const tabs = [
-  { label: 'Applications', link: '/applications', icon: <Cards /> },
-  { label: 'Devices', link: '/devices', icon: <Smartphone /> },
-  { label: 'Settings', link: '/settings', icon: <SettingsIcon /> }
+  { label: i18next.t('Applications'), link: '/applications', icon: <Cards /> },
+  { label: i18next.t('Devices'), link: '/devices', icon: <Smartphone /> },
+  { label: i18next.t('Settings'), link: '/settings', icon: <SettingsIcon /> }
 ]
 
 class Sidebar extends React.Component {
