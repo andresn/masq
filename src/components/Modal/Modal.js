@@ -21,7 +21,8 @@ const styles = {
     position: 'absolute',
     backgroundColor: 'white',
     boxShadow: '0 2px 16px 0 rgba(0, 0, 0, 0.16)',
-    opacity: 1
+    opacity: 1,
+    paddingBottom: 32
   },
   close: {
     float: 'right',

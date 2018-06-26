@@ -7,11 +7,6 @@ import { Modal, Button } from 'components'
 import './AuthApp.css'
 
 const styles = {
-  header: {
-    // backgroundColor: '#252a39',
-    height: 150,
-    width: '100%'
-  },
   title: {
     fontSize: '16px',
     fontWeight: 'normal',
@@ -51,12 +46,13 @@ const styles = {
 
 export default class AuthApp extends React.Component {
   render () {
+    const { onClose, app, securityCode = 1234, onAccept, onReject } = this.props
     return (
-      <Modal onClose={this.props.onClose} height={670} width={511}>
-        <div style={styles.header} />
+      <Modal onClose={onClose} width={511}>
         <div className='AuthApp'>
           <p style={styles.title}><Trans>New connection request from</Trans></p>
-          <p style={styles.appTitle}>{this.props.app.url}</p>
+          <p style={styles.appTitle}>{app.url}</p>
+          <input className='securityCode' placeholder={securityCode} readOnly />
           <p style={styles.description}>
             <Trans>This notification appears because that application asks permission
             to use your Masq storage.</Trans>
@@ -67,8 +63,8 @@ export default class AuthApp extends React.Component {
           </p>
 
           <div style={styles.buttons}>
-            <Button label={i18next.t('Reject')} onClick={this.props.onReject} />
-            <Button label={i18next.t('Accept')} onClick={this.props.onAccept} />
+            <Button label={i18next.t('Reject')} onClick={onReject} />
+            <Button label={i18next.t('Accept')} onClick={onAccept} />
           </div>
         </div>
       </Modal>

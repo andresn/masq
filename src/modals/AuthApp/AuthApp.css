@@ -37,3 +37,19 @@
 .AuthApp Button {
   width: 185px;
 }
+
+.AuthApp .securityCode {
+  border: 1px solid var(--blue-500);
+  width: 150px;
+  font-size: 48px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.AuthApp .securityCode::placeholder {
+  color: var(--blue-500);
+}
