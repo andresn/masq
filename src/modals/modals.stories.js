@@ -5,7 +5,9 @@ import { I18nextProvider } from 'react-i18next'
 
 import i18n from 'i18n/i18n'
 
-import AuthApp from './AuthApp'
+import Signup from './Signup/Signup'
+import AuthApp from './AuthApp/AuthApp'
+import AddDevice from './AddDevice/AddDevice'
 
 const appInfo = {
   url: 'https://masq.io/search',
@@ -13,7 +15,14 @@ const appInfo = {
   description: 'Masq Search'
 }
 
-storiesOf('AuthApp Modal', module)
+storiesOf('Modals', module)
+  .add('signup modal', () => (
+    <I18nextProvider i18n={i18n}>
+      <div style={{marginTop: '35%'}}>
+        <Signup onClose={action('onClosed')} />
+      </div>
+    </I18nextProvider>
+  ))
   .add('authApp modal', () => (
     <I18nextProvider i18n={i18n}>
       <div style={{marginTop: '35%'}}>
@@ -21,7 +30,15 @@ storiesOf('AuthApp Modal', module)
           onClose={action('onClosed')}
           onReject={action('rejected')}
           onAccept={action('accepted')}
-          app={appInfo} />
+          app={appInfo}
+        />
+      </div>
+    </I18nextProvider>
+  ))
+  .add('addDevice modal', () => (
+    <I18nextProvider i18n={i18n}>
+      <div style={{marginTop: '35%'}}>
+        <AddDevice onClose={action('onClosed')} />
       </div>
     </I18nextProvider>
   ))

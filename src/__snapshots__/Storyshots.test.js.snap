@@ -1,122 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots AddDevice Modal addDevice modal 1`] = `
-<div
-  style={
-    Object {
-      "marginTop": "35%",
-    }
-  }
->
-  <div>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.7)",
-          "height": "100%",
-          "left": 0,
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-          "zIndex": 2,
-        }
-      }
-    />
-    <div
-      style={
-        Object {
-          "backgroundColor": "white",
-          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
-          "height": 547,
-          "left": "50%",
-          "opacity": 1,
-          "paddingBottom": 32,
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
-          "width": 417,
-          "zIndex": 2,
-        }
-      }
-    >
-      <svg
-        height={9}
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "#191919",
-            "cursor": "pointer",
-            "float": "right",
-            "marginRight": 20,
-            "marginTop": 20,
-            "opacity": 0.4,
-          }
-        }
-        viewBox="0 0 14 14"
-        width={9}
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-      >
-        <defs>
-          <path
-            d="M13.7 12.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L7 8.4l-5.3 5.3c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L8.4 7l5.3 5.3z"
-            id="close-svg"
-          />
-        </defs>
-        <use
-          fill="currentColor"
-          fillRule="nonzero"
-          xlinkHref="#close-svg"
-        />
-      </svg>
-      <div
-        className="AddDevice"
-      >
-        <h1>
-          Add a new device
-        </h1>
-        <div
-          className="QRCode"
-          style={
-            Object {
-              "backgroundImage": "url(http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png)",
-            }
-          }
-        />
-        <a
-          href="https://QWA.NT/0BJ8ZX"
-        >
-          QWA.NT/0BJ8ZX
-        </a>
-        <p
-          style={
-            Object {
-              "paddingBottom": 64,
-            }
-          }
-        >
-          Scan your QR Code on the devices that you want to sync with.
-        </p>
-        <p>
-          You do not know how to do this ?
-        </p>
-        <button
-          className="Button secondary"
-          onClick={undefined}
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
-        >
-          ADD A DEVICE
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Applications Page with applications 1`] = `
 <div
   className="Applications"
@@ -542,187 +425,6 @@ exports[`Storyshots Applications Page with applications 1`] = `
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
             </p>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots AuthApp Modal authApp modal 1`] = `
-<div
-  style={
-    Object {
-      "marginTop": "35%",
-    }
-  }
->
-  <div>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.7)",
-          "height": "100%",
-          "left": 0,
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-          "zIndex": 2,
-        }
-      }
-    />
-    <div
-      style={
-        Object {
-          "backgroundColor": "white",
-          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
-          "height": undefined,
-          "left": "50%",
-          "opacity": 1,
-          "paddingBottom": 32,
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
-          "width": 511,
-          "zIndex": 2,
-        }
-      }
-    >
-      <svg
-        height={9}
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "#191919",
-            "cursor": "pointer",
-            "float": "right",
-            "marginRight": 20,
-            "marginTop": 20,
-            "opacity": 0.4,
-          }
-        }
-        viewBox="0 0 14 14"
-        width={9}
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-      >
-        <defs>
-          <path
-            d="M13.7 12.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L7 8.4l-5.3 5.3c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L8.4 7l5.3 5.3z"
-            id="close-svg"
-          />
-        </defs>
-        <use
-          fill="currentColor"
-          fillRule="nonzero"
-          xlinkHref="#close-svg"
-        />
-      </svg>
-      <div
-        className="AuthApp"
-      >
-        <p
-          style={
-            Object {
-              "fontSize": "16px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-              "letterSpacing": "0.1px",
-              "lineHeight": "normal",
-              "textAlign": "center",
-            }
-          }
-        >
-          New connection request from:
-        </p>
-        <p
-          style={
-            Object {
-              "fontSize": "32px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "bold",
-              "letterSpacing": "0.2px",
-              "lineHeight": "normal",
-              "textAlign": "center",
-            }
-          }
-        >
-          https://masq.io/search
-        </p>
-        <input
-          className="securityCode"
-          placeholder={1234}
-          readOnly={true}
-        />
-        <p
-          style={
-            Object {
-              "color": "var(--blue-200)",
-              "fontSize": "14px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "letterSpacing": "normal",
-              "lineHeight": 1.57,
-              "paddingBottom": 32,
-              "textAlign": "center",
-              "width": 380,
-            }
-          }
-        >
-          This notification appears because that application asks permission to use your Masq storage.
-        </p>
-        <p
-          style={
-            Object {
-              "color": "var(--blue-200)",
-              "fontSize": "14px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "letterSpacing": "normal",
-              "lineHeight": 1.57,
-              "paddingBottom": 32,
-              "textAlign": "center",
-              "width": 380,
-            }
-          }
-        >
-          If you are not at the origin of this request or if you have question, please contact our help center.
-        </p>
-        <div
-          style={
-            Object {
-              "display": "grid",
-              "gridGap": 32,
-              "gridTemplateColumns": "auto auto",
-            }
-          }
-        >
-          <button
-            className="Button primary"
-            onClick={[Function]}
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
-          >
-            Reject
-          </button>
-          <button
-            className="Button primary"
-            onClick={[Function]}
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
-          >
-            Accept
-          </button>
         </div>
       </div>
     </div>
@@ -2614,163 +2316,305 @@ exports[`Storyshots Modal with a button as children 1`] = `
 </div>
 `;
 
-exports[`Storyshots QRCode QRCode 1`] = `
+exports[`Storyshots Modals addDevice modal 1`] = `
 <div
-  className="QRCode"
   style={
     Object {
-      "backgroundImage": "url(http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png)",
+      "marginTop": "35%",
     }
   }
-/>
-`;
-
-exports[`Storyshots Settings Page settings 1`] = `
-<div
-  className="Settings"
 >
   <div>
     <div
-      className="title-container"
-    >
-      <h1>
-        Your profile
-      </h1>
-      <h3>
-        Edit your personal informations
-      </h3>
-    </div>
-    <div
-      className="profile"
-    >
-      <div>
-        <input
-          accept=".jpg, .jpeg, .png"
-          name="avatar"
-          onChange={[Function]}
-          style={
-            Object {
-              "display": "none",
-            }
-          }
-          type="file"
-        />
-        <div
-          className="Avatar upload"
-          onClick={[Function]}
-          style={
-            Object {
-              "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
-            }
-          }
-        >
-          <svg
-            className="camera"
-            color="white"
-            height={33}
-            viewBox="0 0 24 20"
-            width={40}
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-          >
-            <defs>
-              <path
-                d="M21 3h-3.5L15.8.4c-.2-.2-.5-.4-.8-.4H9c-.3 0-.6.2-.8.4L6.5 3H3C1.3 3 0 4.3 0 6v11c0 1.7 1.3 3 3 3h18c1.7 0 3-1.3 3-3V6c0-1.7-1.3-3-3-3zm1 14c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1h4c.3 0 .6-.2.8-.4L9.5 2h4.9l1.7 2.6c.3.2.6.4.9.4h4c.6 0 1 .4 1 1v11zM12 6c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"
-                id="camera-svg"
-              />
-            </defs>
-            <use
-              fill="currentColor"
-              fillRule="nonzero"
-              xlinkHref="#camera-svg"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        className="inputs"
-      >
-        <div
-          className="TextInput"
-        >
-          <input
-            autoFocus={undefined}
-            defaultValue="Ford"
-            onChange={[Function]}
-            onKeyUp={[Function]}
-            type="text"
-          />
-          <label>
-            Last Name
-          </label>
-        </div>
-        <div
-          className="TextInput"
-        >
-          <input
-            autoFocus={undefined}
-            defaultValue="Alicia"
-            onChange={[Function]}
-            onKeyUp={[Function]}
-            type="text"
-          />
-          <label>
-            First Name
-          </label>
-        </div>
-        <div
-          className="TextInput"
-        >
-          <input
-            autoFocus={undefined}
-            defaultValue="Mustang"
-            onChange={[Function]}
-            onKeyUp={[Function]}
-            type="text"
-          />
-          <label>
-            Username (displayed)
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="sidebar"
-  >
-    <button
-      className="Button secondary"
       onClick={[Function]}
       style={
         Object {
-          "width": 200,
+          "backgroundColor": "rgba(0, 0, 0, 0.7)",
+          "height": "100%",
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "width": "100%",
+          "zIndex": 2,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
+          "height": 547,
+          "left": "50%",
+          "opacity": 1,
+          "paddingBottom": 32,
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+          "width": 417,
+          "zIndex": 2,
         }
       }
     >
-      SAVE
-    </button>
+      <svg
+        height={9}
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#191919",
+            "cursor": "pointer",
+            "float": "right",
+            "marginRight": 20,
+            "marginTop": 20,
+            "opacity": 0.4,
+          }
+        }
+        viewBox="0 0 14 14"
+        width={9}
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <defs>
+          <path
+            d="M13.7 12.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L7 8.4l-5.3 5.3c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L8.4 7l5.3 5.3z"
+            id="close-svg"
+          />
+        </defs>
+        <use
+          fill="currentColor"
+          fillRule="nonzero"
+          xlinkHref="#close-svg"
+        />
+      </svg>
+      <div
+        className="AddDevice"
+      >
+        <h1>
+          Add a new device
+        </h1>
+        <div
+          className="QRCode"
+          style={
+            Object {
+              "backgroundImage": "url(http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png)",
+            }
+          }
+        />
+        <a
+          href="https://QWA.NT/0BJ8ZX"
+        >
+          QWA.NT/0BJ8ZX
+        </a>
+        <p
+          style={
+            Object {
+              "paddingBottom": 64,
+            }
+          }
+        >
+          Scan your QR Code on the devices that you want to sync with.
+        </p>
+        <p>
+          You do not know how to do this ?
+        </p>
+        <button
+          className="Button secondary"
+          onClick={undefined}
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          ADD A DEVICE
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots Sidebar with a user 1`] = `
+exports[`Storyshots Modals authApp modal 1`] = `
 <div
   style={
     Object {
-      "height": 800,
+      "marginTop": "35%",
     }
   }
 >
-  <div
-    style={
-      Object {
-        "height": "100%",
+  <div>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.7)",
+          "height": "100%",
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "width": "100%",
+          "zIndex": 2,
+        }
       }
-    }
-  />
+    />
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
+          "height": undefined,
+          "left": "50%",
+          "opacity": 1,
+          "paddingBottom": 32,
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+          "width": 511,
+          "zIndex": 2,
+        }
+      }
+    >
+      <svg
+        height={9}
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#191919",
+            "cursor": "pointer",
+            "float": "right",
+            "marginRight": 20,
+            "marginTop": 20,
+            "opacity": 0.4,
+          }
+        }
+        viewBox="0 0 14 14"
+        width={9}
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <defs>
+          <path
+            d="M13.7 12.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L7 8.4l-5.3 5.3c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4L5.6 7 .3 1.7C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0L7 5.6 12.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L8.4 7l5.3 5.3z"
+            id="close-svg"
+          />
+        </defs>
+        <use
+          fill="currentColor"
+          fillRule="nonzero"
+          xlinkHref="#close-svg"
+        />
+      </svg>
+      <div
+        className="AuthApp"
+      >
+        <p
+          style={
+            Object {
+              "fontSize": "16px",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "letterSpacing": "0.1px",
+              "lineHeight": "normal",
+              "textAlign": "center",
+            }
+          }
+        >
+          New connection request from:
+        </p>
+        <p
+          style={
+            Object {
+              "fontSize": "32px",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": "0.2px",
+              "lineHeight": "normal",
+              "textAlign": "center",
+            }
+          }
+        >
+          https://masq.io/search
+        </p>
+        <input
+          className="securityCode"
+          placeholder={1234}
+          readOnly={true}
+        />
+        <p
+          style={
+            Object {
+              "color": "var(--blue-200)",
+              "fontSize": "14px",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "letterSpacing": "normal",
+              "lineHeight": 1.57,
+              "paddingBottom": 32,
+              "textAlign": "center",
+              "width": 380,
+            }
+          }
+        >
+          This notification appears because that application asks permission to use your Masq storage.
+        </p>
+        <p
+          style={
+            Object {
+              "color": "var(--blue-200)",
+              "fontSize": "14px",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "letterSpacing": "normal",
+              "lineHeight": 1.57,
+              "paddingBottom": 32,
+              "textAlign": "center",
+              "width": 380,
+            }
+          }
+        >
+          If you are not at the origin of this request or if you have question, please contact our help center.
+        </p>
+        <div
+          style={
+            Object {
+              "display": "grid",
+              "gridGap": 32,
+              "gridTemplateColumns": "auto auto",
+            }
+          }
+        >
+          <button
+            className="Button primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            Reject
+          </button>
+          <button
+            className="Button primary"
+            onClick={[Function]}
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
-exports[`Storyshots Signup Modal signup modal 1`] = `
+exports[`Storyshots Modals signup modal 1`] = `
 <div
   style={
     Object {
@@ -2970,6 +2814,162 @@ exports[`Storyshots Signup Modal signup modal 1`] = `
       </div>
     </div>
   </div>
+</div>
+`;
+
+exports[`Storyshots QRCode QRCode 1`] = `
+<div
+  className="QRCode"
+  style={
+    Object {
+      "backgroundImage": "url(http://www.datafakegenerator.com/temp/test409236e0431d1d4dcf66ffba56d9d43c.png)",
+    }
+  }
+/>
+`;
+
+exports[`Storyshots Settings Page settings 1`] = `
+<div
+  className="Settings"
+>
+  <div>
+    <div
+      className="title-container"
+    >
+      <h1>
+        Your profile
+      </h1>
+      <h3>
+        Edit your personal informations
+      </h3>
+    </div>
+    <div
+      className="profile"
+    >
+      <div>
+        <input
+          accept=".jpg, .jpeg, .png"
+          name="avatar"
+          onChange={[Function]}
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          type="file"
+        />
+        <div
+          className="Avatar upload"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundImage": "url(https://randomuser.me/api/portraits/women/79.jpg)",
+            }
+          }
+        >
+          <svg
+            className="camera"
+            color="white"
+            height={33}
+            viewBox="0 0 24 20"
+            width={40}
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <path
+                d="M21 3h-3.5L15.8.4c-.2-.2-.5-.4-.8-.4H9c-.3 0-.6.2-.8.4L6.5 3H3C1.3 3 0 4.3 0 6v11c0 1.7 1.3 3 3 3h18c1.7 0 3-1.3 3-3V6c0-1.7-1.3-3-3-3zm1 14c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V6c0-.6.4-1 1-1h4c.3 0 .6-.2.8-.4L9.5 2h4.9l1.7 2.6c.3.2.6.4.9.4h4c.6 0 1 .4 1 1v11zM12 6c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"
+                id="camera-svg"
+              />
+            </defs>
+            <use
+              fill="currentColor"
+              fillRule="nonzero"
+              xlinkHref="#camera-svg"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="inputs"
+      >
+        <div
+          className="TextInput"
+        >
+          <input
+            autoFocus={undefined}
+            defaultValue="Ford"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            type="text"
+          />
+          <label>
+            Last Name
+          </label>
+        </div>
+        <div
+          className="TextInput"
+        >
+          <input
+            autoFocus={undefined}
+            defaultValue="Alicia"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            type="text"
+          />
+          <label>
+            First Name
+          </label>
+        </div>
+        <div
+          className="TextInput"
+        >
+          <input
+            autoFocus={undefined}
+            defaultValue="Mustang"
+            onChange={[Function]}
+            onKeyUp={[Function]}
+            type="text"
+          />
+          <label>
+            Username (displayed)
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sidebar"
+  >
+    <button
+      className="Button secondary"
+      onClick={[Function]}
+      style={
+        Object {
+          "width": 200,
+        }
+      }
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Sidebar with a user 1`] = `
+<div
+  style={
+    Object {
+      "height": 800,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  />
 </div>
 `;
 
