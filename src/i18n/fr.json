@@ -32,5 +32,10 @@
   "Settings": "Paramètres",
   "LOGOUT": "DÉCONNEXION",
   "Scan your QR Code on the devices that you want to sync with.": "Scannez votre QR Code sur les appareils que vous voulez synchroniser",
-  "You do not know how to do this ?": "Vous ne trouvez pas comment faire ?"
+  "You do not know how to do this ?": "Vous ne trouvez pas comment faire ?",
+  "Reject": "Rejeter",
+  "Accept": "Accepter",
+  "New connection request from": "Nouvelle requête de connexion de:",
+  "This notification appears because that application asks permission to use your Masq storage.": "Cette notification apparaît car cette application demande l'autorisation d'accéder à votre stockage Masq.",
+  "If you are not at the origin of this request or if you have question, please contact our help center.": "Si vous n'êtes pas à l'origine de cette action ou si vous avez des questions, merci de contacter notre centre d'aide."
 }

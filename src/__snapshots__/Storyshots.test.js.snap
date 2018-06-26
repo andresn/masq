@@ -673,7 +673,7 @@ exports[`Storyshots AuthApp Modal authApp modal 1`] = `
             }
           }
         >
-          This notification appears because that application asks permission to your Masq storage.
+          This notification appears because that application asks permission to use your Masq storage.
         </p>
         <p
           style={

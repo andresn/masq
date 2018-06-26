@@ -1,4 +1,6 @@
 import React from 'react'
+import i18next from 'i18next'
+import { Trans } from 'react-i18next'
 
 import { Modal, Button } from 'components'
 
@@ -53,20 +55,20 @@ export default class AuthApp extends React.Component {
       <Modal onClose={this.props.onClose} height={670} width={511}>
         <div style={styles.header} />
         <div className='AuthApp'>
-          <p style={styles.title}>New connection request from:</p>
+          <p style={styles.title}><Trans>New connection request from</Trans></p>
           <p style={styles.appTitle}>{this.props.app.url}</p>
           <p style={styles.description}>
-            This notification appears because that application asks permission
-            to your Masq storage.
+            <Trans>This notification appears because that application asks permission
+            to use your Masq storage.</Trans>
           </p>
           <p style={styles.description}>
-            If you are not at the origin of this request or if you have question,
-            please contact our help center.
+            <Trans>If you are not at the origin of this request or if you have question,
+            please contact our help center.</Trans>
           </p>
 
           <div style={styles.buttons}>
-            <Button label='Reject' onClick={this.props.onReject} />
-            <Button label='Accept' onClick={this.props.onAccept} />
+            <Button label={i18next.t('Reject')} onClick={this.props.onReject} />
+            <Button label={i18next.t('Accept')} onClick={this.props.onAccept} />
           </div>
         </div>
       </Modal>

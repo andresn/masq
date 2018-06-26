@@ -32,5 +32,10 @@
   "Settings": "Settings",
   "LOGOUT": "LOGOUT",
   "Scan your QR Code on the devices that you want to sync with.": "Scan your QR Code on the devices that you want to sync with.",
-  "You do not know how to do this ?": "You do not know how to do this ?"
+  "You do not know how to do this ?": "You do not know how to do this ?",
+  "Reject": "Reject",
+  "Accept": "Accept",
+  "New connection request from": "New connection request from:",
+  "This notification appears because that application asks permission to use your Masq storage.": "This notification appears because that application asks permission to use your Masq storage.",
+  "If you are not at the origin of this request or if you have question, please contact our help center.": "If you are not at the origin of this request or if you have question, please contact our help center."
 }
