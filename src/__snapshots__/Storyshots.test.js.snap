@@ -2165,51 +2165,26 @@ exports[`Storyshots Login Page login 1`] = `
 `;
 
 exports[`Storyshots Modal empty modal 1`] = `
-<div>
+<div
+  className="Modal"
+>
   <div
+    className="overlay"
     onClick={[Function]}
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.7)",
-        "height": "100%",
-        "left": 0,
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-        "zIndex": 2,
-      }
-    }
   />
   <div
+    className="modal"
     style={
       Object {
-        "backgroundColor": "white",
-        "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
         "height": undefined,
-        "left": "50%",
-        "opacity": 1,
-        "paddingBottom": 32,
-        "position": "absolute",
-        "top": "50%",
-        "transform": "translate(-50%, -50%)",
         "width": undefined,
-        "zIndex": 2,
       }
     }
   >
     <svg
+      className="close"
       height={9}
       onClick={[Function]}
-      style={
-        Object {
-          "color": "#191919",
-          "cursor": "pointer",
-          "float": "right",
-          "marginRight": 20,
-          "marginTop": 20,
-          "opacity": 0.4,
-        }
-      }
       viewBox="0 0 14 14"
       width={9}
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -2231,51 +2206,26 @@ exports[`Storyshots Modal empty modal 1`] = `
 `;
 
 exports[`Storyshots Modal with a button as children 1`] = `
-<div>
+<div
+  className="Modal"
+>
   <div
+    className="overlay"
     onClick={[Function]}
-    style={
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.7)",
-        "height": "100%",
-        "left": 0,
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-        "zIndex": 2,
-      }
-    }
   />
   <div
+    className="modal"
     style={
       Object {
-        "backgroundColor": "white",
-        "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
         "height": undefined,
-        "left": "50%",
-        "opacity": 1,
-        "paddingBottom": 32,
-        "position": "absolute",
-        "top": "50%",
-        "transform": "translate(-50%, -50%)",
         "width": undefined,
-        "zIndex": 2,
       }
     }
   >
     <svg
+      className="close"
       height={9}
       onClick={[Function]}
-      style={
-        Object {
-          "color": "#191919",
-          "cursor": "pointer",
-          "float": "right",
-          "marginRight": 20,
-          "marginTop": 20,
-          "opacity": 0.4,
-        }
-      }
       viewBox="0 0 14 14"
       width={9}
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -2324,51 +2274,26 @@ exports[`Storyshots Modals addDevice modal 1`] = `
     }
   }
 >
-  <div>
+  <div
+    className="Modal"
+  >
     <div
+      className="overlay"
       onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.7)",
-          "height": "100%",
-          "left": 0,
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-          "zIndex": 2,
-        }
-      }
     />
     <div
+      className="modal"
       style={
         Object {
-          "backgroundColor": "white",
-          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
           "height": 547,
-          "left": "50%",
-          "opacity": 1,
-          "paddingBottom": 32,
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
           "width": 417,
-          "zIndex": 2,
         }
       }
     >
       <svg
+        className="close"
         height={9}
         onClick={[Function]}
-        style={
-          Object {
-            "color": "#191919",
-            "cursor": "pointer",
-            "float": "right",
-            "marginRight": 20,
-            "marginTop": 20,
-            "opacity": 0.4,
-          }
-        }
         viewBox="0 0 14 14"
         width={9}
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -2441,51 +2366,26 @@ exports[`Storyshots Modals authApp modal 1`] = `
     }
   }
 >
-  <div>
+  <div
+    className="Modal"
+  >
     <div
+      className="overlay"
       onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.7)",
-          "height": "100%",
-          "left": 0,
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-          "zIndex": 2,
-        }
-      }
     />
     <div
+      className="modal"
       style={
         Object {
-          "backgroundColor": "white",
-          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
           "height": undefined,
-          "left": "50%",
-          "opacity": 1,
-          "paddingBottom": 32,
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
           "width": 511,
-          "zIndex": 2,
         }
       }
     >
       <svg
+        className="close"
         height={9}
         onClick={[Function]}
-        style={
-          Object {
-            "color": "#191919",
-            "cursor": "pointer",
-            "float": "right",
-            "marginRight": 20,
-            "marginTop": 20,
-            "opacity": 0.4,
-          }
-        }
         viewBox="0 0 14 14"
         width={9}
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -2570,51 +2470,26 @@ exports[`Storyshots Modals signup modal 1`] = `
     }
   }
 >
-  <div>
+  <div
+    className="Modal"
+  >
     <div
+      className="overlay"
       onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.7)",
-          "height": "100%",
-          "left": 0,
-          "position": "absolute",
-          "top": 0,
-          "width": "100%",
-          "zIndex": 2,
-        }
-      }
     />
     <div
+      className="modal"
       style={
         Object {
-          "backgroundColor": "white",
-          "boxShadow": "0 2px 16px 0 rgba(0, 0, 0, 0.16)",
           "height": 670,
-          "left": "50%",
-          "opacity": 1,
-          "paddingBottom": 32,
-          "position": "absolute",
-          "top": "50%",
-          "transform": "translate(-50%, -50%)",
           "width": 511,
-          "zIndex": 2,
         }
       }
     >
       <svg
+        className="close"
         height={9}
         onClick={[Function]}
-        style={
-          Object {
-            "color": "#191919",
-            "cursor": "pointer",
-            "float": "right",
-            "marginRight": 20,
-            "marginTop": 20,
-            "opacity": 0.4,
-          }
-        }
         viewBox="0 0 14 14"
         width={9}
         xmlnsXlink="http://www.w3.org/1999/xlink"
