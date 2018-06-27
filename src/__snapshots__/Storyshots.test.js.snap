@@ -2506,32 +2506,12 @@ exports[`Storyshots Modals authApp modal 1`] = `
         className="AuthApp"
       >
         <p
-          style={
-            Object {
-              "fontSize": "16px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-              "letterSpacing": "0.1px",
-              "lineHeight": "normal",
-              "textAlign": "center",
-            }
-          }
+          className="title"
         >
           New connection request from:
         </p>
         <p
-          style={
-            Object {
-              "fontSize": "32px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "bold",
-              "letterSpacing": "0.2px",
-              "lineHeight": "normal",
-              "textAlign": "center",
-            }
-          }
+          className="appTitle"
         >
           https://masq.io/search
         </p>
@@ -2541,49 +2521,17 @@ exports[`Storyshots Modals authApp modal 1`] = `
           readOnly={true}
         />
         <p
-          style={
-            Object {
-              "color": "var(--blue-200)",
-              "fontSize": "14px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "letterSpacing": "normal",
-              "lineHeight": 1.57,
-              "paddingBottom": 32,
-              "textAlign": "center",
-              "width": 380,
-            }
-          }
+          className="description"
         >
           This notification appears because that application asks permission to use your Masq storage.
         </p>
         <p
-          style={
-            Object {
-              "color": "var(--blue-200)",
-              "fontSize": "14px",
-              "fontStretch": "normal",
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "letterSpacing": "normal",
-              "lineHeight": 1.57,
-              "paddingBottom": 32,
-              "textAlign": "center",
-              "width": 380,
-            }
-          }
+          className="description"
         >
           If you are not at the origin of this request or if you have question, please contact our help center.
         </p>
         <div
-          style={
-            Object {
-              "display": "grid",
-              "gridGap": 32,
-              "gridTemplateColumns": "auto auto",
-            }
-          }
+          className="buttons"
         >
           <button
             className="Button primary"

@@ -50,6 +50,45 @@
   text-align: center;
 }
 
+.AuthApp .title {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+}
+
+.AuthApp .appTitle {
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.AuthApp .description {
+  width: 380px;
+  padding-bottom: 32px;
+  font-size: 14px;
+  font-weight: 500px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--blue-200);
+}
+
+.AuthApp .buttons {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 32px;
+}
+
 .AuthApp .securityCode::placeholder {
   color: var(--blue-500);
 }
