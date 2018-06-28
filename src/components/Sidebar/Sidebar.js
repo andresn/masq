@@ -22,8 +22,12 @@ const tabs = [
 class Sidebar extends React.Component {
   constructor (props) {
     super(props)
+
+    const pathname = props.location.pathname
+    const index = tabs.findIndex(tab => tab.link === pathname)
+
     this.state = {
-      currentTab: 0
+      currentTab: index >= 0 ? index : 0
     }
     this.onSelectTab = this.onSelectTab.bind(this)
   }
