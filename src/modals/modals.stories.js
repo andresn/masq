@@ -12,7 +12,8 @@ import AddDevice from './AddDevice/AddDevice'
 const appInfo = {
   url: 'https://masq.io/search',
   name: 'Masq Search',
-  description: 'Masq Search'
+  description: 'Masq Search',
+  securityCode: '1234'
 }
 
 storiesOf('Modals', module)

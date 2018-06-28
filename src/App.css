@@ -18,7 +18,9 @@
   --blue-500: #252a39;
 
   --red-100: #ee6e7e;
+  --red-100-shadow: rgba(238, 110, 126, 1);
   --green-100: #40ae6c;
+  --green-100-shadow: rgba(64, 174, 108, 1);
 
   --grey-100: #f9f9f9;
   --grey-200: #b2b2b2;

@@ -36,6 +36,7 @@
   "Reject": "Reject",
   "Accept": "Accept",
   "New connection request from": "New connection request from:",
-  "This notification appears because that application asks permission to use your Masq storage.": "This notification appears because that application asks permission to use your Masq storage.",
-  "If you are not at the origin of this request or if you have question, please contact our help center.": "If you are not at the origin of this request or if you have question, please contact our help center."
+  "This notification appears because that application asks permission to use your Masq storage. Please verify that the security code match with the one of the app.": "This notification appears because that application asks permission to use your Masq storage. Please verify that the security code match with the one of the app.",
+  "If you are not at the origin of this request or if you have question, please contact our help center.": "If you are not at the origin of this request or if you have question, please contact our help center.",
+  "Security Code": "Security Code"
 }
