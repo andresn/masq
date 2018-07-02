@@ -166,6 +166,7 @@ export default class Signup extends React.Component {
               <Avatar image={this.state.image} user={this.state} />
               <p className='user'>{this.state.username}</p>
               <TextInput
+                focus
                 password
                 label={i18next.t('Password')}
                 labelError={i18next.t('Password must be at least 8 characters long')}
