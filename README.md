@@ -1,4 +1,4 @@
-# masq-app
+# Masq desktop app
 [![Project badge](https://img.shields.io/badge/project-Masq-7C4DFF.svg?style=flat-square)](https://github.com/QwantResearch/masq-app)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/QwantResearch/masq-app.svg)](https://greenkeeper.io/)
@@ -6,7 +6,12 @@
 [![Travis badge](https://api.travis-ci.org/QwantResearch/masq-app.svg)](https://travis-ci.org/QwantResearch/masq-app)
 [![Standard badge](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Masq App based on Electron + React.
+Masq desktop app based on Electron + React.
+
+# Installing Masq
+
+We recommend that you download the latest builds from our [releases page](https://github.com/QwantResearch/masq/releases). Look for a file that matches `Masq-X.X.X` and your operating system extension.
+
 
 # Quick start
 ```
