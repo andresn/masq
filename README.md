@@ -3,7 +3,6 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/QwantResearch/masq-app.svg)](https://greenkeeper.io/)
 [![Appveyor badge](https://ci.appveyor.com/api/projects/status/n8l3l92phgkcm4c6?svg=true)](https://ci.appveyor.com/project/G-Ray/masq-app)
-[![Travis badge](https://api.travis-ci.org/QwantResearch/masq-app.svg)](https://travis-ci.org/QwantResearch/masq-app)
 [![Standard badge](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Masq desktop app based on Electron + React.
@@ -28,3 +27,6 @@ can start the Storybook with:
 ```
 npm run storybook
 ```
+
+# Developers
+Although Masq is currently available as an alpha version, you can start building apps that integrate with it. To do so, please take a look at the [masq-client](https://github.com/QwantResearch/masq-client) library.
