@@ -117,14 +117,13 @@ export default class Login extends React.Component {
   }
 
   selectUser (user) {
-    const { onAuth } = this.props
     this.setState({
       user: user
     })
-    onAuth(user)
   }
 
   render () {
+    const { onAuth } = this.props
     return !this.state.user
       ? (
         <UsersSelection
@@ -135,14 +134,13 @@ export default class Login extends React.Component {
           isModalOpened={this.state.isModalOpened}
         />
       )
-      : false
-      // : (
-      //   <UserPassword
-      //     onAuth={onAuth}
-      //     user={this.state.user}
-      //     clearUser={() => this.setState({user: null})}
-      //   />
-      // )
+      : (
+        <UserPassword
+          onAuth={onAuth}
+          user={this.state.user}
+          clearUser={() => this.setState({user: null})}
+        />
+      )
   }
 }
 
