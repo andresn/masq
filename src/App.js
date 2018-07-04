@@ -132,7 +132,7 @@ class App extends Component {
    */
   async signin (user) {
     history.push('loading')
-    await masq.signIn(user.username)
+    await masq.signIn(user.username, user.password)
     this.setState({
       isAuthenticated: true,
       currentUser: user
