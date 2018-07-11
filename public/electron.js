@@ -20,6 +20,7 @@ function createWindow () {
   if (isDev) {
     win.webContents.openDevTools()
   } else {
+    autoUpdater.allowPrerelease = true
     autoUpdater.checkForUpdatesAndNotify()
   }
 }
