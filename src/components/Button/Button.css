@@ -13,8 +13,7 @@
 .Button.primary {
   color: white;
   background-color: var(--blue-300);
-  transition: box-shadow 0.2s ease-in-out;
-  transition: transform 0.4s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .Button.primary:hover {
