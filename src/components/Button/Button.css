@@ -14,11 +14,12 @@
   color: white;
   background-color: var(--blue-300);
   transition: box-shadow 0.2s ease-in-out;
+  transition: transform 0.4s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .Button.primary:hover {
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.16), 0 10px 16px 0 rgba(69, 139, 248, 0.4);
-  transition: box-shadow 0.2s ease-in-out;
+  transform: translateY(-5px);
 }
 
 .Button.secondary {

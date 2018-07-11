@@ -7,8 +7,12 @@ import Button from './Button'
 
 storiesOf('Button', module)
   .add('primary with a label', () => (
-    <Button label='SOME BUTTON' onClick={action('clicked')} />)
-  )
+    <div style={{marginTop: 30}}>
+      <Button label='SOME BUTTON' onClick={action('clicked')} />
+    </div>
+  ))
   .add('secondary with a label', () => (
-    <Button label='SOME BUTTON' secondary onClick={action('clicked')} />)
-  )
+    <div style={{marginTop: 30}}>
+      <Button label='SOME BUTTON' secondary onClick={action('clicked')} />
+    </div>
+  ))

@@ -556,39 +556,55 @@ exports[`Storyshots Avatar without upload without image 1`] = `
 `;
 
 exports[`Storyshots Button primary with a label 1`] = `
-<button
-  className="Button primary"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+<div
   style={
     Object {
-      "backgroundColor": undefined,
-      "border": "solid 2px undefined",
-      "width": undefined,
+      "marginTop": 30,
     }
   }
 >
-  SOME BUTTON
-</button>
+  <button
+    className="Button primary"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "border": "solid 2px undefined",
+        "width": undefined,
+      }
+    }
+  >
+    SOME BUTTON
+  </button>
+</div>
 `;
 
 exports[`Storyshots Button secondary with a label 1`] = `
-<button
-  className="Button secondary"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+<div
   style={
     Object {
-      "backgroundColor": undefined,
-      "border": "solid 2px undefined",
-      "width": undefined,
+      "marginTop": 30,
     }
   }
 >
-  SOME BUTTON
-</button>
+  <button
+    className="Button secondary"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "border": "solid 2px undefined",
+        "width": undefined,
+      }
+    }
+  >
+    SOME BUTTON
+  </button>
+</div>
 `;
 
 exports[`Storyshots Card disabled 1`] = `
