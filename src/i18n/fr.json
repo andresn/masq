@@ -38,5 +38,6 @@
   "New connection request from": "Nouvelle requête de connexion de:",
   "This notification appears because that application asks permission to use your Masq storage. Please verify that the security code match with the one of the app.": "Cette notification apparaît car cette application demande l'autorisation d'accéder à votre stockage Masq. Merci de vérifier que le code de sécurité correspond à celui de l'application.",
   "If you are not at the origin of this request or if you have question, please contact our help center.": "Si vous n'êtes pas à l'origine de cette action ou si vous avez des questions, merci de contacter notre centre d'aide.",
-  "Security Code": "Code de sécurité"
+  "Security Code": "Code de sécurité",
+  "Wrong password, please try again": "Mot de passe incorrect, merci de réessayer"
 }

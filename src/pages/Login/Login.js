@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'react-i18next'
+import i18next from 'i18next'
 
 import { Avatar, TextInput } from 'components'
 import { Background, Logo, Plusbutton, Chevron } from 'icons'
@@ -54,45 +55,73 @@ export function UsersSelection (props) {
   )
 }
 
-export function UserPassword (props) {
-  const { user, onAuth, clearUser } = props
-  let password = ''
-
-  function onChange (e) {
-    password = e.target.value
+export class UserPassword extends React.Component {
+  constructor (props) {
+    super(props)
+    this.password = ''
+    this.state = {
+      user: props.user,
+      isWrongPassword: false
+    }
+    this.onChange = this.onChange.bind(this)
+    this.onKeyUp = this.onKeyUp.bind(this)
   }
 
-  function onKeyUp (e) {
+  onChange (e) {
+    this.password = e.target.value
+  }
+
+  async onKeyUp (e) {
+    const { onAuth } = this.props
     if (e.key === 'Enter') {
-      user.password = password
-      onAuth(user)
+      try {
+        await onAuth({
+          ...this.state.user,
+          password: this.password
+        })
+      } catch (err) {
+        this.setState({
+          isWrongPassword: true
+        })
+      }
     }
   }
 
-  return (
-    <div className='Login'>
-      <div className='header'>
-        <Logo style={styles.logo} />
-      </div>
+  render () {
+    const { user, clearUser } = this.props
 
-      <div className='goback'>
-        <Chevron style={{transform: 'rotate(90deg)', cursor: 'pointer'}} onClick={clearUser} />
-        <p onClick={clearUser}><Trans i18nKey='Change user' /></p>
-      </div>
-
-      <div className='users'>
-        <div style={{textDecoration: 'none'}}>
-          <Avatar image={user.image} user={user} />
-          <p className='username'>{user.username}</p>
+    return (
+      <div className='Login'>
+        <div className='header'>
+          <Logo style={styles.logo} />
         </div>
+
+        <div className='goback'>
+          <Chevron style={{transform: 'rotate(90deg)', cursor: 'pointer'}} onClick={clearUser} />
+          <p onClick={clearUser}><Trans i18nKey='Change user' /></p>
+        </div>
+
+        <div className='users'>
+          <div style={{textDecoration: 'none'}}>
+            <Avatar image={user.image} user={user} />
+            <p className='username'>{user.username}</p>
+          </div>
+        </div>
+        <div className='text'>
+          <p><Trans i18nKey='Enter your password' /></p>
+          <TextInput
+            password
+            focus
+            onChange={this.onChange}
+            error={this.state.isWrongPassword}
+            labelError={i18next.t('Wrong password, please try again')}
+            onKeyUp={this.onKeyUp}
+          />
+        </div>
+        <Background style={styles.background} />
       </div>
-      <div className='text'>
-        <p><Trans i18nKey='Enter your password' /></p>
-        <TextInput password focus onChange={onChange} onKeyUp={onKeyUp} />
-      </div>
-      <Background style={styles.background} />
-    </div>
-  )
+    )
+  }
 }
 
 export default class Login extends React.Component {
