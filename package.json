@@ -26,7 +26,7 @@
     ]
   },
   "dependencies": {
-    "electron-updater": "^2.23.3",
+    "electron-updater": "^3.0.2",
     "i18next": "^11.3.6",
     "i18next-browser-languagedetector": "^2.2.0",
     "localforage": "^1.7.2",
