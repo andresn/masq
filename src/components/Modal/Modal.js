@@ -5,23 +5,25 @@ import { Close } from 'icons'
 
 import './Modal.css'
 
-export default function Modal (props) {
+export default function Modal ({ onClose, width, height, children }) {
   const modalStyle = {
-    height: props.height,
-    width: props.width
+    height: height,
+    width: width
   }
 
   return (
     <div className='Modal'>
-      <div className='overlay' onClick={props.onClose} />
+      <div className='overlay' onClick={onClose} />
       <div className='modal' style={modalStyle}>
-        <Close className='close' width={9} height={9} onClick={props.onClose} />
-        {props.children}
+        {onClose && <Close className='close' width={9} height={9} onClick={onClose} />}
+        {children}
       </div>
     </div>
   )
 }
 
 Modal.propTypes = {
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  width: PropTypes.number,
+  height: PropTypes.number
 }

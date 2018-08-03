@@ -8,11 +8,11 @@ import './AuthApp.css'
 
 export default class AuthApp extends React.Component {
   render () {
-    const { onClose, app, onAccept, onReject } = this.props
+    const { app, onAccept, onReject } = this.props
     const securityCode = app.securityCode || '----'
 
     return (
-      <Modal onClose={onClose} width={511}>
+      <Modal width={511}>
         <div className='AuthApp'>
           <p className='title'><Trans>New connection request from</Trans></p>
           <p className='appTitle'>{app.url}</p>
