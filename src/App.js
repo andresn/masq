@@ -32,7 +32,7 @@ class App extends Component {
       users: [],
       isAuthenticated: false,
       currentUser: null,
-      appsRequests: []
+      appRequest: null
     }
 
     this.signin = this.signin.bind(this)
@@ -57,19 +57,17 @@ class App extends Component {
    * @param {string} isAuthorized - Authorize if true, reject if false
    */
   async authorizeApp (isAuthorized) {
-    const appsRequests = this.state.appsRequests.slice()
-
+    const { appRequest } = this.state
     if (isAuthorized) {
-      const app = appsRequests[0]
+      const app = appRequest
       app.enabled = true
       const token = await masq.addApp(app)
       await server.finishRegistration(token)
       this.fetchApps()
     }
 
-    appsRequests.splice(0, 1)
     this.setState({
-      appsRequests: appsRequests
+      appRequest: null
     })
   }
 
@@ -87,15 +85,13 @@ class App extends Component {
         win.focus()
       }
 
-      const appsRequests = this.state.appsRequests.slice()
-      appsRequests.push(appMeta)
       // Display notification to asks user to open mask
       const notif = new window.Notification('Masq App', {
         body: appMeta.url + ' is requesting access to Masq'
       })
       notif.onclick = () => win.focus()
       this.setState({
-        appsRequests: appsRequests
+        appRequest: appMeta
       })
     })
     this.fetchUsers()
@@ -220,9 +216,9 @@ class App extends Component {
           <Route path='/devices' render={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
           <Route path='/applications' render={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
           <Route path='/settings' render={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
-          {this.state.appsRequests.length > 0 &&
+          {this.state.appRequest &&
             <AuthApp
-              app={this.state.appsRequests[0]}
+              app={this.state.appRequest}
               onAccept={() => this.authorizeApp(true)}
               onReject={() => this.authorizeApp(false)}
             />
