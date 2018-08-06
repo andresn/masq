@@ -15,9 +15,7 @@ test_script:
   # Output useful info for debugging.
   - node --version
   - npm --version
-  # run tests
   - npm run standard
-  - npm test -- --coverage
   - npm run dist
 
 cache:
