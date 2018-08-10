@@ -2,12 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import i18next from 'i18next'
 import { Trans } from 'react-i18next'
+import { remote } from 'electron'
+import fs from 'fs'
 
 import { Avatar, TextInput, Button } from 'components'
+import { PasswordModal, ImportModal } from 'modals'
 
 import { UserContext } from 'contexts/user'
 
 import './Settings.css'
+
+const dialog = remote.dialog
 
 class Settings extends React.Component {
   constructor (props) {
@@ -20,11 +25,20 @@ class Settings extends React.Component {
       username: props.user.username
     }
 
+    this.importingRules = {}
+    this.passwordModal = false
+    this.importModal = false
     this.hasChanged = false
-
     this.validate = this.validate.bind(this)
     this.isValid = this.isValid.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.handleExport = this.handleExport.bind(this)
+    this.handleImport = this.handleImport.bind(this)
+    this.handleImportModalClose = this.handleImportModalClose.bind(this)
+    this.handleImportModalConfirm = this.handleImportModalConfirm.bind(this)
+    this.handleImportChecked = this.handleImportChecked.bind(this)
+    this.handlePasswordModalClose = this.handlePasswordModalClose.bind(this)
+    this.handlePasswordModalConfirm = this.handlePasswordModalConfirm.bind(this)
   }
 
   isValid (fieldName) {
@@ -78,9 +92,65 @@ class Settings extends React.Component {
     }
   }
 
-  render () {
-    // const { onDeleteUser } = this.props
+  handlePasswordModalClose () {
+    console.log('handlePasswordModalClose')
+    this.passwordModal = false
+    this.forceUpdate()
+  }
 
+  handlePasswordModalConfirm (password) {
+    const { onExport } = this.props
+    console.log('handlePasswordModalConfirm', password)
+    this.handlePasswordModalClose()
+    onExport(password)
+  }
+
+  handleExport () {
+    console.log('handleExport')
+    this.passwordModal = true
+    this.forceUpdate()
+  }
+
+  handleImportModalClose () {
+    console.log('handleImportModalClose')
+    this.importModal = false
+    this.forceUpdate()
+  }
+
+  handleImport () {
+    console.log('handleImport')
+    const importRules = {}
+
+    dialog.showOpenDialog({ properties: ['openFile'] }, filename => {
+      if (!filename) return
+      console.log(filename)
+      fs.readFile(filename[0], (err, data) => {
+        const importedData = JSON.parse(data.toString())
+        if (err) throw err
+        console.log(data.toString())
+        for (let app of Object.values(importedData.appList)) {
+          importRules[app.url] = true
+        }
+        this.importModal = true
+        this.importingData = importedData
+        this.importingRules = importRules
+        console.log('#####', importRules)
+        this.forceUpdate()
+      })
+    })
+  }
+
+  handleImportModalConfirm () {
+    const { onImport } = this.props
+    onImport(this.importingData, this.importingRules, 'qwantmasq')
+  }
+
+  handleImportChecked (key, value) {
+    this.importingRules[key] = value
+    console.log('importingApps', this.importingRules)
+  }
+
+  render () {
     return (
       <div className='Settings'>
         <div>
@@ -113,18 +183,34 @@ class Settings extends React.Component {
             </div>
           </div>
 
-          {/* <div className='title-container'>
-            <h1>Qwant Masq settings</h1>
-            <h3>Edit app's behavior</h3>
-          </div>
+          {this.passwordModal &&
+            <PasswordModal
+              onClose={this.handlePasswordModalClose}
+              onConfirm={this.handlePasswordModalConfirm}
+            />
+          }
 
-          <div className='app-settings'>
-            <div style={{marginRight: 16}}>
-              <CircleIndicator color='#458bf8' />
+          {this.importModal &&
+            <ImportModal
+              apps={this.importingRules}
+              onClose={this.handleImportModalClose}
+              onConfirm={this.handleImportModalConfirm}
+              onChecked={this.handleImportChecked}
+            />
+          }
+
+          <div className='appSettings'>
+            <div className='title-container'>
+              <h1>Qwant Masq settings</h1>
+              <h3>Import/Export your data</h3>
             </div>
-            <p style={{marginRight: 16}}>Accept new applications automatically</p>
-            <SwitchButton checked secondary color='#458bf8' />
-          </div> */}
+            <div className='buttons'>
+              <div className='exportButton'>
+                <Button label={i18next.t('EXPORT')} onClick={this.handleExport} />
+              </div>
+              <Button label={i18next.t('IMPORT')} onClick={this.handleImport} />
+            </div>
+          </div>
         </div>
 
         <div className='sidebar'>

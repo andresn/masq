@@ -5,6 +5,7 @@ import i18next from 'i18next'
 import { translate } from 'react-i18next'
 import localforage from 'localforage'
 import { remote } from 'electron'
+import fs from 'fs'
 
 import { Server } from 'masq-socket'
 import { Masq } from 'masq-store'
@@ -16,6 +17,7 @@ import { AuthApp } from 'modals'
 
 import './App.css'
 
+const dialog = remote.dialog
 const win = remote.getCurrentWindow()
 const history = createBrowserHistory({
   basename: window.location.pathname
@@ -208,6 +210,21 @@ class App extends Component {
     this.setState({ currentUser: user })
   }
 
+  async onExport (password) {
+    console.log('onExport')
+    // Display password input
+    const json = await masq.export(password)
+    dialog.showSaveDialog({ defaultPath: 'masq_export.json' }, (filename) => {
+      if (!filename) return
+      fs.writeFile(filename, JSON.stringify(json), err => console.error(err))
+    })
+  }
+
+  async onImport (data, importRules, password) {
+    console.log('onImport', importRules)
+    masq.import(data, importRules, password)
+  }
+
   render () {
     const AuthenticatedSection = () => (
       <div style={{display: 'grid', gridTemplateColumns: 'auto 1fr', height: '100%'}}>
@@ -215,7 +232,7 @@ class App extends Component {
         <div style={{marginTop: 59, marginLeft: 40}} >
           <Route path='/devices' render={() => <Devices devices={this.devices} onChecked={this.onDevChecked} onNewDevice={() => history.push('newdevice')} />} />
           <Route path='/applications' render={() => <Applications applications={this.apps} onChecked={this.onAppChecked} onTrash={this.onAppTrash} />} />
-          <Route path='/settings' render={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} />} />
+          <Route path='/settings' render={() => <Settings onDeleteUser={this.onDeleteUser} onUpdateUser={this.onUpdateUser} onExport={this.onExport} onImport={this.onImport} />} />}
           {this.state.appRequest &&
             <AuthApp
               app={this.state.appRequest}
@@ -238,7 +255,6 @@ class App extends Component {
                 <Login onAuth={this.signin} users={this.state.users} onSignup={this.onSignup} />
               }
             />
-
             {this.state.isAuthenticated ? <AuthenticatedSection /> : false}
           </div>
         </Router>

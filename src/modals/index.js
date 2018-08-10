@@ -1,3 +1,5 @@
 export { default as Signup } from './Signup/Signup'
 export { default as AuthApp } from './AuthApp/AuthApp'
 export { default as AddDevice } from './AddDevice/AddDevice'
+export { default as ImportModal } from './ImportModal/ImportModal'
+export { default as PasswordModal } from './PasswordModal/PasswordModal'

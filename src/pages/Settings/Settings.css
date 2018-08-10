@@ -44,12 +44,6 @@
   justify-content: center;
 }
 
-.Settings .app-settings {
-  display: flex;
-  align-items: center;
-  /* justify-content: space-around; */
-}
-
 .Settings .parameters p {
   margin: 0;
   font-size: 14px;
@@ -62,4 +56,17 @@
 
 .Settings .sidebar {
   text-align: center;
+}
+
+.Settings .appSettings {
+  margin-top: 32px;
+}
+
+.Settings .buttons {
+  display: flex;
+  align-items: center;
+}
+
+.Settings .exportButton {
+  margin-right: 32px;
 }

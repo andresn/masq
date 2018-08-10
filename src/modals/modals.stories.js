@@ -8,6 +8,8 @@ import i18n from 'i18n/i18n'
 import Signup from './Signup/Signup'
 import AuthApp from './AuthApp/AuthApp'
 import AddDevice from './AddDevice/AddDevice'
+import ImportModal from './ImportModal/ImportModal'
+import PasswordModal from './PasswordModal/PasswordModal'
 
 const appInfo = {
   url: 'https://masq.io/search',
@@ -40,6 +42,25 @@ storiesOf('Modals', module)
     <I18nextProvider i18n={i18n}>
       <div style={{marginTop: '35%'}}>
         <AddDevice onClose={action('onClosed')} />
+      </div>
+    </I18nextProvider>
+  ))
+  .add('Import modal', () => (
+    <I18nextProvider i18n={i18n}>
+      <div style={{marginTop: '25%'}}>
+        <ImportModal
+          onClose={action('onClosed')}
+          onConfirm={action('password')}
+          apps={{'maps': true}}
+          onChecked={(key, value) => console.log('###', key, value)}
+        />
+      </div>
+    </I18nextProvider>
+  ))
+  .add('Password modal', () => (
+    <I18nextProvider i18n={i18n}>
+      <div style={{marginTop: '25%'}}>
+        <PasswordModal onClose={action('onClosed')} onConfirm={action('password')} />
       </div>
     </I18nextProvider>
   ))

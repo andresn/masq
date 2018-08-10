@@ -1,0 +1,24 @@
+.PasswordModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 32px;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.PasswordModal .appList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.PasswordModal .importLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
