@@ -22,7 +22,7 @@ npm start
 You can find demo apps in the following repo https://github.com/QwantResearch/masq-demos
 
 # Storybook
-To see all components and their props, and develop them in isolation, you
+To see all components and their props and develop them in isolation, you
 can start the Storybook with:
 ```
 npm run storybook
